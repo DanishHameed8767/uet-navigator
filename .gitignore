@@ -7,6 +7,9 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+uet_map.png
+uet_map.pgw
+
 node_modules
 dist
 dist-ssr
