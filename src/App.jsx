@@ -1,5 +1,4 @@
-import React from "react";
-import MapCanvas from "./MapCanvas";
+import MapCanvas from "./components/MapCanvas";
 
 const App = () => {
   return <MapCanvas />;
