@@ -1,0 +1,83 @@
+.background {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.dialog {
+    position: fixed;
+    left: calc(50vw - 15rem);
+    width: 30rem;
+    height: max-content;
+    padding: var(--space-2xl);
+    padding-top: calc(1.75 * var(--space-2xl));
+    border-radius: var(--border-xl);
+    background-color: var(--color-background);
+
+    & h2 {
+        font-family: var(--font-family-heading);
+        font-size: var(--text-2xl);
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        margin-bottom: var(--space-lg);
+        color: var(--color-text-bright);
+    }
+
+    & > p {
+        width: 100%;
+        max-width: 30ch;
+        font-size: var(--text-xs);
+        line-height: 1.5;
+        text-align: center;
+        justify-self: center;
+        color: var(--color-text-placeholder);
+        margin-bottom: var(--space-2xl);
+    }
+
+    & button {
+        height: 3.5rem;
+        width: 100%;
+        justify-self: center;
+        margin: var(--space-xs) 0 var(--space-xl) 0;
+        color: var(--color-background);
+        border-radius: var(--border-md);
+        background-color: var(--color-text-bright);
+        transition: 0.2s;
+        &:hover {
+            color: var(--color-background);
+            background-color: var(--color-text-dim);
+        }
+        &:active {
+            color: var(--color-background);
+            background-color: var(--color-text-bright);
+        }
+    }
+
+    & > div {
+        display: flex;
+        justify-content: center;
+        & p {
+            font-size: var(--text-xs);
+            color: var(--color-text-placeholder);
+        }
+
+        & a {
+            font-size: var(--text-xs);
+            color: var(--color-text-placeholder);
+            font-weight: 600;
+        }
+        & a:hover {
+            color: var(--color-text-bright);
+        }
+        & a:active {
+            color: var(--color-text-placeholder);
+        }
+    }
+}

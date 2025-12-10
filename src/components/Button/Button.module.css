@@ -1,0 +1,68 @@
+.btn {
+    font-family: var(--font-family-body);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    width: max-content;
+}
+
+.icon {
+    font-size: var(--text-lg);
+}
+
+.btn.icon-above,
+.btn.icon-below {
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--text-2xs);
+}
+
+.btn.icon-before,
+.btn.icon-after {
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-xs);
+    & > i {
+        font-size: var(--text-sm);
+    }
+}
+
+.btn,
+.icon {
+    transition-duration: 0.1s;
+    color: var(--color-text-placeholder);
+}
+
+.btn:hover {
+    color: var(--color-text-bright);
+    & .icon {
+        color: var(--color-text-bright);
+    }
+}
+
+.btn:active {
+    color: var(--color-text-placeholder);
+    & .icon {
+        color: var(--color-text-placeholder);
+    }
+}
+
+.btn.icon-above {
+    flex-direction: column;
+}
+
+.btn.icon-below {
+    flex-direction: column-reverse;
+}
+
+.btn.icon-before {
+    flex-direction: row;
+}
+
+.btn.icon-after {
+    flex-direction: row-reverse;
+}
