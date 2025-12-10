@@ -1,0 +1,26 @@
+.filterbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: min-content;
+    position: absolute;
+    top: var(--space-sm);
+    left: 28rem;
+    gap: 0.5rem;
+
+    & > button {
+        color: var(--color-text-placeholder);
+        background-color: var(--color-background);
+        border-radius: var(--border-circle);
+        box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 10%);
+        transition: 0.2s;
+        &:hover {
+            background-color: var(--color-hover);
+            box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 33%);
+        }
+        & > i {
+            color: var(--color-text-placeholder);
+        }
+    }
+}

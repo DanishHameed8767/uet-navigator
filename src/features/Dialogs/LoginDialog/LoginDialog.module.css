@@ -1,0 +1,4 @@
+.dialog {
+    top: calc(50vh - 15.5rem);
+    padding-bottom: calc(0.125rem + var(--space-2xl));
+}
