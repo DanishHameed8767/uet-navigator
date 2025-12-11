@@ -20,4 +20,22 @@
     &::-webkit-scrollbar {
         display: none;
     }
+
+    .icon {
+        margin-top: 5.75rem;
+        margin-bottom: 2rem;
+        font-size: 10rem;
+        width: min-content;
+        align-self: center;
+        color: var(--color-border);
+    }
+
+    .message {
+        max-width: 20ch;
+        text-align: center;
+        align-self: center;
+        line-height: 1.5;
+        font-size: var(--text-sm);
+        color: var(--color-text-label);
+    }
 }

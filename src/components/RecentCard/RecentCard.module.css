@@ -1,11 +1,12 @@
 .recent-card {
     display: flex;
     flex-direction: column;
+    position: relative;
 
     &::after {
         content: "";
         position: absolute;
-        top: 4.375rem;
+        top: 3.875rem;
         left: 2.685rem;
         width: 2px;
         height: 2.175rem;
@@ -24,7 +25,7 @@
         &::after {
             content: "";
             position: absolute;
-            top: 4.375rem;
+            top: 3.875rem;
             left: 2.685rem;
             width: 2px;
             height: 2.175rem;

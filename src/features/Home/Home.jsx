@@ -4,6 +4,7 @@ import SearchBar from "../../components/SearchBar/SearchBar.jsx";
 import SearchList from "../../components/SearchList/SearchList.jsx";
 import FilterBar from "../../components/FilterBar/FilterBar.jsx";
 import savedLocations from "../../../public/data/saved.json";
+import recentLocations from "../../../public/data/recents.json";
 import SingleLinkedList from "../../data-structures/linked-list.js";
 
 const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
@@ -27,6 +28,8 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
         setSearchKey("");
         if (searchMode === "saved")
             setSearchResult(loadSaved(currentUser.email));
+        if (searchMode === "recents")
+            setSearchResult(loadRecents(currentUser.email));
     }, [searchMode]);
 
     return (
@@ -49,7 +52,13 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
                     setSearchMode("default");
                 }}
             />
-            {isSearchFocus && <SearchList result={searchResult} />}
+            {isSearchFocus && (
+                <SearchList
+                    result={searchResult}
+                    mode={searchMode}
+                    searchKey={searchKey}
+                />
+            )}
             <FilterBar />
             <button className={styles["btn-toggle-view"]} onClick={toggleView}>
                 <p>{isViewType}</p>
@@ -74,6 +83,12 @@ function loadSaved(email) {
     return list;
 }
 
-function loadRecents(username) {}
+function loadRecents(email) {
+    let list = new SingleLinkedList();
+    recentLocations.forEach((elem) => {
+        if (elem.email === email) list.append(elem);
+    });
+    return list;
+}
 
 export default Home;
