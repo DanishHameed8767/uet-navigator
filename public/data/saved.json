@@ -1,0 +1,12 @@
+[
+    {
+        "email": "admin123@gmail.com",
+        "node": {
+            "name": "Street 15",
+            "near-to": "Library",
+            "lon": "1",
+            "lat": "0",
+            "type": "road"
+        }
+    }
+]

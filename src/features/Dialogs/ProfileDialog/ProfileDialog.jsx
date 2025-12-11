@@ -8,7 +8,7 @@ const ProfileDialog = ({ closeDialog, loggedUser }) => {
     if (loggedUser) {
         name = loggedUser.name;
         email = loggedUser.email;
-        pass = loggedUser.pass;
+        pass = loggedUser.password;
     }
 
     return (
