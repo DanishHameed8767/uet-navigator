@@ -8,12 +8,14 @@ const Navbar = ({
     openProfile,
     toggleTheme,
 }) => {
+    const name = loggedUser != null ? "Profile" : "Guest";
+
     return (
         <div className={styles.navbar}>
             <div className={styles["top-section"]}>
                 <Button
                     id="profile-btn"
-                    label="Profile"
+                    label={name}
                     icon="fa-solid fa-user"
                     iconPos="above"
                     onClick={() => {

@@ -6,20 +6,20 @@ const FilterBar = () => {
         <div className={styles["filterbar"]}>
             <Button
                 id="btn-cafe"
-                label="Cafe"
+                label="Cafes"
                 icon="fa-solid fa-utensils"
                 iconPos="before"
             />
             <Button
                 id="btn-hostel"
-                label="Hostel"
+                label="Hostels"
                 icon="fa-solid fa-bed"
                 iconPos="before"
             />
             <Button
                 id="btn-department"
                 label="Departments"
-                icon="fa-solid fa-building"
+                icon="fa-solid fa-graduation-cap"
                 iconPos="before"
             />
             <Button
@@ -37,5 +37,8 @@ const FilterBar = () => {
         </div>
     );
 };
+
+// Roads Icon: <i class="fa-solid fa-road"></i>
+// Paths Icon: <i class="fa-solid fa-lines-leaning"></i>
 
 export default FilterBar;
