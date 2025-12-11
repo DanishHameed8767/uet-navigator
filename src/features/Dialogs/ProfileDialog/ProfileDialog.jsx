@@ -3,12 +3,12 @@ import cStyles from "../Dialog.module.css";
 import Input from "../../../components/Input/Input.jsx";
 import Button from "../../../components/Button/Button.jsx";
 
-const ProfileDialog = ({ closeDialog, loggedUser }) => {
+const ProfileDialog = ({ closeDialog, currentUser }) => {
     let name, email, pass;
-    if (loggedUser) {
-        name = loggedUser.name;
-        email = loggedUser.email;
-        pass = loggedUser.password;
+    if (currentUser) {
+        name = currentUser.name;
+        email = currentUser.email;
+        pass = currentUser.password;
     }
 
     return (

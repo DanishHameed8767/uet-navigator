@@ -2,13 +2,14 @@ import styles from "./Navbar.module.css";
 import Button from "../../components/Button/Button.jsx";
 
 const Navbar = ({
-    loggedUser,
+    currentUser,
     logoutUser,
     openLogin,
     openProfile,
     toggleTheme,
+    setSearchMode,
 }) => {
-    const name = loggedUser != null ? "Profile" : "Guest";
+    const name = currentUser != null ? "Profile" : "Guest";
 
     return (
         <div className={styles.navbar}>
@@ -19,7 +20,7 @@ const Navbar = ({
                     icon="fa-solid fa-user"
                     iconPos="above"
                     onClick={() => {
-                        if (loggedUser) openProfile();
+                        if (currentUser) openProfile();
                         else openLogin();
                     }}
                 />
@@ -29,7 +30,7 @@ const Navbar = ({
                     icon="fa-regular fa-bookmark"
                     iconPos="above"
                     onClick={() => {
-                        if (loggedUser) console.log("saved");
+                        if (currentUser) setSearchMode("saved");
                         else openLogin();
                     }}
                 />
@@ -39,7 +40,7 @@ const Navbar = ({
                     icon="fa-solid fa-clock-rotate-left"
                     iconPos="above"
                     onClick={() => {
-                        if (loggedUser) console.log("recent");
+                        if (currentUser) setSearchMode("recents");
                         else openLogin();
                     }}
                 />

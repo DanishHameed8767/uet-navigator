@@ -1,0 +1,40 @@
+.recent-card {
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 4.375rem;
+        left: 2.685rem;
+        width: 2px;
+        height: 2.175rem;
+        background-color: var(--color-border);
+    }
+
+    &:hover {
+        background-color: var(--color-input);
+        & > div > div:first-child {
+            border: 2px solid var(--color-text-label);
+        }
+        & i {
+            color: var(--color-text-bright);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 4.375rem;
+            left: 2.685rem;
+            width: 2px;
+            height: 2.175rem;
+            background-color: var(--color-text-label);
+        }
+    }
+
+    &:active {
+        & > div > div:first-child {
+            background-color: var(--color-border);
+        }
+    }
+}
