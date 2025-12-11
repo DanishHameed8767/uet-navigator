@@ -1,0 +1,56 @@
+[
+    {
+        "key": "1",
+        "email": "admin123@gmail.com",
+        "startNode": {
+            "name": "Library",
+            "near": "Lecture Theatre",
+            "type": "department",
+            "lon": "0",
+            "lat": "0"
+        },
+        "endNode": {
+            "name": "Student Service Cafe",
+            "near": "UET Jamia Masjid",
+            "type": "cafe",
+            "lon": "0",
+            "lat": "0"
+        }
+    },
+    {
+        "key": "2",
+        "email": "admin123@gmail.com",
+        "startNode": {
+            "name": "Library",
+            "near": "Lecture Theatre",
+            "type": "department",
+            "lon": "0",
+            "lat": "0"
+        },
+        "endNode": {
+            "name": "Main Roundabout",
+            "near": "UET National Library",
+            "type": "road",
+            "lon": "0",
+            "lat": "0"
+        }
+    },
+    {
+        "key": "3",
+        "email": "admin123@gmail.com",
+        "startNode": {
+            "name": "Student Service Cafe",
+            "near": "UET Jamia Masjid",
+            "type": "cafe",
+            "lon": "0",
+            "lat": "0"
+        },
+        "endNode": {
+            "name": "Main Roundabout",
+            "near": "UET National Library",
+            "type": "road",
+            "lon": "0",
+            "lat": "0"
+        }
+    }
+]
