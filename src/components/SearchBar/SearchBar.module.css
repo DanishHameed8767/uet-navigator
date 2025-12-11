@@ -4,16 +4,17 @@
     top: var(--space-sm);
     left: var(--space-md);
     width: 25rem;
+    z-index: 1;
 }
 
 .input {
     height: 3rem;
     width: 25rem;
-    font-size: var(--text-sm);
+    font-size: var(--text-xs);
     color: var(--color-text-bright);
     padding-left: var(--space-2xl);
     padding-right: calc(2.5 * var(--space-2xl));
-    border-radius: 1.5rem;
+    border-radius: var(--border-circle);
     background-color: var(--color-background);
     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 10%);
 
@@ -23,8 +24,12 @@
 
     &:focus {
         outline: none;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        box-shadow: none;
+        border-bottom: 1px solid var(--color-border);
     }
 
     &::placeholder {

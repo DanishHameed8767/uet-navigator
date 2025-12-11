@@ -145,16 +145,23 @@ const App = () => {
         setCurrentUser(null);
     };
 
+    const [searchMode, setSearchMode] = useState("default");
+
     return (
         <div className="app">
             <Navbar
-                loggedUser={currentUser}
+                currentUser={currentUser}
                 logoutUser={handleLogout}
                 openLogin={openLogin}
                 openProfile={openProfile}
                 toggleTheme={toggleTheme}
+                setSearchMode={setSearchMode}
             />
-            <Home />
+            <Home
+                currentUser={currentUser}
+                searchMode={searchMode}
+                setSearchMode={setSearchMode}
+            />
             {isLoginOpen && (
                 <LoginDialog
                     closeDialog={closeLogin}
@@ -171,7 +178,7 @@ const App = () => {
             )}
             {isProfileOpen && (
                 <ProfileDialog
-                    loggedUser={currentUser}
+                    currentUser={currentUser}
                     closeDialog={closeProfile}
                 />
             )}

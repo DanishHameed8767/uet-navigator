@@ -1,0 +1,41 @@
+.search-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(var(--space-sm) + 3rem);
+    left: var(--space-md);
+    width: 25rem;
+    height: 66vh;
+    padding: var(--space-xs) 0;
+    background-color: var(--color-background);
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    z-index: 0;
+
+    /* Handling Scroll & Removing Scrollbar */
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .icon {
+        margin-top: 5.75rem;
+        margin-bottom: 2rem;
+        font-size: 10rem;
+        width: min-content;
+        align-self: center;
+        color: var(--color-border);
+    }
+
+    .message {
+        max-width: 20ch;
+        text-align: center;
+        align-self: center;
+        line-height: 1.5;
+        font-size: var(--text-sm);
+        color: var(--color-text-label);
+    }
+}

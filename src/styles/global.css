@@ -44,6 +44,7 @@
     --color-text-dim: hsl(0, 0%, 20%);
     --color-text-label: hsl(0, 0%, 45%);
     --color-text-placeholder: hsl(0, 0%, 30%);
+    --color-border: hsl(0, 0%, 85%);
     --color-input: hsl(0, 0%, 95%);
     --color-hover: hsl(0, 0%, 95%);
 }
@@ -52,6 +53,7 @@
     --color-text-bright: hsl(0, 0%, 96%);
     --color-text-dim: hsl(0, 0%, 80%);
     --color-text-placeholder: hsl(0, 0%, 70%);
+    --color-border: hsl(0, 0%, 20%);
     --color-input: hsl(0, 0%, 10%);
     --color-hover: hsl(0, 0%, 15%);
 }
@@ -153,3 +155,11 @@ Initially, design for <480px.
 }
 
 */
+
+#debug {
+    position: fixed;
+    z-index: 10000;
+    background-color: white;
+    bottom: 1rem;
+    left: 49vw;
+}
