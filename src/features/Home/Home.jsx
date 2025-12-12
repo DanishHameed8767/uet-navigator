@@ -6,15 +6,9 @@ import FilterBar from "../../components/FilterBar/FilterBar.jsx";
 import savedLocations from "../../../public/data/saved.json";
 import recentLocations from "../../../public/data/recents.json";
 import SingleLinkedList from "../../data-structures/linked-list.js";
+import MapCanvas from "../MapCanvas/MapCanvas.jsx";
 
 const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
-    const [isViewType, setViewType] = useState("Flat");
-    const toggleView = () => {
-        setViewType((prev) => {
-            return prev === "Flat" ? "Satellite" : "Flat";
-        });
-    };
-
     const [searchKey, setSearchKey] = useState("");
     const [isSearchFocus, setSearchFocus] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
@@ -33,15 +27,8 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
     }, [searchMode]);
 
     return (
-        <div
-            className={
-                styles.home +
-                " " +
-                (isViewType === "Flat"
-                    ? styles["sat-view"]
-                    : styles["flat-view"])
-            }
-        >
+        <div className={styles.home}>
+            <MapCanvas />
             <SearchBar
                 searchKey={searchKey}
                 setKey={setSearchKey}
@@ -60,17 +47,6 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
                 />
             )}
             <FilterBar />
-            <button className={styles["btn-toggle-view"]} onClick={toggleView}>
-                <p>{isViewType}</p>
-            </button>
-            <div className={styles["zoom-btns-wrapper"]}>
-                <button className={styles["btn-zoom-in"]}>+</button>
-                <button className={styles["btn-zoom-out"]}>–</button>
-            </div>
-            <button className={styles["btn-cur-location"]}>
-                <i className="fa-solid fa-location-crosshairs"></i>
-                Current
-            </button>
         </div>
     );
 };
