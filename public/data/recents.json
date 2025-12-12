@@ -1,6 +1,5 @@
 [
     {
-        "key": "1",
         "email": "admin123@gmail.com",
         "startNode": {
             "name": "Library",
@@ -18,7 +17,6 @@
         }
     },
     {
-        "key": "2",
         "email": "admin123@gmail.com",
         "startNode": {
             "name": "Library",
@@ -36,7 +34,6 @@
         }
     },
     {
-        "key": "3",
         "email": "admin123@gmail.com",
         "startNode": {
             "name": "Student Service Cafe",
