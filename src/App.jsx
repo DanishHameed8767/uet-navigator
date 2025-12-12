@@ -159,6 +159,7 @@ const App = () => {
             />
             <Home
                 currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
                 searchMode={searchMode}
                 setSearchMode={setSearchMode}
             />

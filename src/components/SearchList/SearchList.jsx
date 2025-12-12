@@ -18,7 +18,7 @@ const SearchList = ({ result, mode, searchKey }) => {
                 result?.toArray()?.map((elem) => {
                     return (
                         <SearchCard
-                            key={elem?.key}
+                            key={elem?.node?.name}
                             name={elem?.node?.name}
                             near={elem?.node?.near}
                             type={elem?.node?.type}
@@ -30,7 +30,11 @@ const SearchList = ({ result, mode, searchKey }) => {
                     console.log(elem);
                     return (
                         <RecentCard
-                            key={elem?.key}
+                            key={
+                                elem?.startNode?.name +
+                                "-" +
+                                elem?.endNode?.name
+                            }
                             sName={elem?.startNode?.name}
                             sNear={elem?.startNode?.near}
                             sType={elem?.startNode?.type}
