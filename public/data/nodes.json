@@ -1,11 +1,479 @@
 [
     {
-        "id": 0,
-        "lat": 31.57,
-        "lon": 74.3,
+        "id": 2,
+        "lat": 31.577775137726697,
+        "lon": 74.35655824893468,
         "name": "",
-        "type": "",
-        "tier": 0,
-        "nearId": 0
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 3,
+        "lat": 31.577718931800113,
+        "lon": 74.3565666867165,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 4,
+        "lat": 31.577782343614718,
+        "lon": 74.35661562585109,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 5,
+        "lat": 31.57778522596993,
+        "lon": 74.3566831281057,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 6,
+        "lat": 31.57772613768814,
+        "lon": 74.35669156588752,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 7,
+        "lat": 31.576916195874315,
+        "lon": 74.356823195284,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 8,
+        "lat": 31.577932653781858,
+        "lon": 74.35819866957878,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 9,
+        "lat": 31.576899901162832,
+        "lon": 74.35668756103264,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 10,
+        "lat": 31.57785292929487,
+        "lon": 74.3565452625479,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 11,
+        "lat": 31.578124472496302,
+        "lon": 74.35650751324383,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 12,
+        "lat": 31.57843941301303,
+        "lon": 74.3564625044582,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 13,
+        "lat": 31.578572084805508,
+        "lon": 74.35644072601353,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 14,
+        "lat": 31.578634080970218,
+        "lon": 74.35641749567256,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 15,
+        "lat": 31.578665079052573,
+        "lon": 74.35636377550905,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 16,
+        "lat": 31.57870475659799,
+        "lon": 74.35632312241236,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 17,
+        "lat": 31.578763032992818,
+        "lon": 74.35629844017508,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 18,
+        "lat": 31.578818829541056,
+        "lon": 74.35629263258983,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 19,
+        "lat": 31.578870906319413,
+        "lon": 74.35629698827877,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 20,
+        "lat": 31.57892670286765,
+        "lon": 74.3563013439677,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 21,
+        "lat": 31.578978779646008,
+        "lon": 74.3563158629308,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 22,
+        "lat": 31.57901101765166,
+        "lon": 74.35636522740538,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 23,
+        "lat": 31.579012257574952,
+        "lon": 74.35643782222091,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 24,
+        "lat": 31.578980019569304,
+        "lon": 74.356517676518,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 25,
+        "lat": 31.57892670286765,
+        "lon": 74.35659172322984,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 26,
+        "lat": 31.578865946626237,
+        "lon": 74.3566396358081,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 27,
+        "lat": 31.578795270998466,
+        "lon": 74.356667221838,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 28,
+        "lat": 31.578718395754226,
+        "lon": 74.356667221838,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 29,
+        "lat": 31.578644000356572,
+        "lon": 74.3566410877044,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 30,
+        "lat": 31.578617961967396,
+        "lon": 74.35658155995567,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 31,
+        "lat": 31.5786167220441,
+        "lon": 74.35649444617702,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 32,
+        "lat": 31.578552246032803,
+        "lon": 74.35656994478518,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 33,
+        "lat": 31.578924696349382,
+        "lon": 74.35609287231796,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 34,
+        "lat": 31.5789420552755,
+        "lon": 74.35586347270086,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 35,
+        "lat": 31.578865172058535,
+        "lon": 74.35535502459224,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 36,
+        "lat": 31.5791213692922,
+        "lon": 74.35636123484072,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 37,
+        "lat": 31.579226762772205,
+        "lon": 74.35638010949276,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 38,
+        "lat": 31.57912756890867,
+        "lon": 74.35641495500421,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 39,
+        "lat": 31.57880642877547,
+        "lon": 74.35673292029627,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 40,
+        "lat": 31.578740712840876,
+        "lon": 74.35688972509783,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 42,
+        "lat": 31.578725833761347,
+        "lon": 74.35699861732112,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 43,
+        "lat": 31.578798989235704,
+        "lon": 74.35774489202484,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 44,
+        "lat": 31.579766236695747,
+        "lon": 74.35633014814363,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 45,
+        "lat": 31.578876316931236,
+        "lon": 74.35623532604815,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 46,
+        "lat": 31.578495313124215,
+        "lon": 74.35676303920616,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 47,
+        "lat": 31.57822252999949,
+        "lon": 74.35680369230286,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 48,
+        "lat": 31.578280806394318,
+        "lon": 74.35730750032269,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 49,
+        "lat": 31.578536230592924,
+        "lon": 74.35727846239647,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 50,
+        "lat": 31.57850523251057,
+        "lon": 74.35694307434869,
+        "name": "",
+        "type": "service",
+        "tier": 2,
+        "nextId": 0
+    },
+    {
+        "id": 51,
+        "lat": 31.57839983903056,
+        "lon": 74.35695904520811,
+        "name": "New Lecture Theatre",
+        "type": "dept",
+        "tier": 1,
+        "nextId": 0
+    },
+    {
+        "id": 52,
+        "lat": 31.57836140140844,
+        "lon": 74.3567819138582,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 53,
+        "lat": 31.578252288158552,
+        "lon": 74.35706358174248,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 54,
+        "lat": 31.57841099834021,
+        "lon": 74.35729152946327,
+        "name": "",
+        "type": "wall",
+        "tier": 3,
+        "nextId": 0
+    },
+    {
+        "id": 55,
+        "lat": 31.57870098044095,
+        "lon": 74.35688771789805,
+        "name": "",
+        "type": "intersection",
+        "tier": 3,
+        "nextId": 0
     }
 ]

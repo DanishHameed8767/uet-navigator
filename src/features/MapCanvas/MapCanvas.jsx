@@ -1,26 +1,26 @@
 import styles from "./MapCanvas.module.css";
 import { useEffect, useState, useRef } from "react";
-import React from "react";
-import { Stage, Layer, Image as KonvaImage, Circle, Line } from "react-konva";
+import { parseSafely } from "../../utils/appHelper.js";
 import useImage from "use-image";
-import mapFlat from "../../../public/images/map/flat.png";
-import mapSat from "../../../public/images/map/sat.png";
-import { pixelToLatLon, latLonToPixel } from "../../utils/configMap.js";
+import mapFlat from "../../assets/map/flat.png";
+import mapSat from "../../assets/map/sat.png";
+import storedNodes from "../../../public/data/nodes.json";
+import storedEdges from "../../../public/data/edges.json";
+import MapView from "../MapView/MapView.jsx";
+import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 
-const MapCanvas = () => {
+const MapCanvas = ({ currentUser }) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
     const zoomIntervalRef = useRef(null);
-
+    const [nodes, setNodes] = useState(loadNodesData());
+    const [edges, setEdges] = useState(loadEdgesData());
+    const [viewType, setViewType] = useState("Flat");
     const [imageMapFlat] = useImage(mapFlat);
     const [imageMapSat] = useImage(mapSat);
     const [scale, setScale] = useState(0.13);
     const [position, setPosition] = useState({ x: 270, y: 30 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-    const [nodes, setNodes] = useState([]);
-    const [edges, setEdges] = useState([]);
-    const [selectedId, setSelectedId] = useState(null);
 
     useEffect(() => {
         const updateSize = () => {
@@ -36,7 +36,13 @@ const MapCanvas = () => {
         return () => window.removeEventListener("resize", updateSize);
     }, []);
 
-    const getNodeById = (id) => nodes.find((n) => n.id === id);
+    useEffect(() => {
+        localStorage.setItem("map-nodes", JSON.stringify(nodes));
+    }, [nodes]);
+
+    useEffect(() => {
+        localStorage.setItem("map-edges", JSON.stringify(edges));
+    }, [edges]);
 
     const startZoom = (direction) => {
         handleZoomBtns(direction);
@@ -99,58 +105,7 @@ const MapCanvas = () => {
         setPosition(newPos);
     };
 
-    const handleStageClick = (e) => {
-        if (e.target.getClassName() === "Circle" || e.evt.button !== 0) return;
-        const stage = e.target.getStage();
-        const pointer = stage.getPointerPosition();
-        const imageX = (pointer.x - stage.x()) / stage.scaleX();
-        const imageY = (pointer.y - stage.y()) / stage.scaleX();
-        const { lat, lon } = pixelToLatLon(imageX, imageY);
-        const newNode = {
-            id: Math.round(imageX) + "," + Math.round(imageY),
-            lat: lat,
-            lon: lon,
-        };
-        setNodes((prev) => [...prev, newNode]);
-        console.log("Saved Node:", lat, lon);
-    };
-
-    const handleNodeClick = (e, nodeId) => {
-        e.cancelBubble = true;
-        if (e.evt.button !== 0) return;
-        if (selectedId === null) {
-            setSelectedId(nodeId);
-            console.log("Selected Node:", nodeId);
-        } else if (selectedId === nodeId) {
-            setSelectedId(null);
-            console.log("Deselected");
-        } else {
-            const newEdge = { from: selectedId, to: nodeId };
-            setEdges((prev) => [...prev, newEdge]);
-            setSelectedId(nodeId);
-            console.log(`Connected ${selectedId} to ${nodeId}`);
-        }
-    };
-
-    const handleNodeContextMenu = (e, nodeId) => {
-        e.evt.preventDefault();
-        e.cancelBubble = true;
-        setNodes((prev) => prev.filter((n) => n.id !== nodeId));
-        setEdges((prev) =>
-            prev.filter((edge) => edge.from !== nodeId && edge.to !== nodeId)
-        );
-        if (selectedId === nodeId) setSelectedId(null);
-        console.log(`Deleted Node ${nodeId} and connections.`);
-    };
-
-    const handleEdgeContextMenu = (e, index) => {
-        e.evt.preventDefault();
-        e.cancelBubble = true;
-        setEdges((prev) => prev.filter((_, i) => i !== index));
-        console.log("Deleted Edge");
-    };
-
-    const dragBoundFunc = (pos) => {
+    const boundDrag = (pos) => {
         const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
         const mapWidth = image.width * scale;
         const mapHeight = image.height * scale;
@@ -176,7 +131,6 @@ const MapCanvas = () => {
         return { x, y };
     };
 
-    const [viewType, setViewType] = useState("Flat");
     const toggleView = () => {
         setViewType((prev) => {
             return prev === "Flat" ? "Satellite" : "Flat";
@@ -184,74 +138,42 @@ const MapCanvas = () => {
     };
 
     return (
-        <div className={styles["map-container"]}>
-            <div className={styles["map-canvas"]} ref={containerRef}>
-                <Stage
-                    ref={stageRef}
-                    width={dimensions.width}
-                    height={dimensions.height}
-                    draggable
-                    dragBoundFunc={dragBoundFunc}
-                    onWheel={handleWheel}
-                    onClick={handleStageClick}
-                    scaleX={scale}
-                    scaleY={scale}
-                    x={position.x}
-                    y={position.y}
-                    onDragEnd={(e) => {
-                        setPosition({ x: e.target.x(), y: e.target.y() });
-                    }}
-                >
-                    <Layer>
-                        <KonvaImage
-                            image={
-                                viewType === "Flat" ? imageMapFlat : imageMapSat
-                            }
-                        />
-                        {edges.map((edge, i) => {
-                            const nodeA = getNodeById(edge.from);
-                            const nodeB = getNodeById(edge.to);
-                            if (!nodeA || !nodeB) return null;
-                            const posA = latLonToPixel(nodeA.lat, nodeA.lon);
-                            const posB = latLonToPixel(nodeB.lat, nodeB.lon);
-                            return (
-                                <Line
-                                    key={i}
-                                    points={[posA.x, posA.y, posB.x, posB.y]}
-                                    stroke="blue"
-                                    strokeWidth={3 / scale}
-                                    hitStrokeWidth={5 / scale}
-                                    onContextMenu={(e) =>
-                                        handleEdgeContextMenu(e, i)
-                                    }
-                                />
-                            );
-                        })}
-                        {nodes.map((node) => {
-                            const { x, y } = latLonToPixel(node.lat, node.lon);
-                            const isSelected = selectedId === node.id;
-                            return (
-                                <Circle
-                                    key={node.id}
-                                    x={x}
-                                    y={y}
-                                    radius={isSelected ? 8 : 5}
-                                    fill={isSelected ? "yellow" : "red"}
-                                    stroke="black"
-                                    strokeWidth={1}
-                                    scaleX={1 / scale}
-                                    scaleY={1 / scale}
-                                    onClick={(e) => handleNodeClick(e, node.id)}
-                                    onContextMenu={(e) =>
-                                        handleNodeContextMenu(e, node.id)
-                                    }
-                                />
-                            );
-                        })}
-                    </Layer>
-                </Stage>
-            </div>
-
+        <div className={styles["map-canvas"]}>
+            {currentUser?.email === "admin@navigator.uet" ? (
+                <MapBuilder
+                    dimensions={dimensions}
+                    scale={scale}
+                    position={position}
+                    setPosition={setPosition}
+                    nodes={nodes}
+                    edges={edges}
+                    setNodes={setNodes}
+                    setEdges={setEdges}
+                    viewType={viewType}
+                    imageMapFlat={imageMapFlat}
+                    imageMapSat={imageMapSat}
+                    containerRef={containerRef}
+                    stageRef={stageRef}
+                    boundDrag={boundDrag}
+                    handleWheel={handleWheel}
+                />
+            ) : (
+                <MapView
+                    dimensions={dimensions}
+                    scale={scale}
+                    position={position}
+                    setPosition={setPosition}
+                    nodes={nodes}
+                    edges={edges}
+                    viewType={viewType}
+                    imageMapFlat={imageMapFlat}
+                    imageMapSat={imageMapSat}
+                    containerRef={containerRef}
+                    stageRef={stageRef}
+                    boundDrag={boundDrag}
+                    handleWheel={handleWheel}
+                />
+            )}
             <button className={styles["btn-toggle-view"]} onClick={toggleView}>
                 <p>{viewType}</p>
             </button>
@@ -285,6 +207,28 @@ const MapCanvas = () => {
             </button>
         </div>
     );
+};
+
+const loadNodesData = () => {
+    let savedNodes = localStorage.getItem("map-nodes");
+    if (savedNodes) {
+        savedNodes = parseSafely(savedNodes);
+    } else {
+        localStorage.setItem("map-nodes", JSON.stringify(storedNodes));
+        savedNodes = storedNodes;
+    }
+    return savedNodes;
+};
+
+const loadEdgesData = () => {
+    let savedEdges = localStorage.getItem("map-edges");
+    if (savedEdges) {
+        savedEdges = parseSafely(savedEdges);
+    } else {
+        localStorage.setItem("map-edges", JSON.stringify(storedEdges));
+        savedEdges = storedEdges;
+    }
+    return savedEdges;
 };
 
 export default MapCanvas;

@@ -1,16 +1,15 @@
+import "./App.css";
 import { useState, useEffect } from "react";
+import { parseSafely } from "./utils/appHelper.js";
 
-import Navbar from "./features/Navbar/Navbar.jsx";
 import Home from "./features/Home/Home.jsx";
+import Navbar from "./features/Navbar/Navbar.jsx";
 import LoginDialog from "./features/Dialogs/LoginDialog/LoginDialog.jsx";
 import SignupDialog from "./features/Dialogs/SignupDialog/SignupDialog.jsx";
 import ProfileDialog from "./features/Dialogs/ProfileDialog/ProfileDialog.jsx";
-import MapCanvas from "./components/MapCanvas";
 
 import defaultUsers from "../public/data/users.json";
 import SingleLinkedList from "./data-structures/linked-list.js";
-
-import "./App.css";
 
 const App = () => {
     // TOGGLING THEME
@@ -81,11 +80,11 @@ const App = () => {
                 closeLogin();
                 return true;
             } else {
-                console.log("Password mismatched.");
+                alert("Password mismatched.");
                 return false;
             }
         } else {
-            console.log("Email not found.");
+            alert("Email not found.");
             return false;
         }
     };
@@ -112,9 +111,10 @@ const App = () => {
                 newList.append(newUser);
                 return newList;
             });
-            console.log("Account created successfully.");
+            alert("Account created successfully.");
+            switchToLogin();
         } else {
-            console.log("Email already in use.");
+            alert("Email already in use.");
             return false;
         }
     };
@@ -137,6 +137,7 @@ const App = () => {
         setProfileOpen(false);
     };
     const handleLogout = () => {
+        if (!currentUser) return;
         setUsersList((prev) => {
             const newList = prev.deepCopy();
             newList.update(currentUser);
@@ -191,7 +192,7 @@ const loadUserData = () => {
     const list = new SingleLinkedList();
     let savedUsers = localStorage.getItem("app-users");
     if (savedUsers) {
-        savedUsers = JSON.parse(savedUsers);
+        savedUsers = parseSafely(savedUsers);
     } else {
         localStorage.setItem("app-users", JSON.stringify(defaultUsers));
         savedUsers = defaultUsers;
@@ -200,15 +201,6 @@ const loadUserData = () => {
         list.append(element);
     });
     return list;
-};
-
-const parseSafely = (data) => {
-    try {
-        return JSON.parse(data);
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
 };
 
 export default App;
