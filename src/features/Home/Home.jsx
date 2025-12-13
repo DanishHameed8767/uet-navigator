@@ -28,7 +28,7 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
 
     return (
         <div className={styles.home}>
-            <MapCanvas />
+            <MapCanvas currentUser={currentUser} />
             <SearchBar
                 searchKey={searchKey}
                 setKey={setSearchKey}

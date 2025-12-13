@@ -161,7 +161,12 @@ Initially, design for <480px.
 #debug {
     position: fixed;
     z-index: 10000;
-    background-color: white;
+    color: var(--color-text-bright);
+    background-color: var(--color-background);
     bottom: 1rem;
-    left: 49vw;
+    justify-self: center;
+    align-self: center;
+    text-align: center;
+    line-height: 2;
+    padding: 0 1rem;
 }
