@@ -19,17 +19,24 @@ const MapBuilder = ({
     edges,
     setNodes,
     setEdges,
-    containerRef,
-    stageRef,
     dimensions,
     scale,
     position,
     setPosition,
     viewType,
+    travelMode,
     imageMapFlat,
     imageMapSat,
+    walkMatrix,
+    setWalkMatrix,
+    gridConfig,
+    containerRef,
+    stageRef,
+    boundDrag,
     handleWheel,
 }) => {
+    const [gridImage, setGridImage] = useState(null);
+
     const nodeInputRef = useRef(null);
     const edgeInputRef = useRef(null);
     const hitImgRef = useRef(null);
@@ -58,6 +65,29 @@ const MapBuilder = ({
         });
         return lookup;
     }, [edges]);
+
+    useEffect(() => {
+        if (!gridConfig || !walkMatrix || travelMode !== "walk") return;
+        const canvas = document.createElement("canvas");
+        const currentImage = imageMapFlat;
+        canvas.width = currentImage.width;
+        canvas.height = currentImage.height;
+        const ctx = canvas.getContext("2d");
+        const cw = gridConfig.cellWidth;
+        const ch = gridConfig.cellHeight;
+        for (let r = 0; r < gridConfig.rows; r++) {
+            for (let c = 0; c < gridConfig.cols; c++) {
+                if (walkMatrix[r][c] === 0) {
+                    ctx.fillStyle = "rgba(0, 0, 0, 1)";
+                    ctx.fillRect(c * cw, r * ch, cw, ch);
+                } else {
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+                    ctx.fillRect(c * cw, r * ch, cw, ch);
+                }
+            }
+        }
+        setGridImage(canvas);
+    }, [gridConfig, walkMatrix, imageMapFlat]);
 
     useEffect(() => {
         const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
@@ -121,6 +151,32 @@ const MapBuilder = ({
         setTempNodeLat(lat);
         setTempNodeLon(lon);
         if (nodeInputRef) nodeInputRef.current.focus();
+    };
+
+    const handleStageClickWalk = (e) => {
+        e.cancelBubble = true;
+        e.evt.preventDefault();
+        if (!gridConfig || e.evt.button !== 0) return;
+        const stage = e.target.getStage();
+        const pointer = stage.getPointerPosition();
+        const imgX = (pointer.x - stage.x()) / stage.scaleX();
+        const imgY = (pointer.y - stage.y()) / stage.scaleY();
+        const col = Math.floor(imgX / gridConfig.cellWidth);
+        const row = Math.floor(imgY / gridConfig.cellHeight);
+        if (
+            row < 0 ||
+            row >= gridConfig.rows ||
+            col < 0 ||
+            col >= gridConfig.cols
+        )
+            return;
+        setWalkMatrix((prev) => {
+            const newMat = [...prev];
+            const newRow = [...newMat[row]];
+            newRow[col] = (newRow[col] + 1) % 2;
+            newMat[row] = newRow;
+            return newMat;
+        });
     };
 
     const handleNodeClick = (e, nodeId) => {
@@ -285,7 +341,7 @@ const MapBuilder = ({
 
     const saveEdge = (e) => {
         e.preventDefault();
-        if (invalidNode()) return;
+        if (invalidEdge()) return;
         const updatedEdge = edges.find(
             (edge) => edge.from === tempEdgeFrom && edge.to === tempEdgeTo
         );
@@ -327,7 +383,11 @@ const MapBuilder = ({
                 height={dimensions.height}
                 draggable
                 onWheel={handleWheel}
-                onClick={handleStageClick}
+                onClick={
+                    travelMode === "walk"
+                        ? handleStageClickWalk
+                        : handleStageClick
+                }
                 scaleX={scale}
                 scaleY={scale}
                 x={position.x}
@@ -337,216 +397,235 @@ const MapBuilder = ({
                 }}
             >
                 <Layer>
-                    <KonvaImage
-                        image={viewType === "Flat" ? imageMapFlat : imageMapSat}
-                    />
-                    {edges.map((edge, i) => {
-                        const nodeA = getNodeById(edge.from);
-                        const nodeB = getNodeById(edge.to);
-                        if (!nodeA || !nodeB) return null;
-                        const posA = latLonToPixel(nodeA.lat, nodeA.lon);
-                        const posB = latLonToPixel(nodeB.lat, nodeB.lon);
-                        const hasReverse = edgeLookup.has(
-                            `${edge.to}-${edge.from}`
-                        );
-                        const isOneWay = !hasReverse;
-                        return isOneWay ? (
-                            <Arrow
-                                key={i}
-                                points={[posA.x, posA.y, posB.x, posB.y]}
-                                stroke="green"
-                                fill="green"
-                                strokeWidth={3 / scale}
-                                pointerLength={10 / scale}
-                                pointerWidth={10 / scale}
-                                hitStrokeWidth={10 / scale}
-                                onClick={(e) => handleEdgeClick(e, i)}
-                                onContextMenu={(e) =>
-                                    handleEdgeContextMenu(e, i)
-                                }
-                            />
-                        ) : (
-                            <Line
-                                key={i}
-                                points={[posA.x, posA.y, posB.x, posB.y]}
-                                stroke="black"
-                                strokeWidth={3 / scale}
-                                hitStrokeWidth={10 / scale}
-                                onClick={(e) => handleEdgeClick(e, i)}
-                                onContextMenu={(e) =>
-                                    handleEdgeContextMenu(e, i)
-                                }
-                            />
-                        );
-                    })}
-                    {tempEdges.map((edge, i) => {
-                        const nodeA = getNodeById(edge.from);
-                        const nodeB = getNodeById(edge.to);
-                        if (!nodeA || !nodeB) return null;
-                        const posA = latLonToPixel(nodeA.lat, nodeA.lon);
-                        const posB = latLonToPixel(nodeB.lat, nodeB.lon);
-                        return (
-                            <Line
-                                key={i}
-                                points={[posA.x, posA.y, posB.x, posB.y]}
-                                stroke="blue"
-                                strokeWidth={3 / scale}
-                            />
-                        );
-                    })}
-                    {tempNodes.map((node, i) => {
-                        const { x, y } = latLonToPixel(node.lat, node.lon);
-                        return (
-                            <Circle
-                                key={i}
-                                x={x}
-                                y={y}
-                                radius={7}
-                                fill={"cyan"}
-                                stroke="black"
-                                strokeWidth={1}
-                                scaleX={1 / scale}
-                                scaleY={1 / scale}
-                            />
-                        );
-                    })}
-                    {nodes.map((node) => {
-                        const { x, y } = latLonToPixel(node.lat, node.lon);
-                        const isSelected = selectedId === node.id;
-                        return (
-                            <Circle
-                                key={node.id}
-                                x={x}
-                                y={y}
-                                radius={isSelected ? 9 : 7}
-                                fill={isSelected ? "red" : "yellow"}
-                                stroke="black"
-                                strokeWidth={1}
-                                scaleX={1 / scale}
-                                scaleY={1 / scale}
-                                onClick={(e) => handleNodeClick(e, node.id)}
-                                onContextMenu={(e) =>
-                                    handleNodeContextMenu(e, node.id)
-                                }
-                            />
-                        );
-                    })}
+                    {travelMode === "walk" ? (
+                        <KonvaImage image={gridImage} />
+                    ) : (
+                        <KonvaImage
+                            image={
+                                viewType === "Flat" ? imageMapFlat : imageMapSat
+                            }
+                        />
+                    )}
                 </Layer>
+
+                {travelMode !== "walk" && (
+                    <Layer>
+                        {edges.map((edge, i) => {
+                            const nodeA = getNodeById(edge.from);
+                            const nodeB = getNodeById(edge.to);
+                            if (!nodeA || !nodeB) return null;
+                            const posA = latLonToPixel(nodeA.lat, nodeA.lon);
+                            const posB = latLonToPixel(nodeB.lat, nodeB.lon);
+                            const hasReverse = edgeLookup.has(
+                                `${edge.to}-${edge.from}`
+                            );
+                            const isOneWay = !hasReverse;
+                            return isOneWay ? (
+                                <Arrow
+                                    key={i}
+                                    points={[posA.x, posA.y, posB.x, posB.y]}
+                                    stroke="green"
+                                    fill="green"
+                                    strokeWidth={3 / scale}
+                                    pointerLength={10 / scale}
+                                    pointerWidth={10 / scale}
+                                    hitStrokeWidth={10 / scale}
+                                    onClick={(e) => handleEdgeClick(e, i)}
+                                    onContextMenu={(e) =>
+                                        handleEdgeContextMenu(e, i)
+                                    }
+                                />
+                            ) : (
+                                <Line
+                                    key={i}
+                                    points={[posA.x, posA.y, posB.x, posB.y]}
+                                    stroke="black"
+                                    strokeWidth={3 / scale}
+                                    hitStrokeWidth={10 / scale}
+                                    onClick={(e) => handleEdgeClick(e, i)}
+                                    onContextMenu={(e) =>
+                                        handleEdgeContextMenu(e, i)
+                                    }
+                                />
+                            );
+                        })}
+                        {tempEdges.map((edge, i) => {
+                            const nodeA = getNodeById(edge.from);
+                            const nodeB = getNodeById(edge.to);
+                            if (!nodeA || !nodeB) return null;
+                            const posA = latLonToPixel(nodeA.lat, nodeA.lon);
+                            const posB = latLonToPixel(nodeB.lat, nodeB.lon);
+                            return (
+                                <Line
+                                    key={i}
+                                    points={[posA.x, posA.y, posB.x, posB.y]}
+                                    stroke="blue"
+                                    strokeWidth={3 / scale}
+                                />
+                            );
+                        })}
+                        {tempNodes.map((node, i) => {
+                            const { x, y } = latLonToPixel(node.lat, node.lon);
+                            return (
+                                <Circle
+                                    key={i}
+                                    x={x}
+                                    y={y}
+                                    radius={7}
+                                    fill={"cyan"}
+                                    stroke="black"
+                                    strokeWidth={1}
+                                    scaleX={1 / scale}
+                                    scaleY={1 / scale}
+                                />
+                            );
+                        })}
+                        {nodes.map((node) => {
+                            const { x, y } = latLonToPixel(node.lat, node.lon);
+                            const isSelected = selectedId === node.id;
+                            return (
+                                <Circle
+                                    key={node.id}
+                                    x={x}
+                                    y={y}
+                                    radius={isSelected ? 9 : 7}
+                                    fill={isSelected ? "red" : "yellow"}
+                                    stroke="black"
+                                    strokeWidth={1}
+                                    scaleX={1 / scale}
+                                    scaleY={1 / scale}
+                                    onClick={(e) => handleNodeClick(e, node.id)}
+                                    onContextMenu={(e) =>
+                                        handleNodeContextMenu(e, node.id)
+                                    }
+                                />
+                            );
+                        })}
+                    </Layer>
+                )}
             </Stage>
 
-            {/* Dev Forms */}
-            <form
-                className={styles["dev-form"] + " " + styles["dev-form-node"]}
-                onSubmit={(e) => saveNode(e)}
-            >
-                <input
-                    ref={nodeInputRef}
-                    value={tempNodeName}
-                    type="text"
-                    placeholder="Node Name"
-                    onChange={(e) => setTempNodeName(e.target.value)}
-                />
-                <select
-                    value={tempNodeType}
-                    onChange={(e) => {
-                        setTempNodeType(e.target.value);
-                        setTempNodeTier(getNodeTier(e.target.value));
-                    }}
-                    required
+            {/* Forms For Nodes & Edges Manipulation */}
+            {travelMode !== "walk" && (
+                <form
+                    className={
+                        styles["dev-form"] + " " + styles["dev-form-node"]
+                    }
+                    onSubmit={(e) => saveNode(e)}
                 >
-                    <option value="" disabled>
-                        Select Node Type
-                    </option>
-                    <option value="cafe">Cafe (Center)</option>
-                    <option value="hostel">Hostel (Center)</option>
-                    <option value="dept">Department (Center)</option>
-                    <option value="ground">Ground (Center)</option>
-                    <option value="worship">Worship Place (Center)</option>
-                    <option value="wall">Wall (Building corners)</option>
-                    <option value="service">
-                        Entrance, Gate, Office, Library, Services
-                    </option>
-                    <option value="intersection">Road, Street, etc.</option>
-                    <option value="other">Other</option>
-                </select>
-                <input
-                    type="text"
-                    placeholder="Tier"
-                    value={tempNodeTier}
-                    disabled
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Longitude"
-                    value={tempNodeLon}
-                    disabled
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Latitude"
-                    value={tempNodeLat}
-                    disabled
-                    required
-                />
-                <button type="submit">Save Node</button>
-            </form>
-
-            <form
-                className={styles["dev-form"] + " " + styles["dev-form-edge"]}
-                onSubmit={(e) => {
-                    saveEdge(e);
-                }}
-            >
-                <input
-                    ref={edgeInputRef}
-                    type="text"
-                    placeholder="Edge Name"
-                    onChange={(e) => setTempEdgeName(e.target.value)}
-                />
-                <select
-                    value={tempEdgeType}
-                    onChange={(e) => {
-                        setTempEdgeType(e.target.value);
+                    <input
+                        ref={nodeInputRef}
+                        value={tempNodeName}
+                        type="text"
+                        placeholder="Node Name"
+                        onChange={(e) => setTempNodeName(e.target.value)}
+                    />
+                    <select
+                        value={tempNodeType}
+                        onChange={(e) => {
+                            setTempNodeType(e.target.value);
+                            setTempNodeTier(getNodeTier(e.target.value));
+                        }}
+                        required
+                    >
+                        <option value="" disabled>
+                            Select Node Type
+                        </option>
+                        <option value="cafe">Cafe (Center)</option>
+                        <option value="hostel">Hostel (Center)</option>
+                        <option value="dept">Department (Center)</option>
+                        <option value="ground">Ground (Center)</option>
+                        <option value="worship">Worship Place (Center)</option>
+                        <option value="wall">Wall (Building corners)</option>
+                        <option value="service">
+                            Entrance, Gate, Office, Library, Services
+                        </option>
+                        <option value="intersection">Road, Street, etc.</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <input
+                        type="text"
+                        placeholder="Tier"
+                        value={tempNodeTier}
+                        disabled
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Longitude"
+                        value={tempNodeLon}
+                        disabled
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Latitude"
+                        value={tempNodeLat}
+                        disabled
+                        required
+                    />
+                    <button type="submit">Save Node</button>
+                </form>
+            )}
+            {travelMode !== "walk" && (
+                <form
+                    className={
+                        styles["dev-form"] + " " + styles["dev-form-edge"]
+                    }
+                    onSubmit={(e) => {
+                        saveEdge(e);
                     }}
-                    required
                 >
-                    <option value="" disabled>
-                        Select Edge Type
-                    </option>
-                    <option value="road">Road</option>
-                    <option value="street">Street</option>
-                    <option value="wall">Wall</option>
-                </select>
-                <input
-                    type="number"
-                    placeholder="Distance"
-                    value={tempEdgeDist}
-                    disabled
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="From"
-                    value={tempEdgeFrom}
-                    disabled
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="To"
-                    value={tempEdgeTo}
-                    disabled
-                    required
-                />
-                <button type="submit">Save Edge</button>
-            </form>
-
-            <p id="debug">
-                {(selectedId ? `Selected ` : `Next `) +
-                    `Node [ Id: ${tempNodeId} ]`}
-            </p>
+                    <input
+                        ref={edgeInputRef}
+                        type="text"
+                        placeholder="Edge Name"
+                        onChange={(e) => setTempEdgeName(e.target.value)}
+                    />
+                    <select
+                        value={tempEdgeType}
+                        onChange={(e) => {
+                            setTempEdgeType(e.target.value);
+                        }}
+                        required
+                    >
+                        <option value="" disabled>
+                            Select Edge Type
+                        </option>
+                        <option value="road">Road</option>
+                        <option value="street">Street</option>
+                        <option value="wall">Wall</option>
+                    </select>
+                    <input
+                        type="number"
+                        placeholder="Distance"
+                        value={tempEdgeDist}
+                        disabled
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="From"
+                        value={tempEdgeFrom}
+                        disabled
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="To"
+                        value={tempEdgeTo}
+                        disabled
+                        required
+                    />
+                    <button type="submit">Save Edge</button>
+                </form>
+            )}
+            {travelMode !== "walk" && (
+                <p id="debug">
+                    {(selectedId ? `Selected ` : `Next `) +
+                        `Node [ Id: ${tempNodeId} ]`}
+                </p>
+            )}
         </div>
     );
 };
