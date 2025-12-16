@@ -9,6 +9,7 @@ lerna-debug.log*
 
 uet_map.png
 uet_map.pgw
+*.png
 
 node_modules
 dist
