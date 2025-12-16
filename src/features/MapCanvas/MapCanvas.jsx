@@ -1,13 +1,14 @@
 import styles from "./MapCanvas.module.css";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useMemo } from "react";
 import { parseSafely } from "../../utils/appHelper.js";
 import useImage from "use-image";
 import mapFlat from "../../assets/map/flat.png";
 import mapSat from "../../assets/map/sat.png";
-import storedNodes from "../../../public/data/nodes.json";
-import storedEdges from "../../../public/data/edges.json";
 import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
+import storedNodes from "../../../public/data/nodes.json";
+import storedEdges from "../../../public/data/edges.json";
+import mapMatrix from "../../../public/data/processed_map_matrix.json";
 
 const MapCanvas = ({ currentUser }) => {
     const containerRef = useRef(null);
@@ -15,12 +16,29 @@ const MapCanvas = ({ currentUser }) => {
     const zoomIntervalRef = useRef(null);
     const [nodes, setNodes] = useState(loadNodesData());
     const [edges, setEdges] = useState(loadEdgesData());
+    const [travelMode, setTravelMode] = useState("walk");
     const [viewType, setViewType] = useState("Flat");
     const [imageMapFlat] = useImage(mapFlat);
     const [imageMapSat] = useImage(mapSat);
+    const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
     const [scale, setScale] = useState(0.13);
     const [position, setPosition] = useState({ x: 270, y: 30 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+    const gridConfig = useMemo(() => {
+        if (!walkMatrix || walkMatrix.length === 0 || travelMode !== "walk")
+            return null;
+        const currentImage = imageMapFlat;
+        if (!currentImage) return null;
+        const rows = walkMatrix.length;
+        const cols = walkMatrix[0].length;
+        return {
+            cellWidth: Math.ceil(currentImage.width / cols),
+            cellHeight: Math.ceil(currentImage.height / rows),
+            rows,
+            cols,
+        };
+    }, [walkMatrix, imageMapFlat]);
 
     useEffect(() => {
         const updateSize = () => {
@@ -44,6 +62,10 @@ const MapCanvas = ({ currentUser }) => {
     useEffect(() => {
         localStorage.setItem("map-edges", JSON.stringify(edges));
     }, [edges]);
+
+    useEffect(() => {
+        localStorage.setItem("map-walk-matrix", JSON.stringify(walkMatrix));
+    }, [walkMatrix]);
 
     const startZoom = (direction) => {
         handleZoomBtns(direction);
@@ -151,8 +173,12 @@ const MapCanvas = ({ currentUser }) => {
                     setNodes={setNodes}
                     setEdges={setEdges}
                     viewType={viewType}
+                    travelMode={travelMode}
                     imageMapFlat={imageMapFlat}
                     imageMapSat={imageMapSat}
+                    walkMatrix={walkMatrix}
+                    setWalkMatrix={setWalkMatrix}
+                    gridConfig={gridConfig}
                     containerRef={containerRef}
                     stageRef={stageRef}
                     boundDrag={boundDrag}
@@ -167,14 +193,29 @@ const MapCanvas = ({ currentUser }) => {
                     nodes={nodes}
                     edges={edges}
                     viewType={viewType}
+                    travelMode={travelMode}
                     imageMapFlat={imageMapFlat}
                     imageMapSat={imageMapSat}
+                    walkMatrix={walkMatrix}
+                    gridConfig={gridConfig}
                     containerRef={containerRef}
                     stageRef={stageRef}
                     boundDrag={boundDrag}
                     handleWheel={handleWheel}
                 />
             )}
+
+            {/* CONTROL OPTIONS */}
+            <select
+                value={travelMode}
+                className={styles["select-travel-mode"]}
+                onChange={(e) => setTravelMode(e.target.value)}
+                required
+            >
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="walk">Walk</option>
+            </select>
             <button className={styles["btn-toggle-view"]} onClick={toggleView}>
                 <p>{viewType}</p>
             </button>
@@ -219,6 +260,17 @@ const loadNodesData = () => {
         savedNodes = storedNodes;
     }
     return savedNodes;
+};
+
+const loadWalkData = () => {
+    let mat = localStorage.getItem("map-walk-matrix");
+    if (mat) {
+        mat = parseSafely(mat);
+    } else {
+        localStorage.setItem("map-walk-matrix", JSON.stringify(mapMatrix));
+        mat = mapMatrix;
+    }
+    return mat;
 };
 
 const loadEdgesData = () => {

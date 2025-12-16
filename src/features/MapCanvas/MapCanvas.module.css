@@ -13,6 +13,34 @@
     background: url(../../../public/images/uet_flat_half.png);
 }
 
+.select-travel-mode {
+    width: 5rem;
+    height: 1.75rem;
+    position: absolute;
+    left: var(--space-lg);
+    bottom: var(--space-lg);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--color-text-bright);
+    background-color: var(--color-background);
+    border-radius: var(--space-xs);
+    transition-duration: 0.2s;
+
+    & i {
+        font-size: var(--text-sm) !important;
+    }
+
+    &:hover {
+        background-color: var(--color-hover);
+    }
+
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}
+
 .zoom-btns-wrapper {
     width: 5rem;
     height: 1.75rem;
@@ -103,7 +131,6 @@
     width: 5rem;
     height: 1.75rem;
     position: absolute;
-    bottom: 10rem;
     right: var(--space-lg);
     bottom: var(--space-lg);
     display: flex;
