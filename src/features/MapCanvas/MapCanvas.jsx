@@ -37,6 +37,7 @@ const MapCanvas = ({ currentUser }) => {
     }, []);
 
     useEffect(() => {
+        nodes.sort((a, b) => a.id - b.id);
         localStorage.setItem("map-nodes", JSON.stringify(nodes));
     }, [nodes]);
 

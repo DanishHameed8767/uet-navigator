@@ -1,5 +1,5 @@
 import styles from "./SearchList.module.css";
-import SearchCard from "../searchCard/searchCard";
+import SearchCard from "../SearchCard/SearchCard";
 import RecentCard from "../RecentCard/RecentCard";
 
 const SearchList = ({ result, mode, searchKey }) => {

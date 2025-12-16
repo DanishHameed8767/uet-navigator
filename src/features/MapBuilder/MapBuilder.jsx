@@ -40,15 +40,15 @@ const MapBuilder = ({
 
     const [tempNodeId, setTempNodeId] = useState(nodes.at(-1)?.id + 1);
     const [tempNodeName, setTempNodeName] = useState("");
-    const [tempNodeTier, setTempNodeTier] = useState(0);
+    const [tempNodeTier, setTempNodeTier] = useState("");
     const [tempNodeType, setTempNodeType] = useState("");
-    const [tempNodeLat, setTempNodeLat] = useState(0);
-    const [tempNodeLon, setTempNodeLon] = useState(0);
+    const [tempNodeLat, setTempNodeLat] = useState("");
+    const [tempNodeLon, setTempNodeLon] = useState("");
 
     const [tempEdgeName, setTempEdgeName] = useState("");
     const [tempEdgeFrom, setTempEdgeFrom] = useState("");
     const [tempEdgeTo, setTempEdgeTo] = useState("");
-    const [tempEdgeDist, setTempEdgeDist] = useState(0);
+    const [tempEdgeDist, setTempEdgeDist] = useState("");
     const [tempEdgeType, setTempEdgeType] = useState("");
 
     const edgeLookup = useMemo(() => {
@@ -117,6 +117,7 @@ const MapBuilder = ({
         setTempEdges([]);
         setTempNodes([newNode]);
         setSelectedId(null);
+        resetTempNode(nodes.at(-1)?.id + 1);
         setTempNodeLat(lat);
         setTempNodeLon(lon);
         if (nodeInputRef) nodeInputRef.current.focus();
@@ -127,10 +128,13 @@ const MapBuilder = ({
         if (e.evt.button !== 0) return;
         if (selectedId === null) {
             setSelectedId(nodeId);
+            setTempNode(nodeId);
             setTempEdgeFrom(nodeId);
         } else if (selectedId === nodeId) {
             setSelectedId(null);
-            setTempEdgeFrom("");
+            setTempNode(nodes.at(-1)?.id + 1);
+            resetTempEdge();
+            setTempEdges([]);
         } else {
             // Duplicate Check
             const exists = edges.some(
@@ -138,12 +142,16 @@ const MapBuilder = ({
             );
             if (exists) {
                 setSelectedId(nodeId);
+                setTempNode(nodeId);
                 setTempEdgeFrom(nodeId);
+                setTempEdges([]);
                 return;
             }
+
             const newEdge = { from: selectedId, to: nodeId };
             setTempEdges([newEdge]);
             setSelectedId(nodeId);
+            setTempNode(nodeId);
             setTempEdgeTo(nodeId);
             setTempEdgeFrom(selectedId);
             const nodeA = getNodeById(selectedId);
@@ -164,6 +172,15 @@ const MapBuilder = ({
             prev.filter((edge) => edge.from !== nodeId && edge.to !== nodeId)
         );
         if (selectedId === nodeId) setSelectedId(null);
+        resetTempNode(nodes.at(-1)?.id + 1);
+    };
+
+    const handleEdgeClick = (e, index) => {
+        e.cancelBubble = true;
+        if (e.evt.button !== 0) return;
+        setSelectedId(null);
+        resetTempNode(nodes?.at(-1)?.id + 1);
+        setTempEdge(index);
     };
 
     const handleEdgeContextMenu = (e, index) => {
@@ -175,21 +192,31 @@ const MapBuilder = ({
     const invalidNode = () => {
         if (
             tempNodeType === "" ||
-            tempNodeTier === 0 ||
-            tempNodeLat === 0 ||
-            tempNodeLon === 0
+            tempNodeTier === "" ||
+            tempNodeLat === "" ||
+            tempNodeLon === ""
         )
             return true;
         return false;
     };
 
-    const resetTempNode = () => {
-        setTempNodeId((prev) => prev + 1);
+    const setTempNode = (nodeId) => {
+        const selectedNode = getNodeById(nodeId);
+        setTempNodeId(nodeId);
+        setTempNodeName(selectedNode?.name);
+        setTempNodeType(selectedNode?.type);
+        setTempNodeTier(selectedNode?.tier);
+        setTempNodeLat(selectedNode?.lat);
+        setTempNodeLon(selectedNode?.lon);
+    };
+
+    const resetTempNode = (newId = null) => {
+        setTempNodeId((prev) => (newId ? newId : prev + 1));
         setTempNodeName("");
         setTempNodeType("");
-        setTempNodeTier(0);
-        setTempNodeLat(0);
-        setTempNodeLon(0);
+        setTempNodeTier("");
+        setTempNodeLat("");
+        setTempNodeLon("");
     };
 
     const invalidEdge = () => {
@@ -197,17 +224,99 @@ const MapBuilder = ({
             tempEdgeType === "" ||
             tempEdgeTo === "" ||
             tempEdgeFrom === "" ||
-            tempEdgeDist === 0
+            tempEdgeDist === ""
         )
             return true;
         return false;
+    };
+
+    const setTempEdge = (index) => {
+        const selectedEdge = edges.find((_, i) => i === index);
+        setTempEdgeName(selectedEdge?.name);
+        setTempEdgeFrom(selectedEdge?.from);
+        setTempEdgeTo(selectedEdge?.to);
+        setTempEdgeDist(selectedEdge?.dist);
+        setTempEdgeType(selectedEdge?.type);
     };
 
     const resetTempEdge = () => {
         setTempEdgeName("");
         setTempEdgeTo("");
         setTempEdgeType("");
-        setTempEdgeDist(0);
+        setTempEdgeDist("");
+    };
+
+    const saveNode = (e) => {
+        e.preventDefault();
+        if (invalidNode()) return;
+        const updatedNode = nodes.find((node) => node.id === tempNodeId);
+        if (updatedNode) {
+            setNodes((prev) =>
+                prev.map((node) =>
+                    node.id === tempNodeId
+                        ? {
+                              id: tempNodeId,
+                              name: tempNodeName,
+                              type: tempNodeType,
+                              tier: tempNodeTier,
+                              lon: tempNodeLon,
+                              lat: tempNodeLat,
+                              nearId: 0,
+                          }
+                        : node
+                )
+            );
+            alert("Node updated successfully");
+        } else {
+            const newNode = {
+                id: tempNodeId,
+                lat: tempNodeLat,
+                lon: tempNodeLon,
+                name: tempNodeName,
+                type: tempNodeType,
+                tier: tempNodeTier,
+                nextId: 0,
+            };
+            setNodes((prev) => [...prev, newNode]);
+            resetTempNode();
+        }
+        e.target.reset();
+    };
+
+    const saveEdge = (e) => {
+        e.preventDefault();
+        if (invalidNode()) return;
+        const updatedEdge = edges.find(
+            (edge) => edge.from === tempEdgeFrom && edge.to === tempEdgeTo
+        );
+        if (updatedEdge) {
+            setEdges((prev) =>
+                prev.map((edge) =>
+                    edge.from === tempEdgeFrom && edge.to === tempEdgeTo
+                        ? {
+                              name: tempEdgeName,
+                              type: tempEdgeType,
+                              dist: tempEdgeDist,
+                              from: tempEdgeFrom,
+                              to: tempEdgeTo,
+                          }
+                        : edge
+                )
+            );
+            alert("Edge updated successfully");
+        } else {
+            const newEdge = {
+                dist: tempEdgeDist,
+                to: tempEdgeTo,
+                from: tempEdgeFrom,
+                name: tempEdgeName,
+                type: tempEdgeType,
+            };
+            setEdges((prev) => [...prev, newEdge]);
+            resetTempEdge();
+            setTempEdges([]);
+        }
+        e.target.reset();
     };
 
     return (
@@ -250,7 +359,8 @@ const MapBuilder = ({
                                 strokeWidth={3 / scale}
                                 pointerLength={10 / scale}
                                 pointerWidth={10 / scale}
-                                hitStrokeWidth={5 / scale}
+                                hitStrokeWidth={10 / scale}
+                                onClick={(e) => handleEdgeClick(e, i)}
                                 onContextMenu={(e) =>
                                     handleEdgeContextMenu(e, i)
                                 }
@@ -261,7 +371,8 @@ const MapBuilder = ({
                                 points={[posA.x, posA.y, posB.x, posB.y]}
                                 stroke="black"
                                 strokeWidth={3 / scale}
-                                hitStrokeWidth={5 / scale}
+                                hitStrokeWidth={10 / scale}
+                                onClick={(e) => handleEdgeClick(e, i)}
                                 onContextMenu={(e) =>
                                     handleEdgeContextMenu(e, i)
                                 }
@@ -326,25 +437,11 @@ const MapBuilder = ({
             {/* Dev Forms */}
             <form
                 className={styles["dev-form"] + " " + styles["dev-form-node"]}
-                onSubmit={(e) => {
-                    e.preventDefault();
-                    if (invalidNode()) return;
-                    const newNode = {
-                        id: tempNodeId,
-                        lat: tempNodeLat,
-                        lon: tempNodeLon,
-                        name: tempNodeName,
-                        type: tempNodeType,
-                        tier: tempNodeTier,
-                        nextId: 0,
-                    };
-                    setNodes((prev) => [...prev, newNode]);
-                    resetTempNode();
-                    e.target.reset();
-                }}
+                onSubmit={(e) => saveNode(e)}
             >
                 <input
                     ref={nodeInputRef}
+                    value={tempNodeName}
                     type="text"
                     placeholder="Node Name"
                     onChange={(e) => setTempNodeName(e.target.value)}
@@ -360,34 +457,36 @@ const MapBuilder = ({
                     <option value="" disabled>
                         Select Node Type
                     </option>
-                    <option value="cafe">Cafe</option>
+                    <option value="cafe">Cafe (Center)</option>
                     <option value="hostel">Hostel (Center)</option>
                     <option value="dept">Department (Center)</option>
                     <option value="ground">Ground (Center)</option>
                     <option value="worship">Worship Place (Center)</option>
                     <option value="wall">Wall (Building corners)</option>
-                    <option value="service">Office, Library, Gate</option>
+                    <option value="service">
+                        Entrance, Gate, Office, Library, Services
+                    </option>
                     <option value="intersection">Road, Street, etc.</option>
                     <option value="other">Other</option>
                 </select>
                 <input
                     type="text"
                     placeholder="Tier"
-                    value={tempNodeTier > 0 ? tempNodeTier : ""}
+                    value={tempNodeTier}
                     disabled
                     required
                 />
                 <input
                     type="text"
                     placeholder="Longitude"
-                    value={tempNodeLon > 0 ? tempNodeLon : ""}
+                    value={tempNodeLon}
                     disabled
                     required
                 />
                 <input
                     type="text"
                     placeholder="Latitude"
-                    value={tempNodeLat > 0 ? tempNodeLat : ""}
+                    value={tempNodeLat}
                     disabled
                     required
                 />
@@ -397,19 +496,7 @@ const MapBuilder = ({
             <form
                 className={styles["dev-form"] + " " + styles["dev-form-edge"]}
                 onSubmit={(e) => {
-                    e.preventDefault();
-                    if (invalidEdge()) return;
-                    const newEdge = {
-                        dist: tempEdgeDist,
-                        to: tempEdgeTo,
-                        from: tempEdgeFrom,
-                        name: tempEdgeName,
-                        type: tempEdgeType,
-                    };
-                    setEdges((prev) => [...prev, newEdge]);
-                    resetTempEdge();
-                    setTempEdges([]);
-                    e.target.reset();
+                    saveEdge(e);
                 }}
             >
                 <input
@@ -435,7 +522,7 @@ const MapBuilder = ({
                 <input
                     type="number"
                     placeholder="Distance"
-                    value={tempEdgeDist > 0 ? tempEdgeDist : ""}
+                    value={tempEdgeDist}
                     disabled
                     required
                 />
@@ -457,18 +544,8 @@ const MapBuilder = ({
             </form>
 
             <p id="debug">
-                {`Node [ Id: ${tempNodeId}, ` +
-                    `Name: ${tempNodeName}, ` +
-                    `Type: ${tempNodeType}, ` +
-                    `Tier: ${tempNodeTier}, ` +
-                    `Lon: ${tempNodeLon}, ` +
-                    `Lat: ${tempNodeLat} ]`}
-                <br></br>
-                {`Edge [ Name: ${tempEdgeName}, ` +
-                    `Type: ${tempEdgeType}, ` +
-                    `To: ${tempEdgeTo}, ` +
-                    `From: ${tempEdgeFrom}, ` +
-                    `Dist: ${tempEdgeDist} ]`}
+                {(selectedId ? `Selected ` : `Next `) +
+                    `Node [ Id: ${tempNodeId} ]`}
             </p>
         </div>
     );

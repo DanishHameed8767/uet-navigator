@@ -1,5 +1,5 @@
 import styles from "./RecentCard.module.css";
-import SearchCard from "../searchCard/searchCard";
+import SearchCard from "../SearchCard/SearchCard";
 
 const RecentCard = ({ sName, sNear, sType, eName, eNear, eType }) => {
     return (
