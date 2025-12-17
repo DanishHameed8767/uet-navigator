@@ -6,11 +6,11 @@
 }
 
 .sat-view {
-    background: url(../../../public/images/uet-satellite.png);
+    background: url(../../assets/map/sat.png);
 }
 
 .flat-view {
-    background: url(../../../public/images/uet_flat_half.png);
+    background: url(../../assets/map/flat.png);
 }
 
 .select-travel-mode {
