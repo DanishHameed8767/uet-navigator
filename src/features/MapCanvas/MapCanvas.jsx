@@ -7,7 +7,7 @@ import {
 } from "../../utils/appHelper.js";
 import useImage from "use-image";
 import mapFlat from "../../assets/map/flat.png";
-import mapSat from "../../assets/map/sat.png";
+import mapSat from "../../assets/map/sat.jpg";
 import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 import MapControls from "../../components/MapControls/MapControls.jsx";
