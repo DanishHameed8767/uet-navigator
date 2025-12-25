@@ -12,7 +12,10 @@ import {
     pixelToLatLon,
     latLonToPixel,
     getDistance,
+    getNodeTier,
 } from "../../utils/mapHelper.js";
+import NodeLabel from "../../components/NodeLabel/NodeLabel.jsx";
+import EdgeLabel from "../../components/EdgeLabel/EdgeLabel.jsx";
 
 const MapBuilder = ({
     nodes,
@@ -104,19 +107,6 @@ const MapBuilder = ({
     const getNodeById = (id) => {
         return nodes.find((n) => n.id === id);
     };
-
-    function getNodeTier(type) {
-        if (type === "dept") return 1;
-        if (type === "worship") return 1;
-        if (type === "cafe") return 2;
-        if (type === "hostel") return 2;
-        if (type === "ground") return 2;
-        if (type === "service") return 2;
-        if (type === "wall") return 3;
-        if (type === "intersection") return 3;
-        if (type === "other") return 3;
-        return 3;
-    }
 
     const handleStageClick = (e) => {
         if (e.target.getClassName() === "Circle" || e.evt.button !== 0) return;
@@ -237,6 +227,7 @@ const MapBuilder = ({
         setSelectedId(null);
         resetTempNode(nodes?.at(-1)?.id + 1);
         setTempEdge(index);
+        if (edgeInputRef) edgeInputRef.current.focus();
     };
 
     const handleEdgeContextMenu = (e, index) => {
@@ -416,11 +407,22 @@ const MapBuilder = ({
                             if (!nodeA || !nodeB) return null;
                             const posA = latLonToPixel(nodeA.lat, nodeA.lon);
                             const posB = latLonToPixel(nodeB.lat, nodeB.lon);
-                            const hasReverse = edgeLookup.has(
+                            const isTwoWay = edgeLookup.has(
                                 `${edge.to}-${edge.from}`
                             );
-                            const isOneWay = !hasReverse;
-                            return isOneWay ? (
+                            return isTwoWay ? (
+                                <Line
+                                    key={i}
+                                    points={[posA.x, posA.y, posB.x, posB.y]}
+                                    stroke="black"
+                                    strokeWidth={3 / scale}
+                                    hitStrokeWidth={10 / scale}
+                                    onClick={(e) => handleEdgeClick(e, i)}
+                                    onContextMenu={(e) =>
+                                        handleEdgeContextMenu(e, i)
+                                    }
+                                />
+                            ) : (
                                 <Arrow
                                     key={i}
                                     points={[posA.x, posA.y, posB.x, posB.y]}
@@ -429,18 +431,6 @@ const MapBuilder = ({
                                     strokeWidth={3 / scale}
                                     pointerLength={10 / scale}
                                     pointerWidth={10 / scale}
-                                    hitStrokeWidth={10 / scale}
-                                    onClick={(e) => handleEdgeClick(e, i)}
-                                    onContextMenu={(e) =>
-                                        handleEdgeContextMenu(e, i)
-                                    }
-                                />
-                            ) : (
-                                <Line
-                                    key={i}
-                                    points={[posA.x, posA.y, posB.x, posB.y]}
-                                    stroke="black"
-                                    strokeWidth={3 / scale}
                                     hitStrokeWidth={10 / scale}
                                     onClick={(e) => handleEdgeClick(e, i)}
                                     onContextMenu={(e) =>
@@ -503,6 +493,15 @@ const MapBuilder = ({
                         })}
                     </Layer>
                 )}
+
+                <Layer>
+                    <NodeLabel nodes={nodes} stageScale={scale}></NodeLabel>
+                    <EdgeLabel
+                        edges={edges}
+                        nodes={nodes}
+                        stageScale={scale}
+                    ></EdgeLabel>
+                </Layer>
             </Stage>
 
             {/* Forms For Nodes & Edges Manipulation */}
