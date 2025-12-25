@@ -1,6 +1,6 @@
 [
     {
-        "email": "admin123@gmail.com",
+        "email": "admin@navigator.uet",
         "startNode": {
             "name": "Library",
             "near": "Lecture Theatre",
@@ -17,7 +17,7 @@
         }
     },
     {
-        "email": "admin123@gmail.com",
+        "email": "admin@navigator.uet",
         "startNode": {
             "name": "Library",
             "near": "Lecture Theatre",
@@ -34,7 +34,7 @@
         }
     },
     {
-        "email": "admin123@gmail.com",
+        "email": "admin@navigator.uet",
         "startNode": {
             "name": "Student Service Cafe",
             "near": "UET Jamia Masjid",
