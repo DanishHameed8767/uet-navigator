@@ -1,19 +1,20 @@
 import styles from "./MapCanvas.module.css";
-import { useEffect, useState, useRef, useMemo } from "react";
-import { parseSafely } from "../../utils/appHelper.js";
+import { useEffect, useState, useRef, useMemo, useCallback } from "react";
+import {
+    loadEdgesData,
+    loadNodesData,
+    loadWalkData,
+} from "../../utils/appHelper.js";
 import useImage from "use-image";
 import mapFlat from "../../assets/map/flat.png";
 import mapSat from "../../assets/map/sat.png";
 import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
-import storedNodes from "../../../public/data/nodes.json";
-import storedEdges from "../../../public/data/edges.json";
-import mapMatrix from "../../../public/data/processed_map_matrix.json";
+import MapControls from "../../components/MapControls/MapControls.jsx";
 
 const MapCanvas = ({ currentUser }) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
-    const zoomIntervalRef = useRef(null);
     const [nodes, setNodes] = useState(loadNodesData());
     const [edges, setEdges] = useState(loadEdgesData());
     const [travelMode, setTravelMode] = useState("walk");
@@ -21,9 +22,21 @@ const MapCanvas = ({ currentUser }) => {
     const [imageMapFlat] = useImage(mapFlat);
     const [imageMapSat] = useImage(mapSat);
     const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
-    const [scale, setScale] = useState(0.13);
-    const [position, setPosition] = useState({ x: 270, y: 30 });
+    const [scale, setScale] = useState(0.208);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+    const zoomLimits = useMemo(() => {
+        const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
+        if (!image || dimensions.width === 0) return { min: 0.1, max: 2 };
+        const minScaleW = dimensions.width / image.width;
+        const minScaleH = dimensions.height / image.height;
+        const minScale = Math.max(minScaleW, minScaleH);
+        return {
+            min: minScale,
+            max: 1.5,
+        };
+    }, [dimensions, imageMapFlat, imageMapSat, viewType]);
 
     const gridConfig = useMemo(() => {
         if (!walkMatrix || walkMatrix.length === 0 || travelMode !== "walk")
@@ -39,6 +52,38 @@ const MapCanvas = ({ currentUser }) => {
             cols,
         };
     }, [walkMatrix, imageMapFlat]);
+
+    const getConstrainedPos = useCallback(
+        (newPos, newScale) => {
+            const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
+            if (!image) return newPos;
+            const stageW = dimensions.width;
+            const stageH = dimensions.height;
+            const mapW = image.width * newScale;
+            const mapH = image.height * newScale;
+            let { x, y } = newPos;
+            if (mapW > stageW) {
+                const minX = stageW - mapW;
+                const maxX = 0;
+                x = Math.max(minX, Math.min(x, maxX));
+            } else {
+                x = (stageW - mapW) / 2;
+            }
+            if (mapH > stageH) {
+                const minY = stageH - mapH;
+                const maxY = 0;
+                y = Math.max(minY, Math.min(y, maxY));
+            } else {
+                y = (stageH - mapH) / 2;
+            }
+            return { x, y };
+        },
+        [dimensions, imageMapFlat, imageMapSat, viewType]
+    );
+
+    useEffect(() => {
+        if (scale < zoomLimits.min) setScale(zoomLimits.min);
+    }, [zoomLimits.min, scale]);
 
     useEffect(() => {
         const updateSize = () => {
@@ -67,20 +112,6 @@ const MapCanvas = ({ currentUser }) => {
         localStorage.setItem("map-walk-matrix", JSON.stringify(walkMatrix));
     }, [walkMatrix]);
 
-    const startZoom = (direction) => {
-        handleZoomBtns(direction);
-        zoomIntervalRef.current = setInterval(() => {
-            handleZoomBtns(direction);
-        }, 100);
-    };
-
-    const stopZoom = () => {
-        if (zoomIntervalRef.current) {
-            clearInterval(zoomIntervalRef.current);
-            zoomIntervalRef.current = null;
-        }
-    };
-
     const handleZoomBtns = (factor) => {
         const stage = stageRef.current;
         if (!stage) return;
@@ -88,8 +119,7 @@ const MapCanvas = ({ currentUser }) => {
         const oldScale = stage.scaleX();
         let newScale =
             factor === "in" ? oldScale * scaleBy : oldScale / scaleBy;
-        if (newScale < 0.13) newScale = 0.13;
-        else if (newScale > 1.23) newScale = 1.23;
+        newScale = Math.max(zoomLimits.min, Math.min(newScale, zoomLimits.max));
         const pointer = {
             x: stage.width() / 2,
             y: stage.height() / 2,
@@ -98,10 +128,11 @@ const MapCanvas = ({ currentUser }) => {
             x: (pointer.x - stage.x()) / oldScale,
             y: (pointer.y - stage.y()) / oldScale,
         };
-        const newPos = {
+        const rawPos = {
             x: pointer.x - mousePointTo.x * newScale,
             y: pointer.y - mousePointTo.y * newScale,
         };
+        const newPos = getConstrainedPos(rawPos, newScale);
         setScale(newScale);
         setPosition(newPos);
     };
@@ -111,53 +142,25 @@ const MapCanvas = ({ currentUser }) => {
         const stage = e.target.getStage();
         const oldScale = stage.scaleX();
         const pointer = stage.getPointerPosition();
-        const scaleBy = 1.1;
+        const scaleBy = 1.05;
         let newScale =
             e.evt.deltaY < 0 ? oldScale * scaleBy : oldScale / scaleBy;
-        if (newScale < 0.13) newScale = 0.13;
-        else if (newScale > 1.23) newScale = 1.23;
+        newScale = Math.max(zoomLimits.min, Math.min(newScale, zoomLimits.max));
         const mousePointTo = {
             x: (pointer.x - stage.x()) / oldScale,
             y: (pointer.y - stage.y()) / oldScale,
         };
-        const newPos = {
+        const rawPos = {
             x: pointer.x - mousePointTo.x * newScale,
             y: pointer.y - mousePointTo.y * newScale,
         };
+        const newPos = getConstrainedPos(rawPos, newScale);
         setScale(newScale);
         setPosition(newPos);
     };
 
     const boundDrag = (pos) => {
-        const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
-        const mapWidth = image.width * scale;
-        const mapHeight = image.height * scale;
-        const minX = dimensions.width - mapWidth;
-        const minY = dimensions.height - mapHeight;
-        let { x, y } = pos;
-        if (mapWidth > dimensions.width) {
-            if (x > 0) x = 0;
-            if (x < minX) x = minX;
-        } else {
-            if (x < 0) x = 0;
-            if (x > dimensions.width - mapWidth)
-                x = dimensions.width - mapWidth;
-        }
-        if (mapHeight > dimensions.height) {
-            if (y > 0) y = 0;
-            if (y < minY) y = minY;
-        } else {
-            if (y < 0) y = 0;
-            if (y > dimensions.height - mapHeight)
-                y = dimensions.height - mapHeight;
-        }
-        return { x, y };
-    };
-
-    const toggleView = () => {
-        setViewType((prev) => {
-            return prev === "Flat" ? "Satellite" : "Flat";
-        });
+        return getConstrainedPos(pos, scale);
     };
 
     return (
@@ -205,83 +208,15 @@ const MapCanvas = ({ currentUser }) => {
                 />
             )}
 
-            {/* CONTROL OPTIONS */}
-            <select
-                value={travelMode}
-                className={styles["select-travel-mode"]}
-                onChange={(e) => setTravelMode(e.target.value)}
-                required
-            >
-                <option value="car">Car</option>
-                <option value="bike">Bike</option>
-                <option value="walk">Walk</option>
-            </select>
-            <button className={styles["btn-toggle-view"]} onClick={toggleView}>
-                <p>{viewType}</p>
-            </button>
-            <div className={styles["zoom-btns-wrapper"]}>
-                <button
-                    className={styles["btn-zoom-in"]}
-                    onMouseDown={() => startZoom("in")}
-                    onMouseUp={stopZoom}
-                    onMouseLeave={stopZoom}
-                >
-                    +
-                </button>
-                <button
-                    className={styles["btn-zoom-out"]}
-                    onMouseDown={() => startZoom("out")}
-                    onMouseUp={stopZoom}
-                    onMouseLeave={stopZoom}
-                >
-                    –
-                </button>
-            </div>
-            <button
-                className={styles["btn-cur-location"]}
-                onClick={() => {
-                    setScale(0.13);
-                    setPosition({ x: 270, y: 30 });
-                }}
-            >
-                <i className="fa-solid fa-location-crosshairs"></i>
-                Current
-            </button>
+            <MapControls
+                travelMode={travelMode}
+                setTravelMode={setTravelMode}
+                viewType={viewType}
+                setViewType={setViewType}
+                handleZoomBtns={handleZoomBtns}
+            ></MapControls>
         </div>
     );
-};
-
-const loadNodesData = () => {
-    let savedNodes = localStorage.getItem("map-nodes");
-    if (savedNodes) {
-        savedNodes = parseSafely(savedNodes);
-    } else {
-        localStorage.setItem("map-nodes", JSON.stringify(storedNodes));
-        savedNodes = storedNodes;
-    }
-    return savedNodes;
-};
-
-const loadWalkData = () => {
-    let mat = localStorage.getItem("map-walk-matrix");
-    if (mat) {
-        mat = parseSafely(mat);
-    } else {
-        localStorage.setItem("map-walk-matrix", JSON.stringify(mapMatrix));
-        mat = mapMatrix;
-    }
-    return mat;
-};
-
-const loadEdgesData = () => {
-    let savedEdges = localStorage.getItem("map-edges");
-    if (savedEdges) {
-        savedEdges = parseSafely(savedEdges);
-    } else {
-        localStorage.setItem("map-edges", JSON.stringify(storedEdges));
-        savedEdges = storedEdges;
-    }
-    return savedEdges;
 };
 
 export default MapCanvas;
