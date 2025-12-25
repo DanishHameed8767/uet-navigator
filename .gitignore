@@ -10,6 +10,8 @@ lerna-debug.log*
 uet_map.png
 uet_map.pgw
 *.png
+*.jpg
+*.jpeg
 
 node_modules
 dist
