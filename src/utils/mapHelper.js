@@ -57,3 +57,16 @@ export const getDistance = (lat1, lon1, lat2, lon2) => {
     const distance = R * c;
     return Math.round(distance * 100) / 100;
 };
+
+export const getNodeTier = (type) => {
+    if (type === "dept") return 1;
+    if (type === "worship") return 1;
+    if (type === "cafe") return 2;
+    if (type === "hostel") return 2;
+    if (type === "ground") return 2;
+    if (type === "service") return 2;
+    if (type === "wall") return 3;
+    if (type === "intersection") return 3;
+    if (type === "other") return 3;
+    return 3;
+};
