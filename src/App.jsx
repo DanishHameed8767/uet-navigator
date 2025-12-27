@@ -46,7 +46,6 @@ const App = () => {
     });
     useEffect(() => {
         if (currentUser) {
-            console.log(currentUser);
             localStorage.setItem(
                 "app-current-user",
                 JSON.stringify(currentUser)

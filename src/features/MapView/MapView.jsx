@@ -9,7 +9,6 @@ import {
     Circle,
     Line,
     Ring,
-    Star,
 } from "react-konva";
 
 const MapView = ({
