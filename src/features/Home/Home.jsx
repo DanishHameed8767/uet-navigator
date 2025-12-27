@@ -7,6 +7,7 @@ import savedLocations from "../../../public/data/saved.json";
 import recentLocations from "../../../public/data/recents.json";
 import SingleLinkedList from "../../data-structures/linked-list.js";
 import MapCanvas from "../MapCanvas/MapCanvas.jsx";
+import PickPathDialog from "../../components/PickPathCard/PickPathCard.jsx";
 
 const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
     const [searchKey, setSearchKey] = useState("");
@@ -47,6 +48,7 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
                 />
             )}
             <FilterBar />
+            <PickPathDialog />
         </div>
     );
 };

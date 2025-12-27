@@ -14,7 +14,7 @@
     }
 
     &:hover {
-        background-color: var(--color-input);
+        background-color: var(--color-hover);
         & > div > div:first-child {
             border: 2px solid var(--color-text-label);
         }
