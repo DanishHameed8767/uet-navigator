@@ -2,16 +2,13 @@ import styles from "./Button.module.css";
 
 const Button = ({
     id = null,
-    label = "Click Here",
+    label = null,
     icon = null,
     iconPos = "before",
     onClick,
     ...props
 }) => {
-    const classes = [
-        styles.btn,
-        icon && styles[`icon-${iconPos}`],
-    ].join(" ");
+    const classes = [styles.btn, icon && styles[`icon-${iconPos}`]].join(" ");
     const iconElem = icon ? (
         <i className={styles.icon + " " + icon}></i>
     ) : (
@@ -21,7 +18,7 @@ const Button = ({
         <>
             <button id={id} className={classes} onClick={onClick} {...props}>
                 {iconElem}
-                {label}
+                {label ? <p>{label}</p> : <></>}
             </button>
         </>
     );
