@@ -8,12 +8,21 @@ import recentLocations from "../../../public/data/recents.json";
 import SingleLinkedList from "../../data-structures/linked-list.js";
 import MapCanvas from "../MapCanvas/MapCanvas.jsx";
 import PickPathDialog from "../../components/PickPathCard/PickPathCard.jsx";
+import {
+    loadEdgesData,
+    loadNodesData,
+    loadWalkData,
+} from "../../utils/appHelper.js";
 
-const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
+const Home = ({ currentUser, searchMode, setSearchMode }) => {
+    const searchInputRef = useRef(null);
+    const [nodes, setNodes] = useState(loadNodesData());
+    const [edges, setEdges] = useState(loadEdgesData());
+    const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
+    const [stops, setStops] = useState([]);
     const [searchKey, setSearchKey] = useState("");
     const [isSearchFocus, setSearchFocus] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
-    const searchInputRef = useRef(null);
 
     useEffect(() => {
         if (searchMode === "default") return;
@@ -27,9 +36,28 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
             setSearchResult(loadRecents(currentUser.email));
     }, [searchMode]);
 
+    const handlePathVisit = () => {
+        alert("Path added to recent visits");
+    };
+
+    const handleStopSave = (stop) => {
+        alert("Stop " + stop.point.x + " - " + stop.point.y + " saved");
+    };
+
     return (
         <div className={styles.home}>
-            <MapCanvas currentUser={currentUser} />
+            <MapCanvas
+                currentUser={currentUser}
+                nodes={nodes}
+                setNodes={setNodes}
+                edges={edges}
+                setEdges={setEdges}
+                walkMatrix={walkMatrix}
+                setWalkMatrix={setWalkMatrix}
+                stops={stops}
+                setStops={setStops}
+                handleStopSave={handleStopSave}
+            />
             <SearchBar
                 searchKey={searchKey}
                 setKey={setSearchKey}
@@ -48,7 +76,14 @@ const Home = ({ currentUser, setCurrentUser, searchMode, setSearchMode }) => {
                 />
             )}
             <FilterBar />
-            <PickPathDialog />
+            {stops.length > 0 && (
+                <PickPathDialog
+                    stops={stops}
+                    setStops={setStops}
+                    handlePathVisit={handlePathVisit}
+                    handleStopSave={handleStopSave}
+                />
+            )}
         </div>
     );
 };

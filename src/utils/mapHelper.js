@@ -11,6 +11,7 @@ export const MAP_CONFIG = {
         lat: 31.578362660382176,
         lon: 74.36228327374383,
     },
+    MAX_STOPS: 4,
 };
 
 const getScales = () => {
@@ -70,15 +71,3 @@ export const getNodeTier = (type) => {
     if (type === "other") return 3;
     return 3;
 };
-
-export function getIconByType(type) {
-    if (type === "road") return "fa-solid fa-road";
-    if (type === "street") return "fa-solid fa-lines-leaning";
-    if (type === "path") return "fa-solid fa-lines-leaning";
-    if (type === "department") return "fa-solid fa-graduation-cap";
-    if (type === "hostel") return "fa-solid fa-bed";
-    if (type === "cafe") return "fa-solid fa-utensils";
-    if (type === "grounds") return "fa-solid fa-table-tennis-paddle-ball";
-    if (type === "worship") return "fa-solid fa-mosque";
-    return "fa-solid fa-exclamation";
-}

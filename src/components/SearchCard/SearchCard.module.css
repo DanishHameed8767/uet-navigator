@@ -5,6 +5,10 @@
     gap: var(--space-md);
     padding: var(--space-md) var(--space-lg);
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 
     & .icon-wrapper {
         width: 3rem;

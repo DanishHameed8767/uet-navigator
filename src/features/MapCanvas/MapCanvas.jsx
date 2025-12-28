@@ -1,10 +1,5 @@
 import styles from "./MapCanvas.module.css";
 import { useEffect, useState, useRef, useMemo, useCallback } from "react";
-import {
-    loadEdgesData,
-    loadNodesData,
-    loadWalkData,
-} from "../../utils/appHelper.js";
 import useImage from "use-image";
 import mapFlat from "../../assets/map/flat.png";
 import mapSat from "../../assets/map/sat.jpg";
@@ -12,16 +7,24 @@ import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 import MapControls from "../../components/MapControls/MapControls.jsx";
 
-const MapCanvas = ({ currentUser }) => {
+const MapCanvas = ({
+    currentUser,
+    nodes,
+    setNodes,
+    edges,
+    setEdges,
+    walkMatrix,
+    setWalkMatrix,
+    stops,
+    setStops,
+    handleStopSave,
+}) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
-    const [nodes, setNodes] = useState(loadNodesData());
-    const [edges, setEdges] = useState(loadEdgesData());
     const [travelMode, setTravelMode] = useState("walk");
     const [viewType, setViewType] = useState("Flat");
     const [imageMapFlat] = useImage(mapFlat);
     const [imageMapSat] = useImage(mapSat);
-    const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
     const [scale, setScale] = useState(0.208);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
@@ -39,8 +42,7 @@ const MapCanvas = ({ currentUser }) => {
     }, [dimensions, imageMapFlat, imageMapSat, viewType]);
 
     const gridConfig = useMemo(() => {
-        if (!walkMatrix || walkMatrix.length === 0 || travelMode !== "walk")
-            return null;
+        if (!walkMatrix || walkMatrix.length === 0) return null;
         const currentImage = imageMapFlat;
         if (!currentImage) return null;
         const rows = walkMatrix.length;
@@ -197,6 +199,8 @@ const MapCanvas = ({ currentUser }) => {
                     edges={edges}
                     viewType={viewType}
                     travelMode={travelMode}
+                    stops={stops}
+                    setStops={setStops}
                     imageMapFlat={imageMapFlat}
                     imageMapSat={imageMapSat}
                     walkMatrix={walkMatrix}
@@ -205,6 +209,7 @@ const MapCanvas = ({ currentUser }) => {
                     stageRef={stageRef}
                     boundDrag={boundDrag}
                     handleWheel={handleWheel}
+                    handleStopSave={handleStopSave}
                 />
             )}
 

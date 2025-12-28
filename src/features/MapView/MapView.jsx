@@ -1,7 +1,7 @@
 import styles from "./MapView.module.css";
 import { useState, useEffect } from "react";
 import { findPath } from "../../utils/pathFinding.js";
-import { latLonToPixel } from "../../utils/mapHelper.js";
+import { MAP_CONFIG } from "../../utils/mapHelper.js";
 import {
     Stage,
     Layer,
@@ -20,6 +20,8 @@ const MapView = ({
     setPosition,
     viewType,
     travelMode,
+    stops,
+    setStops,
     imageMapFlat,
     imageMapSat,
     walkMatrix,
@@ -28,63 +30,83 @@ const MapView = ({
     stageRef,
     boundDrag,
     handleWheel,
+    handleStopSave,
 }) => {
-    const [walkStart, setWalkStart] = useState(null);
-    const [walkEnd, setWalkEnd] = useState(null);
-    const [walkPath, setWalkPath] = useState([]);
+    const [travelPath, setTravelPath] = useState([]);
 
     useEffect(() => {
-        if (!walkStart || !walkEnd || !gridConfig) {
-            setWalkPath([]);
+        if (travelMode !== "walk") return;
+        if (!gridConfig) {
+            setTravelPath([]);
             return;
         }
-        console.time("A* Pathfinding");
-        const pathNodes = findPath(walkMatrix, walkStart, walkEnd);
-        console.timeEnd("A* Pathfinding");
-
-        if (pathNodes) {
-            const pixelPoints = pathNodes.flatMap((p) => [
-                p.col * gridConfig.cellWidth + gridConfig.cellWidth / 2,
-                p.row * gridConfig.cellHeight + gridConfig.cellHeight / 2,
-            ]);
-            setWalkPath(pixelPoints);
-        } else {
-            alert("No path found! (Are you surrounded by walls?)");
-            setWalkPath([]);
+        let pixelPoints = [];
+        for (let i = 0; i < stops.length - 1; i++) {
+            const start = imageToGridXY(
+                stops[i].point.x,
+                stops[i].point.y,
+                gridConfig
+            );
+            const end = imageToGridXY(
+                stops[i + 1].point.x,
+                stops[i + 1].point.y,
+                gridConfig
+            );
+            console.time(`A* Pathfinding from ${i + 1} to ${i + 2}`);
+            const pathNodes = findPath(walkMatrix, start, end);
+            console.timeEnd(`A* Pathfinding from ${i + 1} to ${i + 2}`);
+            if (pathNodes) {
+                pixelPoints = [
+                    ...pixelPoints,
+                    ...pathNodes.flatMap((p) => [
+                        p.col * gridConfig.cellWidth + gridConfig.cellWidth / 2,
+                        p.row * gridConfig.cellHeight +
+                            gridConfig.cellHeight / 2,
+                    ]),
+                ];
+            } else {
+                alert("No path found! (Are you surrounded by walls?)");
+                setStops((prev) => [...prev.slice(0, -1)]);
+            }
         }
-    }, [walkStart, walkEnd, gridConfig]);
+        setTravelPath(pixelPoints);
+    }, [travelMode, stops, gridConfig]);
 
     const handleStageClick = (e) => {
-        if (travelMode !== "walk" || !gridConfig) return;
+        if (e.evt.button !== 0) return;
+        if (travelMode === "walk" && !gridConfig) return;
+        if (stops.length === MAP_CONFIG.MAX_STOPS) {
+            alert("Cannot add more than " + MAP_CONFIG.MAX_STOPS + " stops.");
+            return;
+        }
         const stage = e.target.getStage();
         const pointer = stage.getPointerPosition();
         const imgX = (pointer.x - stage.x()) / stage.scaleX();
         const imgY = (pointer.y - stage.y()) / stage.scaleY();
-        const col = Math.floor(imgX / gridConfig.cellWidth);
-        const row = Math.floor(imgY / gridConfig.cellHeight);
-        if (
-            row < 0 ||
-            row >= gridConfig.rows ||
-            col < 0 ||
-            col >= gridConfig.cols
-        )
-            return;
-        if (walkMatrix[row][col] === 0) {
-            return;
+        if (travelMode === "walk") {
+            const point = imageToGridXY(imgX, imgY, gridConfig);
+            if (walkMatrix[point.row][point.col] === 0) return;
         }
-        const point = { row, col };
-        if (!walkStart) {
-            setWalkStart(point);
-        } else if (!walkEnd) {
-            setWalkEnd(point);
-        } else {
-            setWalkStart(point);
-            setWalkEnd(null);
-        }
+        setStops((prev) => [
+            ...prev,
+            {
+                // closest node:
+                point: {
+                    x: imgX,
+                    y: imgY,
+                },
+            },
+        ]);
     };
 
-    const getNodeById = (id) => {
-        return nodes.find((n) => n.id === id);
+    const handleStopClick = (e, id) => {
+        e.evt.preventDefault();
+        e.cancelBubble = true;
+        if (e.evt.button !== 0) {
+            setStops((prev) =>
+                prev.filter((stop) => `${stop.point.x}-${stop.point.y}` !== id)
+            );
+        }
     };
 
     return (
@@ -93,14 +115,15 @@ const MapView = ({
                 ref={stageRef}
                 width={dimensions.width}
                 height={dimensions.height}
-                draggable
-                dragBoundFunc={boundDrag}
-                onClick={handleStageClick}
-                onWheel={handleWheel}
                 scaleX={scale}
                 scaleY={scale}
                 x={position.x}
                 y={position.y}
+                draggable
+                dragBoundFunc={boundDrag}
+                onWheel={handleWheel}
+                onClick={handleStageClick}
+                onContextMenu={(e) => e.evt.preventDefault()}
                 onDragEnd={(e) => {
                     setPosition({ x: e.target.x(), y: e.target.y() });
                 }}
@@ -110,123 +133,77 @@ const MapView = ({
                         image={viewType === "Flat" ? imageMapFlat : imageMapSat}
                     />
                 </Layer>
-                {travelMode === "walk" ? (
-                    <Layer>
-                        {walkPath.length > 0 && (
-                            <Line
-                                points={walkPath}
-                                stroke="hsla(200, 100%, 50%, 1.00)"
-                                strokeWidth={10 / scale}
-                                lineCap="round"
-                                lineJoin="round"
-                                tension={0.1}
-                                listening={false}
+                <Layer>
+                    {travelPath.length > 0 && (
+                        <Line
+                            points={travelPath}
+                            stroke="hsla(200, 100%, 50%, 1.00)"
+                            strokeWidth={10 / scale}
+                            lineCap="round"
+                            lineJoin="round"
+                            tension={0.1}
+                            listening={false}
+                        />
+                    )}
+
+                    {stops.map((stop) => (
+                        <>
+                            <Circle
+                                key={`${stop.point.x}-${stop.point.y}`}
+                                x={stop.point.x}
+                                y={stop.point.y}
+                                radius={8 / scale}
+                                fill={getStopColor(travelMode)}
+                                stroke="black"
+                                strokeWidth={2 / scale}
+                                onClick={(e) => (e.cancelBubble = true)}
+                                onDblClick={() => handleStopSave(stop)}
+                                onContextMenu={(e) =>
+                                    handleStopClick(
+                                        e,
+                                        `${stop.point.x}-${stop.point.y}`
+                                    )
+                                }
                             />
-                        )}
-                        {walkStart && (
-                            <>
-                                <Circle
-                                    x={
-                                        walkStart.col * gridConfig.cellWidth +
-                                        gridConfig.cellWidth / 2
-                                    }
-                                    y={
-                                        walkStart.row * gridConfig.cellHeight +
-                                        gridConfig.cellHeight / 2
-                                    }
-                                    radius={8 / scale}
-                                    fill="hsla(220, 100%, 20%, 1.00)"
-                                    stroke="black"
-                                    strokeWidth={2 / scale}
-                                />
-                                <Ring
-                                    x={
-                                        walkStart.col * gridConfig.cellWidth +
-                                        gridConfig.cellWidth / 2
-                                    }
-                                    y={
-                                        walkStart.row * gridConfig.cellHeight +
-                                        gridConfig.cellHeight / 2
-                                    }
-                                    innerRadius={12 / scale}
-                                    outerRadius={16 / scale}
-                                    fill="hsla(220, 100%, 20%, 1.00)"
-                                    opacity={0.5}
-                                />
-                            </>
-                        )}
-                        {walkEnd && (
-                            <>
-                                <Circle
-                                    x={
-                                        walkEnd.col * gridConfig.cellWidth +
-                                        gridConfig.cellWidth / 2
-                                    }
-                                    y={
-                                        walkEnd.row * gridConfig.cellHeight +
-                                        gridConfig.cellHeight / 2
-                                    }
-                                    radius={8 / scale}
-                                    fill="hsla(220, 100%, 20%, 1.00)"
-                                    stroke="black"
-                                    strokeWidth={2 / scale}
-                                />
-                                <Ring
-                                    x={
-                                        walkEnd.col * gridConfig.cellWidth +
-                                        gridConfig.cellWidth / 2
-                                    }
-                                    y={
-                                        walkEnd.row * gridConfig.cellHeight +
-                                        gridConfig.cellHeight / 2
-                                    }
-                                    numPoints={5}
-                                    innerRadius={12 / scale}
-                                    outerRadius={16 / scale}
-                                    fill="hsla(220, 100%, 20%, 1.00)"
-                                    opacity={0.5}
-                                />
-                            </>
-                        )}
-                    </Layer>
-                ) : (
-                    <Layer>
-                        {edges.map((edge, i) => {
-                            const nodeA = getNodeById(edge.from);
-                            const nodeB = getNodeById(edge.to);
-                            if (!nodeA || !nodeB) return null;
-                            const posA = latLonToPixel(nodeA.lat, nodeA.lon);
-                            const posB = latLonToPixel(nodeB.lat, nodeB.lon);
-                            return (
-                                <Line
-                                    key={i}
-                                    points={[posA.x, posA.y, posB.x, posB.y]}
-                                    stroke="black"
-                                    strokeWidth={3 / scale}
-                                />
-                            );
-                        })}
-                        {nodes.map((node) => {
-                            const { x, y } = latLonToPixel(node.lat, node.lon);
-                            return (
-                                <Circle
-                                    key={node.id}
-                                    x={x}
-                                    y={y}
-                                    radius={7}
-                                    fill={"yellow"}
-                                    stroke="black"
-                                    strokeWidth={1}
-                                    scaleX={1 / scale}
-                                    scaleY={1 / scale}
-                                />
-                            );
-                        })}
-                    </Layer>
-                )}
+                            <Ring
+                                key={`${stop.point.x}+${stop.point.y}`}
+                                x={stop.point.x}
+                                y={stop.point.y}
+                                innerRadius={12 / scale}
+                                outerRadius={16 / scale}
+                                fill={getStopColor(travelMode)}
+                                opacity={0.5}
+                                onClick={(e) => (e.cancelBubble = true)}
+                                onDblClick={() => handleStopSave(stop)}
+                                onContextMenu={(e) =>
+                                    handleStopClick(
+                                        e,
+                                        `${stop.point.x}-${stop.point.y}`
+                                    )
+                                }
+                            />
+                        </>
+                    ))}
+                </Layer>
             </Stage>
         </div>
     );
 };
 
 export default MapView;
+
+const getStopColor = (travelMode) => {
+    return travelMode === "bike"
+        ? "hsla(50, 100%, 50%, 1.00)"
+        : travelMode === "car"
+        ? "hsla(0, 90%, 45%, 1.00)"
+        : "hsla(220, 100%, 40%, 1.00)";
+};
+
+const imageToGridXY = (imgX, imgY, gridConfig) => {
+    const col = Math.floor(imgX / gridConfig.cellWidth);
+    const row = Math.floor(imgY / gridConfig.cellHeight);
+    if (row < 0 || row >= gridConfig.rows || col < 0 || col >= gridConfig.cols)
+        return { row: 0, col: 0 };
+    return { row, col };
+};
