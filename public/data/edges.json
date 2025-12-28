@@ -1,506 +1,8318 @@
 [
-    {
-        "dist": 91.79,
-        "to": 3,
-        "from": 9,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.44,
-        "to": 4,
-        "from": 3,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 9.53,
-        "to": 6,
-        "from": 4,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 90.92,
-        "to": 7,
-        "from": 6,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.3,
-        "to": 2,
-        "from": 3,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.62,
-        "to": 5,
-        "from": 6,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 144.5,
-        "to": 8,
-        "from": 5,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.4,
-        "to": 5,
-        "from": 4,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.74,
-        "to": 10,
-        "from": 2,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 30.41,
-        "to": 11,
-        "from": 10,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 35.28,
-        "to": 12,
-        "from": 11,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 14.9,
-        "to": 13,
-        "from": 12,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 85.96,
-        "to": 5,
-        "from": 32,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 7.24,
-        "to": 14,
-        "from": 13,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.15,
-        "to": 15,
-        "from": 14,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 5.86,
-        "to": 16,
-        "from": 15,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.89,
-        "to": 17,
-        "from": 16,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.23,
-        "to": 18,
-        "from": 17,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 5.81,
-        "to": 19,
-        "from": 18,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.22,
-        "to": 20,
-        "from": 19,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.39,
-        "to": 45,
-        "from": 18,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 14.53,
-        "to": 33,
-        "from": 45,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 21.82,
-        "to": 34,
-        "from": 33,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 48.92,
-        "to": 35,
-        "from": 34,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 5.95,
-        "to": 21,
-        "from": 20,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 5.89,
-        "to": 22,
-        "from": 21,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.88,
-        "to": 23,
-        "from": 22,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.37,
-        "to": 24,
-        "from": 23,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 9.18,
-        "to": 25,
-        "from": 24,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.14,
-        "to": 26,
-        "from": 25,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 11.04,
-        "to": 39,
-        "from": 26,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 16.55,
-        "to": 40,
-        "from": 39,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 10.45,
-        "to": 42,
-        "from": 40,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 71.16,
-        "to": 43,
-        "from": 42,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 48.92,
-        "to": 34,
-        "from": 35,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 43.05,
-        "to": 21,
-        "from": 34,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 16.43,
-        "to": 36,
-        "from": 21,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 11.85,
-        "to": 37,
-        "from": 36,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 60.17,
-        "to": 44,
-        "from": 37,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 60.17,
-        "to": 37,
-        "from": 44,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 11.51,
-        "to": 38,
-        "from": 37,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 19.08,
-        "to": 24,
-        "from": 38,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.28,
-        "to": 27,
-        "from": 26,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.55,
-        "to": 28,
-        "from": 27,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.63,
-        "to": 29,
-        "from": 28,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 6.34,
-        "to": 30,
-        "from": 29,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 8.25,
-        "to": 31,
-        "from": 30,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 7.54,
-        "to": 14,
-        "from": 31,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 7.39,
-        "to": 32,
-        "from": 30,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 71.16,
-        "to": 42,
-        "from": 43,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 144.5,
-        "to": 5,
-        "from": 8,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 35.28,
-        "to": 11,
-        "from": 12,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 21.39,
-        "to": 51,
-        "from": 46,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 17.32,
-        "to": 51,
-        "from": 52,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 24.6,
-        "to": 51,
-        "from": 47,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 19.16,
-        "to": 51,
-        "from": 53,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 35.56,
-        "to": 51,
-        "from": 48,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 31.52,
-        "to": 51,
-        "from": 54,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 33.85,
-        "to": 51,
-        "from": 49,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 11.82,
-        "to": 50,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 22.39,
-        "to": 50,
-        "from": 55,
-        "name": "",
-        "type": "street"
-    },
-    {
-        "dist": 22.39,
-        "to": 55,
-        "from": 50,
-        "name": "",
-        "type": "street"
-    },
-    {
-        "dist": 10.86,
-        "to": 55,
-        "from": 42,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 24.21,
-        "to": 29,
-        "from": 55,
-        "name": "",
-        "type": "road"
-    },
-    {
-        "dist": 11.82,
-        "to": 51,
-        "from": 50,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 21.39,
-        "to": 46,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 19.16,
-        "to": 53,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 24.6,
-        "to": 47,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 33.85,
-        "to": 49,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 17.32,
-        "to": 52,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 31.52,
-        "to": 54,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    },
-    {
-        "dist": 35.56,
-        "to": 48,
-        "from": 51,
-        "name": "",
-        "type": "wall"
-    }
+  {
+    "from": 2,
+    "to": 3,
+    "dist": 8.44,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.2813333333333333,
+    "name": ""
+  },
+  {
+    "from": 3,
+    "to": 5,
+    "dist": 9.53,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.31766666666666665,
+    "name": ""
+  },
+  {
+    "from": 5,
+    "to": 6,
+    "dist": 90.92,
+    "type": "road",
+    "twoWay": false,
+    "weight": 3.030666666666667,
+    "name": ""
+  },
+  {
+    "from": 2,
+    "to": 1,
+    "dist": 6.3,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.21,
+    "name": ""
+  },
+  {
+    "from": 5,
+    "to": 4,
+    "dist": 6.62,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.22066666666666668,
+    "name": ""
+  },
+  {
+    "from": 4,
+    "to": 7,
+    "dist": 144.5,
+    "type": "road",
+    "twoWay": true,
+    "weight": 4.816666666666666,
+    "name": ""
+  },
+  {
+    "from": 3,
+    "to": 4,
+    "dist": 6.4,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.21333333333333335,
+    "name": ""
+  },
+  {
+    "from": 1,
+    "to": 9,
+    "dist": 8.74,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.29133333333333333,
+    "name": ""
+  },
+  {
+    "from": 9,
+    "to": 10,
+    "dist": 30.41,
+    "type": "road",
+    "twoWay": false,
+    "weight": 1.0136666666666667,
+    "name": ""
+  },
+  {
+    "from": 10,
+    "to": 11,
+    "dist": 35.28,
+    "type": "road",
+    "twoWay": false,
+    "weight": 1.176,
+    "name": ""
+  },
+  {
+    "from": 11,
+    "to": 12,
+    "dist": 14.9,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.4966666666666667,
+    "name": ""
+  },
+  {
+    "from": 31,
+    "to": 4,
+    "dist": 85.96,
+    "type": "road",
+    "twoWay": false,
+    "weight": 2.865333333333333,
+    "name": ""
+  },
+  {
+    "from": 12,
+    "to": 13,
+    "dist": 7.24,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.24133333333333334,
+    "name": ""
+  },
+  {
+    "from": 13,
+    "to": 14,
+    "dist": 6.15,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.20500000000000002,
+    "name": ""
+  },
+  {
+    "from": 14,
+    "to": 15,
+    "dist": 5.86,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.19533333333333333,
+    "name": ""
+  },
+  {
+    "from": 15,
+    "to": 16,
+    "dist": 6.89,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.22966666666666666,
+    "name": ""
+  },
+  {
+    "from": 16,
+    "to": 17,
+    "dist": 6.23,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.2076666666666667,
+    "name": ""
+  },
+  {
+    "from": 17,
+    "to": 18,
+    "dist": 5.81,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.19366666666666665,
+    "name": ""
+  },
+  {
+    "from": 18,
+    "to": 19,
+    "dist": 6.22,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.20733333333333331,
+    "name": ""
+  },
+  {
+    "from": 17,
+    "to": 43,
+    "dist": 8.39,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.2796666666666667,
+    "name": ""
+  },
+  {
+    "from": 43,
+    "to": 32,
+    "dist": 14.53,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.48433333333333334,
+    "name": ""
+  },
+  {
+    "from": 32,
+    "to": 33,
+    "dist": 21.82,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.7273333333333334,
+    "name": ""
+  },
+  {
+    "from": 33,
+    "to": 34,
+    "dist": 48.92,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6306666666666667,
+    "name": ""
+  },
+  {
+    "from": 19,
+    "to": 20,
+    "dist": 5.95,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.19833333333333333,
+    "name": ""
+  },
+  {
+    "from": 20,
+    "to": 21,
+    "dist": 5.89,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.19633333333333333,
+    "name": ""
+  },
+  {
+    "from": 21,
+    "to": 22,
+    "dist": 6.88,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.22933333333333333,
+    "name": ""
+  },
+  {
+    "from": 22,
+    "to": 23,
+    "dist": 8.37,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.27899999999999997,
+    "name": ""
+  },
+  {
+    "from": 23,
+    "to": 24,
+    "dist": 9.18,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.306,
+    "name": ""
+  },
+  {
+    "from": 24,
+    "to": 25,
+    "dist": 8.14,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.27133333333333337,
+    "name": ""
+  },
+  {
+    "from": 25,
+    "to": 38,
+    "dist": 11.04,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.368,
+    "name": ""
+  },
+  {
+    "from": 38,
+    "to": 39,
+    "dist": 16.55,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.5516666666666666,
+    "name": ""
+  },
+  {
+    "from": 39,
+    "to": 40,
+    "dist": 10.45,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.34833333333333333,
+    "name": ""
+  },
+  {
+    "from": 33,
+    "to": 20,
+    "dist": 43.05,
+    "type": "road",
+    "twoWay": false,
+    "weight": 1.4349999999999998,
+    "name": ""
+  },
+  {
+    "from": 20,
+    "to": 35,
+    "dist": 16.43,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.5476666666666666,
+    "name": ""
+  },
+  {
+    "from": 35,
+    "to": 36,
+    "dist": 11.85,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.39499999999999996,
+    "name": ""
+  },
+  {
+    "from": 36,
+    "to": 42,
+    "dist": 60.17,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.005666666666667,
+    "name": ""
+  },
+  {
+    "from": 36,
+    "to": 37,
+    "dist": 11.51,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.38366666666666666,
+    "name": ""
+  },
+  {
+    "from": 37,
+    "to": 23,
+    "dist": 19.08,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.6359999999999999,
+    "name": ""
+  },
+  {
+    "from": 25,
+    "to": 26,
+    "dist": 8.28,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.27599999999999997,
+    "name": ""
+  },
+  {
+    "from": 26,
+    "to": 27,
+    "dist": 8.55,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.28500000000000003,
+    "name": ""
+  },
+  {
+    "from": 27,
+    "to": 28,
+    "dist": 8.63,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.2876666666666667,
+    "name": ""
+  },
+  {
+    "from": 28,
+    "to": 29,
+    "dist": 6.34,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.21133333333333332,
+    "name": ""
+  },
+  {
+    "from": 29,
+    "to": 30,
+    "dist": 8.25,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.275,
+    "name": ""
+  },
+  {
+    "from": 30,
+    "to": 13,
+    "dist": 7.54,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.25133333333333335,
+    "name": ""
+  },
+  {
+    "from": 29,
+    "to": 31,
+    "dist": 7.39,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.24633333333333332,
+    "name": ""
+  },
+  {
+    "from": 44,
+    "to": 49,
+    "dist": 21.39,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 50,
+    "to": 49,
+    "dist": 17.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 45,
+    "to": 49,
+    "dist": 24.6,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 51,
+    "to": 49,
+    "dist": 19.16,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 46,
+    "to": 49,
+    "dist": 35.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 52,
+    "to": 49,
+    "dist": 31.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 47,
+    "to": 49,
+    "dist": 33.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 49,
+    "to": 48,
+    "dist": 11.82,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 53,
+    "to": 48,
+    "dist": 22.39,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.1195,
+    "name": ""
+  },
+  {
+    "from": 40,
+    "to": 53,
+    "dist": 10.86,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.362,
+    "name": ""
+  },
+  {
+    "from": 53,
+    "to": 28,
+    "dist": 24.21,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.807,
+    "name": ""
+  },
+  {
+    "from": 54,
+    "to": 65,
+    "dist": 133.42,
+    "type": "road",
+    "twoWay": true,
+    "weight": 4.447333333333333,
+    "name": ""
+  },
+  {
+    "from": 65,
+    "to": 55,
+    "dist": 14.92,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.49733333333333335,
+    "name": ""
+  },
+  {
+    "from": 56,
+    "to": 55,
+    "dist": 6.59,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.21966666666666665,
+    "name": ""
+  },
+  {
+    "from": 56,
+    "to": 57,
+    "dist": 26.22,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.874,
+    "name": ""
+  },
+  {
+    "from": 55,
+    "to": 58,
+    "dist": 24.05,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.2025000000000001,
+    "name": ""
+  },
+  {
+    "from": 65,
+    "to": 64,
+    "dist": 5.8,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.29,
+    "name": ""
+  },
+  {
+    "from": 63,
+    "to": 64,
+    "dist": 7.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 63,
+    "to": 61,
+    "dist": 9.4,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 63,
+    "to": 62,
+    "dist": 9.23,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 63,
+    "to": 60,
+    "dist": 13.6,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 63,
+    "to": 59,
+    "dist": 14.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 56,
+    "to": 66,
+    "dist": 86.59,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.8863333333333334,
+    "name": ""
+  },
+  {
+    "from": 57,
+    "to": 67,
+    "dist": 69.84,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.3280000000000003,
+    "name": ""
+  },
+  {
+    "from": 67,
+    "to": 68,
+    "dist": 27.56,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.378,
+    "name": ""
+  },
+  {
+    "from": 68,
+    "to": 69,
+    "dist": 64.86,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.162,
+    "name": ""
+  },
+  {
+    "from": 74,
+    "to": 71,
+    "dist": 145.79,
+    "type": "road",
+    "twoWay": true,
+    "weight": 4.859666666666667,
+    "name": ""
+  },
+  {
+    "from": 57,
+    "to": 71,
+    "dist": 12.87,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.429,
+    "name": ""
+  },
+  {
+    "from": 72,
+    "to": 71,
+    "dist": 47.43,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.581,
+    "name": ""
+  },
+  {
+    "from": 72,
+    "to": 70,
+    "dist": 5.64,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.188,
+    "name": ""
+  },
+  {
+    "from": 73,
+    "to": 70,
+    "dist": 6.6,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.22,
+    "name": ""
+  },
+  {
+    "from": 76,
+    "to": 72,
+    "dist": 84.72,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.824,
+    "name": ""
+  },
+  {
+    "from": 76,
+    "to": 77,
+    "dist": 7.95,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.265,
+    "name": ""
+  },
+  {
+    "from": 69,
+    "to": 70,
+    "dist": 102.76,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.4253333333333336,
+    "name": ""
+  },
+  {
+    "from": 75,
+    "to": 79,
+    "dist": 15.64,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5213333333333333,
+    "name": ""
+  },
+  {
+    "from": 79,
+    "to": 78,
+    "dist": 54.87,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.829,
+    "name": ""
+  },
+  {
+    "from": 78,
+    "to": 77,
+    "dist": 36.25,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.2083333333333333,
+    "name": ""
+  },
+  {
+    "from": 77,
+    "to": 95,
+    "dist": 29.22,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.974,
+    "name": ""
+  },
+  {
+    "from": 95,
+    "to": 73,
+    "dist": 58.26,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.942,
+    "name": ""
+  },
+  {
+    "from": 82,
+    "to": 73,
+    "dist": 62.29,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.0763333333333334,
+    "name": ""
+  },
+  {
+    "from": 79,
+    "to": 96,
+    "dist": 11.66,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.583,
+    "name": ""
+  },
+  {
+    "from": 85,
+    "to": 96,
+    "dist": 32.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 85,
+    "to": 89,
+    "dist": 47.57,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 85,
+    "to": 88,
+    "dist": 45.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 85,
+    "to": 87,
+    "dist": 48.93,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 86,
+    "to": 85,
+    "dist": 47.78,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 95,
+    "to": 97,
+    "dist": 10.35,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.5175,
+    "name": ""
+  },
+  {
+    "from": 90,
+    "to": 97,
+    "dist": 29.3,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 93,
+    "to": 90,
+    "dist": 46.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 90,
+    "to": 94,
+    "dist": 45.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 90,
+    "to": 92,
+    "dist": 50.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 91,
+    "to": 90,
+    "dist": 50.74,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 69,
+    "to": 98,
+    "dist": 45.67,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.5223333333333333,
+    "name": ""
+  },
+  {
+    "from": 98,
+    "to": 99,
+    "dist": 20.61,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6869999999999999,
+    "name": ""
+  },
+  {
+    "from": 100,
+    "to": 99,
+    "dist": 21.6,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7200000000000001,
+    "name": ""
+  },
+  {
+    "from": 100,
+    "to": 101,
+    "dist": 16.17,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.539,
+    "name": ""
+  },
+  {
+    "from": 102,
+    "to": 101,
+    "dist": 8.47,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.2823333333333334,
+    "name": ""
+  },
+  {
+    "from": 103,
+    "to": 102,
+    "dist": 59.02,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.9673333333333334,
+    "name": ""
+  },
+  {
+    "from": 103,
+    "to": 82,
+    "dist": 79.52,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.6506666666666665,
+    "name": ""
+  },
+  {
+    "from": 99,
+    "to": 104,
+    "dist": 9.48,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.47400000000000003,
+    "name": ""
+  },
+  {
+    "from": 100,
+    "to": 105,
+    "dist": 7.99,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3995,
+    "name": ""
+  },
+  {
+    "from": 103,
+    "to": 106,
+    "dist": 7.16,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.358,
+    "name": ""
+  },
+  {
+    "from": 107,
+    "to": 106,
+    "dist": 9.27,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 107,
+    "to": 108,
+    "dist": 20.04,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 107,
+    "to": 111,
+    "dist": 20.11,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 107,
+    "to": 109,
+    "dist": 19.42,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 110,
+    "to": 107,
+    "dist": 18.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 123,
+    "to": 127,
+    "dist": 43.41,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 135,
+    "to": 123,
+    "dist": 41.57,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 123,
+    "to": 126,
+    "dist": 51.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 124,
+    "to": 123,
+    "dist": 22.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 124,
+    "to": 119,
+    "dist": 15.4,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.77,
+    "name": ""
+  },
+  {
+    "from": 125,
+    "to": 119,
+    "dist": 11.17,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.5585,
+    "name": ""
+  },
+  {
+    "from": 125,
+    "to": 132,
+    "dist": 14.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 131,
+    "to": 132,
+    "dist": 9.83,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 132,
+    "to": 130,
+    "dist": 11.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 132,
+    "to": 134,
+    "dist": 15.94,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 132,
+    "to": 133,
+    "dist": 15.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 126,
+    "to": 122,
+    "dist": 47.98,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 122,
+    "to": 128,
+    "dist": 48.77,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 122,
+    "to": 129,
+    "dist": 47.12,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 122,
+    "to": 121,
+    "dist": 19.78,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 121,
+    "to": 136,
+    "dist": 8.87,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.44349999999999995,
+    "name": ""
+  },
+  {
+    "from": 117,
+    "to": 136,
+    "dist": 11.21,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.3736666666666667,
+    "name": ""
+  },
+  {
+    "from": 120,
+    "to": 117,
+    "dist": 66.85,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.228333333333333,
+    "name": ""
+  },
+  {
+    "from": 138,
+    "to": 120,
+    "dist": 4.98,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.166,
+    "name": ""
+  },
+  {
+    "from": 138,
+    "to": 119,
+    "dist": 6.25,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.20833333333333334,
+    "name": ""
+  },
+  {
+    "from": 119,
+    "to": 137,
+    "dist": 7.23,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.24100000000000002,
+    "name": ""
+  },
+  {
+    "from": 118,
+    "to": 137,
+    "dist": 5.42,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.18066666666666667,
+    "name": ""
+  },
+  {
+    "from": 117,
+    "to": 116,
+    "dist": 13.67,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.45566666666666666,
+    "name": ""
+  },
+  {
+    "from": 115,
+    "to": 116,
+    "dist": 75.14,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.5046666666666666,
+    "name": ""
+  },
+  {
+    "from": 115,
+    "to": 114,
+    "dist": 16.28,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5426666666666667,
+    "name": ""
+  },
+  {
+    "from": 114,
+    "to": 136,
+    "dist": 66.55,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.2183333333333333,
+    "name": ""
+  },
+  {
+    "from": 81,
+    "to": 78,
+    "dist": 71.49,
+    "type": "street",
+    "twoWay": true,
+    "weight": 3.5744999999999996,
+    "name": ""
+  },
+  {
+    "from": 123,
+    "to": 139,
+    "dist": 51.28,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 139,
+    "to": 122,
+    "dist": 47.36,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 80,
+    "to": 81,
+    "dist": 76.59,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.553,
+    "name": ""
+  },
+  {
+    "from": 81,
+    "to": 140,
+    "dist": 24.68,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8226666666666667,
+    "name": ""
+  },
+  {
+    "from": 140,
+    "to": 83,
+    "dist": 97.28,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.2426666666666666,
+    "name": ""
+  },
+  {
+    "from": 146,
+    "to": 140,
+    "dist": 8.53,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.4265,
+    "name": ""
+  },
+  {
+    "from": 146,
+    "to": 141,
+    "dist": 9.91,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 141,
+    "to": 145,
+    "dist": 8.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 141,
+    "to": 143,
+    "dist": 10.9,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 142,
+    "to": 141,
+    "dist": 11.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 141,
+    "to": 144,
+    "dist": 6.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 114,
+    "to": 84,
+    "dist": 15.35,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5116666666666666,
+    "name": ""
+  },
+  {
+    "from": 83,
+    "to": 148,
+    "dist": 16.55,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5516666666666666,
+    "name": ""
+  },
+  {
+    "from": 148,
+    "to": 84,
+    "dist": 35.12,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.1706666666666665,
+    "name": ""
+  },
+  {
+    "from": 83,
+    "to": 82,
+    "dist": 6.22,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.20733333333333331,
+    "name": ""
+  },
+  {
+    "from": 156,
+    "to": 152,
+    "dist": 59.68,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 156,
+    "to": 153,
+    "dist": 57.02,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 156,
+    "to": 154,
+    "dist": 58.33,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 156,
+    "to": 155,
+    "dist": 59.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 151,
+    "to": 156,
+    "dist": 33.98,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 151,
+    "to": 150,
+    "dist": 10.78,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.5389999999999999,
+    "name": ""
+  },
+  {
+    "from": 150,
+    "to": 116,
+    "dist": 8.59,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.28633333333333333,
+    "name": ""
+  },
+  {
+    "from": 150,
+    "to": 118,
+    "dist": 58.11,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.937,
+    "name": ""
+  },
+  {
+    "from": 118,
+    "to": 157,
+    "dist": 14.97,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.7485,
+    "name": ""
+  },
+  {
+    "from": 180,
+    "to": 178,
+    "dist": 6.01,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 178,
+    "to": 182,
+    "dist": 7.53,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 178,
+    "to": 181,
+    "dist": 6.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 178,
+    "to": 179,
+    "dist": 6.31,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 178,
+    "to": 177,
+    "dist": 7.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 177,
+    "to": 172,
+    "dist": 6.94,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.34700000000000003,
+    "name": ""
+  },
+  {
+    "from": 172,
+    "to": 171,
+    "dist": 7.47,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3735,
+    "name": ""
+  },
+  {
+    "from": 171,
+    "to": 170,
+    "dist": 109.94,
+    "type": "street",
+    "twoWay": true,
+    "weight": 5.497,
+    "name": ""
+  },
+  {
+    "from": 170,
+    "to": 159,
+    "dist": 33.64,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.682,
+    "name": ""
+  },
+  {
+    "from": 159,
+    "to": 158,
+    "dist": 25.1,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8366666666666667,
+    "name": ""
+  },
+  {
+    "from": 115,
+    "to": 158,
+    "dist": 30.72,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.024,
+    "name": ""
+  },
+  {
+    "from": 159,
+    "to": 160,
+    "dist": 10.01,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.33366666666666667,
+    "name": ""
+  },
+  {
+    "from": 160,
+    "to": 161,
+    "dist": 16.68,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5559999999999999,
+    "name": ""
+  },
+  {
+    "from": 161,
+    "to": 162,
+    "dist": 14.88,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.49600000000000005,
+    "name": ""
+  },
+  {
+    "from": 187,
+    "to": 186,
+    "dist": 31.46,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.573,
+    "name": ""
+  },
+  {
+    "from": 185,
+    "to": 186,
+    "dist": 9.01,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.4505,
+    "name": ""
+  },
+  {
+    "from": 185,
+    "to": 184,
+    "dist": 17.92,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8960000000000001,
+    "name": ""
+  },
+  {
+    "from": 184,
+    "to": 183,
+    "dist": 5.37,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.2685,
+    "name": ""
+  },
+  {
+    "from": 183,
+    "to": 170,
+    "dist": 7.41,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3705,
+    "name": ""
+  },
+  {
+    "from": 162,
+    "to": 187,
+    "dist": 49.93,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6643333333333332,
+    "name": ""
+  },
+  {
+    "from": 165,
+    "to": 164,
+    "dist": 12.66,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 165,
+    "to": 167,
+    "dist": 17.58,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 165,
+    "to": 169,
+    "dist": 19.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 165,
+    "to": 168,
+    "dist": 20.38,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 165,
+    "to": 166,
+    "dist": 16.23,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 164,
+    "to": 184,
+    "dist": 3.32,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.16599999999999998,
+    "name": ""
+  },
+  {
+    "from": 194,
+    "to": 192,
+    "dist": 49.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 194,
+    "to": 188,
+    "dist": 54.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 194,
+    "to": 189,
+    "dist": 28.41,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 193,
+    "to": 194,
+    "dist": 24.46,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 194,
+    "to": 191,
+    "dist": 48.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 194,
+    "to": 190,
+    "dist": 51.02,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 194,
+    "to": 195,
+    "dist": 29.53,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 173,
+    "to": 174,
+    "dist": 70.61,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.353666666666667,
+    "name": ""
+  },
+  {
+    "from": 173,
+    "to": 172,
+    "dist": 7,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.23333333333333334,
+    "name": ""
+  },
+  {
+    "from": 147,
+    "to": 206,
+    "dist": 27.28,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9093333333333333,
+    "name": ""
+  },
+  {
+    "from": 205,
+    "to": 203,
+    "dist": 8.33,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.4165,
+    "name": ""
+  },
+  {
+    "from": 204,
+    "to": 206,
+    "dist": 9.95,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.49749999999999994,
+    "name": ""
+  },
+  {
+    "from": 209,
+    "to": 201,
+    "dist": 25.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 201,
+    "to": 210,
+    "dist": 25.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 201,
+    "to": 208,
+    "dist": 22.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 201,
+    "to": 207,
+    "dist": 24.78,
+    "type": "street",
+    "twoWay": false,
+    "weight": 1.239,
+    "name": ""
+  },
+  {
+    "from": 207,
+    "to": 201,
+    "dist": 24.78,
+    "type": "wall",
+    "twoWay": false,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 202,
+    "to": 208,
+    "dist": 21.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 202,
+    "to": 207,
+    "dist": 23.41,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 202,
+    "to": 197,
+    "dist": 32.94,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 202,
+    "to": 199,
+    "dist": 29.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 202,
+    "to": 203,
+    "dist": 19.59,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9795,
+    "name": ""
+  },
+  {
+    "from": 201,
+    "to": 204,
+    "dist": 17.55,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8775000000000001,
+    "name": ""
+  },
+  {
+    "from": 148,
+    "to": 200,
+    "dist": 6.29,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3145,
+    "name": ""
+  },
+  {
+    "from": 149,
+    "to": 200,
+    "dist": 24.93,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 149,
+    "to": 197,
+    "dist": 32.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 149,
+    "to": 199,
+    "dist": 35.78,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 149,
+    "to": 198,
+    "dist": 32.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 196,
+    "to": 149,
+    "dist": 27.71,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 224,
+    "to": 223,
+    "dist": 9.96,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 223,
+    "to": 212,
+    "dist": 7.54,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.377,
+    "name": ""
+  },
+  {
+    "from": 214,
+    "to": 212,
+    "dist": 148.86,
+    "type": "road",
+    "twoWay": true,
+    "weight": 4.962000000000001,
+    "name": ""
+  },
+  {
+    "from": 212,
+    "to": 213,
+    "dist": 70.77,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.359,
+    "name": ""
+  },
+  {
+    "from": 213,
+    "to": 211,
+    "dist": 106.84,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.5613333333333332,
+    "name": ""
+  },
+  {
+    "from": 211,
+    "to": 218,
+    "dist": 34.65,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.7325,
+    "name": ""
+  },
+  {
+    "from": 211,
+    "to": 219,
+    "dist": 18.23,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6076666666666667,
+    "name": ""
+  },
+  {
+    "from": 219,
+    "to": 220,
+    "dist": 89.25,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.975,
+    "name": ""
+  },
+  {
+    "from": 219,
+    "to": 217,
+    "dist": 62.93,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.0976666666666666,
+    "name": ""
+  },
+  {
+    "from": 220,
+    "to": 221,
+    "dist": 10.71,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.35700000000000004,
+    "name": ""
+  },
+  {
+    "from": 221,
+    "to": 222,
+    "dist": 53.48,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.7826666666666666,
+    "name": ""
+  },
+  {
+    "from": 222,
+    "to": 225,
+    "dist": 84.46,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.8153333333333332,
+    "name": ""
+  },
+  {
+    "from": 222,
+    "to": 217,
+    "dist": 97.74,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.258,
+    "name": ""
+  },
+  {
+    "from": 215,
+    "to": 216,
+    "dist": 12.81,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.427,
+    "name": ""
+  },
+  {
+    "from": 215,
+    "to": 213,
+    "dist": 82.23,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.741,
+    "name": ""
+  },
+  {
+    "from": 215,
+    "to": 98,
+    "dist": 170.4,
+    "type": "road",
+    "twoWay": true,
+    "weight": 5.680000000000001,
+    "name": ""
+  },
+  {
+    "from": 220,
+    "to": 226,
+    "dist": 11.65,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.5825,
+    "name": ""
+  },
+  {
+    "from": 221,
+    "to": 227,
+    "dist": 15.56,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.778,
+    "name": ""
+  },
+  {
+    "from": 228,
+    "to": 230,
+    "dist": 99.86,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.3286666666666664,
+    "name": ""
+  },
+  {
+    "from": 228,
+    "to": 222,
+    "dist": 67.48,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.2493333333333334,
+    "name": ""
+  },
+  {
+    "from": 229,
+    "to": 228,
+    "dist": 97.31,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.243666666666667,
+    "name": ""
+  },
+  {
+    "from": 216,
+    "to": 231,
+    "dist": 65.04,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.168,
+    "name": ""
+  },
+  {
+    "from": 231,
+    "to": 217,
+    "dist": 30.43,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.0143333333333333,
+    "name": ""
+  },
+  {
+    "from": 217,
+    "to": 238,
+    "dist": 59.8,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.9933333333333332,
+    "name": ""
+  },
+  {
+    "from": 238,
+    "to": 230,
+    "dist": 9.04,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.3013333333333333,
+    "name": ""
+  },
+  {
+    "from": 230,
+    "to": 246,
+    "dist": 81.34,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.7113333333333336,
+    "name": ""
+  },
+  {
+    "from": 245,
+    "to": 246,
+    "dist": 89.5,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.9833333333333334,
+    "name": ""
+  },
+  {
+    "from": 245,
+    "to": 216,
+    "dist": 150.43,
+    "type": "road",
+    "twoWay": true,
+    "weight": 5.014333333333334,
+    "name": ""
+  },
+  {
+    "from": 232,
+    "to": 231,
+    "dist": 4.72,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.236,
+    "name": ""
+  },
+  {
+    "from": 232,
+    "to": 233,
+    "dist": 9.63,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 233,
+    "to": 234,
+    "dist": 10.25,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 233,
+    "to": 237,
+    "dist": 11.98,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 233,
+    "to": 236,
+    "dist": 11.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 233,
+    "to": 235,
+    "dist": 11.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 239,
+    "to": 238,
+    "dist": 10.9,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.545,
+    "name": ""
+  },
+  {
+    "from": 239,
+    "to": 240,
+    "dist": 20.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 240,
+    "to": 244,
+    "dist": 27.21,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 240,
+    "to": 243,
+    "dist": 26.39,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 240,
+    "to": 242,
+    "dist": 27.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 240,
+    "to": 241,
+    "dist": 27.95,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 163,
+    "to": 256,
+    "dist": 7.84,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.2613333333333333,
+    "name": ""
+  },
+  {
+    "from": 250,
+    "to": 251,
+    "dist": 114.76,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 250,
+    "to": 253,
+    "dist": 125.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 250,
+    "to": 252,
+    "dist": 126.66,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 250,
+    "to": 249,
+    "dist": 122.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 250,
+    "to": 254,
+    "dist": 108.63,
+    "type": "street",
+    "twoWay": true,
+    "weight": 5.4315,
+    "name": ""
+  },
+  {
+    "from": 250,
+    "to": 255,
+    "dist": 108.19,
+    "type": "street",
+    "twoWay": true,
+    "weight": 5.4094999999999995,
+    "name": ""
+  },
+  {
+    "from": 254,
+    "to": 256,
+    "dist": 14.93,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.7464999999999999,
+    "name": ""
+  },
+  {
+    "from": 255,
+    "to": 257,
+    "dist": 9.96,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.49800000000000005,
+    "name": ""
+  },
+  {
+    "from": 259,
+    "to": 258,
+    "dist": 21.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 259,
+    "to": 260,
+    "dist": 21.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 259,
+    "to": 262,
+    "dist": 13.82,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 259,
+    "to": 261,
+    "dist": 15.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 259,
+    "to": 263,
+    "dist": 13.26,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 263,
+    "to": 114,
+    "dist": 10.87,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.5435,
+    "name": ""
+  },
+  {
+    "from": 264,
+    "to": 265,
+    "dist": 31.01,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 264,
+    "to": 266,
+    "dist": 31.31,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 264,
+    "to": 268,
+    "dist": 32.64,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 264,
+    "to": 267,
+    "dist": 33.05,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 264,
+    "to": 269,
+    "dist": 36.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 205,
+    "to": 270,
+    "dist": 19.18,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6393333333333333,
+    "name": ""
+  },
+  {
+    "from": 270,
+    "to": 206,
+    "dist": 13.17,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.439,
+    "name": ""
+  },
+  {
+    "from": 270,
+    "to": 269,
+    "dist": 8.19,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.4095,
+    "name": ""
+  },
+  {
+    "from": 271,
+    "to": 274,
+    "dist": 21.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 271,
+    "to": 275,
+    "dist": 17.95,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 271,
+    "to": 272,
+    "dist": 19.39,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 271,
+    "to": 273,
+    "dist": 20.93,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 277,
+    "to": 205,
+    "dist": 20.23,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6743333333333333,
+    "name": ""
+  },
+  {
+    "from": 277,
+    "to": 84,
+    "dist": 67.55,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.2516666666666665,
+    "name": ""
+  },
+  {
+    "from": 277,
+    "to": 276,
+    "dist": 4.15,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.20750000000000002,
+    "name": ""
+  },
+  {
+    "from": 271,
+    "to": 276,
+    "dist": 8.01,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 280,
+    "to": 278,
+    "dist": 23.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 278,
+    "to": 279,
+    "dist": 21.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 278,
+    "to": 282,
+    "dist": 21.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 278,
+    "to": 281,
+    "dist": 22.76,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 278,
+    "to": 283,
+    "dist": 5.36,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 283,
+    "to": 284,
+    "dist": 6.18,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.309,
+    "name": ""
+  },
+  {
+    "from": 285,
+    "to": 286,
+    "dist": 28.11,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 285,
+    "to": 287,
+    "dist": 28.63,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 285,
+    "to": 288,
+    "dist": 28.25,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 285,
+    "to": 289,
+    "dist": 24.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 285,
+    "to": 290,
+    "dist": 27.37,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 290,
+    "to": 159,
+    "dist": 12.53,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.6265,
+    "name": ""
+  },
+  {
+    "from": 291,
+    "to": 293,
+    "dist": 94.27,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 291,
+    "to": 294,
+    "dist": 98.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 291,
+    "to": 295,
+    "dist": 94.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 291,
+    "to": 292,
+    "dist": 81.41,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 291,
+    "to": 297,
+    "dist": 59.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 291,
+    "to": 296,
+    "dist": 82.42,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 256,
+    "to": 299,
+    "dist": 20.58,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6859999999999999,
+    "name": ""
+  },
+  {
+    "from": 299,
+    "to": 284,
+    "dist": 63.88,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.1293333333333333,
+    "name": ""
+  },
+  {
+    "from": 284,
+    "to": 298,
+    "dist": 29.46,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.982,
+    "name": ""
+  },
+  {
+    "from": 298,
+    "to": 162,
+    "dist": 41.98,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3993333333333333,
+    "name": ""
+  },
+  {
+    "from": 298,
+    "to": 297,
+    "dist": 9.81,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.49050000000000005,
+    "name": ""
+  },
+  {
+    "from": 296,
+    "to": 299,
+    "dist": 9.83,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.4915,
+    "name": ""
+  },
+  {
+    "from": 34,
+    "to": 334,
+    "dist": 90.7,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.0233333333333334,
+    "name": ""
+  },
+  {
+    "from": 331,
+    "to": 336,
+    "dist": 55.16,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.8386666666666664,
+    "name": ""
+  },
+  {
+    "from": 336,
+    "to": 337,
+    "dist": 19.43,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6476666666666666,
+    "name": ""
+  },
+  {
+    "from": 337,
+    "to": 338,
+    "dist": 17.5,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5833333333333334,
+    "name": ""
+  },
+  {
+    "from": 338,
+    "to": 330,
+    "dist": 17.48,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5826666666666667,
+    "name": ""
+  },
+  {
+    "from": 42,
+    "to": 330,
+    "dist": 22.15,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7383333333333333,
+    "name": ""
+  },
+  {
+    "from": 332,
+    "to": 329,
+    "dist": 110.86,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.695333333333333,
+    "name": "Street 15"
+  },
+  {
+    "from": 313,
+    "to": 300,
+    "dist": 16.25,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5416666666666666,
+    "name": "Street 15"
+  },
+  {
+    "from": 302,
+    "to": 323,
+    "dist": 29.4,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.98,
+    "name": "Jannat Rd"
+  },
+  {
+    "from": 315,
+    "to": 339,
+    "dist": 7.95,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.265,
+    "name": ""
+  },
+  {
+    "from": 304,
+    "to": 306,
+    "dist": 162.53,
+    "type": "road",
+    "twoWay": true,
+    "weight": 5.417666666666666,
+    "name": ""
+  },
+  {
+    "from": 41,
+    "to": 341,
+    "dist": 13.08,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.436,
+    "name": ""
+  },
+  {
+    "from": 341,
+    "to": 328,
+    "dist": 16.71,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.557,
+    "name": ""
+  },
+  {
+    "from": 340,
+    "to": 342,
+    "dist": 15.94,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.5313333333333333,
+    "name": ""
+  },
+  {
+    "from": 342,
+    "to": 328,
+    "dist": 17.98,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.5993333333333334,
+    "name": ""
+  },
+  {
+    "from": 340,
+    "to": 302,
+    "dist": 20.76,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6920000000000001,
+    "name": ""
+  },
+  {
+    "from": 300,
+    "to": 340,
+    "dist": 16.96,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5653333333333334,
+    "name": ""
+  },
+  {
+    "from": 300,
+    "to": 41,
+    "dist": 23.63,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7876666666666666,
+    "name": ""
+  },
+  {
+    "from": 300,
+    "to": 328,
+    "dist": 26.17,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8723333333333334,
+    "name": ""
+  },
+  {
+    "from": 343,
+    "to": 347,
+    "dist": 32.1,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 344,
+    "to": 347,
+    "dist": 26.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 346,
+    "to": 347,
+    "dist": 28.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 345,
+    "to": 347,
+    "dist": 29.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 347,
+    "to": 348,
+    "dist": 28.84,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 353,
+    "to": 350,
+    "dist": 18.57,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 351,
+    "to": 353,
+    "dist": 18.58,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 352,
+    "to": 353,
+    "dist": 20.17,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 349,
+    "to": 353,
+    "dist": 19.54,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 353,
+    "to": 354,
+    "dist": 14.3,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 413,
+    "to": 415,
+    "dist": 49.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 415,
+    "to": 414,
+    "dist": 47.72,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 415,
+    "to": 412,
+    "dist": 41.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 415,
+    "to": 411,
+    "dist": 48.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 415,
+    "to": 416,
+    "dist": 25.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 362,
+    "dist": 34.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 361,
+    "dist": 33.96,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 368,
+    "dist": 34.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 363,
+    "dist": 32.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 364,
+    "dist": 32.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 365,
+    "dist": 37.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 370,
+    "dist": 34.82,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 366,
+    "dist": 37.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 367,
+    "dist": 31.66,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 369,
+    "to": 371,
+    "dist": 29.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 375,
+    "to": 376,
+    "dist": 49.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 376,
+    "to": 374,
+    "dist": 47.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 376,
+    "to": 373,
+    "dist": 48.66,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 376,
+    "to": 372,
+    "dist": 48.64,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 376,
+    "to": 377,
+    "dist": 22.5,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 506,
+    "to": 507,
+    "dist": 10.96,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 506,
+    "to": 398,
+    "dist": 18.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 399,
+    "to": 506,
+    "dist": 16.47,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 506,
+    "to": 397,
+    "dist": 18.72,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 506,
+    "to": 400,
+    "dist": 17.06,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 506,
+    "to": 396,
+    "dist": 9.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 404,
+    "to": 402,
+    "dist": 17.33,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 404,
+    "to": 403,
+    "dist": 18.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 404,
+    "to": 401,
+    "dist": 17.77,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 409,
+    "to": 408,
+    "dist": 26.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 409,
+    "to": 405,
+    "dist": 27.22,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 406,
+    "to": 409,
+    "dist": 29.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 409,
+    "to": 407,
+    "dist": 28.59,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 409,
+    "to": 410,
+    "dist": 12.44,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 394,
+    "to": 390,
+    "dist": 17.3,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 394,
+    "to": 393,
+    "dist": 17.72,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 394,
+    "to": 392,
+    "dist": 16.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 394,
+    "to": 391,
+    "dist": 17.58,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 394,
+    "to": 395,
+    "dist": 13.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 388,
+    "to": 386,
+    "dist": 49.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 388,
+    "to": 384,
+    "dist": 37.16,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 388,
+    "to": 385,
+    "dist": 36.37,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 388,
+    "to": 387,
+    "dist": 48.8,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 388,
+    "to": 389,
+    "dist": 13.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 382,
+    "to": 380,
+    "dist": 17.78,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 382,
+    "to": 378,
+    "dist": 16.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 382,
+    "to": 379,
+    "dist": 18.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 382,
+    "to": 381,
+    "dist": 19.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 382,
+    "to": 383,
+    "dist": 12.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 425,
+    "to": 427,
+    "dist": 51.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 427,
+    "to": 423,
+    "dist": 50.34,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 427,
+    "to": 424,
+    "dist": 49.36,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 427,
+    "to": 426,
+    "dist": 43.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 427,
+    "to": 428,
+    "dist": 54.36,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 418,
+    "to": 422,
+    "dist": 23.76,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 417,
+    "to": 422,
+    "dist": 25.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 422,
+    "to": 420,
+    "dist": 27.29,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 422,
+    "to": 419,
+    "dist": 25.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 422,
+    "to": 421,
+    "dist": 23.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 433,
+    "to": 431,
+    "dist": 12.44,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 433,
+    "to": 432,
+    "dist": 13.34,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 433,
+    "to": 429,
+    "dist": 13.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 433,
+    "to": 430,
+    "dist": 11.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 433,
+    "to": 434,
+    "dist": 4.27,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 439,
+    "to": 435,
+    "dist": 21.71,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 439,
+    "to": 436,
+    "dist": 20.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 439,
+    "to": 438,
+    "dist": 24.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 439,
+    "to": 437,
+    "dist": 24.78,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 439,
+    "to": 440,
+    "dist": 19.9,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 492,
+    "to": 491,
+    "dist": 28.84,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 492,
+    "to": 490,
+    "dist": 10.96,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 492,
+    "to": 486,
+    "dist": 28.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 492,
+    "to": 489,
+    "dist": 9.72,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 493,
+    "to": 495,
+    "dist": 22.18,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 494,
+    "to": 495,
+    "dist": 17.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 495,
+    "to": 487,
+    "dist": 26.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 495,
+    "to": 488,
+    "dist": 22.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 495,
+    "to": 496,
+    "dist": 15.05,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 485,
+    "to": 483,
+    "dist": 14.68,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 485,
+    "to": 482,
+    "dist": 15.66,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 485,
+    "to": 481,
+    "dist": 17.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 485,
+    "to": 484,
+    "dist": 16.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 485,
+    "to": 508,
+    "dist": 15.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 480,
+    "to": 478,
+    "dist": 14.06,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 480,
+    "to": 477,
+    "dist": 17.28,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 480,
+    "to": 476,
+    "dist": 17.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 480,
+    "to": 479,
+    "dist": 16.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 480,
+    "to": 509,
+    "dist": 10.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 504,
+    "dist": 10.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 505,
+    "dist": 14.81,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 498,
+    "dist": 13.29,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 497,
+    "dist": 14.15,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 503,
+    "dist": 9.68,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 499,
+    "dist": 26.34,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 501,
+    "to": 500,
+    "dist": 25.25,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 504,
+    "dist": 15.54,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 505,
+    "dist": 10.96,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 500,
+    "dist": 15.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 499,
+    "dist": 16.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 498,
+    "dist": 23.36,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 497,
+    "dist": 23.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 502,
+    "to": 503,
+    "dist": 10.22,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 462,
+    "to": 459,
+    "dist": 26.01,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 462,
+    "to": 458,
+    "dist": 27.23,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 462,
+    "to": 461,
+    "dist": 25.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 462,
+    "to": 460,
+    "dist": 24.6,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 462,
+    "to": 463,
+    "dist": 24.3,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 470,
+    "to": 474,
+    "dist": 16.81,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 474,
+    "to": 472,
+    "dist": 14.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 474,
+    "to": 473,
+    "dist": 14.78,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 474,
+    "to": 471,
+    "dist": 17.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 474,
+    "to": 475,
+    "dist": 12.99,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 468,
+    "to": 465,
+    "dist": 13.22,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 468,
+    "to": 467,
+    "dist": 13.82,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 468,
+    "to": 464,
+    "dist": 14.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 468,
+    "to": 466,
+    "dist": 11.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 468,
+    "to": 469,
+    "dist": 9.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 441,
+    "dist": 21.17,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 442,
+    "dist": 18.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 450,
+    "dist": 13.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 446,
+    "dist": 16.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 444,
+    "dist": 20.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 451,
+    "dist": 14.94,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 445,
+    "to": 443,
+    "dist": 18.11,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 447,
+    "to": 457,
+    "dist": 52.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 511,
+    "dist": 17.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 456,
+    "dist": 41.09,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 448,
+    "dist": 67.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 449,
+    "dist": 51.42,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 510,
+    "dist": 36.97,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 453,
+    "dist": 45.05,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 457,
+    "to": 455,
+    "dist": 60.42,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 359,
+    "to": 357,
+    "dist": 19.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 359,
+    "to": 358,
+    "dist": 20.91,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 359,
+    "to": 356,
+    "dist": 22.02,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 359,
+    "to": 355,
+    "dist": 19.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 359,
+    "to": 360,
+    "dist": 13.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 313,
+    "to": 512,
+    "dist": 19.57,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6523333333333333,
+    "name": ""
+  },
+  {
+    "from": 512,
+    "to": 312,
+    "dist": 36.8,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.2266666666666666,
+    "name": ""
+  },
+  {
+    "from": 348,
+    "to": 512,
+    "dist": 13.65,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.6825,
+    "name": ""
+  },
+  {
+    "from": 512,
+    "to": 360,
+    "dist": 15.67,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.7835,
+    "name": ""
+  },
+  {
+    "from": 354,
+    "to": 312,
+    "dist": 21.56,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.0779999999999998,
+    "name": ""
+  },
+  {
+    "from": 513,
+    "to": 301,
+    "dist": 54.7,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.8233333333333335,
+    "name": ""
+  },
+  {
+    "from": 513,
+    "to": 416,
+    "dist": 12.88,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.644,
+    "name": ""
+  },
+  {
+    "from": 308,
+    "to": 514,
+    "dist": 38.98,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.2993333333333332,
+    "name": ""
+  },
+  {
+    "from": 514,
+    "to": 307,
+    "dist": 41.56,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3853333333333333,
+    "name": ""
+  },
+  {
+    "from": 514,
+    "to": 377,
+    "dist": 16.03,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8015000000000001,
+    "name": ""
+  },
+  {
+    "from": 515,
+    "to": 303,
+    "dist": 18.58,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6193333333333333,
+    "name": ""
+  },
+  {
+    "from": 515,
+    "to": 383,
+    "dist": 14.42,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.721,
+    "name": ""
+  },
+  {
+    "from": 303,
+    "to": 516,
+    "dist": 39.66,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3219999999999998,
+    "name": ""
+  },
+  {
+    "from": 516,
+    "to": 304,
+    "dist": 31.39,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.0463333333333333,
+    "name": ""
+  },
+  {
+    "from": 516,
+    "to": 389,
+    "dist": 12.84,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.642,
+    "name": ""
+  },
+  {
+    "from": 517,
+    "to": 305,
+    "dist": 66.89,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.2296666666666667,
+    "name": ""
+  },
+  {
+    "from": 517,
+    "to": 395,
+    "dist": 16.23,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8115,
+    "name": ""
+  },
+  {
+    "from": 305,
+    "to": 518,
+    "dist": 18.33,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.611,
+    "name": ""
+  },
+  {
+    "from": 518,
+    "to": 315,
+    "dist": 15.16,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5053333333333333,
+    "name": ""
+  },
+  {
+    "from": 518,
+    "to": 396,
+    "dist": 7.16,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.358,
+    "name": ""
+  },
+  {
+    "from": 401,
+    "to": 315,
+    "dist": 12.42,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.621,
+    "name": ""
+  },
+  {
+    "from": 339,
+    "to": 519,
+    "dist": 45.01,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.5003333333333333,
+    "name": ""
+  },
+  {
+    "from": 519,
+    "to": 316,
+    "dist": 29.55,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.985,
+    "name": ""
+  },
+  {
+    "from": 519,
+    "to": 410,
+    "dist": 5.25,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.2625,
+    "name": ""
+  },
+  {
+    "from": 520,
+    "to": 2,
+    "dist": 57.42,
+    "type": "road",
+    "twoWay": false,
+    "weight": 1.9140000000000001,
+    "name": ""
+  },
+  {
+    "from": 426,
+    "to": 520,
+    "dist": 30.75,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.5375,
+    "name": ""
+  },
+  {
+    "from": 421,
+    "to": 14,
+    "dist": 19.99,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9994999999999999,
+    "name": ""
+  },
+  {
+    "from": 452,
+    "to": 457,
+    "dist": 36.6,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 522,
+    "to": 41,
+    "dist": 15.34,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5113333333333333,
+    "name": ""
+  },
+  {
+    "from": 522,
+    "to": 521,
+    "dist": 47.07,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.569,
+    "name": ""
+  },
+  {
+    "from": 521,
+    "to": 40,
+    "dist": 8.82,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.294,
+    "name": ""
+  },
+  {
+    "from": 521,
+    "to": 452,
+    "dist": 26,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.3,
+    "name": ""
+  },
+  {
+    "from": 522,
+    "to": 446,
+    "dist": 17.93,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8965,
+    "name": ""
+  },
+  {
+    "from": 454,
+    "to": 457,
+    "dist": 46.39,
+    "type": "wall",
+    "twoWay": false,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 328,
+    "to": 523,
+    "dist": 38.96,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.2986666666666666,
+    "name": ""
+  },
+  {
+    "from": 523,
+    "to": 329,
+    "dist": 62.91,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.097,
+    "name": ""
+  },
+  {
+    "from": 523,
+    "to": 453,
+    "dist": 14.13,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.7065,
+    "name": ""
+  },
+  {
+    "from": 463,
+    "to": 338,
+    "dist": 14.22,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.7110000000000001,
+    "name": ""
+  },
+  {
+    "from": 469,
+    "to": 336,
+    "dist": 6.93,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3465,
+    "name": ""
+  },
+  {
+    "from": 508,
+    "to": 524,
+    "dist": 17.97,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8985,
+    "name": ""
+  },
+  {
+    "from": 509,
+    "to": 524,
+    "dist": 18.96,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9480000000000001,
+    "name": ""
+  },
+  {
+    "from": 524,
+    "to": 336,
+    "dist": 27.2,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.3599999999999999,
+    "name": ""
+  },
+  {
+    "from": 331,
+    "to": 525,
+    "dist": 40.95,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.365,
+    "name": "Street 15"
+  },
+  {
+    "from": 525,
+    "to": 475,
+    "dist": 27.67,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.3835000000000002,
+    "name": ""
+  },
+  {
+    "from": 525,
+    "to": 332,
+    "dist": 42.24,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.4080000000000001,
+    "name": ""
+  },
+  {
+    "from": 42,
+    "to": 527,
+    "dist": 21.25,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7083333333333334,
+    "name": ""
+  },
+  {
+    "from": 527,
+    "to": 526,
+    "dist": 26.55,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.885,
+    "name": ""
+  },
+  {
+    "from": 527,
+    "to": 496,
+    "dist": 14.12,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.706,
+    "name": ""
+  },
+  {
+    "from": 526,
+    "to": 334,
+    "dist": 54.39,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.813,
+    "name": ""
+  },
+  {
+    "from": 526,
+    "to": 489,
+    "dist": 23.68,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.184,
+    "name": ""
+  },
+  {
+    "from": 528,
+    "to": 503,
+    "dist": 16.44,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8220000000000001,
+    "name": ""
+  },
+  {
+    "from": 434,
+    "to": 33,
+    "dist": 18.45,
+    "type": "street",
+    "twoWay": false,
+    "weight": 0.9225,
+    "name": ""
+  },
+  {
+    "from": 33,
+    "to": 434,
+    "dist": 18.45,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.615,
+    "name": ""
+  },
+  {
+    "from": 529,
+    "to": 440,
+    "dist": 17.63,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8815,
+    "name": ""
+  },
+  {
+    "from": 340,
+    "to": 530,
+    "dist": 26.95,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.3475,
+    "name": ""
+  },
+  {
+    "from": 530,
+    "to": 328,
+    "dist": 22.64,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.1320000000000001,
+    "name": ""
+  },
+  {
+    "from": 531,
+    "to": 302,
+    "dist": 16.32,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8160000000000001,
+    "name": ""
+  },
+  {
+    "from": 531,
+    "to": 313,
+    "dist": 34.32,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.716,
+    "name": ""
+  },
+  {
+    "from": 531,
+    "to": 532,
+    "dist": 18.53,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9265000000000001,
+    "name": ""
+  },
+  {
+    "from": 532,
+    "to": 311,
+    "dist": 55.58,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.779,
+    "name": ""
+  },
+  {
+    "from": 312,
+    "to": 311,
+    "dist": 45.3,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.2649999999999997,
+    "name": ""
+  },
+  {
+    "from": 311,
+    "to": 310,
+    "dist": 6.89,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3445,
+    "name": ""
+  },
+  {
+    "from": 310,
+    "to": 309,
+    "dist": 17.99,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8995,
+    "name": ""
+  },
+  {
+    "from": 309,
+    "to": 308,
+    "dist": 86.45,
+    "type": "street",
+    "twoWay": true,
+    "weight": 4.3225,
+    "name": ""
+  },
+  {
+    "from": 303,
+    "to": 534,
+    "dist": 49.14,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6380000000000001,
+    "name": ""
+  },
+  {
+    "from": 534,
+    "to": 308,
+    "dist": 41.19,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.373,
+    "name": ""
+  },
+  {
+    "from": 323,
+    "to": 533,
+    "dist": 20.09,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6696666666666666,
+    "name": ""
+  },
+  {
+    "from": 533,
+    "to": 515,
+    "dist": 39.32,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3106666666666666,
+    "name": ""
+  },
+  {
+    "from": 533,
+    "to": 371,
+    "dist": 21.38,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.069,
+    "name": ""
+  },
+  {
+    "from": 370,
+    "to": 534,
+    "dist": 21.31,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.0655,
+    "name": ""
+  },
+  {
+    "from": 8,
+    "to": 535,
+    "dist": 11.8,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.39333333333333337,
+    "name": ""
+  },
+  {
+    "from": 535,
+    "to": 335,
+    "dist": 42.64,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.132,
+    "name": ""
+  },
+  {
+    "from": 9,
+    "to": 536,
+    "dist": 47.94,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.397,
+    "name": ""
+  },
+  {
+    "from": 537,
+    "to": 541,
+    "dist": 37.37,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 538,
+    "to": 541,
+    "dist": 31.83,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 539,
+    "to": 541,
+    "dist": 36.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 540,
+    "to": 541,
+    "dist": 37.8,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 541,
+    "to": 542,
+    "dist": 23.96,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 542,
+    "to": 534,
+    "dist": 18.19,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9095000000000001,
+    "name": ""
+  },
+  {
+    "from": 323,
+    "to": 322,
+    "dist": 37.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 322,
+    "to": 324,
+    "dist": 14.28,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.714,
+    "name": ""
+  },
+  {
+    "from": 324,
+    "to": 325,
+    "dist": 8.39,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.41950000000000004,
+    "name": ""
+  },
+  {
+    "from": 325,
+    "to": 326,
+    "dist": 9.91,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.4955,
+    "name": ""
+  },
+  {
+    "from": 326,
+    "to": 327,
+    "dist": 38.78,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.939,
+    "name": ""
+  },
+  {
+    "from": 322,
+    "to": 321,
+    "dist": 48.64,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.432,
+    "name": ""
+  },
+  {
+    "from": 321,
+    "to": 320,
+    "dist": 14.8,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.74,
+    "name": ""
+  },
+  {
+    "from": 320,
+    "to": 319,
+    "dist": 147.48,
+    "type": "street",
+    "twoWay": true,
+    "weight": 7.374,
+    "name": ""
+  },
+  {
+    "from": 319,
+    "to": 318,
+    "dist": 12.13,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.6065,
+    "name": ""
+  },
+  {
+    "from": 318,
+    "to": 317,
+    "dist": 71.01,
+    "type": "street",
+    "twoWay": true,
+    "weight": 3.5505000000000004,
+    "name": ""
+  },
+  {
+    "from": 317,
+    "to": 543,
+    "dist": 6.93,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3465,
+    "name": ""
+  },
+  {
+    "from": 543,
+    "to": 305,
+    "dist": 57.34,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.867,
+    "name": ""
+  },
+  {
+    "from": 330,
+    "to": 329,
+    "dist": 102.61,
+    "type": "street",
+    "twoWay": true,
+    "weight": 5.1305,
+    "name": ""
+  },
+  {
+    "from": 558,
+    "to": 6,
+    "dist": 10.8,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.36000000000000004,
+    "name": ""
+  },
+  {
+    "from": 545,
+    "to": 548,
+    "dist": 14.17,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 547,
+    "to": 548,
+    "dist": 13.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 548,
+    "to": 544,
+    "dist": 15.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 548,
+    "to": 546,
+    "dist": 13.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 548,
+    "to": 549,
+    "dist": 11.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 549,
+    "to": 559,
+    "dist": 24.34,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.217,
+    "name": ""
+  },
+  {
+    "from": 5,
+    "to": 559,
+    "dist": 32.55,
+    "type": "road",
+    "twoWay": false,
+    "weight": 1.085,
+    "name": ""
+  },
+  {
+    "from": 559,
+    "to": 558,
+    "dist": 47.58,
+    "type": "road",
+    "twoWay": false,
+    "weight": 1.5859999999999999,
+    "name": ""
+  },
+  {
+    "from": 551,
+    "to": 554,
+    "dist": 42.76,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 552,
+    "to": 554,
+    "dist": 42.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 553,
+    "to": 554,
+    "dist": 38.6,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 550,
+    "to": 554,
+    "dist": 39.82,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 554,
+    "to": 555,
+    "dist": 10.04,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 555,
+    "to": 556,
+    "dist": 4.17,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.2085,
+    "name": ""
+  },
+  {
+    "from": 557,
+    "to": 556,
+    "dist": 40.71,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.0355,
+    "name": ""
+  },
+  {
+    "from": 556,
+    "to": 558,
+    "dist": 52.26,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.613,
+    "name": ""
+  },
+  {
+    "from": 561,
+    "to": 316,
+    "dist": 19.68,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.984,
+    "name": ""
+  },
+  {
+    "from": 567,
+    "to": 566,
+    "dist": 17.72,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8859999999999999,
+    "name": ""
+  },
+  {
+    "from": 567,
+    "to": 304,
+    "dist": 25.77,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.859,
+    "name": ""
+  },
+  {
+    "from": 567,
+    "to": 517,
+    "dist": 44.78,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.4926666666666668,
+    "name": ""
+  },
+  {
+    "from": 572,
+    "to": 568,
+    "dist": 30.24,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.512,
+    "name": ""
+  },
+  {
+    "from": 569,
+    "to": 568,
+    "dist": 42.82,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.141,
+    "name": ""
+  },
+  {
+    "from": 570,
+    "to": 568,
+    "dist": 41.25,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.0625,
+    "name": ""
+  },
+  {
+    "from": 568,
+    "to": 571,
+    "dist": 36.33,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.8165,
+    "name": ""
+  },
+  {
+    "from": 568,
+    "to": 573,
+    "dist": 27.9,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.395,
+    "name": ""
+  },
+  {
+    "from": 573,
+    "to": 514,
+    "dist": 15.43,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.7715,
+    "name": ""
+  },
+  {
+    "from": 580,
+    "to": 574,
+    "dist": 47.8,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 574,
+    "to": 575,
+    "dist": 52.4,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 574,
+    "to": 577,
+    "dist": 43.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 574,
+    "to": 576,
+    "dist": 55.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 574,
+    "to": 578,
+    "dist": 22.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 576,
+    "to": 11,
+    "dist": 5.04,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.252,
+    "name": ""
+  },
+  {
+    "from": 577,
+    "to": 10,
+    "dist": 5.31,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.26549999999999996,
+    "name": ""
+  },
+  {
+    "from": 563,
+    "to": 560,
+    "dist": 74.26,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 560,
+    "to": 565,
+    "dist": 82.31,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 560,
+    "to": 561,
+    "dist": 60.5,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 560,
+    "to": 562,
+    "dist": 68.92,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 560,
+    "to": 564,
+    "dist": 88.25,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 564,
+    "to": 566,
+    "dist": 13.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 579,
+    "to": 574,
+    "dist": 45.06,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 581,
+    "to": 582,
+    "dist": 83.57,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.7856666666666663,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 581,
+    "to": 583,
+    "dist": 7.6,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.2533333333333333,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 585,
+    "to": 587,
+    "dist": 16.87,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5623333333333334,
+    "name": ""
+  },
+  {
+    "from": 587,
+    "to": 588,
+    "dist": 18.22,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6073333333333333,
+    "name": ""
+  },
+  {
+    "from": 588,
+    "to": 589,
+    "dist": 19.97,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6656666666666666,
+    "name": ""
+  },
+  {
+    "from": 589,
+    "to": 586,
+    "dist": 14.06,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.4686666666666667,
+    "name": ""
+  },
+  {
+    "from": 584,
+    "to": 592,
+    "dist": 31.22,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.0406666666666666,
+    "name": ""
+  },
+  {
+    "from": 592,
+    "to": 593,
+    "dist": 11.64,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.388,
+    "name": ""
+  },
+  {
+    "from": 593,
+    "to": 594,
+    "dist": 24.36,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8119999999999999,
+    "name": ""
+  },
+  {
+    "from": 594,
+    "to": 595,
+    "dist": 10.43,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.3476666666666667,
+    "name": ""
+  },
+  {
+    "from": 595,
+    "to": 596,
+    "dist": 76.16,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.5386666666666664,
+    "name": ""
+  },
+  {
+    "from": 596,
+    "to": 598,
+    "dist": 41.17,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3723333333333334,
+    "name": ""
+  },
+  {
+    "from": 583,
+    "to": 584,
+    "dist": 11.96,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.39866666666666667,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 584,
+    "to": 585,
+    "dist": 22.67,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7556666666666667,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 585,
+    "to": 586,
+    "dist": 43.36,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.4453333333333334,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 586,
+    "to": 590,
+    "dist": 20.61,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6869999999999999,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 590,
+    "to": 591,
+    "dist": 8.45,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.2816666666666666,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 591,
+    "to": 596,
+    "dist": 68.98,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.2993333333333337,
+    "name": "CEWRE Road"
+  },
+  {
+    "from": 598,
+    "to": 600,
+    "dist": 29.95,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9983333333333333,
+    "name": ""
+  },
+  {
+    "from": 600,
+    "to": 597,
+    "dist": 7.59,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.253,
+    "name": ""
+  },
+  {
+    "from": 597,
+    "to": 599,
+    "dist": 24.82,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8273333333333334,
+    "name": ""
+  },
+  {
+    "from": 599,
+    "to": 601,
+    "dist": 78.58,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.619333333333333,
+    "name": ""
+  },
+  {
+    "from": 601,
+    "to": 602,
+    "dist": 69.32,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.3106666666666666,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 602,
+    "to": 603,
+    "dist": 43.38,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.4460000000000002,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 605,
+    "to": 595,
+    "dist": 74.53,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.4843333333333333,
+    "name": ""
+  },
+  {
+    "from": 605,
+    "to": 604,
+    "dist": 19.64,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6546666666666667,
+    "name": ""
+  },
+  {
+    "from": 603,
+    "to": 604,
+    "dist": 53.19,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.773,
+    "name": ""
+  },
+  {
+    "from": 606,
+    "to": 607,
+    "dist": 25.26,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8420000000000001,
+    "name": ""
+  },
+  {
+    "from": 608,
+    "to": 617,
+    "dist": 28,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9333333333333333,
+    "name": ""
+  },
+  {
+    "from": 618,
+    "to": 617,
+    "dist": 21.1,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7033333333333334,
+    "name": ""
+  },
+  {
+    "from": 618,
+    "to": 619,
+    "dist": 48.14,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6046666666666667,
+    "name": ""
+  },
+  {
+    "from": 619,
+    "to": 615,
+    "dist": 32.92,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.0973333333333335,
+    "name": ""
+  },
+  {
+    "from": 615,
+    "to": 620,
+    "dist": 25.05,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8350000000000001,
+    "name": ""
+  },
+  {
+    "from": 620,
+    "to": 616,
+    "dist": 20.93,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6976666666666667,
+    "name": ""
+  },
+  {
+    "from": 616,
+    "to": 611,
+    "dist": 18.41,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6136666666666667,
+    "name": ""
+  },
+  {
+    "from": 615,
+    "to": 614,
+    "dist": 18.12,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.906,
+    "name": ""
+  },
+  {
+    "from": 614,
+    "to": 616,
+    "dist": 17.99,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8995,
+    "name": ""
+  },
+  {
+    "from": 614,
+    "to": 613,
+    "dist": 10.74,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.537,
+    "name": ""
+  },
+  {
+    "from": 613,
+    "to": 612,
+    "dist": 10.5,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.525,
+    "name": ""
+  },
+  {
+    "from": 612,
+    "to": 611,
+    "dist": 20.76,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.038,
+    "name": ""
+  },
+  {
+    "from": 650,
+    "to": 652,
+    "dist": 31.81,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 651,
+    "to": 652,
+    "dist": 29.72,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 649,
+    "to": 652,
+    "dist": 36.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 652,
+    "to": 648,
+    "dist": 33.92,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 653,
+    "to": 652,
+    "dist": 27.25,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 590,
+    "to": 653,
+    "dist": 31.11,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.5554999999999999,
+    "name": ""
+  },
+  {
+    "from": 658,
+    "to": 661,
+    "dist": 35.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 661,
+    "to": 657,
+    "dist": 23.06,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 656,
+    "to": 661,
+    "dist": 43.89,
+    "type": "street",
+    "twoWay": false,
+    "weight": 2.1945,
+    "name": ""
+  },
+  {
+    "from": 661,
+    "to": 655,
+    "dist": 54.54,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 662,
+    "to": 661,
+    "dist": 50.46,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 661,
+    "to": 659,
+    "dist": 37.39,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 660,
+    "to": 661,
+    "dist": 16.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 660,
+    "to": 588,
+    "dist": 10.2,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.51,
+    "name": ""
+  },
+  {
+    "from": 654,
+    "to": 661,
+    "dist": 46.19,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 661,
+    "to": 656,
+    "dist": 43.89,
+    "type": "wall",
+    "twoWay": false,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 661,
+    "to": 663,
+    "dist": 41.77,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 661,
+    "to": 664,
+    "dist": 39.05,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 670,
+    "to": 592,
+    "dist": 4.03,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.2015,
+    "name": ""
+  },
+  {
+    "from": 670,
+    "to": 665,
+    "dist": 5.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 667,
+    "to": 665,
+    "dist": 5.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 665,
+    "to": 666,
+    "dist": 6.71,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 669,
+    "to": 665,
+    "dist": 6.99,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 665,
+    "to": 668,
+    "dist": 6.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 671,
+    "to": 674,
+    "dist": 9.6,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 674,
+    "to": 672,
+    "dist": 8.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 673,
+    "to": 674,
+    "dist": 8.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 675,
+    "to": 674,
+    "dist": 9.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 593,
+    "to": 676,
+    "dist": 6.45,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3225,
+    "name": ""
+  },
+  {
+    "from": 676,
+    "to": 674,
+    "dist": 6.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 682,
+    "to": 681,
+    "dist": 11.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 681,
+    "to": 605,
+    "dist": 5.22,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.261,
+    "name": ""
+  },
+  {
+    "from": 682,
+    "to": 678,
+    "dist": 32.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 682,
+    "to": 677,
+    "dist": 34.1,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 682,
+    "to": 679,
+    "dist": 32.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 682,
+    "to": 680,
+    "dist": 28.34,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 682,
+    "to": 683,
+    "dist": 18.05,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 687,
+    "to": 685,
+    "dist": 12.09,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 687,
+    "to": 686,
+    "dist": 12.19,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 687,
+    "to": 688,
+    "dist": 18.62,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 687,
+    "to": 684,
+    "dist": 14.5,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 687,
+    "to": 689,
+    "dist": 16.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 690,
+    "to": 687,
+    "dist": 15.53,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 691,
+    "to": 685,
+    "dist": 8.46,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.42300000000000004,
+    "name": ""
+  },
+  {
+    "from": 604,
+    "to": 691,
+    "dist": 17.83,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5943333333333333,
+    "name": ""
+  },
+  {
+    "from": 691,
+    "to": 606,
+    "dist": 18.29,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6096666666666667,
+    "name": ""
+  },
+  {
+    "from": 607,
+    "to": 608,
+    "dist": 56.3,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.8766666666666665,
+    "name": ""
+  },
+  {
+    "from": 698,
+    "to": 700,
+    "dist": 33.4,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 699,
+    "dist": 28.63,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 697,
+    "dist": 22.94,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 692,
+    "dist": 37.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 693,
+    "dist": 26.51,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 694,
+    "dist": 32.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 695,
+    "dist": 20.73,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 700,
+    "to": 696,
+    "dist": 34.1,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 695,
+    "to": 617,
+    "dist": 6.13,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3065,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 706,
+    "dist": 25.93,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 707,
+    "dist": 52.79,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 704,
+    "dist": 47.77,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 703,
+    "dist": 53.46,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 702,
+    "dist": 25.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 701,
+    "dist": 50.28,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 705,
+    "dist": 43.18,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 709,
+    "to": 708,
+    "dist": 44.32,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 618,
+    "to": 706,
+    "dist": 13.69,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.6845,
+    "name": ""
+  },
+  {
+    "from": 710,
+    "to": 714,
+    "dist": 7.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 714,
+    "to": 713,
+    "dist": 6.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 714,
+    "to": 712,
+    "dist": 7.02,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 714,
+    "to": 711,
+    "dist": 6.54,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 608,
+    "to": 715,
+    "dist": 12.07,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.6035,
+    "name": ""
+  },
+  {
+    "from": 715,
+    "to": 714,
+    "dist": 6.37,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 716,
+    "to": 709,
+    "dist": 37.25,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 717,
+    "to": 709,
+    "dist": 38.98,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 723,
+    "to": 722,
+    "dist": 8.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 723,
+    "to": 720,
+    "dist": 7.42,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 723,
+    "to": 719,
+    "dist": 8.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 723,
+    "to": 718,
+    "dist": 8.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 723,
+    "to": 721,
+    "dist": 6.5,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 723,
+    "to": 612,
+    "dist": 9.34,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 724,
+    "dist": 34.49,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 729,
+    "dist": 18.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 727,
+    "dist": 33.21,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 728,
+    "dist": 27.22,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 726,
+    "dist": 32.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 731,
+    "dist": 18.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 730,
+    "dist": 25.98,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 732,
+    "to": 725,
+    "dist": 31.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 731,
+    "to": 619,
+    "dist": 9.03,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.45149999999999996,
+    "name": ""
+  },
+  {
+    "from": 603,
+    "to": 740,
+    "dist": 5.91,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.2955,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 734,
+    "dist": 26.55,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 740,
+    "dist": 15.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 737,
+    "dist": 43.5,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 738,
+    "dist": 38.5,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 736,
+    "dist": 40.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 735,
+    "dist": 17.94,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 733,
+    "dist": 28.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 741,
+    "to": 739,
+    "dist": 22.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 745,
+    "dist": 27.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 744,
+    "dist": 22.01,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 743,
+    "dist": 29.26,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 742,
+    "dist": 17.37,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 749,
+    "dist": 18,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 746,
+    "dist": 41.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 748,
+    "dist": 40.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 750,
+    "to": 747,
+    "dist": 43.1,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 742,
+    "to": 602,
+    "dist": 6.71,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3355,
+    "name": ""
+  },
+  {
+    "from": 751,
+    "to": 759,
+    "dist": 20.63,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 753,
+    "dist": 9.09,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 752,
+    "dist": 19.06,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 754,
+    "dist": 22.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 755,
+    "dist": 22.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 757,
+    "dist": 11.19,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 758,
+    "dist": 14.68,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 759,
+    "to": 756,
+    "dist": 17.12,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 622,
+    "to": 758,
+    "dist": 19.41,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9705,
+    "name": ""
+  },
+  {
+    "from": 756,
+    "to": 601,
+    "dist": 14.76,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.738,
+    "name": ""
+  },
+  {
+    "from": 768,
+    "to": 623,
+    "dist": 19.94,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9970000000000001,
+    "name": ""
+  },
+  {
+    "from": 761,
+    "to": 769,
+    "dist": 25.45,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 763,
+    "dist": 20.84,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 765,
+    "dist": 19.06,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 767,
+    "dist": 17.62,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 766,
+    "dist": 19.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 764,
+    "dist": 21.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 762,
+    "dist": 21.26,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 760,
+    "dist": 25.2,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 769,
+    "to": 768,
+    "dist": 27.88,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 774,
+    "to": 771,
+    "dist": 29.3,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 774,
+    "to": 772,
+    "dist": 26.39,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 774,
+    "to": 770,
+    "dist": 27.84,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 774,
+    "to": 775,
+    "dist": 14.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 774,
+    "to": 773,
+    "dist": 25.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 776,
+    "to": 774,
+    "dist": 16.53,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 775,
+    "to": 598,
+    "dist": 17.72,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.8859999999999999,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 778,
+    "dist": 32.82,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 777,
+    "dist": 35.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 783,
+    "dist": 23.94,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 779,
+    "dist": 24.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 782,
+    "dist": 37.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 781,
+    "dist": 23.24,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 780,
+    "dist": 32.62,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 784,
+    "to": 785,
+    "dist": 18.18,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 781,
+    "to": 646,
+    "dist": 15.64,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.782,
+    "name": ""
+  },
+  {
+    "from": 779,
+    "to": 647,
+    "dist": 25.69,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.2845,
+    "name": ""
+  },
+  {
+    "from": 645,
+    "to": 646,
+    "dist": 32.25,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.075,
+    "name": ""
+  },
+  {
+    "from": 601,
+    "to": 623,
+    "dist": 23.74,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7913333333333333,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 623,
+    "to": 624,
+    "dist": 46.13,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.5376666666666667,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 624,
+    "to": 625,
+    "dist": 6.9,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.23,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 625,
+    "to": 647,
+    "dist": 51.49,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.7163333333333335,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 647,
+    "to": 34,
+    "dist": 65.42,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.1806666666666668,
+    "name": "Abdul Rehman Ali St"
+  },
+  {
+    "from": 622,
+    "to": 621,
+    "dist": 17.38,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5793333333333333,
+    "name": ""
+  },
+  {
+    "from": 621,
+    "to": 620,
+    "dist": 45.59,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.5196666666666667,
+    "name": ""
+  },
+  {
+    "from": 621,
+    "to": 623,
+    "dist": 48.29,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6096666666666666,
+    "name": ""
+  },
+  {
+    "from": 641,
+    "to": 794,
+    "dist": 15.96,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.798,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 794,
+    "dist": 9.65,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 790,
+    "dist": 23.31,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 789,
+    "dist": 30.13,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 788,
+    "dist": 28.17,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 792,
+    "dist": 13.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 787,
+    "dist": 26.89,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 786,
+    "dist": 30.58,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 793,
+    "to": 791,
+    "dist": 22.42,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 625,
+    "to": 627,
+    "dist": 70.63,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.3543333333333334,
+    "name": ""
+  },
+  {
+    "from": 626,
+    "to": 628,
+    "dist": 17.85,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.5950000000000001,
+    "name": ""
+  },
+  {
+    "from": 628,
+    "to": 629,
+    "dist": 27.79,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9263333333333333,
+    "name": ""
+  },
+  {
+    "from": 629,
+    "to": 631,
+    "dist": 39.01,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3003333333333333,
+    "name": ""
+  },
+  {
+    "from": 629,
+    "to": 630,
+    "dist": 6.05,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.20166666666666666,
+    "name": ""
+  },
+  {
+    "from": 630,
+    "to": 632,
+    "dist": 39.78,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.326,
+    "name": ""
+  },
+  {
+    "from": 632,
+    "to": 635,
+    "dist": 14.39,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.4796666666666667,
+    "name": ""
+  },
+  {
+    "from": 631,
+    "to": 632,
+    "dist": 9.12,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.304,
+    "name": ""
+  },
+  {
+    "from": 631,
+    "to": 633,
+    "dist": 57.3,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.91,
+    "name": ""
+  },
+  {
+    "from": 633,
+    "to": 634,
+    "dist": 24.05,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8016666666666666,
+    "name": ""
+  },
+  {
+    "from": 626,
+    "to": 627,
+    "dist": 9.79,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.3263333333333333,
+    "name": ""
+  },
+  {
+    "from": 633,
+    "to": 636,
+    "dist": 25.16,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.8386666666666667,
+    "name": ""
+  },
+  {
+    "from": 630,
+    "to": 641,
+    "dist": 35.09,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.1696666666666669,
+    "name": ""
+  },
+  {
+    "from": 641,
+    "to": 640,
+    "dist": 33.03,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.101,
+    "name": ""
+  },
+  {
+    "from": 640,
+    "to": 639,
+    "dist": 39.05,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.3016666666666665,
+    "name": ""
+  },
+  {
+    "from": 639,
+    "to": 638,
+    "dist": 63.52,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.1173333333333333,
+    "name": ""
+  },
+  {
+    "from": 638,
+    "to": 637,
+    "dist": 33.14,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.1046666666666667,
+    "name": ""
+  },
+  {
+    "from": 643,
+    "to": 800,
+    "dist": 22.24,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.1119999999999999,
+    "name": ""
+  },
+  {
+    "from": 796,
+    "to": 801,
+    "dist": 16.52,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 801,
+    "to": 797,
+    "dist": 14.12,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 801,
+    "to": 798,
+    "dist": 15.61,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 801,
+    "to": 799,
+    "dist": 18.02,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 801,
+    "to": 800,
+    "dist": 10.56,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 801,
+    "to": 795,
+    "dist": 15.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 801,
+    "to": 802,
+    "dist": 14.31,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 639,
+    "to": 642,
+    "dist": 4.51,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.15033333333333332,
+    "name": ""
+  },
+  {
+    "from": 642,
+    "to": 643,
+    "dist": 36.52,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.2173333333333334,
+    "name": ""
+  },
+  {
+    "from": 643,
+    "to": 644,
+    "dist": 10.85,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.36166666666666664,
+    "name": ""
+  },
+  {
+    "from": 644,
+    "to": 645,
+    "dist": 28.93,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9643333333333334,
+    "name": ""
+  },
+  {
+    "from": 645,
+    "to": 34,
+    "dist": 48.65,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6216666666666666,
+    "name": ""
+  },
+  {
+    "from": 807,
+    "to": 808,
+    "dist": 12.99,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 807,
+    "to": 804,
+    "dist": 21.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 807,
+    "to": 805,
+    "dist": 19.75,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 807,
+    "to": 806,
+    "dist": 20.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 807,
+    "to": 803,
+    "dist": 21.62,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 807,
+    "to": 809,
+    "dist": 12.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 816,
+    "to": 813,
+    "dist": 21.9,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 816,
+    "to": 812,
+    "dist": 22.29,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 816,
+    "to": 815,
+    "dist": 11.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 816,
+    "to": 811,
+    "dist": 18.18,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 816,
+    "to": 810,
+    "dist": 16.69,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 816,
+    "to": 814,
+    "dist": 13.67,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 814,
+    "to": 640,
+    "dist": 8.23,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.41150000000000003,
+    "name": ""
+  },
+  {
+    "from": 818,
+    "to": 822,
+    "dist": 15.51,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 822,
+    "to": 819,
+    "dist": 15.73,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 822,
+    "to": 820,
+    "dist": 11.1,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 822,
+    "to": 821,
+    "dist": 5.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 822,
+    "to": 817,
+    "dist": 18.4,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 821,
+    "to": 638,
+    "dist": 21.75,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.0875,
+    "name": ""
+  },
+  {
+    "from": 621,
+    "to": 830,
+    "dist": 35.4,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.77,
+    "name": ""
+  },
+  {
+    "from": 830,
+    "to": 624,
+    "dist": 30.22,
+    "type": "street",
+    "twoWay": true,
+    "weight": 1.511,
+    "name": ""
+  },
+  {
+    "from": 829,
+    "to": 830,
+    "dist": 13.68,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.6839999999999999,
+    "name": ""
+  },
+  {
+    "from": 829,
+    "to": 828,
+    "dist": 27.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 828,
+    "to": 824,
+    "dist": 38.87,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 828,
+    "to": 825,
+    "dist": 44.02,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 828,
+    "to": 826,
+    "dist": 27.71,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 828,
+    "to": 827,
+    "dist": 39.84,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 828,
+    "to": 823,
+    "dist": 57.29,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 828,
+    "to": 831,
+    "dist": 26.47,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 834,
+    "dist": 83.54,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 835,
+    "dist": 47.93,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 839,
+    "dist": 90.07,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 838,
+    "to": 840,
+    "dist": 78.08,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 837,
+    "dist": 91.4,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 833,
+    "dist": 74.48,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 832,
+    "dist": 88.17,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 840,
+    "to": 836,
+    "dist": 43.7,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 595,
+    "to": 834,
+    "dist": 6.09,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.3045,
+    "name": ""
+  },
+  {
+    "from": 837,
+    "to": 601,
+    "dist": 5.91,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.2955,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 841,
+    "dist": 34.14,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 848,
+    "dist": 28.38,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 847,
+    "dist": 20,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 846,
+    "dist": 24.73,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 845,
+    "dist": 38.15,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 844,
+    "dist": 31.64,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 843,
+    "to": 842,
+    "dist": 23.43,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 849,
+    "to": 842,
+    "dist": 19.8,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.99,
+    "name": ""
+  },
+  {
+    "from": 849,
+    "to": 636,
+    "dist": 33.38,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.1126666666666667,
+    "name": ""
+  },
+  {
+    "from": 849,
+    "to": 635,
+    "dist": 17.91,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.597,
+    "name": ""
+  },
+  {
+    "from": 851,
+    "to": 854,
+    "dist": 13.86,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 854,
+    "to": 852,
+    "dist": 12.91,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 854,
+    "to": 853,
+    "dist": 11.31,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 854,
+    "to": 850,
+    "dist": 12.27,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 854,
+    "to": 636,
+    "dist": 14.03,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 856,
+    "to": 859,
+    "dist": 11.35,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 855,
+    "to": 859,
+    "dist": 10.92,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 859,
+    "to": 857,
+    "dist": 9.72,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 859,
+    "to": 858,
+    "dist": 8.95,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 859,
+    "to": 860,
+    "dist": 10.08,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.504,
+    "name": ""
+  },
+  {
+    "from": 636,
+    "to": 860,
+    "dist": 21.66,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.722,
+    "name": ""
+  },
+  {
+    "from": 860,
+    "to": 637,
+    "dist": 74.94,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.4979999999999998,
+    "name": ""
+  },
+  {
+    "from": 629,
+    "to": 861,
+    "dist": 19.25,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.9625,
+    "name": ""
+  },
+  {
+    "from": 865,
+    "to": 867,
+    "dist": 8.27,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 867,
+    "to": 864,
+    "dist": 13.85,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 867,
+    "to": 862,
+    "dist": 11.28,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 867,
+    "to": 866,
+    "dist": 11.01,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 867,
+    "to": 863,
+    "dist": 25.36,
+    "type": "wall",
+    "twoWay": true,
+    "weight": null,
+    "name": ""
+  },
+  {
+    "from": 174,
+    "to": 608,
+    "dist": 6.78,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.226,
+    "name": ""
+  },
+  {
+    "from": 195,
+    "to": 608,
+    "dist": 14.88,
+    "type": "street",
+    "twoWay": true,
+    "weight": 0.744,
+    "name": ""
+  },
+  {
+    "from": 611,
+    "to": 187,
+    "dist": 18.05,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.6016666666666667,
+    "name": ""
+  },
+  {
+    "from": 334,
+    "to": 163,
+    "dist": 109.8,
+    "type": "road",
+    "twoWay": true,
+    "weight": 3.6599999999999997,
+    "name": ""
+  },
+  {
+    "from": 163,
+    "to": 528,
+    "dist": 23.56,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.7853333333333333,
+    "name": ""
+  },
+  {
+    "from": 528,
+    "to": 257,
+    "dist": 48.1,
+    "type": "road",
+    "twoWay": true,
+    "weight": 1.6033333333333333,
+    "name": ""
+  },
+  {
+    "from": 257,
+    "to": 331,
+    "dist": 67.76,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.258666666666667,
+    "name": ""
+  },
+  {
+    "from": 245,
+    "to": 331,
+    "dist": 61.52,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.050666666666667,
+    "name": ""
+  },
+  {
+    "from": 246,
+    "to": 332,
+    "dist": 60.77,
+    "type": "road",
+    "twoWay": true,
+    "weight": 2.025666666666667,
+    "name": ""
+  },
+  {
+    "from": 535,
+    "to": 520,
+    "dist": 22.59,
+    "type": "road",
+    "twoWay": false,
+    "weight": 0.753,
+    "name": ""
+  },
+  {
+    "from": 7,
+    "to": 312,
+    "dist": 27.08,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9026666666666666,
+    "name": ""
+  },
+  {
+    "from": 7,
+    "to": 513,
+    "dist": 28.28,
+    "type": "road",
+    "twoWay": true,
+    "weight": 0.9426666666666667,
+    "name": ""
+  },
+  {
+    "from": 335,
+    "to": 637,
+    "dist": 49.2,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.46,
+    "name": ""
+  },
+  {
+    "from": 642,
+    "to": 536,
+    "dist": 50.37,
+    "type": "street",
+    "twoWay": true,
+    "weight": 2.5185,
+    "name": ""
+  }
 ]
