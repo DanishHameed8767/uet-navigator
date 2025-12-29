@@ -197,6 +197,7 @@ const MapCanvas = ({
                     graph={graph}
                     dimensions={dimensions}
                     scale={clampedScale}
+                    detailLevel={detailLevel}
                     position={position}
                     setPosition={setPosition}
                     nodes={nodes}
@@ -218,6 +219,7 @@ const MapCanvas = ({
             ) : (
                 <MapView
                     nodes={nodes}
+                    edges={edges}
                     dimensions={dimensions}
                     scale={clampedScale}
                     detailLevel={detailLevel}

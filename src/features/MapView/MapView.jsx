@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import styles from "./MapView.module.css";
 import { findPath } from "../../utils/pathFinding.js";
 import { MAP_CONFIG } from "../../utils/mapHelper.js";
@@ -10,8 +11,10 @@ import {
     Ring,
 } from "react-konva";
 import StaticLabels from "../StaticGraph/StaticLabels.jsx";
+import { createNodeLookup } from "../../utils/mapHelper.js";
 
 const MapView = ({
+    edges,
     nodes,
     dimensions,
     scale,
@@ -32,6 +35,8 @@ const MapView = ({
     handleWheel,
     handleStopSave,
 }) => {
+    const nodeLookup = useMemo(() => createNodeLookup(nodes), [nodes]);
+
     const travelPath = (() => {
         if (travelMode !== "walk") {
             return [];
@@ -190,7 +195,12 @@ const MapView = ({
                             />
                         </>
                     ))}
-                    <StaticLabels nodes={nodes} detailLevel={detailLevel} />
+                    <StaticLabels
+                        nodes={nodes}
+                        nodeLookup={nodeLookup}
+                        detailLevel={detailLevel}
+                        edges={edges}
+                    />
                 </Layer>
             </Stage>
         </div>

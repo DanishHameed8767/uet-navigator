@@ -541,15 +541,19 @@ const MapBuilder = ({
                                 );
                             })}
                             <StaticNodes nodes={nodes} />
-                            <StaticLabels
-                                nodes={nodes}
-                                nodeLookup={nodeLookup}
-                                edges={edges}
-                                detailLevel={detailLevel}
-                            />
                         </Group>
                     </Layer>
                 )}
+                <Layer>
+                    <Group listening={false}>
+                        <StaticLabels
+                            nodes={nodes}
+                            nodeLookup={nodeLookup}
+                            edges={edges}
+                            detailLevel={detailLevel}
+                        />
+                    </Group>
+                </Layer>
             </Stage>
 
             {/* Forms For Nodes & Edges Manipulation */}
