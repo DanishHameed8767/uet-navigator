@@ -71,3 +71,52 @@ export const getNodeTier = (type) => {
     if (type === "other") return 3;
     return 3;
 };
+
+export const createNodeLookup = (nodes) => {
+    const lookup = {};
+    for (const node of nodes) {
+        lookup[node.id] = node;
+    }
+    return lookup;
+};
+
+export const findClosestNode = (x, y, nodes, threshold = 15) => {
+    let closest = null;
+    let minSq = threshold * threshold;
+    for (const node of nodes) {
+        const { x: nx, y: ny } = latLonToPixel(node.lat, node.lon);
+        const distSq = (x - nx) ** 2 + (y - ny) ** 2;
+        if (distSq < minSq) {
+            minSq = distSq;
+            closest = node;
+        }
+    }
+    return closest;
+};
+
+export const findClosestEdge = (x, y, edges, nodeLookup, threshold = 10) => {
+    let closestIndex = -1;
+    let minSq = threshold * threshold;
+    for (let i = 0; i < edges.length; i++) {
+        const edge = edges[i];
+        const nA = nodeLookup[edge.from];
+        const nB = nodeLookup[edge.to];
+        if (!nA || !nB) continue;
+        const pA = latLonToPixel(nA.lat, nA.lon);
+        const pB = latLonToPixel(nB.lat, nB.lon);
+        const distSq = getDistToSegmentSquared(x, y, pA.x, pA.y, pB.x, pB.y);
+        if (distSq < minSq) {
+            minSq = distSq;
+            closestIndex = i;
+        }
+    }
+    return closestIndex;
+};
+
+function getDistToSegmentSquared(px, py, x1, y1, x2, y2) {
+    const l2 = (x1 - x2) ** 2 + (y1 - y2) ** 2;
+    if (l2 === 0) return (px - x1) ** 2 + (py - y1) ** 2;
+    let t = ((px - x1) * (x2 - x1) + (py - y1) * (y2 - y1)) / l2;
+    t = Math.max(0, Math.min(1, t));
+    return (px - (x1 + t * (x2 - x1))) ** 2 + (py - (y1 + t * (y2 - y1))) ** 2;
+}
