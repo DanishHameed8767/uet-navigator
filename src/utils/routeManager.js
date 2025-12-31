@@ -1,60 +1,36 @@
-import MinHeap from '../data-structures/minHeap.js'
+import MinHeap from "../data-structures/MinHeap";
 
-/**
- * ============================================================
- * 1. HELPER: WEIGHT CALCULATOR
- * ============================================================
- * dynamic weighting based on travel mode.
- */
-const getEffectiveWeight = (edge, travelMode) => {
-    // If we are in a car, we hate 'streets'. We prefer 'roads'.
-    // We multiply the weight by 100 to make it a "last resort" 
-    // (only used if no other way exists).
-    if (travelMode === "car" && edge.type === "street") {
-        return edge.weight * 50; 
-    }
-    
-    // Bike prefers streets? Maybe. For now, treat normally.
-    return edge.weight;
-};
-
-/**
- * ============================================================
- * 2. ENGINE: CORE DIJKSTRA
- * ============================================================
- * The low-level algorithm that finds the best path between TWO points.
- */
-const coreDijkstra = (graph, startId, endId, { travelMode = "bike", excludedEdgeId = null } = {}) => {
+const coreDijkstra = (graph, startId, endId, useStreets, penaltyMap) => {
     const distances = new Map();
-    const previous = new Map(); // Stores { nodeId: { fromNodeId, edgeId } }
+    const previous = new Map();
     const visited = new Set();
-    const pq = new MinHeap(); // Using your MinHeap class
+    const pq = new MinHeap();
 
-    // Initialize
     distances.set(startId, 0);
-    pq.push({ id: startId, f: 0 }); // 'f' is used for priority
+    pq.push({ id: startId, f: 0 });
 
     while (!pq.isEmpty()) {
         const { id: u } = pq.pop();
 
-        if (u === endId) break; // Reached target
+        if (u === endId) break;
         if (visited.has(u)) continue;
         visited.add(u);
 
-        // Get Neighbors
         const edges = graph.getNeighbors(u);
 
         for (const edge of edges) {
-            // 1. CONSTRAINT: Exclude specific edge (for Alternative Path)
-            if (edge.id === excludedEdgeId) continue;
+            if (!useStreets && edge.type === "street") continue;
 
-            // 2. CONSTRAINT: Determine neighbor node
+            let weight = edge.weight;
+
+            if (penaltyMap && penaltyMap.has(edge.id)) {
+                const multiplier = penaltyMap.get(edge.id);
+                weight = weight * multiplier;
+            }
+
             const v = edge.from === u ? edge.to : edge.from;
             if (visited.has(v)) continue;
 
-            // 3. CONSTRAINT: Mode-Specific Weight
-            const weight = getEffectiveWeight(edge, travelMode);
-            
             const newDist = (distances.get(u) || Infinity) + weight;
             const currentDist = distances.get(v) === undefined ? Infinity : distances.get(v);
 
@@ -69,9 +45,7 @@ const coreDijkstra = (graph, startId, endId, { travelMode = "bike", excludedEdge
     return reconstructPath(previous, endId, distances.get(endId));
 };
 
-/**
- * Reconstructs the path from the 'previous' map.
- */
+//helper
 const reconstructPath = (previous, endId, totalDistance) => {
     if (totalDistance === Infinity || totalDistance === undefined) return null;
 
@@ -89,75 +63,59 @@ const reconstructPath = (previous, endId, totalDistance) => {
     return { path, edges: edgeIds, distance: totalDistance };
 };
 
-/**
- * ============================================================
- * 3. DRIVER: MULTI-STOP ROUTE MANAGER
- * ============================================================
- * The main function you call from UI. 
- * Handles: Stops, Car/Bike constraints, and Alternative Paths.
- * * @param {Graph} graph - Your graph instance
- * @param {string[]} stopIds - Array of Node IDs: ['Start', 'Stop1', 'Stop2', 'End']
- * @param {string} travelMode - 'car' or 'bike'
- */
-export const calculateRoute = (graph, stopIds, travelMode = "bike") => {
-    if (!stopIds || stopIds.length < 2) return null;
 
-    let fullPrimaryPath = [];
-    let fullAlternativePath = [];
-    
-    // We process the route in segments (Start -> Stop1, Stop1 -> Stop2, etc.)
-    for (let i = 0; i < stopIds.length - 1; i++) {
-        const start = stopIds[i];
-        const end = stopIds[i + 1];
+//helper
+const getFullItinerary = (graph, stops, useStreets, penaltyMap) => {
+    let fullPath = [];
+    let allEdges = [];
+    let totalDist = 0;
 
-        // A. FIND PRIMARY PATH FOR SEGMENT
-        const primary = coreDijkstra(graph, start, end, { travelMode });
-        
-        if (!primary) {
-            console.warn(`No path found between ${start} and ${end}`);
-            return null; // Route is impossible
-        }
+    for (let i = 0; i < stops.length - 1; i++) {
+        const start = stops[i];
+        const end = stops[i + 1];
 
-        // B. FIND ALTERNATIVE PATH FOR SEGMENT
-        // Strategy: Try to break each edge in the primary path and see if we find a decent detour.
-        let bestAlt = null;
-        
-        // Optimization: Don't try to break every single edge if path is huge. 
-        // Just checking the first few and last few often gives good results.
-        const edgesToCheck = primary.edges; 
+        // Pass the Map down to the engine
+        const segmentResult = coreDijkstra(graph, start, end, useStreets, penaltyMap);
 
-        for (const edgeId of edgesToCheck) {
-            const candidate = coreDijkstra(graph, start, end, { 
-                travelMode, 
-                excludedEdgeId: edgeId 
-            });
+        if (!segmentResult) return null;
 
-            if (candidate) {
-                // valid candidate?
-                // We want the alternative to be valid, but maybe not TOO much longer (e.g., < 2x distance)
-                // But simplified: just take the best (shortest) valid deviation found.
-                if (!bestAlt || candidate.distance < bestAlt.distance) {
-                    bestAlt = candidate;
-                }
-            }
-        }
-
-        // Use the found alternative, or fallback to primary if no alternative exists (dead end road)
-        const segmentAlt = bestAlt || primary;
-
-        // C. CONCATENATE TO MASTER LISTS
-        // Note: We slice(1) to avoid duplicating the join node (A->B, B->C becomes A,B,B,C without slice)
         if (i === 0) {
-            fullPrimaryPath = primary.path;
-            fullAlternativePath = segmentAlt.path;
+            fullPath = segmentResult.path;
+            allEdges = segmentResult.edges;
         } else {
-            fullPrimaryPath = [...fullPrimaryPath, ...primary.path.slice(1)];
-            fullAlternativePath = [...fullAlternativePath, ...segmentAlt.path.slice(1)];
+            fullPath = [...fullPath, ...segmentResult.path.slice(1)];
+            allEdges = [...allEdges, ...segmentResult.edges];
         }
+        totalDist += segmentResult.distance;
     }
 
+    return { path: fullPath, edges: allEdges, distance: totalDist };
+};
+
+
+//driver
+export default calculateRoute = (graph, stops, useStreets = true) => {
+    if (!stops || stops.length < 2) return null;
+
+    // A. FIND PRIMARY PATH (Pass empty Map)
+    const primary = getFullItinerary(graph, stops, useStreets, new Map());
+
+    if (!primary) {
+        return { shortest: null, alternative: null };
+    }
+
+    // B. FIND ALTERNATIVE PATH
+    const penaltyMap = new Map();
+    const DEFAULT_PENALTY = 1.5;
+
+    for (const edgeId of primary.edges) {
+        penaltyMap.set(edgeId, DEFAULT_PENALTY);
+    }
+
+    const alternative = getFullItinerary(graph, stops, useStreets, penaltyMap);
+
     return {
-        shortest: fullPrimaryPath,    // Array of NodeIDs
-        alternative: fullAlternativePath // Array of NodeIDs
+        shortest: primary.path,
+        alternative: alternative ? alternative.path : null
     };
 };
