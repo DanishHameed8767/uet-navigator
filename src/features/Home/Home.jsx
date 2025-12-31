@@ -13,6 +13,8 @@ import SingleLinkedList from "../../data-structures/linked-list.js";
 import { loadWalkData } from "../../utils/appHelper.js";
 import useGraphDataState from "../../hooks/useGraphDataState.js";
 import { hydrateGraph } from "../../data-structures/graph";
+import useLocalStorage from "../../hooks/useLocalStorage.js";
+import { getDistance, pixelToLatLon } from "../../utils/mapHelper.js";
 
 const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const searchInputRef = useRef(null);
@@ -25,6 +27,7 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
 
     const hydrated = useMemo(() => hydrateGraph(graphData), [graphData]);
 
+    const [allSavedNodes, setAllSavedNodes] = useLocalStorage("saved_nodes", []);
     // useEffect(() => {
     //     if (searchMode === "default") return;
 
@@ -44,10 +47,55 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
         alert("Path added to recent visits");
     };
 
-    const handleStopSave = (stop) => {
-        alert("Stop " + stop.point.x + " - " + stop.point.y + " saved");
+ const handleStopSave = (stop) => {
+    if (!stop || !stop.point) return;
+
+    // 1. Convert clicked pixel x,y to Lat/Lon
+    const { lat, lon } = pixelToLatLon(stop.point.x, stop.point.y);
+
+    // 2. SEARCH: Find if these coordinates exist in your graph data
+    const graphNodesArray = Object.values(hydrated.graph.nodes);
+    const matchedNode = graphNodesArray.find(
+        (node) => node.lat === lat && node.lon === lon
+    );
+
+    // 3. BUILD: If found, use graph data; else save only lat/lon
+    const nodeToSave = {
+        id: matchedNode?.id || "",
+        lat: lat,
+        lon: lon,
+        name: matchedNode?.name || "",
+        type: matchedNode?.type || "",
+        tier: matchedNode?.tier || null,
+        email: currentUser?.email || ""
     };
 
+    setAllSavedNodes((prev) => {
+        const minDistanceThreshold = 10; // Minimum distance in meters to allow a new save
+
+        // 4. RANGE CHECK: Ensure node is not too close to existing saved nodes for this user
+        const tooClose = prev.some((node) => {
+            if (node.email !== nodeToSave.email) return false;
+            
+            // Calculate distance between new point and existing saved point
+            const dist = getDistance(nodeToSave.lat, nodeToSave.lon, node.lat, node.lon);
+            return dist < minDistanceThreshold;
+        });
+
+        if (tooClose) {
+            alert(`This location is too close to an already saved point (less than ${minDistanceThreshold}m).`);
+            return prev;
+        }
+
+        const message = matchedNode 
+            ? `Saved Graph Node: ${matchedNode.name || matchedNode.id}` 
+            : `Saved Coordinates: ${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+        
+        alert(message);
+        return [...prev, nodeToSave];
+    });
+};
+  
     return (
         <div className={styles.home}>
             <MapCanvas
