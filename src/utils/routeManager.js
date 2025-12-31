@@ -1,5 +1,6 @@
 import MinHeap from "../data-structures/MinHeap";
 
+//algorithm
 const coreDijkstra = (graph, startId, endId, useStreets, penaltyMap) => {
     const distances = new Map();
     const previous = new Map();
@@ -19,13 +20,14 @@ const coreDijkstra = (graph, startId, endId, useStreets, penaltyMap) => {
         const edges = graph.getNeighbors(u);
 
         for (const edge of edges) {
+            // CONSTRAINT 1: Strict Street Avoidance
+            // If we are calculating the "No Street" path, strictly skip streets
             if (!useStreets && edge.type === "street") continue;
 
+            // CONSTRAINT 2: Dynamic Penalties via Map
             let weight = edge.weight;
-
             if (penaltyMap && penaltyMap.has(edge.id)) {
-                const multiplier = penaltyMap.get(edge.id);
-                weight = weight * multiplier;
+                weight = weight * penaltyMap.get(edge.id);
             }
 
             const v = edge.from === u ? edge.to : edge.from;
@@ -63,7 +65,6 @@ const reconstructPath = (previous, endId, totalDistance) => {
     return { path, edges: edgeIds, distance: totalDistance };
 };
 
-
 //helper
 const getFullItinerary = (graph, stops, useStreets, penaltyMap) => {
     let fullPath = [];
@@ -74,7 +75,6 @@ const getFullItinerary = (graph, stops, useStreets, penaltyMap) => {
         const start = stops[i];
         const end = stops[i + 1];
 
-        // Pass the Map down to the engine
         const segmentResult = coreDijkstra(graph, start, end, useStreets, penaltyMap);
 
         if (!segmentResult) return null;
@@ -92,30 +92,55 @@ const getFullItinerary = (graph, stops, useStreets, penaltyMap) => {
     return { path: fullPath, edges: allEdges, distance: totalDist };
 };
 
+//helper
+const hasStreetUsage = (graph, edgeIds) => {
+    for (const id of edgeIds) {
+        // graph.edges is a Map, so O(1) lookup
+        const edge = graph.edges.get(id); 
+        if (edge && edge.type === "street") {
+            return true;
+        }
+    }
+    return false;
+};
 
 //driver
-export default calculateRoute = (graph, stops, useStreets = true) => {
+export default calculateRoute = (graph, stops) => {
     if (!stops || stops.length < 2) return null;
 
-    // A. FIND PRIMARY PATH (Pass empty Map)
-    const primary = getFullItinerary(graph, stops, useStreets, new Map());
+    // A. FIND PRIMARY PATH (Fastest, allowed to use streets)
+    const primary = getFullItinerary(graph, stops, true, new Map());
 
     if (!primary) {
-        return { shortest: null, alternative: null };
+        return { shortest: null, alternative: null, noStreet: null };
     }
 
-    // B. FIND ALTERNATIVE PATH
+    // B. FIND ALTERNATIVE PATH (Penalize Primary Edges)
     const penaltyMap = new Map();
-    const DEFAULT_PENALTY = 1.5;
+    const DEFAULT_PENALTY = 5.0; 
 
     for (const edgeId of primary.edges) {
         penaltyMap.set(edgeId, DEFAULT_PENALTY);
     }
+    
+    // We still allow streets in alternative, just looking for a different route
+    const alternative = getFullItinerary(graph, stops, true, penaltyMap);
 
-    const alternative = getFullItinerary(graph, stops, useStreets, penaltyMap);
+    // C. CONDITIONAL "NO STREET" PATH
+    // Only calculate this if Primary or Alternative actually utilized a street.
+    let noStreetResult = null;
+    
+    const primaryUsesStreet = hasStreetUsage(graph, primary.edges);
+
+    if (primaryUsesStreet) {
+        // Run strictly with useStreets = false
+        noStreetResult = getFullItinerary(graph, stops, false, new Map());
+    }
 
     return {
         shortest: primary.path,
-        alternative: alternative ? alternative.path : null
+        alternative: alternative ? alternative.path : null,
+        // If this is null, it means the primary route already avoided streets (or was identical)
+        noStreet: noStreetResult ? noStreetResult.path : null 
     };
 };
