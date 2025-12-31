@@ -14,8 +14,9 @@ import StaticLabels from "../StaticGraph/StaticLabels.jsx";
 import { createNodeLookup } from "../../utils/mapHelper.js";
 
 const MapView = ({
-    edges,
-    nodes,
+    graph, // graph is provided for pathfinding / snapping / future logic
+    renderNodes,
+    renderEdges,
     dimensions,
     scale,
     detailLevel,
@@ -35,16 +36,14 @@ const MapView = ({
     handleWheel,
     handleStopSave,
 }) => {
-    const nodeLookup = useMemo(() => createNodeLookup(nodes), [nodes]);
+    const nodeLookup = useMemo(
+        () => createNodeLookup(renderNodes),
+        [renderNodes]
+    );
 
     const travelPath = (() => {
-        if (travelMode !== "walk") {
-            return [];
-        }
-
-        if (!gridConfig || stops.length < 2) {
-            return [];
-        }
+        if (travelMode !== "walk") return [];
+        if (!gridConfig || stops.length < 2) return [];
 
         let pixelPoints = [];
 
@@ -61,53 +60,42 @@ const MapView = ({
             );
 
             const pathNodes = findPath(walkMatrix, start, end);
-            if (pathNodes) {
-                pixelPoints.push(
-                    ...pathNodes.flatMap((p) => [
-                        p.col * gridConfig.cellWidth + gridConfig.cellWidth / 2,
-                        p.row * gridConfig.cellHeight +
-                            gridConfig.cellHeight / 2,
-                    ])
-                );
-            } else {
+            if (!pathNodes) {
                 alert("No path found. (Are you surrounded by walls?)");
+                return [];
             }
+
+            pixelPoints.push(
+                ...pathNodes.flatMap((p) => [
+                    p.col * gridConfig.cellWidth + gridConfig.cellWidth / 2,
+                    p.row * gridConfig.cellHeight + gridConfig.cellHeight / 2,
+                ])
+            );
         }
 
         return pixelPoints;
     })();
 
     const handleStageClick = (e) => {
-        if (e.evt.button !== 0) {
-            return;
-        }
-        if (travelMode === "walk" && !gridConfig) {
-            return;
-        }
+        if (e.evt.button !== 0) return;
+        if (travelMode === "walk" && !gridConfig) return;
+
         if (stops.length === MAP_CONFIG.MAX_STOPS) {
             alert("Cannot add more than " + MAP_CONFIG.MAX_STOPS + " stops.");
             return;
         }
+
         const stage = e.target.getStage();
         const pointer = stage.getPointerPosition();
         const imgX = (pointer.x - stage.x()) / stage.scaleX();
         const imgY = (pointer.y - stage.y()) / stage.scaleY();
+
         if (travelMode === "walk") {
             const point = imageToGridXY(imgX, imgY, gridConfig);
-            if (walkMatrix[point.row][point.col] === 0) {
-                return;
-            }
+            if (walkMatrix[point.row][point.col] === 0) return;
         }
-        setStops((prev) => [
-            ...prev,
-            {
-                // closest node:
-                point: {
-                    x: imgX,
-                    y: imgY,
-                },
-            },
-        ]);
+
+        setStops((prev) => [...prev, { point: { x: imgX, y: imgY } }]);
     };
 
     const handleStopClick = (e, id) => {
@@ -115,7 +103,7 @@ const MapView = ({
         e.cancelBubble = true;
         if (e.evt.button !== 0) {
             setStops((prev) =>
-                prev.filter((stop) => `${stop.point.x}-${stop.point.y}` !== id)
+                prev.filter((s) => `${s.point.x}-${s.point.y}` !== id)
             );
         }
     };
@@ -135,15 +123,16 @@ const MapView = ({
                 onWheel={handleWheel}
                 onClick={handleStageClick}
                 onContextMenu={(e) => e.evt.preventDefault()}
-                onDragEnd={(e) => {
-                    setPosition({ x: e.target.x(), y: e.target.y() });
-                }}
+                onDragEnd={(e) =>
+                    setPosition({ x: e.target.x(), y: e.target.y() })
+                }
             >
                 <Layer>
                     <KonvaImage
                         image={viewType === "Flat" ? imageMapFlat : imageMapSat}
                     />
                 </Layer>
+
                 <Layer>
                     {travelPath.length > 0 && (
                         <Line
@@ -195,11 +184,12 @@ const MapView = ({
                             />
                         </>
                     ))}
+
                     <StaticLabels
-                        nodes={nodes}
+                        nodes={renderNodes}
+                        edges={renderEdges}
                         nodeLookup={nodeLookup}
                         detailLevel={detailLevel}
-                        edges={edges}
                     />
                 </Layer>
             </Stage>
@@ -210,11 +200,9 @@ const MapView = ({
 export default MapView;
 
 const getStopColor = (travelMode) => {
-    return travelMode === "bike"
-        ? "hsla(50, 100%, 50%, 1.00)"
-        : travelMode === "car"
-        ? "hsla(0, 90%, 45%, 1.00)"
-        : "hsla(220, 100%, 40%, 1.00)";
+    if (travelMode === "bike") return "hsla(50, 100%, 50%, 1.00)";
+    if (travelMode === "car") return "hsla(0, 90%, 45%, 1.00)";
+    return "hsla(220, 100%, 40%, 1.00)";
 };
 
 const imageToGridXY = (imgX, imgY, gridConfig) => {

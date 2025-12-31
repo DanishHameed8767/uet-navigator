@@ -1,43 +1,47 @@
-import GraphNode from "./GraphNode";
-import GraphEdge from "./GraphEdge";
-
 export default class Graph {
-  constructor() {
-    this.nodes = new Map();
-    this.edges = new Map();
-  }
-
-  addNode(node) {
-    this.nodes.set(node.id, node);
-  }
-
-  addEdge(edge) {
-    this.edges.set(edge.id, edge);
-    edge.from.addEdge(edge);
-  }
-
-  getNode(id) {
-    return this.nodes.get(id);
-  }
-
-  getNeighbors(nodeId, options = { navigableOnly: true }) {
-    const node = this.nodes.get(nodeId);
-    if (!node) {
-      return [];
+    constructor() {
+        this.nodes = new Map();
+        this.edges = new Map();
+        this.adjacency = new Map();
     }
 
-    if (!options.navigableOnly) {
-      return node.edges;
+    addNode(node) {
+        this.nodes.set(node.id, node);
+        if (!this.adjacency.has(node.id)) {
+            this.adjacency.set(node.id, []);
+        }
     }
 
-    return node.edges.filter((e) => e.isNavigable());
-  }
+    addEdge(edge) {
+        this.edges.set(edge.id, edge);
 
-  nodeCount() {
-    return this.nodes.size;
-  }
+        if (!this.adjacency.has(edge.from)) {
+            this.adjacency.set(edge.from, []);
+        }
+        this.adjacency.get(edge.from).push(edge);
 
-  edgeCount() {
-    return this.edges.size;
-  }
+        if (edge.twoWay) {
+            if (!this.adjacency.has(edge.to)) {
+                this.adjacency.set(edge.to, []);
+            }
+            this.adjacency.get(edge.to).push(edge);
+        }
+    }
+
+    getNode(id) {
+        return this.nodes.get(id);
+    }
+
+    getNeighbors(nodeId, { navigableOnly = true } = {}) {
+        const edges = this.adjacency.get(nodeId) || [];
+        return navigableOnly ? edges.filter((e) => e.isNavigable()) : edges;
+    }
+
+    nodeCount() {
+        return this.nodes.size;
+    }
+
+    edgeCount() {
+        return this.edges.size;
+    }
 }
