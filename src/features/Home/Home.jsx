@@ -28,24 +28,104 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const hydrated = useMemo(() => hydrateGraph(graphData), [graphData]);
 
     const [allSavedNodes, setAllSavedNodes] = useLocalStorage("saved_nodes", []);
-    // useEffect(() => {
-    //     if (searchMode === "default") return;
+    const [recentPaths, setRecentPaths] = useLocalStorage("recent_paths", []);
+    useEffect(() => {
+        if (searchMode === "default") return;
 
-    //     searchInputRef.current?.focus();
-    //     setSearchKey("");
+        searchInputRef.current?.focus();
+        setSearchKey("");
 
-    //     if (searchMode === "saved") {
-    //         setSearchResult(loadSaved(currentUser.email));
-    //     }
+        if (searchMode === "saved") {
+            setSearchResult(loadSaved(currentUser?.email));
+        }
 
-    //     if (searchMode === "recents") {
-    //         setSearchResult(loadRecents(currentUser.email));
-    //     }
-    // }, [searchMode, currentUser.email]);
+        if (searchMode === "recents") {
+            setSearchResult(loadRecents(currentUser?.email));
+        }
+    }, [searchMode, currentUser?.email]);
 
-    const handlePathVisit = () => {
-        alert("Path added to recent visits");
+    // const handlePathVisit = () => {
+    //     alert("Path added to recent visits");
+    // };
+const handlePathVisit = () => {
+    if (stops.length === 0) return;
+
+    // 1. Prepare the path nodes array
+    const pathNodes = stops.map((stop) => {
+        const { lat: currentLat, lon: currentLon } = pixelToLatLon(stop.point.x, stop.point.y);
+        const graphNodesArray = Object.values(hydrated.graph.nodes);
+        const matchedGraphNode = graphNodesArray.find(
+            (node) => node.lat === currentLat && node.lon === currentLon
+        );
+
+        return {
+            id: matchedGraphNode?.id || "",
+            lat: currentLat,
+            lon: currentLon,
+            name: matchedGraphNode?.name || "",
+            type: matchedGraphNode?.type || "custom",
+            tier: matchedGraphNode?.tier || "",
+        };
+    });
+
+    // 2. Check for Duplicates BEFORE updating state
+    // We look at the current 'recentPaths' state directly
+    const lastVisit = recentPaths.find(visit => visit.email === currentUser?.email);
+
+    if (lastVisit) {
+        const isSamePath = JSON.stringify(lastVisit.nodes) === JSON.stringify(pathNodes);
+        const lastTime = new Date(lastVisit.timestamp).getTime();
+        const currentTime = new Date().getTime();
+        const minutesPassed = (currentTime - lastTime) / (1000 * 60);
+
+        if (isSamePath && minutesPassed < 10) {
+            alert(`This path was already recorded ${Math.round(minutesPassed)} minutes ago.`);
+            return; // EXIT the function here; nothing else runs
+        }
+    }
+
+    // 3. Build the entry object
+    const newRecentEntry = {
+        email: currentUser?.email || "",
+        timestamp: new Date().toISOString(),
+        nodes: pathNodes
     };
+
+    // 4. If we reached this point, it means the check passed
+    setRecentPaths((prev) => {
+        const updatedRecents = [newRecentEntry, ...prev];
+        return updatedRecents.slice(0, 10);
+    });
+
+    // 5. Success Alert only runs if the duplicate check didn't trigger 'return'
+    alert("Path added to recent visits");
+};
+
+useEffect(() => {
+    if (searchMode === "recents") {
+        const list = new SingleLinkedList();
+
+        // Filter for current user's paths
+        const userRecents = recentPaths.filter(path => path.email === currentUser.email);
+
+        userRecents.forEach((path) => {
+            // We can represent a "Recent Path" as a single card 
+            // showing the start and end node names
+            const startNode = path.nodes[0]?.name || "Start";
+            const endNode = path.nodes[path.nodes.length - 1]?.name || "End";
+
+            list.append({
+                id: path.timestamp, // unique ID for the card
+                type: "recent-path",
+                name: `${startNode} → ${endNode}`,
+                near: `${path.nodes.length} stops visited`,
+                pathData: path.nodes // Store the actual nodes here for re-loading
+            });
+        });
+
+        setSearchResult(list);
+    }
+}, [searchMode, recentPaths, currentUser.email]);
 
  const handleStopSave = (stop) => {
     if (!stop || !stop.point) return;
