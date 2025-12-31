@@ -1,6 +1,5 @@
 import React from "react";
 import { Shape } from "react-konva";
-import { latLonToPixel } from "../../utils/mapHelper.js";
 
 const StaticLabels = React.memo(
     ({ nodes, nodeLookup, edges, detailLevel }) => {
@@ -18,8 +17,9 @@ const StaticLabels = React.memo(
             for (const node of nodes) {
                 if (!node.name) continue;
                 if (node.tier > detailLevel) continue;
-                console.log(node.name);
-                const { x, y } = latLonToPixel(node.lat, node.lon);
+
+                const { x, y } = node;
+
                 const lines = getLines(context, node.name, maxWidth);
                 const totalBlockHeight = lines.length * lineHeight;
                 const startY = y - totalBlockHeight + lineHeight / 2;
@@ -52,13 +52,10 @@ const StaticLabels = React.memo(
                 const nB = nodeLookup[edge.to];
                 if (!nA || !nB) continue;
 
-                const posA = latLonToPixel(nA.lat, nA.lon);
-                const posB = latLonToPixel(nB.lat, nB.lon);
+                const midX = (nA.x + nB.x) / 2;
+                const midY = (nA.y + nB.y) / 2;
 
-                const midX = (posA.x + posB.x) / 2;
-                const midY = (posA.y + posB.y) / 2;
-
-                let angle = Math.atan2(posB.y - posA.y, posB.x - posA.x);
+                let angle = Math.atan2(nB.y - nA.y, nB.x - nA.x);
                 if (angle > Math.PI / 2 || angle < -Math.PI / 2) {
                     angle += Math.PI;
                 }
@@ -74,6 +71,7 @@ const StaticLabels = React.memo(
 
                 context.restore();
             }
+            context.fillStrokeShape(shape);
         };
 
         return <Shape sceneFunc={renderLabels} listening={false} />;

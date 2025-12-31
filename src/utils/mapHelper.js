@@ -72,44 +72,93 @@ export const getNodeTier = (type) => {
     return 3;
 };
 
+// nodes = renderNodes [{ id, x, y, ... }]
 export const createNodeLookup = (nodes) => {
-    const lookup = {};
+    const lookup = Object.create(null);
     for (const node of nodes) {
         lookup[node.id] = node;
     }
     return lookup;
 };
 
+// Zaheer's Impl:
+
+// export const findClosestNode = (x, y, nodes, threshold = 15) => {
+//     let closest = null;
+//     let minSq = threshold * threshold;
+//     for (const node of nodes) {
+//         const { x: nx, y: ny } = latLonToPixel(node.lat, node.lon);
+//         const distSq = (x - nx) ** 2 + (y - ny) ** 2;
+//         if (distSq < minSq) {
+//             minSq = distSq;
+//             closest = node;
+//         }
+//     }
+//     return closest;
+// };
+
+// Danish's Impl:
+
+// nodes = renderNodes (already have x, y)
 export const findClosestNode = (x, y, nodes, threshold = 15) => {
     let closest = null;
     let minSq = threshold * threshold;
+
     for (const node of nodes) {
-        const { x: nx, y: ny } = latLonToPixel(node.lat, node.lon);
-        const distSq = (x - nx) ** 2 + (y - ny) ** 2;
+        const dx = x - node.x;
+        const dy = y - node.y;
+        const distSq = dx * dx + dy * dy;
+
         if (distSq < minSq) {
             minSq = distSq;
             closest = node;
         }
     }
+
     return closest;
 };
+
+// Zaheer's Impl:
+
+// export const findClosestEdge = (x, y, edges, nodeLookup, threshold = 10) => {
+//     let closestIndex = -1;
+//     let minSq = threshold * threshold;
+//     for (let i = 0; i < edges.length; i++) {
+//         const edge = edges[i];
+//         const nA = nodeLookup[edge.from];
+//         const nB = nodeLookup[edge.to];
+//         if (!nA || !nB) continue;
+//         const pA = latLonToPixel(nA.lat, nA.lon);
+//         const pB = latLonToPixel(nB.lat, nB.lon);
+//         const distSq = getDistToSegmentSquared(x, y, pA.x, pA.y, pB.x, pB.y);
+//         if (distSq < minSq) {
+//             minSq = distSq;
+//             closestIndex = i;
+//         }
+//     }
+//     return closestIndex;
+// };
+
+// Danish's Impl:
 
 export const findClosestEdge = (x, y, edges, nodeLookup, threshold = 10) => {
     let closestIndex = -1;
     let minSq = threshold * threshold;
+
     for (let i = 0; i < edges.length; i++) {
         const edge = edges[i];
         const nA = nodeLookup[edge.from];
         const nB = nodeLookup[edge.to];
         if (!nA || !nB) continue;
-        const pA = latLonToPixel(nA.lat, nA.lon);
-        const pB = latLonToPixel(nB.lat, nB.lon);
-        const distSq = getDistToSegmentSquared(x, y, pA.x, pA.y, pB.x, pB.y);
+
+        const distSq = getDistToSegmentSquared(x, y, nA.x, nA.y, nB.x, nB.y);
+
         if (distSq < minSq) {
             minSq = distSq;
             closestIndex = i;
         }
     }
+
     return closestIndex;
 };
 

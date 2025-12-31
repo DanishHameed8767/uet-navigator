@@ -1,5 +1,5 @@
 import styles from "./MapBuilder.module.css";
-import { useEffect, useState, useRef, useMemo } from "react";
+import { useEffect, useState, useRef, useMemo, useCallback } from "react";
 import {
     Stage,
     Layer,
@@ -21,13 +21,22 @@ import {
 import StaticEdges from "../StaticGraph/StaticEdges.jsx";
 import StaticNodes from "../StaticGraph/StaticNodes.jsx";
 import StaticLabels from "../StaticGraph/StaticLabels.jsx";
+import {
+    addEdge,
+    addNode,
+    deleteEdge,
+    deleteNode,
+    updateEdge,
+    updateNode,
+} from "../../utils/graphMutations.js";
 
 const MapBuilder = ({
+    graphData,
+    setGraphData,
     graph,
-    nodes,
-    edges,
-    setNodes,
-    setEdges,
+    renderNodes,
+    renderEdges,
+    indexes, // optional, can ignore for now
     dimensions,
     scale,
     detailLevel,
@@ -44,6 +53,9 @@ const MapBuilder = ({
     stageRef,
     handleWheel,
 }) => {
+    const nodes = renderNodes;
+    const edges = renderEdges;
+
     const [gridImage, setGridImage] = useState(null);
 
     const nodeInputRef = useRef(null);
@@ -54,8 +66,14 @@ const MapBuilder = ({
     const [tempNodes, setTempNodes] = useState([]);
     const [tempEdges, setTempEdges] = useState([]);
 
+    const getNextNodeId = useCallback(() => {
+        const ids = Object.keys(graphData.nodes || {}).map(Number);
+        const max = ids.length ? Math.max(...ids) : 0;
+        return max + 1;
+    }, [graphData.nodes]);
+
     const [tempNode, setTempNode] = useState({
-        id: nodes.at(-1)?.id + 1,
+        id: getNextNodeId,
         name: "",
         type: "",
         tier: "",
@@ -121,7 +139,7 @@ const MapBuilder = ({
     }, [imageMapFlat, imageMapSat, viewType]);
 
     const getNodeById = (id) => {
-        return nodes.find((n) => n.id === id);
+        return graph.getNode(id);
     };
 
     const handleStageClick = (e) => {
@@ -179,7 +197,7 @@ const MapBuilder = ({
         setTempEdges([]);
         setTempNodes([newNode]);
         setSelectedId(null);
-        resetTempNode(nodes.at(-1)?.id + 1);
+        resetTempNode(getNextNodeId());
         updateTempNode("lat", lat);
         updateTempNode("lon", lon);
         if (nodeInputRef) {
@@ -251,8 +269,8 @@ const MapBuilder = ({
             setTempNode(nodeId);
             setTempEdgeTo(nodeId);
             setTempEdgeFrom(selectedId);
-            const nodeA = graph.nodesById.get(selectedId);
-            const nodeB = graph.nodesById.get(nodeId);
+            const nodeA = graph.getNode(selectedId);
+            const nodeB = graph.getNode(nodeId);
             setTempEdgeDist(
                 getDistance(nodeA.lat, nodeA.lon, nodeB.lat, nodeB.lon)
             );
@@ -266,14 +284,12 @@ const MapBuilder = ({
     const handleNodeContextMenu = (e, nodeId) => {
         e.evt.preventDefault();
         e.cancelBubble = true;
-        setNodes((prev) => prev.filter((n) => n.id !== nodeId));
-        setEdges((prev) =>
-            prev.filter((edge) => edge.from !== nodeId && edge.to !== nodeId)
-        );
+        setGraphData((prev) => deleteNode(prev, nodeId));
+
         if (selectedId === nodeId) {
             setSelectedId(null);
         }
-        resetTempNode(nodes.at(-1)?.id + 1);
+        resetTempNode(getNextNodeId());
     };
 
     const handleEdgeClick = (e, edge) => {
@@ -283,7 +299,7 @@ const MapBuilder = ({
         }
 
         setSelectedId(null);
-        resetTempNode(nodes.at(-1)?.id + 1);
+        resetTempNode(getNextNodeId());
 
         setTempEdgeName(edge.name);
         setTempEdgeFrom(edge.from);
@@ -299,17 +315,8 @@ const MapBuilder = ({
     const handleEdgeContextMenu = (e, edge) => {
         e.evt.preventDefault();
         e.cancelBubble = true;
-
-        setEdges((prev) =>
-            prev.filter(
-                (ed) =>
-                    !(
-                        ed.from === edge.from &&
-                        ed.to === edge.to &&
-                        ed.type === edge.type
-                    )
-            )
-        );
+        setGraphData((prev) => deleteEdge(prev, edge.id));
+        resetTempEdge();
     };
 
     const isValidNode = () => {
@@ -324,15 +331,15 @@ const MapBuilder = ({
         return true;
     };
 
-    const setTempNode1 = (nodeId) => {
-        const selectedNode = getNodeById(nodeId);
+    const loadTempNodeFromGraph = (nodeId) => {
+        const n = graph.getNode(nodeId);
         setTempNode({
             id: nodeId,
-            name: selectedNode?.name,
-            type: selectedNode?.type,
-            tier: selectedNode?.tier,
-            lat: selectedNode?.lat,
-            lon: selectedNode?.lon,
+            name: n?.name || "",
+            type: n?.type || "",
+            tier: n?.tier || "",
+            lat: n?.lat || "",
+            lon: n?.lon || "",
         });
     };
 
@@ -375,82 +382,52 @@ const MapBuilder = ({
             return;
         }
 
-        const exists = nodes.some((node) => node.id === tempNodeId);
+        const exists = nodes.some((node) => node.id === tempNode.id);
 
         if (exists) {
-            setNodes((prev) =>
-                prev.map((node) =>
-                    node.id === tempNodeId
-                        ? {
-                              ...node,
-                              name: tempNodeName,
-                              type: tempNodeType,
-                              tier: tempNodeTier,
-                              lat: tempNodeLat,
-                              lon: tempNodeLon,
-                          }
-                        : node
-                )
-            );
-            alert("Node updated successfully");
+            setGraphData((prev) => updateNode(prev, tempNode.id, tempNode));
         } else {
-            const newNode = {
-                id: tempNodeId,
-                lat: tempNodeLat,
-                lon: tempNodeLon,
-                name: tempNodeName,
-                type: tempNodeType,
-                tier: tempNodeTier,
-                nextId: 0,
-            };
-            setNodes((prev) => [...prev, newNode]);
-            resetTempNode();
+            setGraphData((prev) => addNode(prev, tempNode));
         }
 
-        e.target.reset();
+        resetTempNode(getNextNodeId());
     };
 
     const saveEdge = (e) => {
         e.preventDefault();
-        if (invalidEdge()) {
-            return;
-        }
+        if (invalidEdge()) return;
+
+        const edgeId = `${tempEdgeFrom}-${tempEdgeTo}`;
 
         const exists = edges.some(
             (edge) => edge.from === tempEdgeFrom && edge.to === tempEdgeTo
         );
 
         if (exists) {
-            setEdges((prev) =>
-                prev.map((edge) =>
-                    edge.from === tempEdgeFrom && edge.to === tempEdgeTo
-                        ? {
-                              ...edge,
-                              name: tempEdgeName,
-                              type: tempEdgeType,
-                              dist: tempEdgeDist,
-                              twoWay: tempEdgeTwoWay,
-                          }
-                        : edge
-                )
+            setGraphData((prev) =>
+                updateEdge(prev, edgeId, {
+                    name: tempEdgeName,
+                    type: tempEdgeType,
+                    dist: tempEdgeDist,
+                    twoWay: tempEdgeTwoWay,
+                })
             );
             alert("Edge updated successfully");
         } else {
-            const newEdge = {
-                from: tempEdgeFrom,
-                to: tempEdgeTo,
-                name: tempEdgeName,
-                type: tempEdgeType,
-                dist: tempEdgeDist,
-                twoWay: tempEdgeTwoWay,
-            };
-
-            setEdges((prev) => [...prev, newEdge]);
-            resetTempEdge();
-            setTempEdges([]);
+            setGraphData((prev) =>
+                addEdge(prev, {
+                    id: edgeId,
+                    from: Number(tempEdgeFrom),
+                    to: Number(tempEdgeTo),
+                    type: tempEdgeType,
+                    dist: Number(tempEdgeDist),
+                    twoWay: tempEdgeTwoWay,
+                    name: tempEdgeName,
+                })
+            );
         }
 
-        e.target.reset();
+        resetTempEdge();
     };
 
     return (

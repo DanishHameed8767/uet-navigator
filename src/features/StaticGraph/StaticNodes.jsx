@@ -1,16 +1,16 @@
 import React from "react";
 import { Shape } from "react-konva";
-import { latLonToPixel } from "../../utils/mapHelper.js";
 
 const StaticNodes = React.memo(
     ({ nodes }) => {
         const renderNodes = (context, shape) => {
             context.beginPath();
+
             for (const node of nodes) {
-                const { x, y } = latLonToPixel(node.lat, node.lon);
-                context.moveTo(x + 14, y);
-                context.arc(x, y, 14, 0, Math.PI * 2, false);
+                context.moveTo(node.x + 14, node.y);
+                context.arc(node.x, node.y, 14, 0, Math.PI * 2, false);
             }
+
             context.fillStrokeShape(shape);
         };
 

@@ -6,14 +6,15 @@ import mapSat from "../../assets/map/sat.jpg";
 import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 import MapControls from "../../components/MapControls/MapControls.jsx";
-import useGraph from "../../hooks/useGraph.js";
 
 const MapCanvas = ({
+    graphData,
+    setGraphData,
+    graph,
+    renderNodes,
+    renderEdges,
+    indexes,
     currentUser,
-    nodes,
-    setNodes,
-    edges,
-    setEdges,
     walkMatrix,
     setWalkMatrix,
     stops,
@@ -30,8 +31,6 @@ const MapCanvas = ({
     const [detailLevel, setDetailLevel] = useState(1);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-    const graph = useGraph(nodes, edges);
 
     const zoomLimits = useMemo(() => {
         const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
@@ -115,11 +114,6 @@ const MapCanvas = ({
     }, []);
 
     useEffect(() => {
-        nodes.sort((a, b) => a.id - b.id);
-        localStorage.setItem("map-nodes", JSON.stringify(nodes));
-    }, [nodes]);
-
-    useEffect(() => {
         const stepSize = (zoomLimits.max - zoomLimits.min) / 4; // 5 (1-5) levels of details
         const newLevel = Math.floor(scale / stepSize) + 1;
         setDetailLevel((prev) => (prev !== newLevel ? newLevel : prev));
@@ -128,10 +122,6 @@ const MapCanvas = ({
     useEffect(() => {
         console.log(detailLevel);
     }, [detailLevel]);
-
-    useEffect(() => {
-        localStorage.setItem("map-edges", JSON.stringify(edges));
-    }, [edges]);
 
     useEffect(() => {
         localStorage.setItem("map-walk-matrix", JSON.stringify(walkMatrix));
@@ -194,16 +184,17 @@ const MapCanvas = ({
         <div className={styles["map-canvas"]}>
             {currentUser?.email === "admin@navigator.uet" ? (
                 <MapBuilder
+                    graphData={graphData}
+                    setGraphData={setGraphData}
                     graph={graph}
+                    renderNodes={renderNodes}
+                    renderEdges={renderEdges}
+                    indexes={indexes}
                     dimensions={dimensions}
                     scale={clampedScale}
                     detailLevel={detailLevel}
                     position={position}
                     setPosition={setPosition}
-                    nodes={nodes}
-                    edges={edges}
-                    setNodes={setNodes}
-                    setEdges={setEdges}
                     viewType={viewType}
                     travelMode={travelMode}
                     imageMapFlat={imageMapFlat}
@@ -218,14 +209,14 @@ const MapCanvas = ({
                 />
             ) : (
                 <MapView
-                    nodes={nodes}
-                    edges={edges}
+                    graph={graph}
+                    renderNodes={renderNodes}
+                    renderEdges={renderEdges}
                     dimensions={dimensions}
                     scale={clampedScale}
                     detailLevel={detailLevel}
                     position={position}
                     setPosition={setPosition}
-                    graph={graph}
                     viewType={viewType}
                     travelMode={travelMode}
                     stops={stops}

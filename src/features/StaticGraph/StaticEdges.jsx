@@ -1,6 +1,5 @@
 import React from "react";
 import { Shape } from "react-konva";
-import { latLonToPixel } from "../../utils/mapHelper.js";
 
 const StaticEdges = React.memo(
     ({ edges, nodeLookup }) => {
@@ -14,17 +13,17 @@ const StaticEdges = React.memo(
                 const nB = nodeLookup[edge.to];
                 if (!nA || !nB) continue;
 
-                const posA = latLonToPixel(nA.lat, nA.lon);
-                const posB = latLonToPixel(nB.lat, nB.lon);
                 if (edge.twoWay) {
-                    context.moveTo(posA.x, posA.y);
-                    context.lineTo(posB.x, posB.y);
+                    context.moveTo(nA.x, nA.y);
+                    context.lineTo(nB.x, nB.y);
                 } else {
-                    const angle = Math.atan2(posB.y - posA.y, posB.x - posA.x);
+                    const angle = Math.atan2(nB.y - nA.y, nB.x - nA.x);
                     const gap = 14;
-                    const endX = posB.x - gap * Math.cos(angle);
-                    const endY = posB.y - gap * Math.sin(angle);
-                    drawArrow(context, posA.x, posA.y, endX, endY);
+
+                    const endX = nB.x - gap * Math.cos(angle);
+                    const endY = nB.y - gap * Math.sin(angle);
+
+                    drawArrow(context, nA.x, nA.y, endX, endY);
                 }
             }
             context.strokeShape(shape);
