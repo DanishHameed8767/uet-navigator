@@ -30,37 +30,34 @@ const SearchList = ({ result, mode, searchKey,onSeeMore }) => {
                     );
                 })}
 
-            {/* Pagination Button */}
-            {mode === "saved" && result.hasMore && (
-                <button 
-                    className={styles["see-more-btn"]} 
-                   onClick={(e) => {
-                        e.stopPropagation(); // Double safety
-                        onSeeMore();
-                    }}
-                >
-                    See More
-                </button>
-            )}
+           
             {mode === "recents" &&
-                result?.toArray()?.map((elem) => {
-                    console.log(elem);
-                    return (
-                        <RecentCard
-                            key={
-                                elem?.startNode?.name +
-                                "-" +
-                                elem?.endNode?.name
-                            }
-                            sName={elem?.startNode?.name}
-                            sNear={elem?.startNode?.near}
-                            sType={elem?.startNode?.type}
-                            eName={elem?.endNode?.name}
-                            eNear={elem?.endNode?.near}
-                            eType={elem?.endNode?.type}
-                        />
-                    );
-                })}
+    result?.toArray()?.map((elem, idx) => {
+        // Access the data from the linked list node
+        const data = elem.node ? elem.node : elem; 
+        return (
+            <RecentCard
+                key={data.timestamp || idx}
+                sName={data.startNode?.name}   // Maps formatted name/coords
+                sNear={data.startNode?.near}   // Maps type/description
+                sType={data.startNode?.type}
+                eName={data.endNode?.name}     // Maps formatted name/coords
+                eNear={data.endNode?.near}     // Maps type/description
+                eType={data.endNode?.type}
+            />
+        );
+    })
+}
+    {(mode === "saved" || mode === "recents") && result?.hasMore && (
+        <button 
+            className={styles["see-more-btn"]} 
+            onClick={onSeeMore}
+        >
+            See More
+        </button>
+    )}
+
+
         </div>
     );
 };
@@ -69,7 +66,7 @@ function getMessage(mode, key) {
     if (mode === "saved") return "No locations saved yet";
     if (mode === "recents") return "No recent travels";
     if (mode === "default") {
-        console.log(key);
+        
         if (!key || key === "") {
             return "Enter some keyword to search locations";
         } else {

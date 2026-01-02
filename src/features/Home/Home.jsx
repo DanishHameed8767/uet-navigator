@@ -88,43 +88,50 @@ const searchWrapperRef = useRef(null);
         []
     );
     const [recentPaths, setRecentPaths] = useLocalStorage("recent_paths", []);
-   useEffect(() => {
-    if (searchMode === "default") return;
+//    useEffect(() => {
+//     if (searchMode === "default") return;
 
-    searchInputRef.current?.focus();
-    setSearchKey("");
+//     searchInputRef.current?.focus();
+//     setSearchKey("");
 
-    if (searchMode === "saved") {
-        // Pass the limit to the load function
-        setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
-    }
+//     if (searchMode === "saved") {
+//         setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
+//     }
 
-    if (searchMode === "recents") {
-        setSearchResult(loadRecents(currentUser?.email));
-    }
-}, [searchMode, currentUser?.email, allSavedNodes, visibleSavedLimit]);
-
+//     if (searchMode === "recents") {
+//         // Pass the live state and the limit
+//         setSearchResult(loadRecents(currentUser?.email, recentPaths, visibleSavedLimit));
+//     }
+// }, [searchMode, currentUser?.email, allSavedNodes, visibleSavedLimit, recentPaths]);
 useEffect(() => {
+    setSearchKey("");
     setVisibleSavedLimit(5);
+    // Autofocus the input when switching modes
+    if (searchMode !== "default") {
+        searchInputRef.current?.focus();
+    }
 }, [searchMode]);
 
 
 // 2. Add the Click Outside Listener
 useEffect(() => {
-    const handleClickOutside = (event) => {
-        // Only close if the click is OUTSIDE the searchWrapperRef
-        if (searchWrapperRef.current && !searchWrapperRef.current.contains(event.target)) {
-            setSearchFocus(false);
-        }
-    };
+        const handleClickOutside = (event) => {
+            if (searchWrapperRef.current && !searchWrapperRef.current.contains(event.target)) {
+                setSearchFocus(false);
+                setSearchKey("");
+                setSearchResult(null);
+                setSearchMode("default");
+                setVisibleSavedLimit(5);
+            }
+        };
 
-    // Attach listener to the document
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-        // Cleanup listener on unmount
-        document.removeEventListener("mousedown", handleClickOutside);
-    };
-}, []);
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+            // Optional: Hard reset on unmount is already handled here
+        };
+    }, [setSearchMode]); // setSearchMode is a stable prop, but good to include
+
     // useEffect(() => {
     //     if (searchMode === "default") return;
 
@@ -204,36 +211,23 @@ useEffect(() => {
         // 5. Success Alert only runs if the duplicate check didn't trigger 'return'
         alert("Path added to recent visits");
     };
+useEffect(() => {
+    if (searchMode === "default") {
+        setSearchResult(null);
+        return;
+    }
 
-    useEffect(() => {
-        if (searchMode === "recents") {
-            const list = new SingleLinkedList();
+    if (searchMode === "saved") {
+        // Removed searchKey parameter
+        setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
+    }
 
-            // Filter for current user's paths
-            const userRecents = recentPaths.filter(
-                (path) => path.email === currentUser.email
-            );
+    if (searchMode === "recents") {
+        // Removed searchKey parameter
+        setSearchResult(loadRecents(currentUser?.email, recentPaths, visibleSavedLimit));
+    }
 
-            userRecents.forEach((path) => {
-                // We can represent a "Recent Path" as a single card
-                // showing the start and end node names
-                const startNode = path.nodes[0]?.name || "Start";
-                const endNode =
-                    path.nodes[path.nodes.length - 1]?.name || "End";
-
-                list.append({
-                    id: path.timestamp, // unique ID for the card
-                    type: "recent-path",
-                    name: `${startNode} → ${endNode}`,
-                    near: `${path.nodes.length} stops visited`,
-                    pathData: path.nodes, // Store the actual nodes here for re-loading
-                });
-            });
-
-            setSearchResult(list);
-        }
-    }, [searchMode, recentPaths, currentUser?.email]);
-
+}, [searchMode, currentUser?.email, allSavedNodes, recentPaths, visibleSavedLimit]);
     const handleStopSave = (stop) => {
         if (!stop || !stop.point) return;
 
@@ -290,6 +284,66 @@ useEffect(() => {
         });
     };
 
+    
+/**
+ * Processes and filters saved locations for the search list.
+ */
+function loadSaved(email, allSavedNodes, limit) {
+    const list = new SingleLinkedList();
+    
+    // Filter ONLY by user email, ignore the search key
+    const userNodes = allSavedNodes.filter((node) => node.email === email);
+
+    // Paginate and append to list
+    const paginatedNodes = userNodes.slice(0, limit);
+    paginatedNodes.forEach((node) => {
+        list.append({ 
+            ...node, 
+            name: node.name || "Unnamed", 
+            near: node.type 
+        });
+    });
+
+    list.hasMore = userNodes.length > limit;
+    return list;
+}
+
+/**
+ * Processes and filters travel history for the connected-line view.
+ */
+function loadRecents(email, recentPaths, limit) {
+    const list = new SingleLinkedList();
+    
+    // Filter ONLY by user email
+    const userRecents = recentPaths.filter((path) => path.email === email);
+
+    // Paginate and map nodes for RecentCard display
+    const paginatedRecents = userRecents.slice(0, limit);
+    paginatedRecents.forEach((path) => {
+        if (path.nodes && path.nodes.length >= 2) {
+            const start = path.nodes[0];
+            const end = path.nodes[path.nodes.length - 1];
+            list.append({
+                timestamp: path.timestamp,
+                type: "recent-path", 
+                pathData: path.nodes, 
+                startNode: { 
+                    name: start.name || "Unnamed", 
+                    near: start.type, 
+                    type: start.type 
+                },
+                endNode: { 
+                    name: end.name || "Unnamed", 
+                    near: end.type, 
+                    type: end.type 
+                }
+            });
+        }
+    });
+
+    list.hasMore = userRecents.length > limit;
+    return list;
+}
     return (
         <div className={styles.home}>
             <MapCanvas
@@ -308,14 +362,18 @@ useEffect(() => {
             />
 
           <div ref={searchWrapperRef} className={styles["search-container"]}>
-            <SearchBar
-                searchKey={searchKey}
-                setKey={setSearchKey}
-                inputRef={searchInputRef}
-                onFocus={() => setSearchFocus(true)}
-                isActive={isSearchFocus} // Passed to data-active
-                onChange={() => setSearchMode("default")}
-            />
+           <SearchBar
+    searchKey={searchKey}
+    setKey={setSearchKey}
+    inputRef={searchInputRef}
+    onFocus={() => setSearchFocus(true)}
+    isActive={isSearchFocus}
+   onChange={() => {
+    if (searchMode !== "saved" && searchMode !== "recents") {
+        setSearchMode("default");
+    }
+}}
+/>
             
             {isSearchFocus && (
                 <SearchList
@@ -355,7 +413,7 @@ useEffect(() => {
                     Simulate Node Click
                 </button>
 
-                <BottomPopup open={true} title="Routes">
+                {/* <BottomPopup open={true} title="Routes">
                     <TravelModeSelector value={mode} onChange={setMode} />
 
                     <RoutesList
@@ -363,7 +421,7 @@ useEffect(() => {
                         selectedId={selectedRoute}
                         onSelect={(route) => setSelectedRoute(route.id)}
                     />
-                </BottomPopup>
+                </BottomPopup> */}
             </>
             <>
                 <PointInfoPopup
@@ -377,43 +435,5 @@ useEffect(() => {
     );
 };
 
-function loadSaved(email, allSavedNodes, limit) {
-    const list = new SingleLinkedList();
-    
-    // 1. Filter by user
-    const userNodes = allSavedNodes.filter((node) => node.email === email);
-
-    // 2. Take only up to the current limit
-    const paginatedNodes = userNodes.slice(0, limit);
-
-    paginatedNodes.forEach((node) => {
-        list.append({
-            ...node,
-            name: node.name || `${node.lat.toFixed(4)}, ${node.lon.toFixed(4)}`,
-            near: node.type || "Saved Location"
-        });
-    });
-
-    // We can attach a custom property to the list to check if more items exist
-    list.hasMore = userNodes.length > limit;
-    
-    return list;
-}
-
-// function loadSaved(email) {
-//     const list = new SingleLinkedList();
-//     savedLocations.forEach((elem) => {
-//         if (elem.email === email) list.append(elem);
-//     });
-//     return list;
-// }
-
-function loadRecents(email) {
-    const list = new SingleLinkedList();
-    recentLocations.forEach((elem) => {
-        if (elem.email === email) list.append(elem);
-    });
-    return list;
-}
 
 export default Home;
