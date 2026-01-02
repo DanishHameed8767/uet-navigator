@@ -1,7 +1,7 @@
 import Graph from "./classes/Graph";
 import GraphNode from "./classes/GraphNode";
 import GraphEdge from "./classes/GraphEdge";
-import { latLonToPixel } from "../../utils/mapHelper";
+import { getDistance, latLonToPixel } from "../../utils/mapHelper";
 
 export function hydrateGraph(graphData) {
     if (!graphData?.nodes || !graphData?.edges) {
@@ -47,7 +47,9 @@ export function hydrateGraph(graphData) {
     const renderEdges = [];
 
     for (const raw of Object.values(graphData.edges)) {
-        if (!graph.getNode(raw.from) || !graph.getNode(raw.to)) continue;
+        if (!graph.getNode(raw.from) || !graph.getNode(raw.to)) {
+            continue;
+        }
 
         const edge = new GraphEdge({
             id: raw.id,
@@ -63,7 +65,9 @@ export function hydrateGraph(graphData) {
 
         const a = nodePositions.get(raw.from);
         const b = nodePositions.get(raw.to);
-        if (!a || !b) continue;
+        if (!a || !b) {
+            continue;
+        }
 
         renderEdges.push({
             id: raw.id,
@@ -111,4 +115,78 @@ export function hydrateGraph(graphData) {
         },
         indexes,
     };
+}
+
+export function getTempGraph(graph, tempEntities) {
+    const tempGraph = new Graph();
+    tempGraph.nodes = new Map(graph.nodes);
+    tempGraph.edges = new Map(graph.edges);
+    tempGraph.adjacency = new Map(graph.adjacency);
+
+    tempEntities.forEach((stop, index) => {
+        if (!stop.snap || stop.snap?.type !== "temporary") {
+            return;
+        }
+        const entity = stop.snap;
+
+        const tempNodeId = `temp_${index}`;
+        const tempNode = new GraphNode({
+            id: tempNodeId,
+            lat: entity.node.lat,
+            lon: entity.node.lon,
+            type: "temporary",
+            tier: 3,
+            name: "Temporary Stop",
+        });
+
+        tempGraph.nodes.set(tempNodeId, tempNode);
+
+        const originalEdge = entity.edge;
+        const nodeA = graph.nodes.get(originalEdge.from);
+        const nodeB = graph.nodes.get(originalEdge.to);
+
+        const distA = getDistance(
+            nodeA.lat,
+            nodeA.lon,
+            tempNode.lat,
+            tempNode.lon
+        );
+        const distB = getDistance(
+            nodeB.lat,
+            nodeB.lon,
+            tempNode.lat,
+            tempNode.lon
+        );
+
+        const edge1 = new GraphEdge({
+            id: `${originalEdge.id}_p1`,
+            from: nodeA.id,
+            to: tempNodeId,
+            dist: distA,
+            type: originalEdge.type,
+            twoWay: originalEdge.twoWay,
+        });
+
+        const edge2 = new GraphEdge({
+            id: `${originalEdge.id}_p2`,
+            from: tempNodeId,
+            to: nodeB.id,
+            dist: distB,
+            type: originalEdge.type,
+            twoWay: originalEdge.twoWay,
+        });
+
+        const adjA = tempGraph.adjacency.get(nodeA.id) || [];
+        tempGraph.adjacency.set(nodeA.id, [...adjA, edge1]);
+
+        const adjB = tempGraph.adjacency.get(nodeB.id) || [];
+        tempGraph.adjacency.set(nodeB.id, [...adjB, edge2]);
+
+        tempGraph.adjacency.set(tempNodeId, [edge1, edge2]);
+
+        tempGraph.edges.set(edge1.id, edge1);
+        tempGraph.edges.set(edge2.id, edge2);
+    });
+
+    return tempGraph;
 }
