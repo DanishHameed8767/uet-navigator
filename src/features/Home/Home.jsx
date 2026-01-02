@@ -385,14 +385,14 @@ function loadRecents(email, recentPaths, limit) {
             )}
         </div>
             <FilterBar />
-            {stops.length > 0 && (
+            {/* {stops.length > 0 && (
                 <PickPathDialog
                     stops={stops}
                     setStops={setStops}
                     handlePathVisit={handlePathVisit}
                     handleStopSave={handleStopSave}
                 />
-            )}
+            )} */}
             <>
                 <button
                     onClick={(e) => {

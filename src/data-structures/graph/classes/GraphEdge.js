@@ -7,7 +7,6 @@ export default class GraphEdge {
         this.type = type;
         this.twoWay = twoWay;
         this.name = name;
-
         this.weight = GraphEdge.computeWeight(dist, type);
     }
 

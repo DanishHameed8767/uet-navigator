@@ -1,5 +1,5 @@
 import styles from "./MapBuilder.module.css";
-import { useState, useRef, useCallback, useMemo } from "react";
+import { useState, useRef, useCallback } from "react";
 import StaticEdges from "../StaticGraph/StaticEdges.jsx";
 import StaticNodes from "../StaticGraph/StaticNodes.jsx";
 import StaticLabels from "../StaticGraph/StaticLabels.jsx";
@@ -197,7 +197,7 @@ const MapBuilder = ({
         }
     };
 
-    const gridImage = useMemo(() => {
+    const gridImage = (() => {
         if (!gridConfig || !walkMatrix || travelMode !== "walk") {
             return;
         }
@@ -219,7 +219,7 @@ const MapBuilder = ({
                 }
             }
         }
-    });
+    })();
 
     const handleStageClick = (e) => {
         e.cancelBubble = true;

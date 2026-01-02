@@ -210,6 +210,7 @@ const MapCanvas = ({
             ) : (
                 <MapView
                     graph={graph}
+                    graphData={graphData}
                     renderNodes={renderNodes}
                     renderEdges={renderEdges}
                     dimensions={dimensions}

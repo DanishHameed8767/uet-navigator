@@ -1,146 +1,256 @@
-import MinHeap from "../data-structures/MinHeap";
+import { calcPathWithAStar } from "./algoAStar.js";
+import { calcPathWithDijkstra } from "./algoDijkstra.js";
+import { imageToGridXY } from "../utils/mapHelper.js";
+import { getTempGraph } from "../data-structures/graph/GraphHydrator";
 
-//algorithm
-const coreDijkstra = (graph, startId, endId, useStreets, penaltyMap) => {
-    const distances = new Map();
-    const previous = new Map();
-    const visited = new Set();
-    const pq = new MinHeap();
+/**
+ * ROUTE MANAGER
+ * -------------
+ * The sole orchestrator for navigation logic.
+ *
+ * Responsibilities:
+ * 1. Decide Strategy: A* (Walk) vs Dijkstra (Drive/Bike).
+ * 2. Manage Multi-Stop: Loop through stops and stitch paths.
+ * 3. Translate Coordinates: Pixels <-> Grid/Graph.
+ * 4. Generate Variations: Primary, Alternative, No-Street.
+ */
 
-    distances.set(startId, 0);
-    pq.push({ id: startId, f: 0 });
-
-    while (!pq.isEmpty()) {
-        const { id: u } = pq.pop();
-
-        if (u === endId) break;
-        if (visited.has(u)) continue;
-        visited.add(u);
-
-        const edges = graph.getNeighbors(u);
-
-        for (const edge of edges) {
-            // CONSTRAINT 1: Strict Street Avoidance
-            // If we are calculating the "No Street" path, strictly skip streets
-            if (!useStreets && edge.type === "street") continue;
-
-            // CONSTRAINT 2: Dynamic Penalties via Map
-            let weight = edge.weight;
-            if (penaltyMap && penaltyMap.has(edge.id)) {
-                weight = weight * penaltyMap.get(edge.id);
-            }
-
-            const v = edge.from === u ? edge.to : edge.from;
-            if (visited.has(v)) continue;
-
-            const newDist = (distances.get(u) || Infinity) + weight;
-            const currentDist = distances.get(v) === undefined ? Infinity : distances.get(v);
-
-            if (newDist < currentDist) {
-                distances.set(v, newDist);
-                previous.set(v, { fromNode: u, edgeId: edge.id });
-                pq.push({ id: v, f: newDist });
-            }
-        }
+export const getRoute = ({
+    stops,
+    travelMode,
+    graph,
+    walkMatrix,
+    gridConfig,
+    nodeLookup,
+}) => {
+    // 1. Basic Validation
+    if (!stops || stops.length < 2) {
+        return null;
     }
 
-    return reconstructPath(previous, endId, distances.get(endId));
+    const isWalk = travelMode === "walk";
+
+    // 2. Route Execution
+    if (isWalk) {
+        return handleWalkRoute(stops, walkMatrix, gridConfig);
+    } else {
+        return handleGraphRoute(stops, graph, nodeLookup, travelMode);
+    }
 };
 
-//helper
-const reconstructPath = (previous, endId, totalDistance) => {
-    if (totalDistance === Infinity || totalDistance === undefined) return null;
+// ===========================================================================
+// MODE 1: WALK (A*)
+// ===========================================================================
 
-    const path = [endId];
-    const edgeIds = [];
-    let curr = endId;
-
-    while (previous.has(curr)) {
-        const info = previous.get(curr);
-        path.unshift(info.fromNode);
-        edgeIds.unshift(info.edgeId);
-        curr = info.fromNode;
+const handleWalkRoute = (stops, matrix, gridConfig) => {
+    if (!matrix || !gridConfig) {
+        return null;
     }
 
-    return { path, edges: edgeIds, distance: totalDistance };
-};
-
-//helper
-const getFullItinerary = (graph, stops, useStreets, penaltyMap) => {
-    let fullPath = [];
-    let allEdges = [];
-    let totalDist = 0;
+    let fullPixelPoints = [];
+    let totalDistance = 0;
 
     for (let i = 0; i < stops.length - 1; i++) {
-        const start = stops[i];
-        const end = stops[i + 1];
+        // A. Translate Input: Pixel -> Grid
+        const start = imageToGridXY(
+            stops[i].click?.x,
+            stops[i].click?.y,
+            gridConfig
+        );
+        const end = imageToGridXY(
+            stops[i + 1].click?.x,
+            stops[i + 1].click?.y,
+            gridConfig
+        );
 
-        const segmentResult = coreDijkstra(graph, start, end, useStreets, penaltyMap);
+        // B. Call Algorithm
+        const result = calcPathWithAStar(matrix, start, end);
 
-        if (!segmentResult) return null;
-
-        if (i === 0) {
-            fullPath = segmentResult.path;
-            allEdges = segmentResult.edges;
-        } else {
-            fullPath = [...fullPath, ...segmentResult.path.slice(1)];
-            allEdges = [...allEdges, ...segmentResult.edges];
+        if (!result) {
+            console.warn(`A* failed between stop ${i} and ${i + 1}`);
+            return null; // Path blocked
         }
-        totalDist += segmentResult.distance;
+
+        // C. Translate Output: Grid -> Pixel
+        const segmentPixels = result.path.flatMap((node) => {
+            const px =
+                node.col * gridConfig.cellWidth + gridConfig.cellWidth / 2;
+            const py =
+                node.row * gridConfig.cellHeight + gridConfig.cellHeight / 2;
+            return [px, py];
+        });
+
+        // Accumulate
+        fullPixelPoints.push(...segmentPixels);
+        totalDistance += result.distance * gridConfig.cellWidth; // Rough meter approximation
     }
 
-    return { path: fullPath, edges: allEdges, distance: totalDist };
+    return {
+        shortest: {
+            path: fullPixelPoints, // [x1, y1, x2, y2...]
+            dist: totalDistance,
+            weight: 0,
+        },
+        alternative: null,
+        noStreet: null,
+    };
 };
 
-//helper
+// ===========================================================================
+// STRATEGY 2: DRIVE (Dijkstra)
+// ===========================================================================
+
+const handleGraphRoute = (stops, graph, nodeLookup, travelMode) => {
+    if (!graph || !nodeLookup) {
+        return null;
+    }
+
+    const sessionGraph = getTempGraph(graph, stops);
+
+    // A. Primary Path (Fastest)
+    const primary = runMultiStopDijkstra(
+        stops,
+        sessionGraph,
+        nodeLookup,
+        travelMode,
+        {
+            useStreets: true,
+            penaltyMap: null,
+        }
+    );
+
+    if (!primary) {
+        return null;
+    }
+
+    // B. Alternative Path (Penalize Primary Edges)
+    const penaltyMap = new Map();
+    primary.edgeIds.forEach((id) => penaltyMap.set(id, 5.0));
+
+    const alternative = runMultiStopDijkstra(
+        stops,
+        sessionGraph,
+        nodeLookup,
+        travelMode,
+        {
+            useStreets: true,
+            penaltyMap,
+        }
+    );
+
+    // C. No-Street Path
+    let noStreet = null;
+    if (hasStreetUsage(sessionGraph, primary.edgeIds)) {
+        noStreet = runMultiStopDijkstra(
+            stops,
+            sessionGraph,
+            nodeLookup,
+            travelMode,
+            {
+                useStreets: false,
+                penaltyMap: null,
+            }
+        );
+    }
+
+    return {
+        shortest: formatResult(primary),
+        alternative: formatResult(alternative),
+        noStreet: formatResult(noStreet),
+    };
+};
+
+const runMultiStopDijkstra = (
+    stops,
+    graph,
+    nodeLookup,
+    travelMode,
+    options
+) => {
+    let fullPathIds = [];
+    let fullEdgeIds = [];
+    let totalDist = 0;
+    let totalWeight = 0;
+
+    let lastArrivalEdgeId = null;
+    let isDriveCar = travelMode === "car";
+
+    for (let i = 0; i < stops.length - 1; i++) {
+        const startId = resolveNodeId(stops[i], i);
+        const endId = resolveNodeId(stops[i + 1], i + 1);
+
+        const currentPenaltyMap = new Map(options.penaltyMap || []);
+        if (isDriveCar && lastArrivalEdgeId) {
+            currentPenaltyMap.set(lastArrivalEdgeId, 10000);
+        }
+        const result = calcPathWithDijkstra(graph, startId, endId, {
+            ...options,
+            penaltyMap: currentPenaltyMap,
+        });
+        if (!result) {
+            return null;
+        }
+        if (isDriveCar && result.edges.length > 0) {
+            lastArrivalEdgeId = result.edges[result.edges.length - 1];
+        }
+
+        const segmentPath = i === 0 ? result.path : result.path.slice(1);
+        fullPathIds.push(...segmentPath);
+        fullEdgeIds.push(...result.edges);
+        totalDist += result.distance;
+        totalWeight += result.weight;
+    }
+
+    const pixelPoints = fullPathIds.flatMap((id) => {
+        const node = nodeLookup[id];
+        if (node) {
+            return [node.x, node.y];
+        }
+        if (id.startsWith("temp_")) {
+            const index = parseInt(id.split("_")[1], 10);
+            if (!isNaN(index) && stops[index]) {
+                return [stops[index].snap.node.x, stops[index].snap.node.y];
+            }
+        }
+        return [];
+    });
+
+    return {
+        pixels: pixelPoints,
+        dist: totalDist,
+        weight: totalWeight,
+        edgeIds: fullEdgeIds,
+    };
+};
+
+// ===========================================================================
+// UTILITIES
+// ===========================================================================
+
+const formatResult = (raw) => {
+    if (raw) {
+        return {
+            path: raw.pixels, // [x1, y1, x2, y2...]
+            dist: raw.dist,
+            weight: raw.weight,
+        };
+    }
+    return null;
+};
+
+const resolveNodeId = (stop, index) => {
+    if (stop.snap?.type === "temporary") {
+        return `temp_${index}`;
+    }
+    return stop.snap?.node?.id;
+};
+
 const hasStreetUsage = (graph, edgeIds) => {
     for (const id of edgeIds) {
-        // graph.edges is a Map, so O(1) lookup
-        const edge = graph.edges.get(id); 
-        if (edge && edge.type === "street") {
+        const edge = graph.edges.get(id);
+        if (edge?.type === "street") {
             return true;
         }
     }
     return false;
-};
-
-//driver
-export default calculateRoute = (graph, stops) => {
-    if (!stops || stops.length < 2) return null;
-
-    // A. FIND PRIMARY PATH (Fastest, allowed to use streets)
-    const primary = getFullItinerary(graph, stops, true, new Map());
-
-    if (!primary) {
-        return { shortest: null, alternative: null, noStreet: null };
-    }
-
-    // B. FIND ALTERNATIVE PATH (Penalize Primary Edges)
-    const penaltyMap = new Map();
-    const DEFAULT_PENALTY = 5.0; 
-
-    for (const edgeId of primary.edges) {
-        penaltyMap.set(edgeId, DEFAULT_PENALTY);
-    }
-    
-    // We still allow streets in alternative, just looking for a different route
-    const alternative = getFullItinerary(graph, stops, true, penaltyMap);
-
-    // C. CONDITIONAL "NO STREET" PATH
-    // Only calculate this if Primary or Alternative actually utilized a street.
-    let noStreetResult = null;
-    
-    const primaryUsesStreet = hasStreetUsage(graph, primary.edges);
-
-    if (primaryUsesStreet) {
-        // Run strictly with useStreets = false
-        noStreetResult = getFullItinerary(graph, stops, false, new Map());
-    }
-
-    return {
-        shortest: primary.path,
-        alternative: alternative ? alternative.path : null,
-        // If this is null, it means the primary route already avoided streets (or was identical)
-        noStreet: noStreetResult ? noStreetResult.path : null 
-    };
 };
