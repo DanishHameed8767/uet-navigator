@@ -1,16 +1,14 @@
 import styles from "./SearchBar.module.css";
 
-const SearchBar = ({ searchKey, setKey, ref, onFocus, onBlur, onChange }) => {
-    const placeholder = "Search UET Map";
-
+const SearchBar = ({ searchKey, setKey, inputRef, onFocus, onChange, isActive }) => {
     return (
         <div className={styles["search-bar"]}>
             <input
                 className={styles.input}
-                ref={ref}
-                id="search-input"
-                name="search-input"
-                placeholder={placeholder}
+                ref={inputRef}
+                /* This attribute keeps the bar square even when focus leaves */
+                data-active={isActive} 
+                placeholder="Search UET Map"
                 value={searchKey}
                 autoComplete="off"
                 onChange={(e) => {
@@ -18,14 +16,11 @@ const SearchBar = ({ searchKey, setKey, ref, onFocus, onBlur, onChange }) => {
                     onChange();
                 }}
                 onFocus={onFocus}
-                onBlur={() => {
-                    onBlur();
-                    onChange();
-                }}
             />
             <i className={styles.icon + " fa-solid fa-magnifying-glass"}></i>
         </div>
     );
 };
+
 
 export default SearchBar;

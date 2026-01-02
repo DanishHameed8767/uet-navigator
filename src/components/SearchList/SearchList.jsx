@@ -2,7 +2,8 @@ import styles from "./SearchList.module.css";
 import SearchCard from "../SearchCard/SearchCard";
 import RecentCard from "../RecentCard/RecentCard";
 
-const SearchList = ({ result, mode, searchKey }) => {
+const SearchList = ({ result, mode, searchKey,onSeeMore }) => {
+    const dataArray = result?.toArray() || [];
     if (result === null || result?.toArray()?.length === 0) {
         return (
             <div className={styles["search-list"]}>
@@ -13,18 +14,34 @@ const SearchList = ({ result, mode, searchKey }) => {
     }
 
     return (
-        <div className={styles["search-list"]}>
+        <div className={styles["search-list"]}
+            onClick={(e) => e.stopPropagation()}
+        >
             {mode !== "recents" &&
-                result?.toArray()?.map((elem) => {
+                dataArray.map((elem, index) => {
+                    const data = elem.node ? elem.node : elem;
                     return (
                         <SearchCard
-                            key={elem?.node?.name}
-                            name={elem?.node?.name}
-                            near={elem?.node?.near}
-                            type={elem?.node?.type}
+                            key={index}
+                            name={data?.name}
+                            near={data?.near}
+                            type={data?.type}
                         />
                     );
                 })}
+
+            {/* Pagination Button */}
+            {mode === "saved" && result.hasMore && (
+                <button 
+                    className={styles["see-more-btn"]} 
+                   onClick={(e) => {
+                        e.stopPropagation(); // Double safety
+                        onSeeMore();
+                    }}
+                >
+                    See More
+                </button>
+            )}
             {mode === "recents" &&
                 result?.toArray()?.map((elem) => {
                     console.log(elem);

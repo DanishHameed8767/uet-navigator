@@ -22,6 +22,8 @@ import PointInfoPopup from "../../components/PointInfoPopup/PointInfoPopup.jsx";
 
 const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const searchInputRef = useRef(null);
+const searchWrapperRef = useRef(null);
+
     const { graphData, setGraphData } = useGraphDataState();
     const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
     const [stops, setStops] = useState([]);
@@ -32,6 +34,7 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const [mode, setMode] = useState("car");
     const [open, setOpen] = useState(false);
     const [popup, setPopup] = useState(null);
+    const [visibleSavedLimit, setVisibleSavedLimit] = useState(5);
     const handleMapClick = (e) => {
         setPopup({
             position: { x: e.clientX, y: e.clientY },
@@ -85,20 +88,57 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
         []
     );
     const [recentPaths, setRecentPaths] = useLocalStorage("recent_paths", []);
-    useEffect(() => {
-        if (searchMode === "default") return;
+   useEffect(() => {
+    if (searchMode === "default") return;
 
-        searchInputRef.current?.focus();
-        setSearchKey("");
+    searchInputRef.current?.focus();
+    setSearchKey("");
 
-        if (searchMode === "saved") {
-            setSearchResult(loadSaved(currentUser?.email));
+    if (searchMode === "saved") {
+        // Pass the limit to the load function
+        setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
+    }
+
+    if (searchMode === "recents") {
+        setSearchResult(loadRecents(currentUser?.email));
+    }
+}, [searchMode, currentUser?.email, allSavedNodes, visibleSavedLimit]);
+
+useEffect(() => {
+    setVisibleSavedLimit(5);
+}, [searchMode]);
+
+
+// 2. Add the Click Outside Listener
+useEffect(() => {
+    const handleClickOutside = (event) => {
+        // Only close if the click is OUTSIDE the searchWrapperRef
+        if (searchWrapperRef.current && !searchWrapperRef.current.contains(event.target)) {
+            setSearchFocus(false);
         }
+    };
 
-        if (searchMode === "recents") {
-            setSearchResult(loadRecents(currentUser?.email));
-        }
-    }, [searchMode, currentUser?.email]);
+    // Attach listener to the document
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+        // Cleanup listener on unmount
+        document.removeEventListener("mousedown", handleClickOutside);
+    };
+}, []);
+    // useEffect(() => {
+    //     if (searchMode === "default") return;
+
+    //     searchInputRef.current?.focus();
+    //     setSearchKey("");
+
+    //     if (searchMode === "saved") {
+    //         setSearchResult(loadSaved(currentUser?.email));
+    //     }
+
+    //     if (searchMode === "recents") {
+    //         setSearchResult(loadRecents(currentUser?.email));
+    //     }
+    // }, [searchMode, currentUser?.email]);
 
     // const handlePathVisit = () => {
     //     alert("Path added to recent visits");
@@ -267,23 +307,25 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
                 handleStopSave={handleStopSave}
             />
 
+          <div ref={searchWrapperRef} className={styles["search-container"]}>
             <SearchBar
                 searchKey={searchKey}
                 setKey={setSearchKey}
-                ref={searchInputRef}
+                inputRef={searchInputRef}
                 onFocus={() => setSearchFocus(true)}
-                onBlur={() => setSearchFocus(false)}
-                onChange={() => {
-                    setSearchMode("default");
-                }}
+                isActive={isSearchFocus} // Passed to data-active
+                onChange={() => setSearchMode("default")}
             />
+            
             {isSearchFocus && (
                 <SearchList
                     result={searchResult}
                     mode={searchMode}
                     searchKey={searchKey}
+                    onSeeMore={() => setVisibleSavedLimit(prev => prev + 5)}
                 />
             )}
+        </div>
             <FilterBar />
             {stops.length > 0 && (
                 <PickPathDialog
@@ -335,13 +377,36 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
     );
 };
 
-function loadSaved(email) {
+function loadSaved(email, allSavedNodes, limit) {
     const list = new SingleLinkedList();
-    savedLocations.forEach((elem) => {
-        if (elem.email === email) list.append(elem);
+    
+    // 1. Filter by user
+    const userNodes = allSavedNodes.filter((node) => node.email === email);
+
+    // 2. Take only up to the current limit
+    const paginatedNodes = userNodes.slice(0, limit);
+
+    paginatedNodes.forEach((node) => {
+        list.append({
+            ...node,
+            name: node.name || `${node.lat.toFixed(4)}, ${node.lon.toFixed(4)}`,
+            near: node.type || "Saved Location"
+        });
     });
+
+    // We can attach a custom property to the list to check if more items exist
+    list.hasMore = userNodes.length > limit;
+    
     return list;
 }
+
+// function loadSaved(email) {
+//     const list = new SingleLinkedList();
+//     savedLocations.forEach((elem) => {
+//         if (elem.email === email) list.append(elem);
+//     });
+//     return list;
+// }
 
 function loadRecents(email) {
     const list = new SingleLinkedList();
