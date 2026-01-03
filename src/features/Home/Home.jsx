@@ -19,6 +19,7 @@ import BottomPopup from "../../components/BottomPopup/BottomPopup.jsx";
 import TravelModeSelector from "../../components/TravelModeSelector/TravelModeSelector.jsx";
 import RoutesList from "../../components/RoutesList/RoutesList.jsx";
 import PointInfoPopup from "../../components/PointInfoPopup/PointInfoPopup.jsx";
+import { useSearchData } from "../../context/SearchContext.jsx";
 
 const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const searchInputRef = useRef(null);
@@ -41,6 +42,10 @@ const searchWrapperRef = useRef(null);
             ...dummyPoint,
         });
     };
+
+   const { searchableNodes } = useSearchData();
+
+
 
     const dummyRoutes = [
         {
@@ -103,10 +108,12 @@ const searchWrapperRef = useRef(null);
 //         setSearchResult(loadRecents(currentUser?.email, recentPaths, visibleSavedLimit));
 //     }
 // }, [searchMode, currentUser?.email, allSavedNodes, visibleSavedLimit, recentPaths]);
+// Locate this block around line 113
+// Locate this block around line 113
 useEffect(() => {
-    setSearchKey("");
+    // REMOVE THIS LINE: setSearchKey(""); 
     setVisibleSavedLimit(5);
-    // Autofocus the input when switching modes
+    
     if (searchMode !== "default") {
         searchInputRef.current?.focus();
     }
@@ -284,7 +291,36 @@ useEffect(() => {
         });
     };
 
-    
+    useEffect(() => {
+    // Only search if focus is active and we have at least 1 character
+    if (!isSearchFocus || searchKey.length === 0) { 
+        if (searchMode === "default") setSearchResult(null);
+        return;
+    }
+
+    if (searchMode === "default") {
+        const list = new SingleLinkedList();
+        const query = searchKey.toLowerCase();
+
+        // High-performance search on the pre-filtered named nodes
+        const matches = searchableNodes.filter(node => 
+            node.name.toLowerCase().includes(query) || 
+            node.type.toLowerCase().includes(query)
+        );
+
+        // Append the top 10 results to your UI list
+        matches.slice(0, 10).forEach(node => {
+            list.append({
+                ...node,
+                name: node.name,
+                near: node.type // e.g., "Library", "Intersection", "Gate"
+            });
+        });
+
+        setSearchResult(list);
+    }
+}, [searchKey, isSearchFocus, searchMode, searchableNodes]);
+
 /**
  * Processes and filters saved locations for the search list.
  */
@@ -307,6 +343,7 @@ function loadSaved(email, allSavedNodes, limit) {
     list.hasMore = userNodes.length > limit;
     return list;
 }
+console.log("searchMode",searchMode)
 
 /**
  * Processes and filters travel history for the connected-line view.
@@ -362,17 +399,25 @@ function loadRecents(email, recentPaths, limit) {
             />
 
           <div ref={searchWrapperRef} className={styles["search-container"]}>
-           <SearchBar
+            
+<SearchBar
     searchKey={searchKey}
     setKey={setSearchKey}
     inputRef={searchInputRef}
     onFocus={() => setSearchFocus(true)}
     isActive={isSearchFocus}
-   onChange={() => {
-    if (searchMode !== "saved" && searchMode !== "recents") {
-        setSearchMode("default");
-    }
-}}
+    onChange={() => {
+        if (searchMode === "saved" || searchMode === "recents") {
+            // 1. Switch mode first
+            setSearchMode("default");
+            
+            // 2. Capture the character and force it into the key
+            setSearchKey(prev => {
+                const typedChar = prev.charAt(prev.length - 1);
+                return typedChar; 
+            });
+        }
+    }}
 />
             
             {isSearchFocus && (
