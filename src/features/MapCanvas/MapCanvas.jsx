@@ -15,15 +15,17 @@ const MapCanvas = ({
     renderEdges,
     indexes,
     currentUser,
+    travelMode,
+    setTravelMode,
     walkMatrix,
     setWalkMatrix,
     stops,
     setStops,
     handleStopSave,
+    openPointInfo,
 }) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
-    const [travelMode, setTravelMode] = useState("car");
     const [viewType, setViewType] = useState("Flat");
     const [imageMapFlat] = useImage(mapFlat);
     const [imageMapSat] = useImage(mapSat);
@@ -231,6 +233,7 @@ const MapCanvas = ({
                     boundDrag={boundDrag}
                     handleWheel={handleWheel}
                     handleStopSave={handleStopSave}
+                    openPointInfo={openPointInfo}
                 />
             )}
 

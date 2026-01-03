@@ -2,9 +2,8 @@ import styles from "./TravelModeSelector.module.css";
 
 const MODES = [
     { id: "car", icon: "fa-car", label: "Car" },
-    // { id: "bus", icon: "fa-bus", label: "Transit" },
+    { id: "bike", icon: "fa-motorcycle", label: "Bike" },
     { id: "walk", icon: "fa-person-walking", label: "Walk" },
-    { id: "bike", icon: "fa-bicycle", label: "Bike" },
 ];
 
 export default function TravelModeSelector({ value, onChange }) {
@@ -12,7 +11,6 @@ export default function TravelModeSelector({ value, onChange }) {
         <div className={styles.container}>
             {MODES.map((mode) => {
                 const active = value === mode.id;
-
                 return (
                     <button
                         key={mode.id}
@@ -21,6 +19,7 @@ export default function TravelModeSelector({ value, onChange }) {
                         aria-label={mode.label}
                     >
                         <i className={`fa-solid ${mode.icon}`} />
+                        {mode.label}
                     </button>
                 );
             })}

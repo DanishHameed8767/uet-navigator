@@ -38,6 +38,7 @@ const MapView = ({
     boundDrag,
     handleWheel,
     handleStopSave,
+    openPointInfo,
 }) => {
     const isWalkMode = travelMode === "walk";
 
@@ -112,17 +113,8 @@ const MapView = ({
             graph
         );
 
-        setStops((prev) => {
-            const newStop = { click: { x: imgX, y: imgY }, snap };
-            const exists = prev.some(
-                (s) =>
-                    (s.click.x === newStop.click.x &&
-                        s.click.y === newStop.click.y) ||
-                    (s.snap?.node?.x === newStop.snap?.node?.x &&
-                        s.snap?.node?.y === newStop.snap?.node?.y)
-            );
-            return exists ? prev : [...prev, newStop];
-        });
+        let clickedPoint = { click: { x: imgX, y: imgY }, snap };
+        openPointInfo(clickedPoint);
     };
 
     const handleStopRightClick = (e, stopIndex) => {

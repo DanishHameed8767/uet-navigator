@@ -1,13 +1,14 @@
-.dialog {
+.card {
     position: fixed;
     top: var(--space-lg);
     right: var(--space-lg);
     width: 19rem;
-    height: max-content;
+    height: min-content;
     padding-top: var(--space-2xl);
     border-radius: var(--border-xl);
     background-color: var(--color-background);
     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 10%);
+    overflow: hidden;
 
     & h2 {
         font-family: var(--font-family-heading);
@@ -39,13 +40,25 @@
     }
 }
 
+.cards-wrapper {
+    max-height: calc(100vh - 26rem);
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 .btn-wrapper {
+    background-color: var(--color-background);
     display: flex;
     flex-direction: row;
     margin-top: var(--space-sm);
     padding: 0 var(--space-lg);
 
-    & button:nth-child(-n+2) {
+    & button:nth-child(-n + 2) {
         padding: 0;
         width: 7rem;
         font-size: var(--text-xs);
@@ -68,5 +81,4 @@
     & button:last-child {
         margin-left: var(--space-md);
     }
-
 }

@@ -48,10 +48,10 @@ export function getIconByType(type) {
     if (type === "road") return "fa-solid fa-road";
     if (type === "street") return "fa-solid fa-lines-leaning";
     if (type === "path") return "fa-solid fa-lines-leaning";
-    if (type === "department") return "fa-solid fa-graduation-cap";
+    if (type === "dept") return "fa-solid fa-graduation-cap";
     if (type === "hostel") return "fa-solid fa-bed";
     if (type === "cafe") return "fa-solid fa-utensils";
-    if (type === "grounds") return "fa-solid fa-table-tennis-paddle-ball";
+    if (type === "ground") return "fa-solid fa-table-tennis-paddle-ball";
     if (type === "worship") return "fa-solid fa-mosque";
-    return "fa-solid fa-exclamation";
+    return "fa-solid fa-map-location-dot";
 }

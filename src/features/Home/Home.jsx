@@ -3,27 +3,28 @@ import { useState, useRef, useMemo, useEffect } from "react";
 import SearchBar from "../../components/SearchBar/SearchBar.jsx";
 import SearchList from "../../components/SearchList/SearchList.jsx";
 import FilterBar from "../../components/FilterBar/FilterBar.jsx";
-import PickPathDialog from "../../components/PickPathCard/PickPathCard.jsx";
 import MapCanvas from "../MapCanvas/MapCanvas.jsx";
-
-import savedLocations from "../../../public/data/saved.json";
-import recentLocations from "../../../public/data/recents.json";
 
 import SingleLinkedList from "../../data-structures/linked-list.js";
 import { loadWalkData } from "../../utils/appHelper.js";
 import useGraphDataState from "../../hooks/useGraphDataState.js";
 import { hydrateGraph } from "../../data-structures/graph";
 import useLocalStorage from "../../hooks/useLocalStorage.js";
-import { getDistance, pixelToLatLon } from "../../utils/mapHelper.js";
+import {
+    getDistance,
+    pixelToLatLon,
+    resolveNameType,
+    resolveNear,
+} from "../../utils/mapHelper.js";
 import BottomPopup from "../../components/BottomPopup/BottomPopup.jsx";
 import TravelModeSelector from "../../components/TravelModeSelector/TravelModeSelector.jsx";
 import RoutesList from "../../components/RoutesList/RoutesList.jsx";
-import PointInfoPopup from "../../components/PointInfoPopup/PointInfoPopup.jsx";
 import { useSearchData } from "../../context/SearchContext.jsx";
+import MapHUD from "../MapHUD/MapHUD.jsx";
 
 const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const searchInputRef = useRef(null);
-const searchWrapperRef = useRef(null);
+    const searchWrapperRef = useRef(null);
 
     const { graphData, setGraphData } = useGraphDataState();
     const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
@@ -34,18 +35,11 @@ const searchWrapperRef = useRef(null);
     const [selectedRoute, setSelectedRoute] = useState("r1");
     const [mode, setMode] = useState("car");
     const [open, setOpen] = useState(false);
-    const [popup, setPopup] = useState(null);
+    const [pointInfo, setPointInfo] = useState(null);
     const [visibleSavedLimit, setVisibleSavedLimit] = useState(5);
-    const handleMapClick = (e) => {
-        setPopup({
-            position: { x: e.clientX, y: e.clientY },
-            ...dummyPoint,
-        });
-    };
+    const { searchableNodes } = useSearchData();
 
-   const { searchableNodes } = useSearchData();
-
-
+    const [travelMode, setTravelMode] = useState("car");
 
     const dummyRoutes = [
         {
@@ -78,52 +72,31 @@ const searchWrapperRef = useRef(null);
         },
     ];
 
-    const dummyPoint = {
-        name: "Ghoray Shah",
-        near: "UET Main Gate",
-        lat: 31.585387,
-        lng: 74.351726,
-        imageUrl: "https://via.placeholder.com/128x128.png?text=Place",
-    };
-
     const hydrated = useMemo(() => hydrateGraph(graphData), [graphData]);
 
     const [allSavedNodes, setAllSavedNodes] = useLocalStorage(
         "saved_nodes",
         []
     );
+
     const [recentPaths, setRecentPaths] = useLocalStorage("recent_paths", []);
-//    useEffect(() => {
-//     if (searchMode === "default") return;
 
-//     searchInputRef.current?.focus();
-//     setSearchKey("");
+    useEffect(() => {
+        // REMOVE THIS LINE: setSearchKey("");
+        setVisibleSavedLimit(5);
 
-//     if (searchMode === "saved") {
-//         setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
-//     }
+        if (searchMode !== "default") {
+            searchInputRef.current?.focus();
+        }
+    }, [searchMode]);
 
-//     if (searchMode === "recents") {
-//         // Pass the live state and the limit
-//         setSearchResult(loadRecents(currentUser?.email, recentPaths, visibleSavedLimit));
-//     }
-// }, [searchMode, currentUser?.email, allSavedNodes, visibleSavedLimit, recentPaths]);
-// Locate this block around line 113
-// Locate this block around line 113
-useEffect(() => {
-    // REMOVE THIS LINE: setSearchKey(""); 
-    setVisibleSavedLimit(5);
-    
-    if (searchMode !== "default") {
-        searchInputRef.current?.focus();
-    }
-}, [searchMode]);
-
-
-// 2. Add the Click Outside Listener
-useEffect(() => {
+    // 2. Add the Click Outside Listener
+    useEffect(() => {
         const handleClickOutside = (event) => {
-            if (searchWrapperRef.current && !searchWrapperRef.current.contains(event.target)) {
+            if (
+                searchWrapperRef.current &&
+                !searchWrapperRef.current.contains(event.target)
+            ) {
                 setSearchFocus(false);
                 setSearchKey("");
                 setSearchResult(null);
@@ -139,24 +112,6 @@ useEffect(() => {
         };
     }, [setSearchMode]); // setSearchMode is a stable prop, but good to include
 
-    // useEffect(() => {
-    //     if (searchMode === "default") return;
-
-    //     searchInputRef.current?.focus();
-    //     setSearchKey("");
-
-    //     if (searchMode === "saved") {
-    //         setSearchResult(loadSaved(currentUser?.email));
-    //     }
-
-    //     if (searchMode === "recents") {
-    //         setSearchResult(loadRecents(currentUser?.email));
-    //     }
-    // }, [searchMode, currentUser?.email]);
-
-    // const handlePathVisit = () => {
-    //     alert("Path added to recent visits");
-    // };
     const handlePathVisit = () => {
         if (stops.length === 0) return;
 
@@ -218,23 +173,32 @@ useEffect(() => {
         // 5. Success Alert only runs if the duplicate check didn't trigger 'return'
         alert("Path added to recent visits");
     };
-useEffect(() => {
-    if (searchMode === "default") {
-        setSearchResult(null);
-        return;
-    }
+    useEffect(() => {
+        if (searchMode === "default") {
+            setSearchResult(null);
+            return;
+        }
 
-    if (searchMode === "saved") {
-        // Removed searchKey parameter
-        setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
-    }
+        if (searchMode === "saved") {
+            // Removed searchKey parameter
+            setSearchResult(
+                loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit)
+            );
+        }
 
-    if (searchMode === "recents") {
-        // Removed searchKey parameter
-        setSearchResult(loadRecents(currentUser?.email, recentPaths, visibleSavedLimit));
-    }
-
-}, [searchMode, currentUser?.email, allSavedNodes, recentPaths, visibleSavedLimit]);
+        if (searchMode === "recents") {
+            // Removed searchKey parameter
+            setSearchResult(
+                loadRecents(currentUser?.email, recentPaths, visibleSavedLimit)
+            );
+        }
+    }, [
+        searchMode,
+        currentUser?.email,
+        allSavedNodes,
+        recentPaths,
+        visibleSavedLimit,
+    ]);
     const handleStopSave = (stop) => {
         if (!stop || !stop.point) return;
 
@@ -292,95 +256,107 @@ useEffect(() => {
     };
 
     useEffect(() => {
-    // Only search if focus is active and we have at least 1 character
-    if (!isSearchFocus || searchKey.length === 0) { 
-        if (searchMode === "default") setSearchResult(null);
-        return;
-    }
+        // Only search if focus is active and we have at least 1 character
+        if (!isSearchFocus || searchKey.length === 0) {
+            if (searchMode === "default") setSearchResult(null);
+            return;
+        }
 
-    if (searchMode === "default") {
+        if (searchMode === "default") {
+            const list = new SingleLinkedList();
+            const query = searchKey.toLowerCase();
+
+            // High-performance search on the pre-filtered named nodes
+            const matches = searchableNodes.filter(
+                (node) =>
+                    node.name.toLowerCase().includes(query) ||
+                    node.type.toLowerCase().includes(query)
+            );
+
+            // Append the top 10 results to your UI list
+            matches.slice(0, 10).forEach((node) => {
+                list.append({
+                    ...node,
+                    name: node.name,
+                    near: node.type, // e.g., "Library", "Intersection", "Gate"
+                });
+            });
+
+            setSearchResult(list);
+        }
+    }, [searchKey, isSearchFocus, searchMode, searchableNodes]);
+
+    /**
+     * Processes and filters saved locations for the search list.
+     */
+    function loadSaved(email, allSavedNodes, limit) {
         const list = new SingleLinkedList();
-        const query = searchKey.toLowerCase();
 
-        // High-performance search on the pre-filtered named nodes
-        const matches = searchableNodes.filter(node => 
-            node.name.toLowerCase().includes(query) || 
-            node.type.toLowerCase().includes(query)
-        );
+        // Filter ONLY by user email, ignore the search key
+        const userNodes = allSavedNodes.filter((node) => node.email === email);
 
-        // Append the top 10 results to your UI list
-        matches.slice(0, 10).forEach(node => {
+        // Paginate and append to list
+        const paginatedNodes = userNodes.slice(0, limit);
+        paginatedNodes.forEach((node) => {
             list.append({
                 ...node,
-                name: node.name,
-                near: node.type // e.g., "Library", "Intersection", "Gate"
+                name: node.name || "Unnamed",
+                near: node.type,
             });
         });
 
-        setSearchResult(list);
+        list.hasMore = userNodes.length > limit;
+        return list;
     }
-}, [searchKey, isSearchFocus, searchMode, searchableNodes]);
 
-/**
- * Processes and filters saved locations for the search list.
- */
-function loadSaved(email, allSavedNodes, limit) {
-    const list = new SingleLinkedList();
-    
-    // Filter ONLY by user email, ignore the search key
-    const userNodes = allSavedNodes.filter((node) => node.email === email);
+    /**
+     * Processes and filters travel history for the connected-line view.
+     */
+    function loadRecents(email, recentPaths, limit) {
+        const list = new SingleLinkedList();
 
-    // Paginate and append to list
-    const paginatedNodes = userNodes.slice(0, limit);
-    paginatedNodes.forEach((node) => {
-        list.append({ 
-            ...node, 
-            name: node.name || "Unnamed", 
-            near: node.type 
+        // Filter ONLY by user email
+        const userRecents = recentPaths.filter((path) => path.email === email);
+
+        // Paginate and map nodes for RecentCard display
+        const paginatedRecents = userRecents.slice(0, limit);
+        paginatedRecents.forEach((path) => {
+            if (path.nodes && path.nodes.length >= 2) {
+                const start = path.nodes[0];
+                const end = path.nodes[path.nodes.length - 1];
+                list.append({
+                    timestamp: path.timestamp,
+                    type: "recent-path",
+                    pathData: path.nodes,
+                    startNode: {
+                        name: start.name || "Unnamed",
+                        near: start.type,
+                        type: start.type,
+                    },
+                    endNode: {
+                        name: end.name || "Unnamed",
+                        near: end.type,
+                        type: end.type,
+                    },
+                });
+            }
         });
-    });
 
-    list.hasMore = userNodes.length > limit;
-    return list;
-}
-console.log("searchMode",searchMode)
+        list.hasMore = userRecents.length > limit;
+        return list;
+    }
 
-/**
- * Processes and filters travel history for the connected-line view.
- */
-function loadRecents(email, recentPaths, limit) {
-    const list = new SingleLinkedList();
-    
-    // Filter ONLY by user email
-    const userRecents = recentPaths.filter((path) => path.email === email);
+    const openPointInfo = (stop) => {
+        setPointInfo(
+            resolvePoint(
+                stop,
+                hydrated.render.nodes,
+                hydrated.graph.adjacency,
+                graphData.nodes
+            )
+        );
+    };
 
-    // Paginate and map nodes for RecentCard display
-    const paginatedRecents = userRecents.slice(0, limit);
-    paginatedRecents.forEach((path) => {
-        if (path.nodes && path.nodes.length >= 2) {
-            const start = path.nodes[0];
-            const end = path.nodes[path.nodes.length - 1];
-            list.append({
-                timestamp: path.timestamp,
-                type: "recent-path", 
-                pathData: path.nodes, 
-                startNode: { 
-                    name: start.name || "Unnamed", 
-                    near: start.type, 
-                    type: start.type 
-                },
-                endNode: { 
-                    name: end.name || "Unnamed", 
-                    near: end.type, 
-                    type: end.type 
-                }
-            });
-        }
-    });
-
-    list.hasMore = userRecents.length > limit;
-    return list;
-}
     return (
         <div className={styles.home}>
             <MapCanvas
@@ -393,92 +369,125 @@ function loadRecents(email, recentPaths, limit) {
                 indexes={hydrated.indexes}
                 walkMatrix={walkMatrix}
                 setWalkMatrix={setWalkMatrix}
+                travelMode={travelMode}
+                setTravelMode={setTravelMode}
                 stops={stops}
                 setStops={setStops}
                 handleStopSave={handleStopSave}
+                openPointInfo={openPointInfo}
             />
 
-          <div ref={searchWrapperRef} className={styles["search-container"]}>
-            
-<SearchBar
-    searchKey={searchKey}
-    setKey={setSearchKey}
-    inputRef={searchInputRef}
-    onFocus={() => setSearchFocus(true)}
-    isActive={isSearchFocus}
-    onChange={() => {
-        if (searchMode === "saved" || searchMode === "recents") {
-            // 1. Switch mode first
-            setSearchMode("default");
-            
-            // 2. Capture the character and force it into the key
-            setSearchKey(prev => {
-                const typedChar = prev.charAt(prev.length - 1);
-                return typedChar; 
-            });
-        }
-    }}
-/>
-            
-            {isSearchFocus && (
-                <SearchList
-                    result={searchResult}
-                    mode={searchMode}
+            <MapHUD
+                stops={stops}
+                setStops={setStops}
+                travelMode={travelMode}
+                setTravelMode={setTravelMode}
+                pointInfo={pointInfo}
+                setPointInfo={setPointInfo}
+                handlePathVisit={handlePathVisit}
+                handleStopSave={handleStopSave}
+                nodes={hydrated.render.nodes}
+                adjacency={hydrated.graph.adjacency}
+                nodeLookup={graphData.nodes}
+            />
+
+            <div ref={searchWrapperRef} className={styles["search-container"]}>
+                <SearchBar
                     searchKey={searchKey}
-                    onSeeMore={() => setVisibleSavedLimit(prev => prev + 5)}
-                />
-            )}
-        </div>
-            <FilterBar />
-            {/* {stops.length > 0 && (
-                <PickPathDialog
-                    stops={stops}
-                    setStops={setStops}
-                    handlePathVisit={handlePathVisit}
-                    handleStopSave={handleStopSave}
-                />
-            )} */}
-            <>
-                <button
-                    onClick={(e) => {
-                        setOpen(true);
-                        handleMapClick(e);
-                    }}
-                    style={{
-                        position: "absolute",
-                        top: "95px",
-                        backgroundColor: "red",
-                        padding: "10px",
-                        color: "white",
-                        cursor: "pointer",
-                        borderRadius: "5px",
-                        border: "none",
-                    }}
-                >
-                    Simulate Node Click
-                </button>
+                    setKey={setSearchKey}
+                    inputRef={searchInputRef}
+                    onFocus={() => setSearchFocus(true)}
+                    isActive={isSearchFocus}
+                    onChange={() => {
+                        if (
+                            searchMode === "saved" ||
+                            searchMode === "recents"
+                        ) {
+                            // 1. Switch mode first
+                            setSearchMode("default");
 
-                {/* <BottomPopup open={true} title="Routes">
-                    <TravelModeSelector value={mode} onChange={setMode} />
+                            // 2. Capture the character and force it into the key
+                            setSearchKey((prev) => {
+                                const typedChar = prev.charAt(prev.length - 1);
+                                return typedChar;
+                            });
+                        }
+                    }}
+                />
 
-                    <RoutesList
-                        routes={dummyRoutes}
-                        selectedId={selectedRoute}
-                        onSelect={(route) => setSelectedRoute(route.id)}
+                {isSearchFocus && (
+                    <SearchList
+                        result={searchResult}
+                        mode={searchMode}
+                        searchKey={searchKey}
+                        onSeeMore={() =>
+                            setVisibleSavedLimit((prev) => prev + 5)
+                        }
                     />
-                </BottomPopup> */}
-            </>
-            <>
-                <PointInfoPopup
-                    open={!!popup}
-                    {...popup}
-                    onAddStop={() => console.log("Add stop")}
-                    onClose={() => setPopup(null)}
-                />
-            </>
+                )}
+            </div>
+            <FilterBar />
         </div>
     );
 };
 
+const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
+    let { name } = resolveNameType(stop, adjacency, nodeLookup);
+    name = name || "unnamed point";
+    let near = resolveNear(stop, name, nodes) || "not found";
+    near = near.length > 40 ? near.slice(0, 40) + "..." : near;
+    return stop?.snap
+        ? {
+              stop: stop,
+              info: {
+                  name,
+                  near,
+                  lat: stop.snap.node.lat,
+                  lon: stop.snap.node.lon,
+                  imageUrl:
+                      "https://via.placeholder.com/128x128.png?text=Place",
+              },
+          }
+        : null;
+};
 
 export default Home;
+
+/* 
+    //    useEffect(() => {
+    //     if (searchMode === "default") return;
+
+    //     searchInputRef.current?.focus();
+    //     setSearchKey("");
+
+    //     if (searchMode === "saved") {
+    //         setSearchResult(loadSaved(currentUser?.email, allSavedNodes, visibleSavedLimit));
+    //     }
+
+    //     if (searchMode === "recents") {
+    //         // Pass the live state and the limit
+    //         setSearchResult(loadRecents(currentUser?.email, recentPaths, visibleSavedLimit));
+    //     }
+    // }, [searchMode, currentUser?.email, allSavedNodes, visibleSavedLimit, recentPaths]);
+    // Locate this block around line 113
+    // Locate this block around line 113
+
+        // useEffect(() => {
+    //     if (searchMode === "default") return;
+
+    //     searchInputRef.current?.focus();
+    //     setSearchKey("");
+
+    //     if (searchMode === "saved") {
+    //         setSearchResult(loadSaved(currentUser?.email));
+    //     }
+
+    //     if (searchMode === "recents") {
+    //         setSearchResult(loadRecents(currentUser?.email));
+    //     }
+    // }, [searchMode, currentUser?.email]);
+
+    // const handlePathVisit = () => {
+    //     alert("Path added to recent visits");
+    // };
+*/
