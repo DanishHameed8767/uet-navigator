@@ -72,6 +72,7 @@ const MapBuildForms = ({
                     <button type="submit">Save Node</button>
                 </form>
             )}
+
             {travelMode !== "walk" && (
                 <form
                     className={
@@ -84,6 +85,7 @@ const MapBuildForms = ({
                     <input
                         ref={edgeInputRef}
                         type="text"
+                        value={tempEdge.name}
                         placeholder="Edge Name"
                         onChange={(e) => updateTempEdge("name", e.target.value)}
                     />
@@ -136,6 +138,7 @@ const MapBuildForms = ({
                     <button type="submit">Save Edge</button>
                 </form>
             )}
+
             {travelMode !== "walk" && (
                 <p id="debug">
                     {(selectedNode ? `Selected ` : `Next `) +

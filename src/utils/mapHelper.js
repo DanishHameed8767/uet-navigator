@@ -330,6 +330,14 @@ export const resolveNear = (stop, name, nodes) => {
     return null;
 };
 
+export const computeWeight = (dist, type) => {
+    const speeds = {
+        road: 30,
+        street: 20,
+    };
+    return type !== "wall" ? dist / (speeds[type] || 10) : null;
+};
+
 function getProjectedPoint(px, py, x1, y1, x2, y2) {
     const l2 = (x1 - x2) ** 2 + (y1 - y2) ** 2;
     if (l2 === 0) {
