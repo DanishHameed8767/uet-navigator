@@ -1,5 +1,5 @@
 import styles from "./MapBuilder.module.css";
-import { useState, useRef, useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import StaticEdges from "../StaticGraph/StaticEdges.jsx";
 import StaticNodes from "../StaticGraph/StaticNodes.jsx";
 import StaticLabels from "../StaticGraph/StaticLabels.jsx";
@@ -197,7 +197,7 @@ const MapBuilder = ({
         }
     };
 
-    const gridImage = (() => {
+    const gridImage = React.useMemo(() => {
         if (!gridConfig || !walkMatrix || travelMode !== "walk") {
             return;
         }
@@ -219,7 +219,8 @@ const MapBuilder = ({
                 }
             }
         }
-    })();
+        return canvas;
+    }, [gridConfig, walkMatrix, travelMode, imageMapFlat]);
 
     const handleStageClick = (e) => {
         e.cancelBubble = true;
@@ -308,12 +309,34 @@ const MapBuilder = ({
         }
         setWalkMatrix((prev) => {
             const newMat = [...prev];
-            const newRow = [...newMat[row]];
-            newRow[col] = (newRow[col] + 1) % 2;
-            newMat[row] = newRow;
-            {
-                return newMat;
-            }
+
+            // Do Nine Pixels Per Click:
+            const newRow1 = [...newMat[row - 1]];
+            const newRow2 = [...newMat[row]];
+            const newRow3 = [...newMat[row + 1]];
+
+            const newPx = (newRow2[col] + 1) % 2;
+
+            newRow1[col - 1] = newPx;
+            newRow1[col] = newPx;
+            newRow1[col + 1] = newPx;
+            newRow2[col - 1] = newPx;
+            newRow2[col] = newPx;
+            newRow2[col + 1] = newPx;
+            newRow3[col - 1] = newPx;
+            newRow3[col] = newPx;
+            newRow3[col + 1] = newPx;
+
+            newMat[row - 1] = newRow1;
+            newMat[row] = newRow2;
+            newMat[row + 1] = newRow3;
+
+            // Do One Pixel Per Click:
+            // const newMat = [...prev];
+            // const newRow = [...newMat[row]];
+            // newRow[col] = (newRow[col] + 1) % 2;
+            // newMat[row] = newRow;
+            return newMat;
         });
     };
 
@@ -408,17 +431,17 @@ const MapBuilder = ({
 
                 <Layer>
                     {travelMode !== "walk" && (
-                        <Group listening={false}>
-                            {
-                                <StaticEdges
-                                    edges={renderEdges}
-                                    nodeLookup={graphData.nodes}
-                                />
-                            }
-                            {displayTempEdge()}
-                            {displayTempNode()}
-                            <StaticNodes nodes={renderNodes} />
-                        </Group>
+                    <Group listening={false}>
+                        {
+                            <StaticEdges
+                                edges={renderEdges}
+                                nodeLookup={graphData.nodes}
+                            />
+                        }
+                        {displayTempEdge()}
+                        {displayTempNode()}
+                        <StaticNodes nodes={renderNodes} />
+                    </Group>
                     )}
                     <Group listening={false}>
                         {

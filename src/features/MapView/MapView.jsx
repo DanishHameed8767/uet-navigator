@@ -113,7 +113,13 @@ const MapView = ({
             graph
         );
 
-        let clickedPoint = { click: { x: imgX, y: imgY }, snap };
+        let clickedPoint;
+        if (isWalkMode) {
+            clickedPoint = { click: { x: imgX, y: imgY }, snap };
+        } else {
+            clickedPoint = { click: { x: snap.node.x, y: snap.node.y }, snap };
+        }
+
         openPointInfo(clickedPoint);
     };
 
