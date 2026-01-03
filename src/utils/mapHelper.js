@@ -72,10 +72,19 @@ export const getNodeTier = (type) => {
     return 3;
 };
 
-export const findClosestNode = (x, y, nodes, threshold = 15) => {
+export const findClosestNode = (
+    x,
+    y,
+    nodes,
+    threshold = 15,
+    customFilter = null
+) => {
     let minSq = threshold * threshold;
     let target = null;
     for (const node of nodes) {
+        if (customFilter && !customFilter(node)) {
+            continue;
+        }
         const nx = node.x ?? latLonToPixel(node.lat, node.lon).x;
         const ny = node.y ?? latLonToPixel(node.lat, node.lon).y;
         const distSq = (x - nx) ** 2 + (y - ny) ** 2;
@@ -272,6 +281,54 @@ function findNeighbor(nodeId, adjacency, nodeLookup, predicate) {
     }
     return null;
 }
+
+export const resolveNameType = (stop, adjacency, nodeLookup) => {
+    if (stop?.snap) {
+        const node = stop.snap.node;
+        const edge = stop.snap.edge;
+        let type = stop.snap.type;
+        let name =
+            type === "temporary"
+                ? edge?.name
+                    ? edge.name
+                    : "road"
+                : node?.name
+                  ? node.name
+                  : node.type;
+        const isEntrance = name === "service";
+        if (isEntrance) {
+            const neighbor = findNeighbor(
+                node.id,
+                adjacency,
+                nodeLookup,
+                (n) => getNodeTier(n.type) < 3
+            );
+            name = neighbor?.name || "building entrance";
+            type = neighbor?.type || type;
+        }
+        return { name, type };
+    }
+    return null;
+};
+
+export const resolveNear = (stop, name, nodes) => {
+    if (stop?.snap) {
+        const node = stop.snap.node;
+        const { x, y } = latLonToPixel(node.lat, node.lon);
+        const filter = (n) =>
+            n &&
+            n.id !== node?.id &&
+            n.name &&
+            n.name !== node?.name &&
+            n.name !== name &&
+            n.tier <= node?.tier &&
+            n.type !== "services";
+
+        let near = findClosestNode(x, y, nodes, 10000, filter)?.name || null;
+        return near;
+    }
+    return null;
+};
 
 function getProjectedPoint(px, py, x1, y1, x2, y2) {
     const l2 = (x1 - x2) ** 2 + (y1 - y2) ** 2;

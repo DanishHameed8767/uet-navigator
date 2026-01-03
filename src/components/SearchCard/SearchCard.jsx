@@ -12,8 +12,8 @@ const SearchCard = ({ name, near, type, onContextMenu, onDoubleClick }) => {
                 <i className={styles.icon + " " + getIconByType(type)}></i>
             </div>
             <div className={styles["label-wrapper"]}>
-                <h3>{name}</h3>
-                <p>{near ? "Near " + near : "(Nothing to display)"}</p>
+                <h3>{name || "unnamed point"}</h3>
+                <p>{"Near " + near || "not found"}</p>
             </div>
         </div>
     );
