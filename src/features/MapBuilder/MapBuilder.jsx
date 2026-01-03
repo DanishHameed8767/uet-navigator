@@ -18,6 +18,7 @@ import {
     latLonToPixel,
     getDistance,
     getNodeTier,
+    computeWeight,
 } from "../../utils/mapHelper.js";
 import {
     addEdge,
@@ -64,7 +65,7 @@ const MapBuilder = ({
     }, [graphData.nodes]);
 
     const [tempNode, setTempNode] = useState({
-        id: getNextNodeId,
+        id: getNextNodeId(),
         name: "",
         type: "",
         tier: "",
@@ -79,18 +80,6 @@ const MapBuilder = ({
                 newState.tier = getNodeTier(value);
             }
             return newState;
-        });
-    };
-
-    const setTempNodeFromGraph = (nodeId) => {
-        const n = graphData.nodes[nodeId];
-        setTempNode({
-            id: nodeId,
-            name: n?.name || "",
-            type: n?.type || "",
-            tier: n?.tier || "",
-            lat: n?.lat || "",
-            lon: n?.lon || "",
         });
     };
 
@@ -113,26 +102,44 @@ const MapBuilder = ({
             <Circle
                 x={x}
                 y={y}
-                radius={7}
+                radius={18}
                 fill={"cyan"}
                 stroke="black"
-                strokeWidth={1}
-                scaleX={1 / scale}
-                scaleY={1 / scale}
+                strokeWidth={2}
             />
         );
     };
 
     const saveNode = (e) => {
         e.preventDefault();
-        if (isValidNode()) {
+        if (isValidNode(tempNode)) {
             if (graphData.nodes[tempNode.id]) {
                 setGraphData((prev) => updateNode(prev, tempNode.id, tempNode));
+                alert("Node updated successfully");
             } else {
-                setGraphData((prev) => addNode(prev, tempNode));
+                setGraphData((prev) =>
+                    addNode(prev, {
+                        ...tempNode,
+                        ...latLonToPixel(tempNode.lat, tempNode.lon),
+                    })
+                );
             }
             resetTempNode(getNextNodeId());
+            setSelectedNode(null);
         }
+    };
+
+    const displaySelectedNode = () => {
+        return (
+            <Circle
+                x={selectedNode.x}
+                y={selectedNode.y}
+                radius={20}
+                fill={"red"}
+                stroke="black"
+                strokeWidth={3}
+            />
+        );
     };
 
     const [tempEdge, setTempEdge] = useState({
@@ -173,23 +180,25 @@ const MapBuilder = ({
             <Line
                 points={[nodeA.x, nodeA.y, nodeB.x, nodeB.y]}
                 stroke="blue"
-                strokeWidth={3 / scale}
+                strokeWidth={2 / scale}
             />
         );
     };
 
     const saveEdge = (e) => {
         e.preventDefault();
-        if (isValidEdge()) {
+        if (isValidEdge(tempEdge)) {
             const edgeId = `${tempEdge.from}-${tempEdge.to}`;
+            let { points, ...rest } = tempEdge;
+            rest = { ...rest, weight: computeWeight(rest.dist, rest.type) };
             if (graphData.edges[edgeId]) {
-                setGraphData((prev) => updateEdge(prev, edgeId, tempEdge));
+                setGraphData((prev) => updateEdge(prev, edgeId, rest));
                 alert("Edge updated successfully");
             } else {
                 setGraphData((prev) =>
                     addEdge(prev, {
                         id: edgeId,
-                        ...tempEdge,
+                        ...rest,
                     })
                 );
             }
@@ -286,6 +295,7 @@ const MapBuilder = ({
         let { lat, lon } = pixelToLatLon(imageX, imageY);
         setSelectedNode(null);
         resetTempNode(getNextNodeId());
+        resetTempEdge();
         updateTempNode("lat", lat);
         updateTempNode("lon", lon);
         if (nodeInputRef) {
@@ -346,18 +356,23 @@ const MapBuilder = ({
             const { lat, lon } = pixelToLatLon(node.x, node.y);
             setTempNode({ ...node, lat, lon });
             updateTempEdge("from", node.id);
+            updateTempEdge("to", "");
         } else if (selectedNode.id === node.id) {
             setSelectedNode(null);
-            resetTempNode();
-            updateTempNode("id", getNextNodeId());
+            resetTempNode(getNextNodeId());
             resetTempEdge();
         } else {
             // Duplicate Check
-            if (graphData.edges[`${selectedNode.id}-${node.id}`]) {
-                setSelectedNode(node);
-                const { lat, lon } = pixelToLatLon(node.x, node.y);
-                setTempNode({ ...node, lat, lon });
-                updateTempEdge("from", node.id);
+            const sameWay = graphData.edges[`${selectedNode.id}-${node.id}`];
+            const oppWay = graphData.edges[`${node.id}-${selectedNode.id}`];
+
+            if (sameWay || oppWay?.twoWay) {
+                const temp = sameWay ? node : graphData.nodes[oppWay.from];
+                const { lat, lon } = pixelToLatLon(temp.x, temp.y);
+                setSelectedNode(temp);
+                setTempNode({ ...temp, lat, lon });
+                updateTempEdge("from", temp.id);
+                updateTempEdge("to", "");
                 return;
             }
 
@@ -371,7 +386,7 @@ const MapBuilder = ({
                 getDistance(sLoc.lat, sLoc.lon, nLoc.lat, nLoc.lon)
             );
             setSelectedNode(node);
-            resetTempNode();
+            setTempNode({ ...node, ...nLoc });
             if (edgeInputRef) {
                 edgeInputRef.current.focus();
             }
@@ -384,6 +399,8 @@ const MapBuilder = ({
             setSelectedNode(null);
         }
         resetTempNode(getNextNodeId());
+        setSelectedNode(null);
+        resetTempEdge();
     };
 
     const handleEdgeClick = (edge) => {
@@ -397,6 +414,8 @@ const MapBuilder = ({
 
     const handleEdgeContextMenu = (edge) => {
         setGraphData((prev) => deleteEdge(prev, edge.id));
+        resetTempNode(getNextNodeId());
+        setSelectedNode(null);
         resetTempEdge();
     };
 
@@ -406,13 +425,14 @@ const MapBuilder = ({
                 ref={stageRef}
                 width={dimensions.width}
                 height={dimensions.height}
-                draggable
-                onWheel={handleWheel}
-                onClick={handleStageClick}
                 scaleX={scale}
                 scaleY={scale}
                 x={position.x}
                 y={position.y}
+                draggable
+                onWheel={handleWheel}
+                onClick={handleStageClick}
+                onContextMenu={(e) => e.evt.preventDefault()}
                 onDragEnd={(e) => {
                     setPosition({ x: e.target.x(), y: e.target.y() });
                 }}
@@ -430,7 +450,7 @@ const MapBuilder = ({
                 </Layer>
 
                 <Layer>
-                    {travelMode !== "walk" && (
+                    {/* {travelMode !== "walk" && ( */}
                     <Group listening={false}>
                         {
                             <StaticEdges
@@ -439,10 +459,11 @@ const MapBuilder = ({
                             />
                         }
                         {displayTempEdge()}
-                        {displayTempNode()}
                         <StaticNodes nodes={renderNodes} />
+                        {tempNode && displayTempNode()}
+                        {selectedNode && displaySelectedNode()}
                     </Group>
-                    )}
+                    {/* )} */}
                     <Group listening={false}>
                         {
                             <StaticLabels

@@ -70,6 +70,7 @@ export function hydrateGraph(graphData) {
         }
 
         renderEdges.push({
+            name: raw.name,
             id: raw.id,
             from: raw.from,
             to: raw.to,

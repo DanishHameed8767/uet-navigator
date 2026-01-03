@@ -55,6 +55,7 @@ export function deleteNode(prev, nodeId) {
 
 export function isValidNode(node) {
     return !(
+        !node ||
         node.type === "" ||
         node.tier === "" ||
         node.lat === "" ||
@@ -112,6 +113,7 @@ export function deleteEdge(prev, edgeId) {
 
 export function isValidEdge(edge) {
     return !(
+        !edge ||
         edge.type === "" ||
         edge.to === "" ||
         edge.from === "" ||
