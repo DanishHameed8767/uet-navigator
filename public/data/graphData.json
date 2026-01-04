@@ -18812,6 +18812,16 @@
             "type": "wall",
             "twoWay": true,
             "weight": null
+        },
+        "6-8": {
+            "id": "6-8",
+            "name": "",
+            "from": 6,
+            "to": 8,
+            "dist": 12.98,
+            "type": "road",
+            "twoWay": true,
+            "weight": 0.4326666666666667
         }
     }
 }
