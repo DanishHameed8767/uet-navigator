@@ -14,9 +14,6 @@ const MapHUD = ({
     setPointInfo,
     handlePathVisit,
     handleStopSave,
-    nodes,
-    adjacency,
-    nodeLookup,
     routeResult,
     selectedRoute,
     setSelectedRoute,
@@ -64,9 +61,6 @@ const MapHUD = ({
                     setStops={setStops}
                     handlePathVisit={handlePathVisit}
                     handleStopSave={handleStopSave}
-                    nodes={nodes}
-                    adjacency={adjacency}
-                    nodeLookup={nodeLookup}
                 />
             )}
         </>

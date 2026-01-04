@@ -9,11 +9,9 @@ import SignupDialog from "./features/Dialogs/SignupDialog/SignupDialog.jsx";
 import ProfileDialog from "./features/Dialogs/ProfileDialog/ProfileDialog.jsx";
 
 import defaultUsers from "../public/data/users.json";
-import SingleLinkedList from "./data-structures/linked-list.js";
+import SingleLinkedList from "./data-structures/linkedList.js";
 
 const App = () => {
-    // TOGGLING THEME
-
     const [theme, setTheme] = useState(() => {
         const user = parseSafely(localStorage.getItem("app-current-user"));
         return user ? user.theme : "light";
@@ -34,11 +32,10 @@ const App = () => {
             return newTheme;
         });
     };
+
     useEffect(() => {
         document.documentElement.setAttribute("data-theme", theme);
     }, [theme]);
-
-    // MANAGING USERS
 
     const [currentUser, setCurrentUser] = useState(() => {
         const user = parseSafely(localStorage.getItem("app-current-user"));
@@ -58,11 +55,10 @@ const App = () => {
     }, [currentUser]);
 
     const [usersList, setUsersList] = useState(loadUserData());
+
     useEffect(() => {
         localStorage.setItem("app-users", JSON.stringify(usersList.toArray()));
     }, [usersList]);
-
-    // MANAGING DIALOGS
 
     const [isLoginOpen, setLoginOpen] = useState(false);
     const openLogin = () => {
@@ -122,7 +118,6 @@ const App = () => {
         closeLogin();
         openSignup();
     };
-
     const switchToLogin = () => {
         openLogin();
         closeSignup();
@@ -136,7 +131,9 @@ const App = () => {
         setProfileOpen(false);
     };
     const handleLogout = () => {
-        if (!currentUser) return;
+        if (!currentUser) {
+            return;
+        }
         setUsersList((prev) => {
             const newList = prev.deepCopy();
             newList.update(currentUser);
@@ -161,6 +158,7 @@ const App = () => {
                 currentUser={currentUser}
                 searchMode={searchMode}
                 setSearchMode={setSearchMode}
+                openLogin={openLogin}
             />
             {isLoginOpen && (
                 <LoginDialog

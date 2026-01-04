@@ -1,7 +1,7 @@
 .wrapper {
     /* position: fixed; */
     position: absolute;
-    left: var(--space-lg);
+    left: var(--space-md);
     bottom: var(--space-lg);
     z-index: 100;
 }

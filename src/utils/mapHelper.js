@@ -192,13 +192,19 @@ export const snapToEntity = (
                 const finalNode = nodeLookup[closestEdge.from];
                 return {
                     type: "permanent",
-                    node: finalNode,
+                    node: {
+                        ...finalNode,
+                        ...pixelToLatLon(finalNode.x, finalNode.y),
+                    },
                 };
             } else {
                 const finalNode = nodeLookup[closestEdge.to];
                 return {
                     type: "permanent",
-                    node: finalNode,
+                    node: {
+                        ...finalNode,
+                        ...pixelToLatLon(finalNode.x, finalNode.y),
+                    },
                 };
             }
         }
@@ -212,7 +218,10 @@ export const snapToEntity = (
         );
         return {
             type: "permanent",
-            node: finalNode,
+            node: {
+                ...finalNode,
+                ...pixelToLatLon(finalNode.x, finalNode.y),
+            },
         };
     }
     return null;
@@ -313,7 +322,6 @@ export const resolveNameType = (stop, adjacency, nodeLookup) => {
 export const resolveNear = (stop, name, nodes) => {
     if (stop?.snap) {
         const node = stop.snap.node;
-        const { x, y } = latLonToPixel(node.lat, node.lon);
         const filter = (n) =>
             n &&
             n.id !== node?.id &&
@@ -323,7 +331,8 @@ export const resolveNear = (stop, name, nodes) => {
             n.tier <= node?.tier &&
             n.type !== "services";
 
-        let near = findClosestNode(x, y, nodes, 10000, filter)?.name || null;
+        let near =
+            findClosestNode(node.x, node.y, nodes, 10000, filter)?.name || null;
         return near;
     }
     return null;

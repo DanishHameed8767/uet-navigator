@@ -1,6 +1,6 @@
 .search-bar {
     display: flex;
-    position: relative; /* Container now handles absolute positioning */
+    position: relative;
     width: 100%;
     z-index: 1;
 }
@@ -12,17 +12,15 @@
     color: var(--color-text-bright);
     padding-left: var(--space-2xl);
     padding-right: calc(2.5 * var(--space-2xl));
-    border-radius: var(--border-circle); /* Default Circle */
+    border-radius: var(--border-circle);
     background-color: var(--color-background);
     box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 10%);
-    transition: border-radius 0.2s ease;
-
     &:hover {
         box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 33%);
     }
 
-    /* Keep square corners when focused OR when the list is active */
-    &:focus, &[data-active="true"] {
+    &:focus,
+    &[data-active="true"] {
         outline: none;
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
@@ -37,8 +35,7 @@
     }
 }
 
-/* Maintain icon color for both states */
-.input:focus + .icon, 
+.input:focus + .icon,
 .input[data-active="true"] + .icon {
     color: var(--color-text-bright);
 }

@@ -4,20 +4,11 @@
     position: relative;
 }
 
-
 .search-container {
-    /* 1. Position it where the bar used to be */
     position: absolute;
     top: var(--space-sm);
     left: var(--space-md);
-    
-    /* 2. Constrain the width so children align correctly */
-    width: 25rem; 
-    
-    /* 3. Stack children vertically */
+    width: 25rem;
     display: flex;
     flex-direction: column;
-    
-    /* 4. Ensure it stays above the map */
-    z-index: 1000; 
 }
