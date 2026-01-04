@@ -23,4 +23,9 @@
             color: var(--color-text-placeholder);
         }
     }
+
+    & #active-filter-btn {
+        background-color: var(--color-selected);
+        box-shadow: 0 1px 3px 0px rgba(0, 0, 0, 33%);
+    }
 }

@@ -8,15 +8,11 @@ const RoutesList = ({ routeResult, selectedRoute, setSelectedRoute }) => {
     return (
         <div className={styles.list}>
             {Object.keys(routeResult).map((key) => {
+                const active = key === selectedRoute;
                 const route = routeResult[key];
                 if (!route) {
                     return;
                 }
-
-                const active = key === selectedRoute;
-
-                console.log(key, active, route);
-
                 return (
                     <button
                         key={key}

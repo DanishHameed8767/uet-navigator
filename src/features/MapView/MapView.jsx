@@ -1,4 +1,3 @@
-import { useMemo } from "react";
 import {
     Stage,
     Layer,
@@ -9,13 +8,10 @@ import {
     Group,
 } from "react-konva";
 import styles from "./MapView.module.css";
-import MapMarker from "../../components/MapMarker/MapMarker.jsx";
 import { MAP_CONFIG, snapToEntity, imageToGridXY } from "../../utils/mapHelper";
-import StaticLabels from "../StaticGraph/StaticLabels";
-import useImage from "use-image";
 import MapRoutes from "../../components/MapRoutes/MapRoutes.jsx";
-// import StaticEdges from "../StaticGraph/StaticEdges";
-// import StaticNodes from "../StaticGraph/StaticNodes";
+import MapMarker from "../../components/MapMarker/MapMarker.jsx";
+import StaticLabels from "../StaticGraph/StaticLabels";
 
 const MapView = ({
     graph,
@@ -44,8 +40,12 @@ const MapView = ({
     openPointInfo,
     routeResult,
     selectedRoute,
+    filter,
+    indexes,
 }) => {
     const isWalkMode = travelMode === "walk";
+    const highlightNodes =
+        filter && indexes?.byType ? indexes?.byType?.get(filter) : [];
 
     const handleStageClick = (e) => {
         if (e.evt.button !== 0) {
@@ -122,14 +122,6 @@ const MapView = ({
                 </Layer>
 
                 <Layer>
-                    {/* <Group listening={false}>
-                        <StaticEdges
-                            edges={renderEdges}
-                            nodeLookup={graphData?.nodes}
-                        />
-                        <StaticNodes nodes={renderNodes} />
-                    </Group> */}
-
                     <MapRoutes
                         selectedRoute={selectedRoute}
                         scale={scale}
@@ -148,9 +140,9 @@ const MapView = ({
                         return (
                             <Group key={idx} x={x} y={y}>
                                 <Ring
-                                    innerRadius={12 / scale}
+                                    innerRadius={8 / scale}
                                     outerRadius={16 / scale}
-                                    fill={getStopColor(travelMode)}
+                                    fill={"hsla(200, 100%, 40%, 0.8)"}
                                     opacity={0.5}
                                     onClick={(e) => (e.cancelBubble = true)}
                                     onContextMenu={(e) =>
@@ -159,7 +151,7 @@ const MapView = ({
                                 />
                                 <Circle
                                     radius={8 / scale}
-                                    fill={getStopColor(travelMode)}
+                                    fill={"hsla(200, 100%, 40%, 0.8)"}
                                     stroke="white"
                                     strokeWidth={2 / scale}
                                     onClick={(e) => (e.cancelBubble = true)}
@@ -169,6 +161,27 @@ const MapView = ({
                                     }
                                 />
                             </Group>
+                        );
+                    })}
+
+                    <StaticLabels
+                        nodes={renderNodes}
+                        edges={renderEdges}
+                        nodeLookup={graphData?.nodes}
+                        detailLevel={detailLevel}
+                    />
+
+                    {highlightNodes.map((nodeId, idx) => {
+                        const node = graphData?.nodes[nodeId];
+                        return (
+                            <MapMarker
+                                key={idx}
+                                x={node.x}
+                                y={node.y}
+                                color={"gold"}
+                                stroke={"black"}
+                                scale={scale}
+                            />
                         );
                     })}
 
@@ -184,32 +197,15 @@ const MapView = ({
                                     ? pointInfo?.stop?.click?.y
                                     : pointInfo?.stop?.snap?.node?.y
                             }
-                            color={"black"}
+                            color={"hsla(0, 90%, 55%, 1.00)"}
+                            stroke={"black"}
                             scale={scale}
                         />
                     )}
-
-                    <StaticLabels
-                        nodes={renderNodes}
-                        edges={renderEdges}
-                        nodeLookup={graphData?.nodes}
-                        detailLevel={detailLevel}
-                    />
                 </Layer>
             </Stage>
         </div>
     );
-};
-
-const getStopColor = (mode) => {
-    switch (mode) {
-        case "bike":
-            return "hsla(50, 100%, 50%, 1.00)";
-        case "car":
-            return "hsla(0, 90%, 55%, 1.00)";
-        case "walk":
-            return "hsla(220, 100%, 50%, 1.00)";
-    }
 };
 
 export default MapView;
