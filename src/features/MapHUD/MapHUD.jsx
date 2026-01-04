@@ -16,33 +16,39 @@ const MapHUD = ({
     nodes,
     adjacency,
     nodeLookup,
+    routeResult,
+    selectedRoute,
+    setSelectedRoute,
 }) => {
     const addStop = (newStop) => {
         setStops((prev) => {
             const exists = prev.some(
                 (s) =>
                     (s.click.x === newStop.click.x &&
-                        s.click.y === newStop.click.y) ||
-                    (s.snap?.node?.x === newStop.snap?.node?.x &&
-                        s.snap?.node?.y === newStop.snap?.node?.y)
+                        s.click.y === newStop.click.y) 
+                    // (s.snap?.node?.x === newStop.snap?.node?.x &&
+                    //     s.snap?.node?.y === newStop.snap?.node?.y)
             );
             return exists ? prev : [...prev, newStop];
         });
+        setPointInfo(null);
     };
 
     return (
         <>
-            {/* <BottomPopup open={true} title="Routes">
-                <TravelModeSelector
-                    value={travelMode}
-                    onChange={setTravelMode}
-                />
-                <RoutesList
-                    routes={dummyRoutes}
-                    selectedId={selectedRoute}
-                    onSelect={(route) => setSelectedRoute(route.id)}
-                />
-            </BottomPopup> */}
+            {stops?.length > 1 && (
+                <BottomPopup open={true} title="Routes">
+                    <TravelModeSelector
+                        value={travelMode}
+                        onChange={setTravelMode}
+                    />
+                    <RoutesList
+                        routeResult={routeResult}
+                        selectedRoute={selectedRoute}
+                        setSelectedRoute={setSelectedRoute}
+                    />
+                </BottomPopup>
+            )}
             {pointInfo && (
                 <PointInfoCard
                     {...pointInfo.info}

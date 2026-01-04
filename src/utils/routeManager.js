@@ -1,6 +1,11 @@
 import { calcPathWithAStar } from "./algoAStar.js";
 import { calcPathWithDijkstra } from "./algoDijkstra.js";
-import { imageToGridXY } from "../utils/mapHelper.js";
+import {
+    calcEstimatedTime,
+    getDistance,
+    imageToGridXY,
+    pixelToLatLon,
+} from "../utils/mapHelper.js";
 import { getTempGraph } from "../data-structures/graph/GraphHydrator";
 
 /**
@@ -22,19 +27,22 @@ export const getRoute = ({
     walkMatrix,
     gridConfig,
     nodeLookup,
+    useStreets = true,
 }) => {
-    // 1. Basic Validation
     if (!stops || stops.length < 2) {
         return null;
     }
-
     const isWalk = travelMode === "walk";
-
-    // 2. Route Execution
     if (isWalk) {
         return handleWalkRoute(stops, walkMatrix, gridConfig);
     } else {
-        return handleGraphRoute(stops, graph, nodeLookup, travelMode);
+        return handleGraphRoute(
+            stops,
+            graph,
+            nodeLookup,
+            travelMode,
+            useStreets
+        );
     }
 };
 
@@ -49,6 +57,11 @@ const handleWalkRoute = (stops, matrix, gridConfig) => {
 
     let fullPixelPoints = [];
     let totalDistance = 0;
+
+    const p1 = pixelToLatLon(0, 0);
+    const p2 = pixelToLatLon(100, 0);
+    const metersIn100Px = getDistance(p1.lat, p1.lon, p2.lat, p2.lon);
+    const metersPerPixel = metersIn100Px / 100;
 
     for (let i = 0; i < stops.length - 1; i++) {
         // A. Translate Input: Pixel -> Grid
@@ -82,14 +95,17 @@ const handleWalkRoute = (stops, matrix, gridConfig) => {
 
         // Accumulate
         fullPixelPoints.push(...segmentPixels);
-        totalDistance += result.distance * gridConfig.cellWidth; // Rough meter approximation
+        const segmentPixelsLen = result.distance * gridConfig.cellWidth;
+        totalDistance += segmentPixelsLen * metersPerPixel;
     }
+
+    const estimatedTime = totalDistance / 80;
 
     return {
         shortest: {
             path: fullPixelPoints, // [x1, y1, x2, y2...]
             dist: totalDistance,
-            weight: 0,
+            time: Math.ceil(estimatedTime),
         },
         alternative: null,
         noStreet: null,
@@ -100,7 +116,7 @@ const handleWalkRoute = (stops, matrix, gridConfig) => {
 // STRATEGY 2: DRIVE (Dijkstra)
 // ===========================================================================
 
-const handleGraphRoute = (stops, graph, nodeLookup, travelMode) => {
+const handleGraphRoute = (stops, graph, nodeLookup, travelMode, useStreets) => {
     if (!graph || !nodeLookup) {
         return null;
     }
@@ -114,7 +130,7 @@ const handleGraphRoute = (stops, graph, nodeLookup, travelMode) => {
         nodeLookup,
         travelMode,
         {
-            useStreets: true,
+            useStreets: useStreets,
             penaltyMap: null,
         }
     );
@@ -133,14 +149,17 @@ const handleGraphRoute = (stops, graph, nodeLookup, travelMode) => {
         nodeLookup,
         travelMode,
         {
-            useStreets: true,
+            useStreets: useStreets,
             penaltyMap,
         }
     );
 
     // C. No-Street Path
     let noStreet = null;
-    if (hasStreetUsage(sessionGraph, primary.edgeIds)) {
+    if (
+        hasStreetUsage(sessionGraph, primary.edgeIds) &&
+        hasStreetUsage(sessionGraph, alternative.edgeIds)
+    ) {
         noStreet = runMultiStopDijkstra(
             stops,
             sessionGraph,
@@ -170,7 +189,6 @@ const runMultiStopDijkstra = (
     let fullPathIds = [];
     let fullEdgeIds = [];
     let totalDist = 0;
-    let totalWeight = 0;
 
     let lastArrivalEdgeId = null;
     let isDriveCar = travelMode === "car";
@@ -198,7 +216,6 @@ const runMultiStopDijkstra = (
         fullPathIds.push(...segmentPath);
         fullEdgeIds.push(...result.edges);
         totalDist += result.distance;
-        totalWeight += result.weight;
     }
 
     const pixelPoints = fullPathIds.flatMap((id) => {
@@ -215,10 +232,12 @@ const runMultiStopDijkstra = (
         return [];
     });
 
+    const totalTime = calcEstimatedTime(graph, fullEdgeIds);
+
     return {
         pixels: pixelPoints,
         dist: totalDist,
-        weight: totalWeight,
+        time: Math.ceil(totalTime),
         edgeIds: fullEdgeIds,
     };
 };
@@ -232,7 +251,7 @@ const formatResult = (raw) => {
         return {
             path: raw.pixels, // [x1, y1, x2, y2...]
             dist: raw.dist,
-            weight: raw.weight,
+            time: raw.time,
         };
     }
     return null;

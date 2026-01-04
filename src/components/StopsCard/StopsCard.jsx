@@ -19,16 +19,23 @@ const StopsCard = ({
         }
     };
 
+    const seen = new Set();
+    const stopsSet = stops.filter((stop) => {
+        const key = `${stop?.snap?.node?.x}-${stop?.snap?.node?.x}`;
+        return seen.has(key) ? false : seen.add(key);
+    });
+
     return (
         <div className={styles.card} onClick={(e) => e.stopPropagation()}>
             <h2>Selected Places</h2>
             <div className={styles["cards-wrapper"]}>
-                {stops.map((stop, idx) => {
+                {stopsSet.map((stop, idx) => {
                     let { name, type } = resolveNameType(
                         stop,
                         adjacency,
                         nodeLookup
                     );
+                    console.log(name, type);
                     name = name || "unnamed point";
                     type = type || "other";
                     let near = resolveNear(stop, name, nodes) || "not found";

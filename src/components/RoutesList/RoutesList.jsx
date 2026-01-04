@@ -1,28 +1,41 @@
 import styles from "./RoutesList.module.css";
 
-export default function RoutesList({ routes, selectedId, onSelect }) {
+const RoutesList = ({ routeResult, selectedRoute, setSelectedRoute }) => {
+    if (!routeResult) {
+        return;
+    }
+
     return (
         <div className={styles.list}>
-            {routes.map((route) => {
-                const active = route.id === selectedId;
+            {Object.keys(routeResult).map((key) => {
+                const route = routeResult[key];
+                if (!route) {
+                    return;
+                }
+
+                const active = key === selectedRoute;
+
+                console.log(key, active, route);
 
                 return (
                     <button
-                        key={route.id}
+                        key={key}
                         className={`${styles.item} ${active ? styles.active : ""}`}
-                        onClick={() => onSelect(route)}
+                        onClick={() => setSelectedRoute(key)}
                     >
                         <div className={styles.left}>
-                            <div className={styles.title}>{route.title}</div>
+                            <div className={styles.title}>{key}</div>
                             <div className={styles.subtitle}>
-                                {route.subtitle}
+                                Click to select.
                             </div>
                         </div>
 
                         <div className={styles.right}>
-                            <div className={styles.time}>{route.time} min</div>
+                            <div className={styles.time}>
+                                ~ {Math.round(route.time)} min
+                            </div>
                             <div className={styles.distance}>
-                                {route.distance} m
+                                {Math.round(route.dist)} m
                             </div>
                         </div>
                     </button>
@@ -30,4 +43,6 @@ export default function RoutesList({ routes, selectedId, onSelect }) {
             })}
         </div>
     );
-}
+};
+
+export default RoutesList;

@@ -9,9 +9,11 @@ import {
     Group,
 } from "react-konva";
 import styles from "./MapView.module.css";
-import { getRoute } from "../../utils/routeManager.js";
+import MapMarker from "../../components/MapMarker/MapMarker.jsx";
 import { MAP_CONFIG, snapToEntity, imageToGridXY } from "../../utils/mapHelper";
 import StaticLabels from "../StaticGraph/StaticLabels";
+import useImage from "use-image";
+import MapRoutes from "../../components/MapRoutes/MapRoutes.jsx";
 // import StaticEdges from "../StaticGraph/StaticEdges";
 // import StaticNodes from "../StaticGraph/StaticNodes";
 
@@ -38,47 +40,12 @@ const MapView = ({
     boundDrag,
     handleWheel,
     handleStopSave,
+    pointInfo,
     openPointInfo,
+    routeResult,
+    selectedRoute,
 }) => {
     const isWalkMode = travelMode === "walk";
-
-    const nodeLookup = useMemo(() => {
-        if (!renderNodes) {
-            return {};
-        }
-        const lookup = {};
-        renderNodes.forEach((node) => {
-            lookup[node.id] = node;
-        });
-        return lookup;
-    }, [renderNodes]);
-
-    const routeResult = useMemo(() => {
-        if (
-            !stops ||
-            stops.length < 2 ||
-            (isWalkMode && (!walkMatrix || !gridConfig)) ||
-            (!isWalkMode && (!graph || !nodeLookup))
-        ) {
-            return null;
-        }
-        return getRoute({
-            stops,
-            travelMode,
-            graph,
-            walkMatrix,
-            gridConfig,
-            nodeLookup,
-        });
-    }, [
-        stops,
-        travelMode,
-        isWalkMode,
-        graph,
-        walkMatrix,
-        gridConfig,
-        nodeLookup,
-    ]);
 
     const handleStageClick = (e) => {
         if (e.evt.button !== 0) {
@@ -163,41 +130,12 @@ const MapView = ({
                         <StaticNodes nodes={renderNodes} />
                     </Group> */}
 
-                    {routeResult?.shortest?.path?.length > 0 && (
-                        <Line
-                            points={routeResult.shortest.path}
-                            stroke="hsla(200, 100%, 50%, 1.00)" // Bright Blue
-                            strokeWidth={isWalkMode ? 6 / scale : 10 / scale}
-                            lineCap="round"
-                            lineJoin="round"
-                            tension={isWalkMode ? 0 : 0.1}
-                            listening={false}
-                        />
-                    )}
-
-                    {routeResult?.alternative?.path?.length > 0 && (
-                        <Line
-                            points={routeResult.alternative.path}
-                            stroke="hsla(200, 80%, 70%, 0.8)" // Dimmer Blue
-                            strokeWidth={8 / scale}
-                            dash={[75, 75]}
-                            lineCap="round"
-                            lineJoin="round"
-                            listening={false}
-                        />
-                    )}
-
-                    {routeResult?.alternative?.path?.length > 0 && (
-                        <Line
-                            points={routeResult.alternative.path}
-                            stroke="hsla(200, 0%, 30%, 0.8)" // Dimmer Blue
-                            strokeWidth={8 / scale}
-                            dash={[100, 100]}
-                            lineCap="round"
-                            lineJoin="round"
-                            listening={false}
-                        />
-                    )}
+                    <MapRoutes
+                        selectedRoute={selectedRoute}
+                        scale={scale}
+                        routeResult={routeResult}
+                        isWalkMode={isWalkMode}
+                    />
 
                     {stops.map((stop, idx) => {
                         const x = isWalkMode
@@ -233,6 +171,24 @@ const MapView = ({
                             </Group>
                         );
                     })}
+
+                    {pointInfo && (
+                        <MapMarker
+                            x={
+                                isWalkMode
+                                    ? pointInfo?.stop?.click?.x
+                                    : pointInfo?.stop?.snap?.node?.x
+                            }
+                            y={
+                                isWalkMode
+                                    ? pointInfo?.stop?.click?.y
+                                    : pointInfo?.stop?.snap?.node?.y
+                            }
+                            color={"black"}
+                            scale={scale}
+                        />
+                    )}
+
                     <StaticLabels
                         nodes={renderNodes}
                         edges={renderEdges}
