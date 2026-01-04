@@ -19,10 +19,16 @@ const MapCanvas = ({
     renderEdges,
     indexes,
     currentUser,
+    travelMode,
+    setTravelMode,
+    selectedRoute,
+    setSelectedRoute,
     stops,
     setStops,
     handleStopSave,
     handlePathVisit,
+    pointInfo,
+    setPointInfo,
 }) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
@@ -33,10 +39,6 @@ const MapCanvas = ({
     const [detailLevel, setDetailLevel] = useState(1);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-    const [selectedRoute, setSelectedRoute] = useState("shortest");
-    const [pointInfo, setPointInfo] = useState(null);
-    const [travelMode, setTravelMode] = useState("car");
     const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
     const [filter, setFilter] = useState(null);
 
@@ -232,6 +234,15 @@ const MapCanvas = ({
         nodeLookup,
     ]);
 
+    const handleVisitWrapper = () => {
+        handlePathVisit({
+            stops: stops,
+            routeResult: routeResult,
+            selectedRoute: selectedRoute,
+            travelMode: travelMode,
+        });
+    };
+
     return (
         <div className={styles["map-canvas"]}>
             {currentUser?.email === "admin@navigator.uet" ? (
@@ -299,11 +310,8 @@ const MapCanvas = ({
                         setTravelMode={setTravelMode}
                         pointInfo={pointInfo}
                         setPointInfo={setPointInfo}
-                        handlePathVisit={handlePathVisit}
+                        handlePathVisit={handleVisitWrapper}
                         handleStopSave={handleStopSave}
-                        nodes={renderNodes}
-                        adjacency={graph.adjacency}
-                        nodeLookup={graphData.nodes}
                         routeResult={routeResult}
                         selectedRoute={selectedRoute}
                         setSelectedRoute={setSelectedRoute}
@@ -325,13 +333,27 @@ const MapCanvas = ({
 };
 
 const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
-    let { name } = resolveNameType(stop, adjacency, nodeLookup);
+    let { name, type } = resolveNameType(stop, adjacency, nodeLookup);
     name = name || "unnamed point";
     let near = resolveNear(stop, name, nodes) || "not found";
     near = near.length > 40 ? near.slice(0, 40) + "..." : near;
+
+    const enrichedStop = {
+        ...stop,
+        snap: {
+            ...stop.snap,
+            node: {
+                ...stop.snap.node,
+                name: name,
+                near: near,
+                type: type || "other",
+            },
+        },
+    };
+
     return stop?.snap
         ? {
-              stop: stop,
+              stop: enrichedStop,
               info: {
                   name,
                   near,
@@ -342,5 +364,4 @@ const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
           }
         : null;
 };
-
 export default MapCanvas;

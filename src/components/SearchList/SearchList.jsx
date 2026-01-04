@@ -1,43 +1,17 @@
 import styles from "./SearchList.module.css";
 import SearchCard from "../SearchCard/SearchCard";
 import RecentCard from "../RecentCard/RecentCard";
-import { resolveNameType, resolveNear } from "../../utils/mapHelper";
 
-const SearchList = ({
-    result,
-    mode,
-    key,
-    onSeeMore,
-    addStop,
-    nodes,
-    adjacency,
-    nodeLookup,
-}) => {
-    let dataArray = result?.toArray() || [];
-
+const SearchList = ({ result, mode, searchKey, onItemClick, onSeeMore }) => {
+    const dataArray = result?.toArray ? result.toArray() : [];
     const fallBackElem = (
         <div className={styles["search-list"]}>
             <i className={styles.icon + getIcon(mode)}></i>
-            <p className={styles.message}>{getMessage(mode, key)}</p>
+            <p className={styles.message}>{getMessage(mode, searchKey)}</p>
         </div>
     );
-    if (result === null || result?.toArray()?.length === 0) {
-        return { fallBackElem };
-    }
-
-    if (mode === "saved") {
-        dataArray = dataArray.map((stop) => {
-            const { name } =
-                resolveNameType(stop, adjacency, nodeLookup) || "unnamed";
-            const near = resolveNear(stop.type, name, nodes) || "not found";
-            return {
-                ...stop?.snap?.node,
-                name,
-                near,
-            };
-        });
-    } else {
-        return { fallBackElem };
+    if (!dataArray || dataArray.length === 0) {
+        return fallBackElem;
     }
 
     return (
@@ -45,43 +19,63 @@ const SearchList = ({
             className={styles["search-list"]}
             onClick={(e) => e.stopPropagation()}
         >
-            {mode === "saved" &&
+            {mode === "default" &&
                 dataArray.map((node, index) => (
                     <SearchCard
-                        key={index}
-                        name={node?.name}
-                        near={node?.near}
-                        type={node?.type}
+                        key={node.id || index}
+                        name={node.name}
+                        near={node.near}
+                        type={node.type}
+                        onClick={() => onItemClick(node)}
                     />
                 ))}
 
-            {/* 
-
-            {mode === "recents" &&
-                result?.toArray()?.map((elem, idx) => {
-                    // Access the data from the linked list node
-                    const data = elem.node ? elem.node : elem;
+            {mode === "saved" &&
+                dataArray.map((bundle, index) => {
+                    const node = bundle.stop?.snap?.node;
                     return (
-                        <RecentCard
-                            key={data.timestamp || idx}
-                            sName={data.startNode?.name} // Maps formatted name/coords
-                            sNear={data.startNode?.near} // Maps type/description
-                            sType={data.startNode?.type}
-                            eName={data.endNode?.name} // Maps formatted name/coords
-                            eNear={data.endNode?.near} // Maps type/description
-                            eType={data.endNode?.type}
+                        <SearchCard
+                            key={index}
+                            name={node?.name || "Unnamed Point"}
+                            near={node?.near || "Saved Location"}
+                            type={node?.type || "other"}
+                            onClick={() => onItemClick(bundle)}
                         />
                     );
                 })}
-            {(mode === "saved" || mode === "recents") && result?.hasMore && (
+
+            {mode === "recents" &&
+                dataArray.map((bundle, index) => {
+                    const stops = bundle.stops || [];
+                    if (stops.length < 2) {
+                        return null;
+                    }
+                    const startNode = stops[0]?.snap?.node;
+                    const endNode = stops[stops.length - 1]?.snap?.node;
+                    return (
+                        <div key={index} onClick={() => onItemClick(bundle)}>
+                            <RecentCard
+                                sName={startNode?.name || "Start"}
+                                sNear={startNode?.near || "Point"}
+                                sType={startNode?.type || "other"}
+                                eName={endNode?.name || "Destination"}
+                                eNear={endNode?.near || "Point"}
+                                eType={endNode?.type || "other"}
+                            />
+                        </div>
+                    );
+                })}
+
+            {result?.hasMore && (
                 <button className={styles["see-more-btn"]} onClick={onSeeMore}>
                     See More
                 </button>
-            )} */}
+            )}
         </div>
     );
 };
 
+// UI Helpers preserved from original file
 function getMessage(mode, key) {
     if (mode === "saved") {
         return "No locations saved yet";

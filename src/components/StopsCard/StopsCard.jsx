@@ -1,17 +1,8 @@
 import styles from "./StopsCard.module.css";
 import Button from "../Button/Button.jsx";
 import SearchCard from "../SearchCard/SearchCard.jsx";
-import { resolveNear, resolveNameType } from "../../utils/mapHelper.js";
 
-const StopsCard = ({
-    stops,
-    setStops,
-    handlePathVisit,
-    handleStopSave,
-    nodes,
-    adjacency,
-    nodeLookup,
-}) => {
+const StopsCard = ({ stops, setStops, handlePathVisit, handleStopSave }) => {
     const deleteStop = (e, idx) => {
         if (e.button !== 0) {
             e.preventDefault();
@@ -30,21 +21,13 @@ const StopsCard = ({
             <h2>Selected Places</h2>
             <div className={styles["cards-wrapper"]}>
                 {stopsSet.map((stop, idx) => {
-                    let { name, type } = resolveNameType(
-                        stop,
-                        adjacency,
-                        nodeLookup
-                    );
-                    name = name || "unnamed point";
-                    type = type || "other";
-                    let near = resolveNear(stop, name, nodes) || "not found";
-                    near = near.length > 40 ? near.slice(0, 40) + "..." : near;
+                    let node = stop?.snap?.node;
                     return (
                         <SearchCard
                             key={idx}
-                            name={name}
-                            type={type}
-                            near={near}
+                            name={node?.name}
+                            type={node?.type}
+                            near={node?.near}
                             onContextMenu={(e) => deleteStop(e, idx)}
                             onDoubleClick={() => handleStopSave(stop)}
                         />

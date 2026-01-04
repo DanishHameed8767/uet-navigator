@@ -1,10 +1,18 @@
 import { getIconByType } from "../../utils/appHelper.js";
 import styles from "./SearchCard.module.css";
 
-const SearchCard = ({ name, near, type, onContextMenu, onDoubleClick }) => {
+const SearchCard = ({
+    name,
+    near,
+    type,
+    onClick,
+    onContextMenu,
+    onDoubleClick,
+}) => {
     return (
         <div
             className={styles["search-card"]}
+            onClick={onClick}
             onContextMenu={onContextMenu}
             onDoubleClick={onDoubleClick}
         >
@@ -13,7 +21,7 @@ const SearchCard = ({ name, near, type, onContextMenu, onDoubleClick }) => {
             </div>
             <div className={styles["label-wrapper"]}>
                 <h3>{name || "unnamed point"}</h3>
-                <p>{"Near " + near || "not found"}</p>
+                <p>{"Near " + (near || "not found")}</p>
             </div>
         </div>
     );

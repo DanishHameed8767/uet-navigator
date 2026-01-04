@@ -8,18 +8,17 @@ import SingleLinkedList from "../../data-structures/linkedList.js";
 import useGraphDataState from "../../hooks/useGraphDataState.js";
 import { hydrateGraph } from "../../data-structures/graph";
 import useLocalStorage from "../../hooks/useLocalStorage.js";
-import {
-    getDistance,
-    pixelToLatLon,
-    resolveNameType,
-    resolveNear,
-} from "../../utils/mapHelper.js";
+import { getDistance, resolveNear } from "../../utils/mapHelper.js";
 import { useSearchData } from "../../context/SearchContext.jsx";
+import CustomStack from "../../data-structures/stack.js";
 
 const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
     const searchInputRef = useRef(null);
     const searchWrapperRef = useRef(null);
 
+    const [travelMode, setTravelMode] = useState("car");
+    const [selectedRoute, setSelectedRoute] = useState("shortest");
+    const [pointInfo, setPointInfo] = useState(null);
     const [stops, setStops] = useState([]);
     const [searchKey, setSearchKey] = useState("");
     const [isSearchFocus, setSearchFocus] = useState(false);
@@ -59,97 +58,141 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
         };
     }, [setSearchMode]);
 
+    // --- Search & Data Loading Logic ---
+
     useEffect(() => {
-        if (!isSearchFocus || searchKey.length === 0) {
-            if (searchMode === "default") {
-                setSearchResult(null);
-            }
+        if (!isSearchFocus && searchMode === "default") {
+            setSearchResult(null);
             return;
         }
 
-        if (searchMode === "default") {
+        if (searchMode === "default" && searchKey.length > 0) {
             const list = new SingleLinkedList();
             const query = searchKey.toLowerCase();
 
-            // High-performance search on the pre-filtered named nodes
             const matches = searchableNodes.filter(
                 (node) =>
                     node.name.toLowerCase().includes(query) ||
                     node.type.toLowerCase().includes(query)
             );
-
-            // Append the top 10 results to your UI list
             matches.slice(0, 10).forEach((node) => {
-                list.append({
-                    ...node,
-                    name: node.name,
-                    near: node.type,
-                });
+                const stop = {
+                    snap: {
+                        node: node,
+                    },
+                };
+                const near =
+                    resolveNear(stop, node.name, hydrated.render.nodes) ||
+                    "not found";
+                list.append({ ...node, near });
             });
-
             setSearchResult(list);
         }
-    }, [searchKey, isSearchFocus, searchMode, searchableNodes]);
 
-    const handlePathVisit = () => {
-        if (stops.length === 0) {
-            return;
+        if (searchMode === "saved") {
+            const list = new SingleLinkedList();
+            const userStops = savedStops.filter(
+                (bundle) => bundle.email === currentUser?.email
+            );
+            userStops.slice(0, searchResultLimit).forEach((bundle) => {
+                list.append(bundle);
+            });
+            list.hasMore = userStops.length > searchResultLimit;
+            setSearchResult(list);
         }
-        const pathNodes = stops.map((stop) => {
-            const { lat: currentLat, lon: currentLon } = pixelToLatLon(
-                stop.point.x,
-                stop.point.y
+
+        if (searchMode === "recents") {
+            const stack = new CustomStack();
+            const userRecents = recentPaths.filter(
+                (bundle) => bundle.email === currentUser?.email
             );
-            const graphNodesArray = Object.values(hydrated.graph.nodes);
-            const matchedGraphNode = graphNodesArray.find(
-                (node) => node.lat === currentLat && node.lon === currentLon
-            );
-            return {
-                id: matchedGraphNode?.id || "",
-                lat: currentLat,
-                lon: currentLon,
-                name: matchedGraphNode?.name || "",
-                type: matchedGraphNode?.type || "custom",
-                tier: matchedGraphNode?.tier || "",
-            };
-        });
+            userRecents.slice(0, searchResultLimit).forEach((bundle) => {
+                stack.push(bundle);
+            });
+            setSearchResult(stack);
+        }
+    }, [
+        searchKey,
+        isSearchFocus,
+        searchMode,
+        searchableNodes,
+        currentUser,
+        savedStops,
+        recentPaths,
+        searchResultLimit,
+        hydrated.render.nodes,
+    ]);
 
-        // 2. Check for Duplicates BEFORE updating state
-        // We look at the current 'recentPaths' state directly
-        const lastVisit = recentPaths.find(
-            (visit) => visit.email === currentUser?.email
-        );
+    // --- Interaction Handlers ---
 
-        if (lastVisit) {
-            const isSamePath =
-                JSON.stringify(lastVisit.nodes) === JSON.stringify(pathNodes);
-            const lastTime = new Date(lastVisit.timestamp).getTime();
-            const currentTime = new Date().getTime();
-            const minutesPassed = (currentTime - lastTime) / (1000 * 60);
-
-            if (isSamePath && minutesPassed < 10) {
-                alert(
-                    `This path was already recorded ${Math.round(minutesPassed)} minutes ago.`
-                );
-                return; // EXIT the function here; nothing else runs
+    const handleSearchResultClick = (item) => {
+        if (searchMode === "default") {
+            setPointInfo({
+                stop: {
+                    click: { x: item.x, y: item.y },
+                    snap: { node: item },
+                },
+                info: {
+                    name: item.name,
+                    near: item.near,
+                    lat: item.lat,
+                    lon: item.lon,
+                    imageUrl: ".",
+                },
+            });
+        } else if (searchMode === "saved") {
+            if (item.stop) {
+                setStops((prev) => {
+                    const exists = prev.some(
+                        (s) =>
+                            s.click.x === item.stop.click.x &&
+                            s.click.y === item.stop.click.y
+                    );
+                    return exists ? prev : [...prev, item.stop];
+                });
+            }
+        } else if (searchMode === "recents") {
+            if (item.stops) {
+                setStops(item.stops);
+                setTravelMode(item.travelMode || "car");
+                setSelectedRoute(item.selectedRoute || "shortest");
             }
         }
+        setSearchFocus(false);
+    };
 
-        // 3. Build the entry object
-        const newRecentEntry = {
+    const handlePathVisit = ({
+        stops,
+        routeResult,
+        selectedRoute,
+        travelMode,
+    }) => {
+        if (!currentUser) {
+            openLogin();
+            return;
+        }
+        if (!stops || stops.length === 0) {
+            return;
+        }
+
+        const newRecentBundle = {
             email: currentUser?.email || "",
             timestamp: new Date().toISOString(),
-            nodes: pathNodes,
+            stops: stops,
+            selectedRoute: selectedRoute,
+            routeResult: routeResult,
+            travelMode: travelMode,
         };
 
-        // 4. If we reached this point, it means the check passed
         setRecentPaths((prev) => {
-            const updatedRecents = [newRecentEntry, ...prev];
+            const updatedRecents = [newRecentBundle, ...prev];
             return updatedRecents.slice(0, 10);
         });
 
-        // 5. Success Alert only runs if the duplicate check didn't trigger 'return'
-        alert("Path added to recent visits");
+        alert("Route added to recent visits");
+        setStops([]);
+        setTravelMode("car");
+        setSelectedRoute("shortest");
     };
 
     const handleStopSave = (stop) => {
@@ -160,106 +203,40 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
         if (!stop?.snap?.node) {
             return;
         }
-        alert("Saving stop...");
+
         setSavedStops((prev) => {
             const minDistThreshold = 10;
-            const tooClose = prev.some((s) => {
-                if (!s?.snap?.node || s.email !== currentUser?.email) {
+            const tooClose = prev.some((bundle) => {
+                if (bundle.email !== currentUser?.email) {
+                    return false;
+                }
+                const s = bundle.Stop;
+                if (!s?.snap?.node) {
                     return false;
                 }
                 const dist = getDistance(
                     stop.snap.node.lat,
                     stop.snap.node.lon,
-                    s.snap?.node?.lat,
-                    s.snap?.node?.lon
+                    s.snap.node.lat,
+                    s.snap.node.lon
                 );
                 return dist < minDistThreshold;
             });
+
             if (tooClose) {
-                alert(
-                    `This location is too close to an already saved point (less than ${minDistThreshold}m).`
-                );
+                alert(`Too close to an already saved point.`);
                 return prev;
             }
-            const newSave = { ...stop, email: currentUser?.email };
-            alert("Successfully saved: ", newSave);
-            return [...prev, newSave];
+
+            const newBundle = {
+                email: currentUser.email,
+                stop: stop,
+            };
+
+            alert("Location saved successfully.");
+            return [...prev, newBundle];
         });
     };
-
-    const loadSavedByUser = (email, savedStops, limit) => {
-        const list = new SingleLinkedList();
-        const userStops = savedStops.filter((stop) => stop.email === email);
-        const paginatedStops = userStops.slice(0, limit);
-        paginatedStops.forEach((stop) => {
-            list.append(stop);
-        });
-        list.hasMore = userStops.length > limit;
-        return list;
-    };
-
-    const loadRecents = (email, recentPaths, limit) => {
-        const list = new SingleLinkedList();
-
-        // Filter ONLY by user email
-        const userRecents = recentPaths.filter((path) => path.email === email);
-
-        // Paginate and map nodes for RecentCard display
-        const paginatedRecents = userRecents.slice(0, limit);
-        paginatedRecents.forEach((path) => {
-            if (path.nodes && path.nodes.length >= 2) {
-                const start = path.nodes[0];
-                const end = path.nodes[path.nodes.length - 1];
-                list.append({
-                    timestamp: path.timestamp,
-                    type: "recent-path",
-                    pathData: path.nodes,
-                    startNode: {
-                        name: start.name || "Unnamed",
-                        near: start.type,
-                        type: start.type,
-                    },
-                    endNode: {
-                        name: end.name || "Unnamed",
-                        near: end.type,
-                        type: end.type,
-                    },
-                });
-            }
-        });
-
-        list.hasMore = userRecents.length > limit;
-        return list;
-    };
-
-    useEffect(() => {
-        if (searchMode === "default") {
-            setSearchResult(null);
-            return;
-        }
-        if (searchMode === "saved") {
-            setSearchResult(
-                loadSavedByUser(
-                    currentUser?.email,
-                    savedStops,
-                    searchResultLimit
-                )
-            );
-        }
-        if (searchMode === "recents") {
-            setSearchResult(
-                loadRecents(currentUser?.email, recentPaths, searchResultLimit)
-            );
-        }
-    }, [
-        searchMode,
-        currentUser?.email,
-        savedStops,
-        recentPaths,
-        searchResultLimit,
-    ]);
-
-    console.log(searchResult);
 
     return (
         <div className={styles.home}>
@@ -271,8 +248,14 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
                 renderNodes={hydrated.render.nodes}
                 renderEdges={hydrated.render.edges}
                 indexes={hydrated.indexes}
+                travelMode={travelMode}
+                setTravelMode={setTravelMode}
+                selectedRoute={selectedRoute}
+                setSelectedRoute={setSelectedRoute}
                 stops={stops}
                 setStops={setStops}
+                pointInfo={pointInfo}
+                setPointInfo={setPointInfo}
                 handleStopSave={handleStopSave}
                 handlePathVisit={handlePathVisit}
             />
@@ -285,18 +268,8 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
                     onFocus={() => setSearchFocus(true)}
                     isActive={isSearchFocus}
                     onChange={() => {
-                        if (
-                            searchMode === "saved" ||
-                            searchMode === "recents"
-                        ) {
-                            // 1. Switch mode first
+                        if (searchMode !== "default") {
                             setSearchMode("default");
-
-                            // 2. Capture the character and force it into the key
-                            setSearchKey((prev) => {
-                                const typedChar = prev.charAt(prev.length - 1);
-                                return typedChar;
-                            });
                         }
                     }}
                 />
@@ -305,10 +278,8 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
                     <SearchList
                         result={searchResult}
                         mode={searchMode}
-                        key={searchKey}
-                        nodes={hydrated.graph.nodes}
-                        adjacency={hydrated.graph.adjacency}
-                        nodeLookup={graphData.nodes}
+                        searchKey={searchKey}
+                        onItemClick={handleSearchResultClick}
                         onSeeMore={() =>
                             setSearchResultLimit((prev) => prev + 5)
                         }

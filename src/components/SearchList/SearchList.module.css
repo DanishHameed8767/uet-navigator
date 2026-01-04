@@ -4,7 +4,7 @@
     position: absolute;
     top: calc(var(--space-sm) + 2.2rem);
     width: 25rem;
-    height: 66vh;
+    height: 57vh;
     padding: var(--space-xs) 0;
     background-color: var(--color-background);
     border-bottom-left-radius: 1.5rem;
