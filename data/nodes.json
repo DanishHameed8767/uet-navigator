@@ -1,479 +1,7733 @@
 [
-    {
-        "id": 2,
-        "lat": 31.577775137726697,
-        "lon": 74.35655824893468,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 3,
-        "lat": 31.577718931800113,
-        "lon": 74.3565666867165,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 4,
-        "lat": 31.577782343614718,
-        "lon": 74.35661562585109,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 5,
-        "lat": 31.57778522596993,
-        "lon": 74.3566831281057,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 6,
-        "lat": 31.57772613768814,
-        "lon": 74.35669156588752,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 7,
-        "lat": 31.576916195874315,
-        "lon": 74.356823195284,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 8,
-        "lat": 31.577932653781858,
-        "lon": 74.35819866957878,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 9,
-        "lat": 31.576899901162832,
-        "lon": 74.35668756103264,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 10,
-        "lat": 31.57785292929487,
-        "lon": 74.3565452625479,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 11,
-        "lat": 31.578124472496302,
-        "lon": 74.35650751324383,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 12,
-        "lat": 31.57843941301303,
-        "lon": 74.3564625044582,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 13,
-        "lat": 31.578572084805508,
-        "lon": 74.35644072601353,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 14,
-        "lat": 31.578634080970218,
-        "lon": 74.35641749567256,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 15,
-        "lat": 31.578665079052573,
-        "lon": 74.35636377550905,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 16,
-        "lat": 31.57870475659799,
-        "lon": 74.35632312241236,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 17,
-        "lat": 31.578763032992818,
-        "lon": 74.35629844017508,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 18,
-        "lat": 31.578818829541056,
-        "lon": 74.35629263258983,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 19,
-        "lat": 31.578870906319413,
-        "lon": 74.35629698827877,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 20,
-        "lat": 31.57892670286765,
-        "lon": 74.3563013439677,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 21,
-        "lat": 31.578978779646008,
-        "lon": 74.3563158629308,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 22,
-        "lat": 31.57901101765166,
-        "lon": 74.35636522740538,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 23,
-        "lat": 31.579012257574952,
-        "lon": 74.35643782222091,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 24,
-        "lat": 31.578980019569304,
-        "lon": 74.356517676518,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 25,
-        "lat": 31.57892670286765,
-        "lon": 74.35659172322984,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 26,
-        "lat": 31.578865946626237,
-        "lon": 74.3566396358081,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 27,
-        "lat": 31.578795270998466,
-        "lon": 74.356667221838,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 28,
-        "lat": 31.578718395754226,
-        "lon": 74.356667221838,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 29,
-        "lat": 31.578644000356572,
-        "lon": 74.3566410877044,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 30,
-        "lat": 31.578617961967396,
-        "lon": 74.35658155995567,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 31,
-        "lat": 31.5786167220441,
-        "lon": 74.35649444617702,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 32,
-        "lat": 31.578552246032803,
-        "lon": 74.35656994478518,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 33,
-        "lat": 31.578924696349382,
-        "lon": 74.35609287231796,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 34,
-        "lat": 31.5789420552755,
-        "lon": 74.35586347270086,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 35,
-        "lat": 31.578865172058535,
-        "lon": 74.35535502459224,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 36,
-        "lat": 31.5791213692922,
-        "lon": 74.35636123484072,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 37,
-        "lat": 31.579226762772205,
-        "lon": 74.35638010949276,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 38,
-        "lat": 31.57912756890867,
-        "lon": 74.35641495500421,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 39,
-        "lat": 31.57880642877547,
-        "lon": 74.35673292029627,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 40,
-        "lat": 31.578740712840876,
-        "lon": 74.35688972509783,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 42,
-        "lat": 31.578725833761347,
-        "lon": 74.35699861732112,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 43,
-        "lat": 31.578798989235704,
-        "lon": 74.35774489202484,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 44,
-        "lat": 31.579766236695747,
-        "lon": 74.35633014814363,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 45,
-        "lat": 31.578876316931236,
-        "lon": 74.35623532604815,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 46,
-        "lat": 31.578495313124215,
-        "lon": 74.35676303920616,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 47,
-        "lat": 31.57822252999949,
-        "lon": 74.35680369230286,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 48,
-        "lat": 31.578280806394318,
-        "lon": 74.35730750032269,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 49,
-        "lat": 31.578536230592924,
-        "lon": 74.35727846239647,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 50,
-        "lat": 31.57850523251057,
-        "lon": 74.35694307434869,
-        "name": "",
-        "type": "service",
-        "tier": 2,
-        "nextId": 0
-    },
-    {
-        "id": 51,
-        "lat": 31.57839983903056,
-        "lon": 74.35695904520811,
-        "name": "New Lecture Theatre",
-        "type": "dept",
-        "tier": 1,
-        "nextId": 0
-    },
-    {
-        "id": 52,
-        "lat": 31.57836140140844,
-        "lon": 74.3567819138582,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 53,
-        "lat": 31.578252288158552,
-        "lon": 74.35706358174248,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 54,
-        "lat": 31.57841099834021,
-        "lon": 74.35729152946327,
-        "name": "",
-        "type": "wall",
-        "tier": 3,
-        "nextId": 0
-    },
-    {
-        "id": 55,
-        "lat": 31.57870098044095,
-        "lon": 74.35688771789805,
-        "name": "",
-        "type": "intersection",
-        "tier": 3,
-        "nextId": 0
-    }
+  {
+    "id": 1,
+    "lat": 31.577775137726697,
+    "lon": 74.35655824893468,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 2,
+    "lat": 31.577718931800113,
+    "lon": 74.3565666867165,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 3,
+    "lat": 31.577782343614718,
+    "lon": 74.35661562585109,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 4,
+    "lat": 31.57778522596993,
+    "lon": 74.3566831281057,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 5,
+    "lat": 31.57772613768814,
+    "lon": 74.35669156588752,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 6,
+    "lat": 31.576916195874315,
+    "lon": 74.356823195284,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 7,
+    "lat": 31.577932653781858,
+    "lon": 74.35819866957878,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 8,
+    "lat": 31.576899901162832,
+    "lon": 74.35668756103264,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 9,
+    "lat": 31.57785292929487,
+    "lon": 74.3565452625479,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 10,
+    "lat": 31.578124472496302,
+    "lon": 74.35650751324383,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 11,
+    "lat": 31.57843941301303,
+    "lon": 74.3564625044582,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 12,
+    "lat": 31.578572084805508,
+    "lon": 74.35644072601353,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 13,
+    "lat": 31.578634080970218,
+    "lon": 74.35641749567256,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 14,
+    "lat": 31.578665079052573,
+    "lon": 74.35636377550905,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 15,
+    "lat": 31.57870475659799,
+    "lon": 74.35632312241236,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 16,
+    "lat": 31.578763032992818,
+    "lon": 74.35629844017508,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 17,
+    "lat": 31.578818829541056,
+    "lon": 74.35629263258983,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 18,
+    "lat": 31.578870906319413,
+    "lon": 74.35629698827877,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 19,
+    "lat": 31.57892670286765,
+    "lon": 74.3563013439677,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 20,
+    "lat": 31.578978779646008,
+    "lon": 74.3563158629308,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 21,
+    "lat": 31.57901101765166,
+    "lon": 74.35636522740538,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 22,
+    "lat": 31.579012257574952,
+    "lon": 74.35643782222091,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 23,
+    "lat": 31.578980019569304,
+    "lon": 74.356517676518,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 24,
+    "lat": 31.57892670286765,
+    "lon": 74.35659172322984,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 25,
+    "lat": 31.578865946626237,
+    "lon": 74.3566396358081,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 26,
+    "lat": 31.578795270998466,
+    "lon": 74.356667221838,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 27,
+    "lat": 31.578718395754226,
+    "lon": 74.356667221838,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 28,
+    "lat": 31.578644000356572,
+    "lon": 74.3566410877044,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 29,
+    "lat": 31.578617961967396,
+    "lon": 74.35658155995567,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 30,
+    "lat": 31.5786167220441,
+    "lon": 74.35649444617702,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 31,
+    "lat": 31.578552246032803,
+    "lon": 74.35656994478518,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 32,
+    "lat": 31.578924696349382,
+    "lon": 74.35609287231796,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 33,
+    "lat": 31.5789420552755,
+    "lon": 74.35586347270086,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 34,
+    "lat": 31.578865172058535,
+    "lon": 74.35535502459224,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 35,
+    "lat": 31.5791213692922,
+    "lon": 74.35636123484072,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 36,
+    "lat": 31.579226762772205,
+    "lon": 74.35638010949276,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 37,
+    "lat": 31.57912756890867,
+    "lon": 74.35641495500421,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 38,
+    "lat": 31.57880642877547,
+    "lon": 74.35673292029627,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 39,
+    "lat": 31.578740712840876,
+    "lon": 74.35688972509783,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 40,
+    "lat": 31.578725833761347,
+    "lon": 74.35699861732112,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 41,
+    "lat": 31.578798989235704,
+    "lon": 74.35774489202484,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 42,
+    "lat": 31.579766236695747,
+    "lon": 74.35633014814363,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 43,
+    "lat": 31.578876316931236,
+    "lon": 74.35623532604815,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 44,
+    "lat": 31.578495313124215,
+    "lon": 74.35676303920616,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 45,
+    "lat": 31.57822252999949,
+    "lon": 74.35680369230286,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 46,
+    "lat": 31.578280806394318,
+    "lon": 74.35730750032269,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 47,
+    "lat": 31.578536230592924,
+    "lon": 74.35727846239647,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 48,
+    "lat": 31.57850523251057,
+    "lon": 74.35694307434869,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 49,
+    "lat": 31.57839983903056,
+    "lon": 74.35695904520811,
+    "name": "New Lecture Theatre",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 50,
+    "lat": 31.57836140140844,
+    "lon": 74.3567819138582,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 51,
+    "lat": 31.578252288158552,
+    "lon": 74.35706358174248,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 52,
+    "lat": 31.57841099834021,
+    "lon": 74.35729152946327,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 53,
+    "lat": 31.57870098044095,
+    "lon": 74.35688771789805,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 54,
+    "lat": 31.583186167460404,
+    "lon": 74.35114999615895,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 55,
+    "lat": 31.58333143481912,
+    "lon": 74.35270670904148,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 56,
+    "lat": 31.583272346537328,
+    "lon": 74.35271177171059,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 57,
+    "lat": 31.583037434587766,
+    "lon": 74.3527353974997,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 58,
+    "lat": 31.583546170282215,
+    "lon": 74.35267633302692,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 59,
+    "lat": 31.58337178779205,
+    "lon": 74.35240801156488,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 60,
+    "lat": 31.58347699375719,
+    "lon": 74.35240126133941,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 61,
+    "lat": 31.583497170243657,
+    "lon": 74.35261051832869,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 62,
+    "lat": 31.58339340545612,
+    "lon": 74.3526189561105,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 63,
+    "name": "Majid Khizra",
+    "type": "worship",
+    "tier": 1,
+    "lon": 74.35253795340499,
+    "lat": 31.58343952313947,
+    "nearId": 0
+  },
+  {
+    "id": 64,
+    "lat": 31.58337178779205,
+    "lon": 74.35254301607408,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 65,
+    "lat": 31.583319905398284,
+    "lon": 74.35254976629955,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 66,
+    "lat": 31.583331825578735,
+    "lon": 74.35362326617752,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 67,
+    "lat": 31.583089433917404,
+    "lon": 74.3534701204374,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 68,
+    "lat": 31.583110359816224,
+    "lon": 74.35376007637204,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 69,
+    "lat": 31.582531409948878,
+    "lon": 74.35384379604332,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 70,
+    "lat": 31.582445962528695,
+    "lon": 74.3527636080896,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 71,
+    "lat": 31.58292202672685,
+    "lon": 74.35272481116877,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 72,
+    "lat": 31.582496533450843,
+    "lon": 74.3527595242032,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 73,
+    "lat": 31.58238667248204,
+    "lon": 74.352767691976,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 74,
+    "lat": 31.58278259605669,
+    "lon": 74.35119444880088,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 75,
+    "lat": 31.582203618698383,
+    "lon": 74.35072872731729,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 76,
+    "lat": 31.582384348852653,
+    "lon": 74.35187487957297,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 77,
+    "lat": 31.582316684998563,
+    "lon": 74.35184782493712,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 78,
+    "lat": 31.582273739891054,
+    "lon": 74.35146842437227,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 79,
+    "lat": 31.58221582953398,
+    "lon": 74.35089320416454,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 80,
+    "lat": 31.58150023297977,
+    "lon": 74.35077134057808,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 81,
+    "lat": 31.581636022782558,
+    "lon": 74.35156402208386,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 82,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "lon": 74.35283839205628,
+    "lat": 31.58182972294242,
+    "nearId": 0
+  },
+  {
+    "id": 83,
+    "lat": 31.581773809494212,
+    "lon": 74.35284073034983,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 84,
+    "lat": 31.5813125235465,
+    "lon": 74.35290620256859,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 85,
+    "name": "Sir Syed Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.3510729804431,
+    "lat": 31.581857679666523,
+    "nearId": 0
+  },
+  {
+    "id": 86,
+    "lat": 31.58207534273276,
+    "lon": 74.35063805784701,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 87,
+    "lat": 31.58154815879252,
+    "lon": 74.35070586835931,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 88,
+    "lat": 31.581679954777577,
+    "lon": 74.35151024133273,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 89,
+    "lat": 31.58214523454302,
+    "lon": 74.35144476911397,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 90,
+    "name": "Iqbal Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35206495470624,
+    "lat": 31.58199602551266,
+    "nearId": 0
+  },
+  {
+    "id": 91,
+    "lat": 31.582182736491497,
+    "lon": 74.351576251359,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 92,
+    "lat": 31.581697287946522,
+    "lon": 74.35165855929118,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 93,
+    "lat": 31.581809314533825,
+    "lon": 74.35250478771874,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 94,
+    "lat": 31.582248634484024,
+    "lon": 74.35243791252385,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 95,
+    "lat": 31.582340891673567,
+    "lon": 74.35215497900704,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 96,
+    "lat": 31.58211258095739,
+    "lon": 74.35091459236837,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 97,
+    "lat": 31.58224785745377,
+    "lon": 74.3521558543388,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 98,
+    "lat": 31.58256270429148,
+    "lon": 74.35432456646035,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 99,
+    "lat": 31.582377536378583,
+    "lon": 74.35433306934591,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 100,
+    "lat": 31.582183291607212,
+    "lon": 74.35433732078869,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 101,
+    "lat": 31.58203806187161,
+    "lon": 74.35434582367424,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 102,
+    "lat": 31.58197815460567,
+    "lon": 74.35429055491814,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 103,
+    "lat": 31.581914616596347,
+    "lon": 74.35367196999407,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 104,
+    "lat": 31.582363820961962,
+    "lon": 74.35423428611509,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 105,
+    "lat": 31.5821756006059,
+    "lon": 74.35425345114639,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 106,
+    "lat": 31.581978532640786,
+    "lon": 74.35366251314476,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 107,
+    "lat": 31.582055407885026,
+    "lon": 74.35362476384067,
+    "name": "Jann Hostel",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 108,
+    "lat": 31.582145922285502,
+    "lon": 74.35380770277582,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 109,
+    "lat": 31.582123603666208,
+    "lon": 74.35343601732028,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 110,
+    "lat": 31.581966133407843,
+    "lon": 74.35345924766125,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 111,
+    "lat": 31.58198597218055,
+    "lon": 74.35382076984263,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 112,
+    "lat": 31.582343470033035,
+    "lon": 74.35406332206213,
+    "name": "",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 113,
+    "lat": 31.582167400925254,
+    "lon": 74.35409526378096,
+    "name": "",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 114,
+    "lat": 31.58117501435551,
+    "lon": 74.35292037127502,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 115,
+    "lat": 31.58102883064208,
+    "lon": 74.35291103446896,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 116,
+    "lat": 31.580973015042407,
+    "lon": 74.35212051822299,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 117,
+    "lat": 31.58109527778455,
+    "lon": 74.35210495687956,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 118,
+    "lat": 31.580872015385857,
+    "lon": 74.35142648230624,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 119,
+    "lat": 31.580943778299723,
+    "lon": 74.35134556332042,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 120,
+    "lat": 31.581020856984985,
+    "lon": 74.35140469642545,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 121,
+    "lat": 31.58118854930447,
+    "lon": 74.35219971600954,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 122,
+    "lat": 31.581348331719717,
+    "lon": 74.35210793508988,
+    "name": "Liaquat Hall",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 123,
+    "name": "Quiaz-e-Azam Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35116911023863,
+    "lat": 31.581227518733414,
+    "nearId": 0
+  },
+  {
+    "id": 124,
+    "lat": 31.58102525852803,
+    "lon": 74.35121416086456,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 125,
+    "lat": 31.58093114835,
+    "lon": 74.35122853463804,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 126,
+    "lat": 31.581101761414626,
+    "lon": 74.35169221421985,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 127,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.3507533893686,
+    "lat": 31.58139171258176,
+    "nearId": 0
+  },
+  {
+    "id": 128,
+    "lat": 31.58159206699651,
+    "lon": 74.35253600413468,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 129,
+    "lat": 31.581230594541484,
+    "lon": 74.35258580043363,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 130,
+    "lat": 31.58086317846947,
+    "lon": 74.35118468305919,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 131,
+    "lat": 31.580961132409712,
+    "lon": 74.3511585489256,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 132,
+    "lat": 31.580907815708063,
+    "lon": 74.35107579083589,
+    "name": "Quaiz-e-Azam Hall Canteen",
+    "type": "cafe",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 133,
+    "lat": 31.580861134579912,
+    "lon": 74.35092216147675,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 134,
+    "lat": 31.58094048967074,
+    "lon": 74.35091199820258,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 135,
+    "lat": 31.580992493789594,
+    "lon": 74.35082785747201,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 136,
+    "lat": 31.581111014813047,
+    "lon": 74.35222186972275,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 137,
+    "lat": 31.580882287029812,
+    "lon": 74.35137049728178,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 138,
+    "lat": 31.58099883981947,
+    "lon": 74.35135888211128,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 139,
+    "lat": 31.5814707216449,
+    "lon": 74.35162903228296,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 140,
+    "lat": 31.5816509741582,
+    "lon": 74.35182392195098,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 141,
+    "lat": 31.58156552673802,
+    "lon": 74.35171774090449,
+    "name": "Iqbal Hall Canteen",
+    "type": "cafe",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 142,
+    "lat": 31.581593427936447,
+    "lon": 74.3516054340284,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 143,
+    "lat": 31.58151146816607,
+    "lon": 74.35162176957401,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 144,
+    "lat": 31.581612610010364,
+    "lon": 74.35176470559813,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 145,
+    "lat": 31.58152193111548,
+    "lon": 74.35179125085975,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 146,
+    "lat": 31.58157424586253,
+    "lon": 74.35182188000778,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 147,
+    "lat": 31.581511924610254,
+    "lon": 74.35444412149032,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 148,
+    "lat": 31.581625863484447,
+    "lon": 74.35285954983526,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 149,
+    "name": "Astrolabe Data Center",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.35318069181153,
+    "lat": 31.581689275299055,
+    "nearId": 0
+  },
+  {
+    "id": 150,
+    "lat": 31.58096271533384,
+    "lon": 74.35203060073874,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 151,
+    "lat": 31.580866695673937,
+    "lon": 74.35204641188957,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 152,
+    "lat": 31.580914237258014,
+    "lon": 74.35258199617739,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 153,
+    "lat": 31.580343121322752,
+    "lon": 74.35264629924939,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 154,
+    "lat": 31.58022670153595,
+    "lon": 74.35163288283462,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 155,
+    "lat": 31.580808800469967,
+    "lon": 74.35154800277957,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 156,
+    "lat": 31.580564977897605,
+    "lon": 74.35210358132169,
+    "name": "Mumtaz Hall",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 157,
+    "lat": 31.580739591849092,
+    "lon": 74.35145487578032,
+    "name": "Hostel Management Cell",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 158,
+    "lat": 31.580756316471735,
+    "lon": 74.3529643791839,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 159,
+    "lat": 31.58053445989688,
+    "lon": 74.35301324951863,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 160,
+    "lat": 31.580468561904354,
+    "lon": 74.35308526895928,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 161,
+    "lat": 31.58043780950784,
+    "lon": 74.35325760119224,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 162,
+    "lat": 31.58044439930709,
+    "lon": 74.35341450068793,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 163,
+    "lat": 31.58065753212191,
+    "lon": 74.35512416467398,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 164,
+    "lat": 31.58016460979791,
+    "lon": 74.35304598473611,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 165,
+    "lat": 31.58017389392169,
+    "lon": 74.35317915822978,
+    "name": "Old Faculty Hostel",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 166,
+    "lat": 31.58026516394687,
+    "lon": 74.35304550233339,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 167,
+    "lat": 31.580291105143754,
+    "lon": 74.35330369845724,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 168,
+    "lat": 31.580010075510845,
+    "lon": 74.35308262857342,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 169,
+    "lat": 31.580053310838984,
+    "lon": 74.35332226157726,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 170,
+    "lat": 31.580241276639104,
+    "lon": 74.35292559808576,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 171,
+    "lat": 31.580074584416757,
+    "lon": 74.35178164024586,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 172,
+    "lat": 31.580030273826004,
+    "lon": 74.35172234221528,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 173,
+    "lat": 31.579969083010205,
+    "lon": 74.35170504695635,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 174,
+    "lat": 31.57934029462717,
+    "lon": 74.35180881850987,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 177,
+    "lat": 31.58006714020899,
+    "lon": 74.35166324718172,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 178,
+    "lat": 31.580058460745928,
+    "lon": 74.35158484478094,
+    "name": "Zubair Hall Canteen",
+    "type": "cafe",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 179,
+    "lat": 31.580024982816987,
+    "lon": 74.35163856494444,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 180,
+    "lat": 31.580101858061226,
+    "lon": 74.35162259408503,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 181,
+    "lat": 31.58000886381416,
+    "lon": 74.35154128789162,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 182,
+    "lat": 31.580093178598165,
+    "lon": 74.35151660565434,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 183,
+    "lat": 31.580202740582934,
+    "lon": 74.352989380607,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 184,
+    "lat": 31.5801583885267,
+    "lon": 74.35301168173433,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 185,
+    "lat": 31.579998438421747,
+    "lon": 74.3530349120753,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 186,
+    "lat": 31.579952561259862,
+    "lon": 74.35311331447608,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 187,
+    "lat": 31.57999595857516,
+    "lon": 74.3534414430423,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 188,
+    "lat": 31.578739829771955,
+    "lon": 74.35111836070338,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 189,
+    "lat": 31.578821166075457,
+    "lon": 74.35175594940098,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 190,
+    "lat": 31.57948377674415,
+    "lon": 74.35167517198822,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 191,
+    "lat": 31.57946925377059,
+    "lon": 74.35156038303323,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 192,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.35107280271329,
+    "lat": 31.579121935880835,
+    "nearId": 0
+  },
+  {
+    "id": 193,
+    "lat": 31.579249224794317,
+    "lon": 74.35154942658811,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 194,
+    "lat": 31.579031380190912,
+    "lon": 74.35158556385171,
+    "name": "Abdul Sattar Edhi Hall",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 195,
+    "lat": 31.579278270741437,
+    "lon": 74.35170035280669,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 196,
+    "lat": 31.58176421284072,
+    "lon": 74.3529017365214,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 197,
+    "lat": 31.581833843769044,
+    "lon": 74.35348236307081,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 198,
+    "lat": 31.581477249014906,
+    "lon": 74.35295115154688,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 199,
+    "lat": 31.581542659886967,
+    "lon": 74.35351695358865,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 200,
+    "lat": 31.58163972118099,
+    "lon": 74.35292397328287,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 201,
+    "lat": 31.58171990224997,
+    "lon": 74.35411734614826,
+    "name": "Basketball Court",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 202,
+    "lat": 31.581686141799874,
+    "lon": 74.35378379472625,
+    "name": "Tennis Court",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 203,
+    "lat": 31.581511009465,
+    "lon": 74.35380603148772,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 204,
+    "lat": 31.581563760168276,
+    "lon": 74.35414452441226,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 205,
+    "lat": 31.581437158480416,
+    "lon": 74.35382085599537,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 206,
+    "lat": 31.581475138986775,
+    "lon": 74.35415934891991,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 207,
+    "lat": 31.581863384162876,
+    "lon": 74.35391721529506,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 208,
+    "lat": 31.581567050757148,
+    "lon": 74.35396774775148,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 209,
+    "lat": 31.581908491672888,
+    "lon": 74.35427322245447,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 210,
+    "lat": 31.581595823868025,
+    "lon": 74.35434734499269,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 211,
+    "lat": 31.583519958404423,
+    "lon": 74.35719326907518,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 212,
+    "lat": 31.583379395264497,
+    "lon": 74.35532561449614,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 213,
+    "lat": 31.58343045794527,
+    "lon": 74.35607029893015,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 214,
+    "lat": 31.583251666803037,
+    "lon": 74.35376131731176,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 215,
+    "lat": 31.582692016971436,
+    "lon": 74.35611701933362,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 216,
+    "lat": 31.58268359162911,
+    "lon": 74.35625185070141,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 217,
+    "lat": 31.582791850470052,
+    "lon": 74.35725148714889,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 218,
+    "lat": 31.583828316679313,
+    "lon": 74.35714077206036,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 219,
+    "lat": 31.583356100805773,
+    "lon": 74.35719963488808,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 220,
+    "lat": 31.583404542873172,
+    "lon": 74.35814015569801,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 221,
+    "lat": 31.58332985218458,
+    "lon": 74.35821162371008,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 222,
+    "lat": 31.5828525195282,
+    "lon": 74.35828090337161,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 223,
+    "lat": 31.583446771746424,
+    "lon": 74.3553165676017,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 224,
+    "lat": 31.583536046223607,
+    "lon": 74.35530785622385,
+    "name": "Staff Colony Market",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 225,
+    "lat": 31.58288859187854,
+    "lon": 74.35917151876838,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 226,
+    "lat": 31.583509263398618,
+    "lon": 74.3581385289343,
+    "name": "Vital Foods",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 227,
+    "lat": 31.583367316051625,
+    "lon": 74.35836988109907,
+    "name": "UET Daycare",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 228,
+    "lat": 31.582249662917906,
+    "lon": 74.35836236991805,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 229,
+    "lat": 31.58231694770173,
+    "lon": 74.35938660818195,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 230,
+    "lat": 31.582174902046994,
+    "lon": 74.35731186913456,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 231,
+    "lat": 31.582750586392272,
+    "lon": 74.35693394527802,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 232,
+    "lat": 31.582710821116446,
+    "lon": 74.35695137984037,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 233,
+    "lat": 31.582625266409146,
+    "lon": 74.35696735069979,
+    "name": "Staff Colony Masjid",
+    "type": "worship",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 234,
+    "lat": 31.58271206103974,
+    "lon": 74.35700364810756,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 235,
+    "lat": 31.582707101346564,
+    "lon": 74.3569005634695,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 236,
+    "lat": 31.5825273124689,
+    "lon": 74.35692234191416,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 237,
+    "lat": 31.58253227216208,
+    "lon": 74.35703123413747,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 238,
+    "lat": 31.58225575686824,
+    "lon": 74.35730175145808,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 239,
+    "lat": 31.582248317328474,
+    "lon": 74.35718705164953,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 240,
+    "lat": 31.58212928469223,
+    "lon": 74.35702153547011,
+    "name": "Zohra Hall",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 241,
+    "lat": 31.58230287395342,
+    "lon": 74.35680810671244,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 242,
+    "lat": 31.58194701596798,
+    "lon": 74.35683278894972,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 243,
+    "lat": 31.581960655124217,
+    "lon": 74.35721754147205,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 244,
+    "lat": 31.58233263211248,
+    "lon": 74.3571812440643,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 245,
+    "lat": 31.58134588185779,
+    "lon": 74.35648854527643,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 246,
+    "lat": 31.58144982956867,
+    "lon": 74.35742550692045,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 249,
+    "lat": 31.5824528983304,
+    "lon": 74.35443455647712,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 250,
+    "name": "Junaid Jamshed Stadium",
+    "type": "ground",
+    "tier": 2,
+    "lon": 74.35538690104669,
+    "lat": 31.58171236292148,
+    "nearId": 0
+  },
+  {
+    "id": 251,
+    "lat": 31.58256847322081,
+    "lon": 74.35606356692506,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 252,
+    "lat": 31.58075351938623,
+    "lon": 74.35466512410974,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 253,
+    "lat": 31.58093758310059,
+    "lon": 74.35634927029592,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 254,
+    "lat": 31.580785749641713,
+    "lon": 74.35502361342212,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 255,
+    "lat": 31.58082439949148,
+    "lon": 74.35585386687823,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 256,
+    "lat": 31.580652364825962,
+    "lon": 74.35504159218574,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 257,
+    "lat": 31.58073667960997,
+    "lon": 74.35587498066809,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 258,
+    "lat": 31.58133169969711,
+    "lon": 74.35335962469843,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 259,
+    "name": "Sports Auditorium",
+    "type": "ground",
+    "tier": 2,
+    "lon": 74.35316797438541,
+    "lat": 31.581223950362844,
+    "nearId": 0
+  },
+  {
+    "id": 260,
+    "lat": 31.581170757653524,
+    "lon": 74.35338677515945,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 261,
+    "lat": 31.58111620102858,
+    "lon": 74.35305937254137,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 262,
+    "lat": 31.581294873975274,
+    "lon": 74.35304819293978,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 263,
+    "lat": 31.581189852472253,
+    "lon": 74.3530338191663,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 264,
+    "lat": 31.581068286314604,
+    "lon": 74.35412828521736,
+    "name": "Swimming Pool",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 265,
+    "lat": 31.580796919267488,
+    "lon": 74.35405280484304,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 266,
+    "lat": 31.580813422646532,
+    "lon": 74.35426889057096,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 267,
+    "lat": 31.58130402309635,
+    "lon": 74.35391577486922,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 268,
+    "lat": 31.581355033540675,
+    "lon": 74.35420213237859,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 269,
+    "lat": 31.58138353937721,
+    "lon": 74.35404050728128,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 270,
+    "lat": 31.581455541722903,
+    "lon": 74.35402218434984,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 271,
+    "lat": 31.581290497144817,
+    "lon": 74.35362931969404,
+    "name": "Gym",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 272,
+    "lat": 31.581385971238472,
+    "lon": 74.3538006434587,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 273,
+    "lat": 31.581347533616352,
+    "lon": 74.35341879472898,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 274,
+    "lat": 31.581175184278457,
+    "lon": 74.35344492886257,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 275,
+    "lat": 31.581248339752815,
+    "lon": 74.35381225862919,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 276,
+    "lat": 31.581361460236405,
+    "lon": 74.3536149869947,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 277,
+    "lat": 31.58139865793523,
+    "lon": 74.35361208320208,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 278,
+    "lat": 31.58064855463535,
+    "lon": 74.3541505409172,
+    "name": "Bhola Cafe",
+    "type": "cafe",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 279,
+    "lat": 31.58072356999465,
+    "lon": 74.35435959946699,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 280,
+    "lat": 31.58068156139344,
+    "lon": 74.35390283288763,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 281,
+    "lat": 31.580576539890423,
+    "lon": 74.3539256712166,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 282,
+    "lat": 31.580635051870676,
+    "lon": 74.35438068100142,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 283,
+    "lat": 31.580600544805396,
+    "lon": 74.35415581130081,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 284,
+    "lat": 31.580545033439517,
+    "lon": 74.35415932488989,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 285,
+    "name": "Security Office",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.35337831113436,
+    "lat": 31.580673485731943,
+    "nearId": 0
+  },
+  {
+    "id": 286,
+    "lat": 31.580811453980765,
+    "lon": 74.35362702053682,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 287,
+    "lat": 31.580604501607528,
+    "lon": 74.3536695349646,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 288,
+    "lat": 31.58077333117517,
+    "lon": 74.35310409307525,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 289,
+    "lat": 31.580520994509556,
+    "lon": 74.35318912193078,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 290,
+    "lat": 31.58062265532448,
+    "lon": 74.35309559018968,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 291,
+    "lat": 31.579991954524452,
+    "lon": 74.35425951423068,
+    "name": "Football Stadium",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 292,
+    "lat": 31.580378733906215,
+    "lon": 74.3535298792168,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 293,
+    "lat": 31.58054360112421,
+    "lon": 74.35501521264783,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 294,
+    "lat": 31.57956049567167,
+    "lon": 74.35516403359216,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 295,
+    "lat": 31.579343689146015,
+    "lon": 74.3536145449365,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 296,
+    "lat": 31.580547339167754,
+    "lon": 74.35483575209732,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 297,
+    "lat": 31.580416507643655,
+    "lon": 74.35387279304578,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 298,
+    "lat": 31.580502995639463,
+    "lon": 74.35385228122944,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 299,
+    "lat": 31.58063529440328,
+    "lon": 74.35482526308117,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 300,
+    "lat": 31.57881104774113,
+    "lon": 74.35799389898149,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 301,
+    "lat": 31.577203315212092,
+    "lon": 74.35838389739736,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 302,
+    "lat": 31.578860607040422,
+    "lon": 74.35838768338112,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 303,
+    "lat": 31.578986015352676,
+    "lon": 74.35951056898105,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 304,
+    "lat": 31.579075532251302,
+    "lon": 74.36025321394399,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 305,
+    "lat": 31.579228022697972,
+    "lon": 74.36169295605964,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 306,
+    "lat": 31.577644127491958,
+    "lon": 74.36060028895821,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 307,
+    "lat": 31.577481697540417,
+    "lon": 74.35987869649178,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 308,
+    "lat": 31.578190046057504,
+    "lon": 74.35970139295644,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 309,
+    "lat": 31.578084796344744,
+    "lon": 74.3587972210008,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 310,
+    "lat": 31.5782224278304,
+    "lon": 74.35869738176082,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 311,
+    "lat": 31.57821870806052,
+    "lon": 74.35862478694528,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 312,
+    "lat": 31.578172582567337,
+    "lon": 74.35814967369596,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 313,
+    "lat": 31.57867131648921,
+    "lon": 74.35804410523244,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 315,
+    "lat": 31.57924873700044,
+    "lon": 74.36204564224612,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 316,
+    "lat": 31.57853817544912,
+    "lon": 74.36224499922206,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 317,
+    "lat": 31.57978134300057,
+    "lon": 74.36151823266667,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 318,
+    "lat": 31.579705580505898,
+    "lon": 74.36077395978187,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 319,
+    "lat": 31.579775016210373,
+    "lon": 74.36067523083274,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 320,
+    "lat": 31.57950130478723,
+    "lon": 74.35915192416628,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 321,
+    "lat": 31.579384357816487,
+    "lon": 74.35907722971784,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 322,
+    "lat": 31.57922754256026,
+    "lon": 74.35859794034036,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 323,
+    "lat": 31.57890062261932,
+    "lon": 74.3586944206696,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 324,
+    "lat": 31.579344489531007,
+    "lon": 74.35853569496666,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 325,
+    "lat": 31.579368410502294,
+    "lon": 74.35845166371216,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 326,
+    "lat": 31.57931525278832,
+    "lon": 74.35836763245767,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 327,
+    "lat": 31.578972385533184,
+    "lon": 74.35844232690611,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 328,
+    "lat": 31.579030019757028,
+    "lon": 74.35789276506925,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 329,
+    "lat": 31.57991780885253,
+    "lon": 74.35762776038109,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 330,
+    "lat": 31.579836950130893,
+    "lon": 74.35654870316658,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 331,
+    "lat": 31.58079895688629,
+    "lon": 74.35658651572925,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 332,
+    "lat": 31.580903965973178,
+    "lon": 74.35745607260358,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 334,
+    "lat": 31.57967653776988,
+    "lon": 74.35525664700788,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 335,
+    "lat": 31.576880886425396,
+    "lon": 74.35623899720481,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 336,
+    "lat": 31.580305835385523,
+    "lon": 74.35665014492407,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 337,
+    "lat": 31.580131568648035,
+    "lon": 74.35666466955504,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 338,
+    "lat": 31.57997636823179,
+    "lon": 74.35663404040702,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 339,
+    "lat": 31.57919782944915,
+    "lon": 74.36210463913142,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 340,
+    "lat": 31.57883732381003,
+    "lon": 74.35817025029496,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 341,
+    "lat": 31.578887894732176,
+    "lon": 74.35783537160988,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 342,
+    "lat": 31.578929746529816,
+    "lon": 74.35804160787326,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 343,
+    "lat": 31.57827774864569,
+    "lon": 74.35736666409123,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 344,
+    "lat": 31.57854061238406,
+    "lon": 74.35738945886331,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 345,
+    "lat": 31.578595169009006,
+    "lon": 74.35789573510685,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 346,
+    "lat": 31.578364667268612,
+    "lon": 74.3579276768257,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 347,
+    "name": "Mathematics Department",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.357644992614,
+    "lat": 31.57844241045916,
+    "nearId": 0
+  },
+  {
+    "id": 348,
+    "lat": 31.578476508349752,
+    "lon": 74.357946841857,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 349,
+    "lat": 31.57802358490839,
+    "lon": 74.35794011382839,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 350,
+    "lat": 31.577992508104526,
+    "lon": 74.3576611269929,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 351,
+    "lat": 31.57822846609631,
+    "lon": 74.35761748345195,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 352,
+    "lat": 31.578266588901904,
+    "lon": 74.35791295872495,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 353,
+    "lat": 31.578128620653082,
+    "lon": 74.3577747868347,
+    "name": "Al-Khawarizmi Institute of Computer Science",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 354,
+    "lat": 31.578150405113423,
+    "lon": 74.3579235873319,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 355,
+    "lat": 31.578658683287255,
+    "lon": 74.3582393733444,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 356,
+    "lat": 31.578711201254425,
+    "lon": 74.35851068036493,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 357,
+    "lat": 31.578383736282646,
+    "lon": 74.35829725217545,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 358,
+    "lat": 31.5784177184967,
+    "lon": 74.35855770691515,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 359,
+    "name": "Computer Engineering",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.3583913052759,
+    "lat": 31.578541290184162,
+    "nearId": 0
+  },
+  {
+    "id": 360,
+    "lat": 31.578528933015416,
+    "lon": 74.35825022562523,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 361,
+    "lat": 31.578541610396343,
+    "lon": 74.35868403728013,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 362,
+    "lat": 31.578285796014953,
+    "lon": 74.35873815688934,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 363,
+    "lat": 31.578180359226906,
+    "lon": 74.35895935945703,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 364,
+    "lat": 31.57821550482292,
+    "lon": 74.35921142749929,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 365,
+    "lat": 31.5783868396035,
+    "lon": 74.35941462520682,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 366,
+    "lat": 31.578646038374117,
+    "lon": 74.3593657548721,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 367,
+    "lat": 31.57873609896391,
+    "lon": 74.35913683593576,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 368,
+    "lat": 31.57868777376939,
+    "lon": 74.35877159448678,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 369,
+    "lat": 31.578465917194535,
+    "lon": 74.35903137889768,
+    "name": "UET Main Auditorium",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 370,
+    "lat": 31.57850106279055,
+    "lon": 74.35939662034666,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 371,
+    "lat": 31.578720722765652,
+    "lon": 74.35894649884263,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 372,
+    "lat": 31.578241859286454,
+    "lon": 74.35987393559463,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 373,
+    "lat": 31.578323416600178,
+    "lon": 74.36031562342406,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 374,
+    "lat": 31.57753502923416,
+    "lon": 74.36044693602199,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 375,
+    "lat": 31.577467064806054,
+    "lon": 74.36004901905855,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 376,
+    "name": "Main Block - Physics Department",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.3601922691654,
+    "lat": 31.577898638924523,
+    "nearId": 0
+  },
+  {
+    "id": 377,
+    "lat": 31.577868054931876,
+    "lon": 74.35995749815696,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 378,
+    "lat": 31.5792884356228,
+    "lon": 74.35915063322277,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 379,
+    "lat": 31.579326393394602,
+    "lon": 74.35944630174318,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 380,
+    "lat": 31.57909534608796,
+    "lon": 74.35917575538464,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 381,
+    "lat": 31.579128352846052,
+    "lon": 74.35947722132701,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 382,
+    "name": "Visiting Faculty Hostel",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35930136619396,
+    "lat": 31.579214170417092,
+    "nearId": 0
+  },
+  {
+    "id": 383,
+    "lat": 31.57909864676377,
+    "lon": 74.35930136619396,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 384,
+    "lat": 31.57937752064514,
+    "lon": 74.35954179241017,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 385,
+    "lat": 31.579115877156894,
+    "lon": 74.35957885367928,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 386,
+    "lat": 31.579459811742247,
+    "lon": 74.36038678934591,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 387,
+    "lat": 31.579221378563446,
+    "lon": 74.36042632136629,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 388,
+    "name": "Khadija Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35991487585255,
+    "lat": 31.57927412926672,
+    "nearId": 0
+  },
+  {
+    "id": 389,
+    "lat": 31.579151747635123,
+    "lon": 74.35991487585255,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 390,
+    "lat": 31.579295391558816,
+    "lon": 74.36086812739984,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 391,
+    "lat": 31.579318601868255,
+    "lon": 74.36110284877088,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 392,
+    "lat": 31.579529604681355,
+    "lon": 74.36084836138966,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 393,
+    "lat": 31.579552814990798,
+    "lon": 74.36108061200942,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 394,
+    "name": "",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.36096695745081,
+    "lat": 31.579426213302938,
+    "nearId": 0
+  },
+  {
+    "id": 395,
+    "lat": 31.57930172164321,
+    "lon": 74.3609768404559,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 396,
+    "lat": 31.57930416041516,
+    "lon": 74.36188122584007,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 397,
+    "lat": 31.57951550079506,
+    "lon": 74.3620136611817,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 398,
+    "lat": 31.579456420007393,
+    "lon": 74.36170481727244,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 399,
+    "lat": 31.57928550772878,
+    "lon": 74.36175917380046,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 400,
+    "lat": 31.579319268178878,
+    "lon": 74.36204578094826,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 401,
+    "lat": 31.579319050413652,
+    "lon": 74.36214748727735,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 402,
+    "lat": 31.57956951491908,
+    "lon": 74.3621126417659,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 403,
+    "lat": 31.579611672311085,
+    "lon": 74.36231445535309,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 404,
+    "lat": 31.579457921822602,
+    "lon": 74.36224040864124,
+    "name": "C Hall Girls Hostel",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 405,
+    "lat": 31.578578233199867,
+    "lon": 74.36230091391207,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 406,
+    "lat": 31.578589392509514,
+    "lon": 74.36253031352916,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 407,
+    "lat": 31.57902708543237,
+    "lon": 74.36219492548138,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 408,
+    "lat": 31.579051883898256,
+    "lon": 74.36243158458002,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 409,
+    "name": "UMER HALL",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.36236770114236,
+    "lat": 31.578816298472354,
+    "nearId": 0
+  },
+  {
+    "id": 410,
+    "lat": 31.578805139162707,
+    "lon": 74.36223703047439,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 411,
+    "lat": 31.578107671320122,
+    "lon": 74.35831939536979,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 412,
+    "lat": 31.578157424679716,
+    "lon": 74.3586689495055,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 413,
+    "lat": 31.577356395590247,
+    "lon": 74.35849417243764,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 414,
+    "lat": 31.577396198277924,
+    "lon": 74.35887868198692,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 415,
+    "lat": 31.577781147874838,
+    "lon": 74.3586559336861,
+    "name": "Department of Mechanical Engineering",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 416,
+    "lat": 31.577713797497044,
+    "lon": 74.35839669760128,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 417,
+    "lat": 31.578709624303695,
+    "lon": 74.35568487161083,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 418,
+    "lat": 31.578472391530585,
+    "lon": 74.3557157370854,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 419,
+    "lat": 31.57852510992461,
+    "lon": 74.35617357495806,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 420,
+    "lat": 31.57876234269772,
+    "lon": 74.35613242099198,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 421,
+    "lat": 31.57865690590967,
+    "lon": 74.35615299797503,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 422,
+    "lat": 31.578597597716392,
+    "lon": 74.35591893479294,
+    "name": "National Library of Engineering Sciences",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 423,
+    "lat": 31.577747513612753,
+    "lon": 74.35562828490748,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 424,
+    "lat": 31.577020439095172,
+    "lon": 74.35574403043708,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 425,
+    "lat": 31.57782362390505,
+    "lon": 74.35623530192039,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 426,
+    "lat": 31.577144395898973,
+    "lon": 74.35631815051279,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 427,
+    "lat": 31.577413256984713,
+    "lon": 74.35598675614322,
+    "name": "Department of Electrical Engineering",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 428,
+    "lat": 31.576953363022263,
+    "lon": 74.35618145033534,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 429,
+    "lat": 31.57911285391577,
+    "lon": 74.35593538543716,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 430,
+    "lat": 31.579096486928286,
+    "lon": 74.35567825460053,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 431,
+    "lat": 31.57916195487822,
+    "lon": 74.35566388082705,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 432,
+    "lat": 31.57919196102194,
+    "lon": 74.35591622040586,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 433,
+    "lat": 31.57913604048137,
+    "lon": 74.3557916477024,
+    "name": "School of Architecture and Design UET Lahore",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 434,
+    "lat": 31.579097850843908,
+    "lon": 74.35579643896023,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 435,
+    "lat": 31.57904193030334,
+    "lon": 74.35548660428752,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 436,
+    "lat": 31.579085575603298,
+    "lon": 74.35564631288169,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 437,
+    "lat": 31.57942928234045,
+    "lon": 74.35538598787318,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 438,
+    "lat": 31.579453832821674,
+    "lon": 74.3555472935533,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 439,
+    "lat": 31.579235606321895,
+    "lon": 74.35551535183447,
+    "name": "City & Regional Planning Department UET Lahore",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 440,
+    "lat": 31.579061025122073,
+    "lon": 74.35556166732678,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 441,
+    "lat": 31.57894003029472,
+    "lon": 74.3574201295848,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 442,
+    "lat": 31.579206889933893,
+    "lon": 74.35737974087841,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 443,
+    "lat": 31.57922141290745,
+    "lon": 74.35766671326587,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 444,
+    "lat": 31.57898722995879,
+    "lon": 74.35769647336531,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 445,
+    "lat": 31.579103413747273,
+    "lon": 74.35753491853978,
+    "name": "Department Of Transportation Engineering",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 446,
+    "lat": 31.57895455326828,
+    "lon": 74.35755830147505,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 447,
+    "lat": 31.57893581598195,
+    "lon": 74.35681033293402,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 448,
+    "lat": 31.579618581633895,
+    "lon": 74.35656178715683,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 449,
+    "lat": 31.579271892339126,
+    "lon": 74.35662392360112,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 450,
+    "lat": 31.579066708878955,
+    "lon": 74.35739855794,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 451,
+    "lat": 31.579102085337606,
+    "lon": 74.357692670443,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 452,
+    "lat": 31.578972614487913,
+    "lon": 74.35708066582079,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 453,
+    "lat": 31.57935203101594,
+    "lon": 74.35763674210779,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 454,
+    "lat": 31.579259036768875,
+    "lon": 74.35765416486352,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 455,
+    "lat": 31.579724008004202,
+    "lon": 74.35755543591439,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 456,
+    "lat": 31.579658983761004,
+    "lon": 74.3571015173328,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 457,
+    "lat": 31.57929360859849,
+    "lon": 74.35716609672028,
+    "name": "Civil Engineering Department, UET Lahore",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 458,
+    "lat": 31.58011234444003,
+    "lon": 74.35728795944765,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 459,
+    "lat": 31.58004159152273,
+    "lon": 74.35676601331556,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 460,
+    "lat": 31.579889472750533,
+    "lon": 74.35680743761176,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 461,
+    "lat": 31.57994961273024,
+    "lon": 74.3572962443069,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 462,
+    "lat": 31.579995602126484,
+    "lon": 74.35703527124085,
+    "name": "Petroleum and Gas Engineering Department",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 463,
+    "lat": 31.579958067703856,
+    "lon": 74.35678258303405,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 464,
+    "lat": 31.580377561750527,
+    "lon": 74.35670739793645,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 465,
+    "lat": 31.580394683956513,
+    "lon": 74.35688784217068,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 466,
+    "lat": 31.580206339690662,
+    "lon": 74.35674749665517,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 467,
+    "lat": 31.580210620242156,
+    "lon": 74.3569279408894,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 468,
+    "lat": 31.580291950720593,
+    "lon": 74.35681766941293,
+    "name": "Department of Geological, Petroleum And Mining Engineering",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 469,
+    "lat": 31.58029623127209,
+    "lon": 74.35672243495597,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 470,
+    "lat": 31.580595869876856,
+    "lon": 74.3569530025886,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 471,
+    "lat": 31.580625833737333,
+    "lon": 74.35716352086187,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 472,
+    "lat": 31.580394683956513,
+    "lon": 74.35718858256108,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 473,
+    "lat": 31.580377561750527,
+    "lon": 74.35699310130732,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 474,
+    "lat": 31.58048885608944,
+    "lon": 74.35707831108459,
+    "name": "Mining Department",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 475,
+    "lat": 31.580604430979847,
+    "lon": 74.35705826172524,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 476,
+    "lat": 31.580674232136516,
+    "lon": 74.3561774954073,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 477,
+    "lat": 31.580700591333528,
+    "lon": 74.35642956344955,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 478,
+    "lat": 31.580476538158926,
+    "lon": 74.3562289378649,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 479,
+    "lat": 31.580498504156438,
+    "lon": 74.35647071741563,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 480,
+    "lat": 31.58057538514772,
+    "lon": 74.35632153428858,
+    "name": "Chemical Engineering Department",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 481,
+    "lat": 31.58035792177237,
+    "lon": 74.35616720691579,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 482,
+    "lat": 31.580324972776108,
+    "lon": 74.35585855217016,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 483,
+    "lat": 31.58019756999055,
+    "lon": 74.35588684552184,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 484,
+    "lat": 31.580237108786065,
+    "lon": 74.35618263965306,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 485,
+    "lat": 31.580274450981833,
+    "lon": 74.35601287954297,
+    "name": "",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 486,
+    "lat": 31.579773626238605,
+    "lon": 74.35569393630584,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 487,
+    "lat": 31.58014045839702,
+    "lon": 74.35628552456826,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 488,
+    "lat": 31.57985709702914,
+    "lon": 74.35619550026746,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 489,
+    "lat": 31.579938371219928,
+    "lon": 74.35579167697527,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 490,
+    "lat": 31.580076757004242,
+    "lon": 74.35586884066169,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 491,
+    "lat": 31.57980877183462,
+    "lon": 74.35594086010232,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 492,
+    "lat": 31.58002403861022,
+    "lon": 74.35577109999224,
+    "name": "Department of Metallurgical and Materials Engineering, UET Lahore",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 493,
+    "lat": 31.57981316503412,
+    "lon": 74.35601802378874,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 494,
+    "lat": 31.58013386859777,
+    "lon": 74.35594086010232,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 495,
+    "lat": 31.58001085901171,
+    "lon": 74.35604888926329,
+    "name": "Polymer and Process Engineering Department",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 496,
+    "lat": 31.579879063026652,
+    "lon": 74.35608489898361,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 497,
+    "lat": 31.580511308663446,
+    "lon": 74.35522272935697,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 498,
+    "lat": 31.580387316334026,
+    "lon": 74.35524015211269,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 499,
+    "lat": 31.580563385441803,
+    "lon": 74.35560312619037,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 500,
+    "lat": 31.580424514032853,
+    "lon": 74.3556205489461,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 501,
+    "lat": 31.58045427219191,
+    "lon": 74.35535630381754,
+    "name": "Department of Humanities, Social Sciences and Languages",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 502,
+    "lat": 31.580470391194737,
+    "lon": 74.35546664793716,
+    "name": "Institute of Data Science IDS",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 503,
+    "lat": 31.58053610712933,
+    "lon": 74.35539114932901,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 504,
+    "lat": 31.580363757791435,
+    "lon": 74.35536065950647,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 505,
+    "lat": 31.580372437254496,
+    "lon": 74.35547971500397,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 506,
+    "lat": 31.57938795642419,
+    "lon": 74.36188474423855,
+    "name": "New girls hostel",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 507,
+    "lat": 31.57948488329434,
+    "lon": 74.36186348702466,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 508,
+    "lat": 31.580294129022413,
+    "lon": 74.3561743682913,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 509,
+    "lat": 31.58047929693531,
+    "lon": 74.35633379739544,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 510,
+    "lat": 31.57900979854234,
+    "lon": 74.3573693093893,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 511,
+    "lat": 31.579214049265424,
+    "lon": 74.35732854199327,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 512,
+    "lat": 31.5784993836841,
+    "lon": 74.35808845696101,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 513,
+    "lat": 31.577684701822722,
+    "lon": 74.35826511567711,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 514,
+    "lat": 31.577847704063114,
+    "lon": 74.35978997420222,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 515,
+    "lat": 31.578969544764128,
+    "lon": 74.35931541818185,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 516,
+    "lat": 31.5790365739655,
+    "lon": 74.35992504916179,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 517,
+    "lat": 31.57915629302328,
+    "lon": 74.36099184856037,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 518,
+    "lat": 31.579239857677923,
+    "lon": 74.36188592982816,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 519,
+    "lat": 31.578798444985186,
+    "lon": 74.36218211667556,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 520,
+    "lat": 31.57720580123506,
+    "lon": 74.35663465987899,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 521,
+    "lat": 31.578738922109363,
+    "lon": 74.35709047024363,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 522,
+    "lat": 31.578794649746293,
+    "lon": 74.35758301423401,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 523,
+    "lat": 31.579368119055967,
+    "lon": 74.35778473581453,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 524,
+    "lat": 31.580310660040034,
+    "lon": 74.35636305334988,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 525,
+    "lat": 31.580850437396922,
+    "lon": 74.35701457851178,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 526,
+    "lat": 31.579727646410955,
+    "lon": 74.35582770682232,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 527,
+    "lat": 31.579753374744516,
+    "lon": 74.35610637936038,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 528,
+    "lat": 31.58068293815537,
+    "lon": 74.35537109773509,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 529,
+    "lat": 31.578905347247336,
+    "lon": 74.35559718399197,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 530,
+    "lat": 31.579076668699596,
+    "lon": 74.35812543302198,
+    "name": "Girls cafe UET",
+    "type": "cafe",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 531,
+    "lat": 31.578714377615775,
+    "lon": 74.35840286660775,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 532,
+    "lat": 31.578718008359164,
+    "lon": 74.35859843297548,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 533,
+    "lat": 31.57890990670197,
+    "lon": 74.35890624664815,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 534,
+    "lat": 31.578552827967798,
+    "lon": 74.35961324538164,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 535,
+    "lat": 31.57700427845512,
+    "lon": 74.35666513234122,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 536,
+    "lat": 31.577820759592438,
+    "lon": 74.35604060395227,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 537,
+    "lat": 31.578302244876127,
+    "lon": 74.35988802224225,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 538,
+    "lat": 31.578433676745313,
+    "lon": 74.36032068734283,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 539,
+    "lat": 31.578903607673816,
+    "lon": 74.3602205064974,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 540,
+    "lat": 31.57878953473075,
+    "lon": 74.35971669847757,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 541,
+    "lat": 31.5786072660065,
+    "lon": 74.36005353842167,
+    "name": "",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 542,
+    "lat": 31.57857334565601,
+    "lon": 74.35980378262643,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 543,
+    "lat": 31.57973155271481,
+    "lon": 74.36156221481944,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 544,
+    "lat": 31.57754482457211,
+    "lon": 74.35698418901818,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 545,
+    "lat": 31.577567465849214,
+    "lon": 74.35719722688127,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 546,
+    "lat": 31.577374059814666,
+    "lon": 74.35701159568112,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 547,
+    "lat": 31.577389912768318,
+    "lon": 74.35722507156129,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 548,
+    "name": "Institute of Environmental Engineering and Research, Lahore, Pakistan",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.3571118365292,
+    "lat": 31.577462836355114,
+    "nearId": 0
+  },
+  {
+    "id": 549,
+    "lat": 31.577453324582923,
+    "lon": 74.35699369702368,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 550,
+    "lat": 31.57725894631854,
+    "lon": 74.35692366363813,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 551,
+    "lat": 31.577344921320094,
+    "lon": 74.35775531009172,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 552,
+    "lat": 31.577149282242637,
+    "lon": 74.3577788838954,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 553,
+    "lat": 31.57706924151438,
+    "lon": 74.3569597702947,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 554,
+    "lat": 31.57719843009673,
+    "lon": 74.35733795583846,
+    "name": "",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 555,
+    "lat": 31.57710859045894,
+    "lon": 74.35734897588027,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 556,
+    "lat": 31.577071392760114,
+    "lon": 74.35735478346551,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 557,
+    "lat": 31.577113289400838,
+    "lon": 74.3577816930386,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 558,
+    "lat": 31.57701235964469,
+    "lon": 74.35680747061411,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 559,
+    "lat": 31.5774360482064,
+    "lon": 74.35673750935356,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 560,
+    "name": "Cricket Groung UET",
+    "type": "ground",
+    "tier": 2,
+    "lon": 74.36141272998623,
+    "lat": 31.578407165990278,
+    "nearId": 0
+  },
+  {
+    "id": 561,
+    "lat": 31.578503319930068,
+    "lon": 74.36204136913429,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 562,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.3609905096629,
+    "lat": 31.57790235780637,
+    "nearId": 0
+  },
+  {
+    "id": 563,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.362060134482,
+    "lat": 31.578030563059425,
+    "nearId": 0
+  },
+  {
+    "id": 564,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.36067149875196,
+    "lat": 31.578887935689238,
+    "nearId": 0
+  },
+  {
+    "id": 565,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.3618630983311,
+    "lat": 31.579040179427242,
+    "nearId": 0
+  },
+  {
+    "id": 566,
+    "lat": 31.57894933170233,
+    "lon": 74.36055175932039,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 567,
+    "lat": 31.579106801960695,
+    "lon": 74.36052272139418,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 568,
+    "lat": 31.57780539816831,
+    "lon": 74.35933524126028,
+    "name": "",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 569,
+    "lat": 31.577523662284243,
+    "lon": 74.35964335586009,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 570,
+    "lat": 31.57746784668457,
+    "lon": 74.35915472967655,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 571,
+    "lat": 31.57798879228152,
+    "lon": 74.3590177898544,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 572,
+    "lat": 31.578036634224095,
+    "lon": 74.35950330376926,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 573,
+    "lat": 31.577834634910992,
+    "lon": 74.35962779451667,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 574,
+    "lat": 31.57807197107905,
+    "lon": 74.35599715322071,
+    "name": "",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 575,
+    "lat": 31.578332370766812,
+    "lon": 74.35553616333209,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 576,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.3564101970094,
+    "lat": 31.57843089368531,
+    "nearId": 0
+  },
+  {
+    "id": 577,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.3564515022841,
+    "lat": 31.578123935164633,
+    "nearId": 0
+  },
+  {
+    "id": 578,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.35603844953712,
+    "lat": 31.57787133388199,
+    "nearId": 0
+  },
+  {
+    "id": 579,
+    "lat": 31.578168699948897,
+    "lon": 74.35553527619079,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 580,
+    "lat": 31.577829766582315,
+    "lon": 74.35558033649046,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 581,
+    "lat": 31.576870192325387,
+    "lon": 74.35143163033167,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 582,
+    "lat": 31.57612390867838,
+    "lon": 74.35153612356616,
+    "name": "Annexe Gate",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 583,
+    "lat": 31.576929866312465,
+    "lon": 74.35147064304256,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 584,
+    "lat": 31.576928852529278,
+    "lon": 74.35159684186988,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 585,
+    "lat": 31.576929866312465,
+    "lon": 74.35183614341982,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 586,
+    "lat": 31.57694811440984,
+    "lon": 74.35229331653014,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 587,
+    "lat": 31.57707686487466,
+    "lon": 74.35188019395389,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 588,
+    "lat": 31.577101291600073,
+    "lon": 74.3520703347441,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 589,
+    "lat": 31.57707391945401,
+    "lon": 74.35227868186468,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 590,
+    "lat": 31.576953279254692,
+    "lon": 74.35251084008476,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 591,
+    "lat": 31.577005995980446,
+    "lon": 74.35257513005341,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 592,
+    "lat": 31.57720891264432,
+    "lon": 74.35161970190569,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 593,
+    "lat": 31.577313332312638,
+    "lon": 74.35162803579051,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 594,
+    "lat": 31.57752622678202,
+    "lon": 74.35168875409423,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 595,
+    "lat": 31.577585026206894,
+    "lon": 74.35177447405242,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 596,
+    "lat": 31.577626339909372,
+    "lon": 74.35257696871722,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 597,
+    "lat": 31.577680840053265,
+    "lon": 74.35338481167031,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 598,
+    "lat": 31.57762848331216,
+    "lon": 74.35301154566876,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 599,
+    "lat": 31.57790408562694,
+    "lon": 74.35338541570762,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 600,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "lon": 74.35332762419102,
+    "lat": 31.57763301848422,
+    "nearId": 0
+  },
+  {
+    "id": 601,
+    "lat": 31.578609402797497,
+    "lon": 74.35333358073605,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 602,
+    "lat": 31.578525684454238,
+    "lon": 74.35260840223302,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 603,
+    "lat": 31.578476672184763,
+    "lon": 74.35215410697458,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 604,
+    "lat": 31.57841714899296,
+    "lon": 74.35159697204992,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 605,
+    "lat": 31.578241041293932,
+    "lon": 74.35161314752509,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 606,
+    "lat": 31.578741092800968,
+    "lon": 74.35157055812513,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 607,
+    "lat": 31.578788740610783,
+    "lon": 74.35183128966462,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 608,
+    "lat": 31.57929461842136,
+    "lon": 74.3518562913191,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 611,
+    "lat": 31.57983431299087,
+    "lon": 74.35345898936816,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 612,
+    "lat": 31.579790720313802,
+    "lon": 74.35324588002767,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 613,
+    "lat": 31.579696438477363,
+    "lon": 74.3532399272528,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 614,
+    "lat": 31.579611280689612,
+    "lon": 74.35329350222666,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 615,
+    "lat": 31.579462254561044,
+    "lon": 74.3532161161533,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 616,
+    "lat": 31.5796690663313,
+    "lon": 74.35347089491792,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 617,
+    "lat": 31.57932485464001,
+    "lon": 74.35214976583394,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 618,
+    "lat": 31.57935324056926,
+    "lon": 74.35237001850427,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 619,
+    "lat": 31.579418122693262,
+    "lon": 74.35287243270363,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 620,
+    "lat": 31.579480977250892,
+    "lon": 74.35347961574078,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 621,
+    "lat": 31.57907304876777,
+    "lon": 74.35352779010567,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 622,
+    "lat": 31.579067979851835,
+    "lon": 74.35334444463956,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 623,
+    "lat": 31.578641177129885,
+    "lon": 74.35358136507955,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 624,
+    "lat": 31.578698962771572,
+    "lon": 74.35406353984433,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 625,
+    "lat": 31.57870403168751,
+    "lon": 74.3541361636978,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 626,
+    "lat": 31.577987286973926,
+    "lon": 74.35424926642041,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 627,
+    "lat": 31.578074279579265,
+    "lon": 74.35423357798231,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 628,
+    "lat": 31.577828274950978,
+    "lon": 74.35427523550088,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 629,
+    "lat": 31.577582179082206,
+    "lon": 74.35432625078155,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 630,
+    "lat": 31.577585372499247,
+    "lon": 74.35439000500045,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 631,
+    "lat": 31.57723303215242,
+    "lon": 74.35436625342871,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 632,
+    "lat": 31.57723303215242,
+    "lon": 74.35446250979842,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 633,
+    "lat": 31.576722085425903,
+    "lon": 74.35444500864028,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 634,
+    "lat": 31.576507062011828,
+    "lon": 74.35447251046021,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 635,
+    "lat": 31.57720216245436,
+    "lon": 74.3546100195598,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 636,
+    "lat": 31.576748697234574,
+    "lon": 74.35470877609495,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 637,
+    "lat": 31.57685857291532,
+    "lon": 74.35572033076878,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 638,
+    "lat": 31.577149889554608,
+    "lon": 74.35564629933766,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 639,
+    "lat": 31.577709497874128,
+    "lon": 74.35551176662551,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 640,
+    "lat": 31.577661850064313,
+    "lon": 74.35510340626917,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 641,
+    "lat": 31.577628395219126,
+    "lon": 74.35475695477149,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 642,
+    "lat": 31.577749907271983,
+    "lon": 74.35551538591264,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 643,
+    "lat": 31.57807515679758,
+    "lon": 74.35546156985139,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 644,
+    "lat": 31.57817239634647,
+    "lon": 74.35545238174338,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 645,
+    "lat": 31.578430584114212,
+    "lon": 74.35541431672445,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 646,
+    "lat": 31.578406324410917,
+    "lon": 74.35507511651389,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 647,
+    "lat": 31.578791881366328,
+    "lon": 74.35466983780701,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 648,
+    "lat": 31.576833716484046,
+    "lon": 74.35243790166369,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 649,
+    "lat": 31.57677491705917,
+    "lon": 74.35187476916062,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 650,
+    "lat": 31.576435299691347,
+    "lon": 74.35193072524443,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 651,
+    "lat": 31.576492071549847,
+    "lon": 74.35248552386268,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 652,
+    "lat": 31.57660488568734,
+    "lon": 74.35220114385123,
+    "name": "Centre of Excellence in Water Resources Engineering",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 653,
+    "lat": 31.57667496826379,
+    "lon": 74.35247677064808,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 654,
+    "lat": 31.577015252511835,
+    "lon": 74.35236316109108,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 655,
+    "lat": 31.577027834195544,
+    "lon": 74.35250352864699,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 656,
+    "lat": 31.577425729942863,
+    "lon": 74.35251276335461,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 657,
+    "lat": 31.577545255938105,
+    "lon": 74.35201962996742,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 658,
+    "lat": 31.577540537806712,
+    "lon": 74.35176290509543,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 659,
+    "lat": 31.577298340395302,
+    "lon": 74.35166871107765,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 660,
+    "lat": 31.577192968794236,
+    "lon": 74.35207319127164,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 661,
+    "lat": 31.577340803577822,
+    "lon": 74.35206026268096,
+    "name": "Department Of Chemistry",
+    "type": "dept",
+    "tier": 1,
+    "nextId": 0
+  },
+  {
+    "id": 662,
+    "lat": 31.577019970643228,
+    "lon": 74.35168348660986,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 663,
+    "lat": 31.57731092207901,
+    "lon": 74.35249983476393,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 664,
+    "lat": 31.57754840135903,
+    "lon": 74.35239271215548,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 665,
+    "name": "Annexe Panga Shake Shop",
+    "type": "cafe",
+    "tier": 2,
+    "lon": 74.35153421009164,
+    "lat": 31.57723697937348,
+    "nearId": 0
+  },
+  {
+    "id": 666,
+    "lat": 31.57726637908592,
+    "lon": 74.35147230123296,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 667,
+    "lat": 31.57720453831148,
+    "lon": 74.35149254066754,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 668,
+    "lat": 31.57720453831148,
+    "lon": 74.35158897562049,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 669,
+    "lat": 31.577275503134608,
+    "lon": 74.3515925472854,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 670,
+    "lat": 31.57723393802392,
+    "lon": 74.35158897562049,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 671,
+    "lat": 31.577304012005545,
+    "lon": 74.35144233050907,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 672,
+    "lat": 31.577407417890672,
+    "lon": 74.35143280606927,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 673,
+    "lat": 31.577418569505735,
+    "lon": 74.35157448211127,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 674,
+    "lat": 31.577369907912733,
+    "lon": 74.35150781103269,
+    "name": "Tasty Point",
+    "type": "cafe",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 675,
+    "lat": 31.577311108487855,
+    "lon": 74.35158043488615,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 676,
+    "lat": 31.577351659815356,
+    "lon": 74.35157686322123,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 677,
+    "lat": 31.577862722139525,
+    "lon": 74.35134332789967,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 678,
+    "lat": 31.578364251878366,
+    "lon": 74.35127241867605,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 679,
+    "lat": 31.577883670556137,
+    "lon": 74.3516515659534,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 680,
+    "lat": 31.57839382611358,
+    "lon": 74.35154013717342,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 681,
+    "lat": 31.5782274710405,
+    "lon": 74.3515603969516,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 682,
+    "lat": 31.57814244511426,
+    "lon": 74.35149093485498,
+    "name": "Ali Mardan Hall",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 683,
+    "lat": 31.57812642573685,
+    "lon": 74.3513013612163,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 684,
+    "lat": 31.578491698046836,
+    "lon": 74.3514844090109,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 685,
+    "lat": 31.578568340055813,
+    "lon": 74.35149190950723,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 686,
+    "lat": 31.57868010965224,
+    "lon": 74.35133939941497,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 687,
+    "name": "Old UET Mosque",
+    "type": "worship",
+    "tier": 1,
+    "lon": 74.35136440106943,
+    "lat": 31.5785725979452,
+    "nearId": 0
+  },
+  {
+    "id": 688,
+    "lat": 31.578479988851022,
+    "lon": 74.35120064023265,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 689,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "lon": 74.35118938948814,
+    "lat": 31.578564082166427,
+    "nearId": 0
+  },
+  {
+    "id": 690,
+    "lat": 31.57869075437571,
+    "lon": 74.35145190686009,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 691,
+    "lat": 31.57857685583459,
+    "lon": 74.35158066538061,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 692,
+    "lat": 31.578850795269368,
+    "lon": 74.35190563533979,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 693,
+    "lat": 31.579057007070897,
+    "lon": 74.35190701129791,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 694,
+    "lat": 31.579237442397236,
+    "lon": 74.35188774788412,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 695,
+    "lat": 31.579270248820208,
+    "lon": 74.35215881163533,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 696,
+    "lat": 31.579297196953362,
+    "lon": 74.35244501092596,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 697,
+    "lat": 31.578878915060486,
+    "lon": 74.35219045867228,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 698,
+    "lat": 31.5789199230892,
+    "lon": 74.35247940987915,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 699,
+    "lat": 31.579124963232765,
+    "lon": 74.35248353775354,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 700,
+    "lat": 31.579085126862015,
+    "lon": 74.35218495483977,
+    "name": "Muhammad Bin Qasim Hall",
+    "type": "hostel",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 701,
+    "lat": 31.579870127634475,
+    "lon": 74.35180386550472,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 702,
+    "lat": 31.579934303519664,
+    "lon": 74.35227685296523,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 703,
+    "lat": 31.579991840520176,
+    "lon": 74.35274984042573,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 704,
+    "lat": 31.579801525826174,
+    "lon": 74.35278882290874,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 705,
+    "lat": 31.57967759997891,
+    "lon": 74.35184284798774,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 706,
+    "lat": 31.57947400751556,
+    "lon": 74.35234182377025,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 707,
+    "lat": 31.57954482228542,
+    "lon": 74.35282260772735,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 708,
+    "lat": 31.57954482228542,
+    "lon": 74.35186883630975,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 709,
+    "name": "Zubair Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35229764362283,
+    "lat": 31.57970415551761,
+    "nearId": 0
+  },
+  {
+    "id": 710,
+    "lat": 31.579419014582257,
+    "lon": 74.35196031787588,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 711,
+    "lat": 31.579493020754946,
+    "lon": 74.35193769733135,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 712,
+    "lat": 31.579493020754946,
+    "lon": 74.35183530960352,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 713,
+    "lat": 31.57940887675038,
+    "lon": 74.35184840570824,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 714,
+    "name": "Cutting Shop",
+    "type": "cafe",
+    "tier": 2,
+    "lon": 74.35189007513236,
+    "lat": 31.57945044186107,
+    "nearId": 0
+  },
+  {
+    "id": 715,
+    "lat": 31.579394683785754,
+    "lon": 74.35190555234703,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 716,
+    "lat": 31.57944556882364,
+    "lon": 74.35204763609582,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 717,
+    "lat": 31.579489263438454,
+    "lon": 74.35262277576454,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 718,
+    "lat": 31.579861471613146,
+    "lon": 74.35311841502532,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 719,
+    "lat": 31.579778910206507,
+    "lon": 74.35306197707182,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 720,
+    "lat": 31.579728387554685,
+    "lon": 74.35311117939025,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 721,
+    "lat": 31.57982696833873,
+    "lon": 74.35319800701102,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 722,
+    "lat": 31.579720993995878,
+    "lon": 74.35319511275699,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 723,
+    "name": "Shopping Center",
+    "type": "cafe",
+    "tier": 2,
+    "lon": 74.35314735756558,
+    "lat": 31.579787536025112,
+    "nearId": 0
+  },
+  {
+    "id": 724,
+    "lat": 31.579009905788315,
+    "lon": 74.35322298999837,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 725,
+    "lat": 31.579370896296897,
+    "lon": 74.3531591716971,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 726,
+    "lat": 31.579299733293414,
+    "lon": 74.35260911871953,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 727,
+    "lat": 31.578976265095758,
+    "lon": 74.3526562227038,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 728,
+    "lat": 31.579140586940166,
+    "lon": 74.35263191096998,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 729,
+    "lat": 31.579009905788315,
+    "lon": 74.35291909332568,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 730,
+    "lat": 31.579193635724582,
+    "lon": 74.35318956136437,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 731,
+    "lat": 31.57933725560434,
+    "lon": 74.3528811062416,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 732,
+    "name": "Sultan Mahmud Ghaznvi Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35291605435896,
+    "lat": 31.579176815378304,
+    "nearId": 0
+  },
+  {
+    "id": 733,
+    "lat": 31.578854240900775,
+    "lon": 74.35233004297714,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 734,
+    "lat": 31.57854706459495,
+    "lon": 74.35236814073633,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 735,
+    "lat": 31.57882382740515,
+    "lon": 74.35207169254761,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 736,
+    "lat": 31.578729545568706,
+    "lon": 74.35170976383527,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 737,
+    "lat": 31.57847407220545,
+    "lon": 74.35173000326984,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 738,
+    "lat": 31.57862918103314,
+    "lon": 74.35172405049497,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 739,
+    "lat": 31.578717380170456,
+    "lon": 74.35235385407664,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 740,
+    "lat": 31.57852983028076,
+    "lon": 74.35215384084087,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 741,
+    "name": "Khalid Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35212764863142,
+    "lat": 31.57866973236064,
+    "nearId": 0
+  },
+  {
+    "id": 742,
+    "lat": 31.57858457457289,
+    "lon": 74.35259315562656,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 743,
+    "lat": 31.57855213351089,
+    "lon": 74.35238480850599,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 744,
+    "lat": 31.57871940773683,
+    "lon": 74.35236933129131,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 745,
+    "lat": 31.578858296033523,
+    "lon": 74.35234552019182,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 746,
+    "lat": 31.57893737112215,
+    "lon": 74.35297175210856,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 747,
+    "lat": 31.578636277515454,
+    "lon": 74.35303842318714,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 748,
+    "lat": 31.57879442769271,
+    "lon": 74.35302294597247,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 749,
+    "lat": 31.578894792228276,
+    "lon": 74.35265863615018,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 750,
+    "name": "Tariq Hall",
+    "type": "hostel",
+    "tier": 2,
+    "lon": 74.35260029895642,
+    "lat": 31.57874069718377,
+    "nearId": 0
+  },
+  {
+    "id": 751,
+    "lat": 31.578989820822496,
+    "lon": 74.35322746372262,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 752,
+    "lat": 31.57896244867643,
+    "lon": 74.3530012582774,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 753,
+    "lat": 31.578794160667304,
+    "lon": 74.35303578437167,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 754,
+    "lat": 31.578638038056422,
+    "lon": 74.35305126158634,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 755,
+    "lat": 31.578662368852925,
+    "lon": 74.35326913314674,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 756,
+    "lat": 31.578727250976925,
+    "lon": 74.35326198981689,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 757,
+    "lat": 31.57881950524699,
+    "lon": 74.35324175038231,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 758,
+    "lat": 31.578923924915305,
+    "lon": 74.35322865427759,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 759,
+    "name": "Student Service Center - SSC",
+    "type": "cafe",
+    "tier": 2,
+    "lon": 74.35312388543981,
+    "lat": 31.578826601729304,
+    "nearId": 0
+  },
+  {
+    "id": 760,
+    "lat": 31.578043326154667,
+    "lon": 74.35370904277586,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 761,
+    "lat": 31.57808337022096,
+    "lon": 74.35396645091762,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 762,
+    "lat": 31.578131844616994,
+    "lon": 74.35362489011412,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 763,
+    "lat": 31.578203502419832,
+    "lon": 74.35400357709192,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 764,
+    "lat": 31.578317311871395,
+    "lon": 74.35357786362668,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 765,
+    "lat": 31.57834892560794,
+    "lon": 74.35396397583933,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 766,
+    "lat": 31.57838475450936,
+    "lon": 74.35364469074041,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 767,
+    "lat": 31.578412153081032,
+    "lon": 74.35383774684674,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 768,
+    "lat": 31.578498563960924,
+    "lon": 74.35370904277586,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 769,
+    "name": "IB & M",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.35379319543759,
+    "lat": 31.578258299563178,
+    "nearId": 0
+  },
+  {
+    "id": 770,
+    "lat": 31.577462538021205,
+    "lon": 74.35279424060523,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 771,
+    "lat": 31.57719592615212,
+    "lon": 74.35278896362945,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 772,
+    "lat": 31.57719442833263,
+    "lon": 74.3532709274179,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 773,
+    "lat": 31.577476018396606,
+    "lon": 74.35326916842597,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 774,
+    "name": "Automotive Engineering Center",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.35304929443488,
+    "lat": 31.577338219003597,
+    "nearId": 0
+  },
+  {
+    "id": 775,
+    "lat": 31.57747002711865,
+    "lon": 74.3530317045156,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 776,
+    "lat": 31.57719086209575,
+    "lon": 74.35302600873221,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 777,
+    "lat": 31.578123956171986,
+    "lon": 74.35439641494027,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 778,
+    "lat": 31.578432757871536,
+    "lon": 74.35434211485943,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 779,
+    "lat": 31.5785632142045,
+    "lon": 74.3547086404051,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 780,
+    "lat": 31.57857972766437,
+    "lon": 74.3548734799362,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 781,
+    "lat": 31.57838321749193,
+    "lon": 74.35491226570822,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 782,
+    "lat": 31.57810579136613,
+    "lon": 74.35495686934605,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 783,
+    "lat": 31.578140469631855,
+    "lon": 74.354582586646,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 784,
+    "name": "Jamia Masjid",
+    "type": "worship",
+    "tier": 1,
+    "lon": 74.35467179392167,
+    "lat": 31.578341933842257,
+    "nearId": 0
+  },
+  {
+    "id": 785,
+    "lat": 31.57845752806134,
+    "lon": 74.35453604371956,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 786,
+    "lat": 31.57765057312725,
+    "lon": 74.35450040672569,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 787,
+    "lat": 31.57794217030241,
+    "lon": 74.35445121608774,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 788,
+    "lat": 31.578006611667085,
+    "lon": 74.35495447415298,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 789,
+    "lat": 31.57773273586721,
+    "lon": 74.3549998808957,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 790,
+    "lat": 31.57770857035546,
+    "lon": 74.35489203988172,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 791,
+    "lat": 31.577658628297836,
+    "lon": 74.35466311422047,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 792,
+    "lat": 31.57797277995063,
+    "lon": 74.35468770953945,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 793,
+    "name": "Architectural Engineering Department",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.35471608875365,
+    "lat": 31.577855174460097,
+    "nearId": 0
+  },
+  {
+    "id": 794,
+    "lat": 31.577771400686018,
+    "lon": 74.35474257602024,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 795,
+    "lat": 31.57793426213351,
+    "lon": 74.35529725382978,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 796,
+    "lat": 31.577843021646633,
+    "lon": 74.35523177330616,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 797,
+    "lat": 31.57790993133701,
+    "lon": 74.35500675841593,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 798,
+    "lat": 31.578104577709016,
+    "lon": 74.355097240594,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 799,
+    "lat": 31.578072136647016,
+    "lon": 74.35528534828002,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 800,
+    "lat": 31.577998130474327,
+    "lon": 74.35524486941088,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 801,
+    "name": "Islamic Studies Department",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.35513891001813,
+    "lat": 31.57796873076189,
+    "nearId": 0
+  },
+  {
+    "id": 802,
+    "lat": 31.5779839375097,
+    "lon": 74.3549889000913,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 803,
+    "lat": 31.57754170287194,
+    "lon": 74.35490359777279,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 804,
+    "lat": 31.57735169565599,
+    "lon": 74.35492144885093,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 805,
+    "lat": 31.57750978165966,
+    "lon": 74.35452336980845,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 806,
+    "lat": 31.57731217415507,
+    "lon": 74.35455371664128,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 807,
+    "name": "Laser and Optonics Center",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.3547125912367,
+    "lat": 31.57743529883101,
+    "nearId": 0
+  },
+  {
+    "id": 808,
+    "lat": 31.57754626304512,
+    "lon": 74.35475543382424,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 809,
+    "lat": 31.57732737473235,
+    "lon": 74.35472151677578,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 810,
+    "lat": 31.577546303770667,
+    "lon": 74.35491540477035,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 811,
+    "lat": 31.577351657398662,
+    "lon": 74.35493326309498,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 812,
+    "lat": 31.577391194942976,
+    "lon": 74.35528328625756,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 813,
+    "lat": 31.577583813748607,
+    "lon": 74.35525471293816,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 814,
+    "lat": 31.577587868881356,
+    "lon": 74.35510470301135,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 815,
+    "lat": 31.577366864146473,
+    "lon": 74.35510113134642,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 816,
+    "name": "Department of Product & Industrial Design",
+    "type": "dept",
+    "tier": 1,
+    "lon": 74.35506660525215,
+    "lat": 31.577469256248413,
+    "nearId": 0
+  },
+  {
+    "id": 817,
+    "lat": 31.57733776135766,
+    "lon": 74.35541302002791,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 818,
+    "lat": 31.577043764233277,
+    "lon": 74.35541897280278,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 819,
+    "lat": 31.577040722883712,
+    "lon": 74.35532253784982,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 820,
+    "lat": 31.577250576003532,
+    "lon": 74.3552903928655,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 821,
+    "lat": 31.57719785927778,
+    "lon": 74.35542373502268,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 822,
+    "name": "VC Office",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.35536896949384,
+    "lat": 31.577176569830844,
+    "nearId": 0
+  },
+  {
+    "id": 823,
+    "lat": 31.579274263718506,
+    "lon": 74.35357977958878,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 824,
+    "lat": 31.578754792206272,
+    "lon": 74.35413631729442,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 825,
+    "lat": 31.578809473418087,
+    "lon": 74.35446096428937,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 826,
+    "lat": 31.57910414439286,
+    "lon": 74.35444312654239,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 827,
+    "lat": 31.579380588297035,
+    "lon": 74.35441815369663,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 828,
+    "name": "Studio Center",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.354150587492,
+    "lat": 31.57910414439286,
+    "nearId": 0
+  },
+  {
+    "id": 829,
+    "lat": 31.57897655489863,
+    "lon": 74.35389729148494,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 830,
+    "lat": 31.578873268165204,
+    "lon": 74.35381880539825,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 831,
+    "lat": 31.57932861736357,
+    "lon": 74.35405755796947,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 832,
+    "lat": 31.57839550500306,
+    "lon": 74.35164373243126,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 833,
+    "lat": 31.578037577068176,
+    "lon": 74.35172093760302,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 834,
+    "lat": 31.57763095145508,
+    "lon": 74.35180958057802,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 835,
+    "lat": 31.57766260494592,
+    "lon": 74.35249584877153,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 836,
+    "lat": 31.57847098640429,
+    "lon": 74.35237575183767,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 837,
+    "lat": 31.578573251528542,
+    "lon": 74.35328791664487,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 838,
+    "lat": 31.578181235218914,
+    "lon": 74.35332223005456,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 839,
+    "lat": 31.57768451890112,
+    "lon": 74.35332508950536,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 840,
+    "lat": 31.578093579398125,
+    "lon": 74.35250442712395,
+    "name": "Annexe Ground",
+    "type": "ground",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 841,
+    "lat": 31.577273681368446,
+    "lon": 74.35480754541587,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 842,
+    "lat": 31.57706431062195,
+    "lon": 74.35484814918765,
+    "name": "",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 843,
+    "name": "Administration Block",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.35509402758342,
+    "lat": 31.577087360612392,
+    "nearId": 0
+  },
+  {
+    "id": 844,
+    "lat": 31.576849177377845,
+    "lon": 74.35491131061042,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 845,
+    "lat": 31.57691064401902,
+    "lon": 74.35543915964355,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 846,
+    "lat": 31.57701821064107,
+    "lon": 74.3553421617443,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 847,
+    "lat": 31.577204531397125,
+    "lon": 74.35525418690544,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 848,
+    "lat": 31.577327464679474,
+    "lon": 74.35519553701288,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 849,
+    "lat": 31.57704318146405,
+    "lon": 74.35464061879856,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 850,
+    "lat": 31.576654659701035,
+    "lon": 74.35456418701085,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 851,
+    "lat": 31.576539231507475,
+    "lon": 74.35458095672966,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 852,
+    "lat": 31.576571361004653,
+    "lon": 74.35481014288658,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 853,
+    "lat": 31.576686789198213,
+    "lon": 74.35478219335525,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 854,
+    "name": "Habib Bank Limited",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.35468856242528,
+    "lat": 31.576623720185236,
+    "nearId": 0
+  },
+  {
+    "id": 855,
+    "lat": 31.57669154912372,
+    "lon": 74.35482831008194,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 856,
+    "lat": 31.576627290129366,
+    "lon": 74.35484088737104,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 857,
+    "lat": 31.576651089756904,
+    "lon": 74.3550393290435,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 858,
+    "lat": 31.576712968788502,
+    "lon": 74.35502954670754,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 859,
+    "name": "United Bank Limited",
+    "type": "service",
+    "tier": 2,
+    "lon": 74.3549429031604,
+    "lat": 31.576680839291328,
+    "nearId": 0
+  },
+  {
+    "id": 860,
+    "lat": 31.576771277875974,
+    "lon": 74.35493591577757,
+    "name": "",
+    "type": "intersection",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 861,
+    "lat": 31.57767510691197,
+    "lon": 74.35415484527692,
+    "name": "Star Photocopy Shop",
+    "type": "service",
+    "tier": 2,
+    "nextId": 0
+  },
+  {
+    "id": 862,
+    "lat": 31.577173417142657,
+    "lon": 74.35424947952109,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 863,
+    "lat": 31.577453322945917,
+    "lon": 74.35422726921433,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 864,
+    "lat": 31.57712613575697,
+    "lon": 74.35408068118976,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 865,
+    "lat": 31.57724339359347,
+    "lon": 74.3540673550057,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 866,
+    "lat": 31.57730391376715,
+    "lon": 74.35423615333703,
+    "name": "",
+    "type": "wall",
+    "tier": 3,
+    "nextId": 0
+  },
+  {
+    "id": 867,
+    "lat": 31.577233937316333,
+    "lon": 74.35415397520204,
+    "name": "Jamia Masjid Darbar-a-Mujajdi",
+    "type": "worship",
+    "tier": 1,
+    "nextId": 0
+  }
 ]
