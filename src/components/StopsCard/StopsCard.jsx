@@ -35,7 +35,6 @@ const StopsCard = ({
                         adjacency,
                         nodeLookup
                     );
-                    console.log(name, type);
                     name = name || "unnamed point";
                     type = type || "other";
                     let near = resolveNear(stop, name, nodes) || "not found";

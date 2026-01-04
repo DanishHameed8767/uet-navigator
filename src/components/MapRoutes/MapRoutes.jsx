@@ -21,9 +21,9 @@ const MapRoutes = ({ selectedRoute, routeResult, isWalkMode, scale }) => {
             {secondary?.path?.length > 0 && (
                 <Line
                     points={secondary.path}
-                    stroke="hsla(200, 80%, 70%, 0.8)"
-                    strokeWidth={8 / scale}
-                    dash={[75, 75]}
+                    stroke="hsla(200, 100%, 70%, 0.8)"
+                    strokeWidth={10 / scale}
+                    dash={[30 / scale, 25 / scale]}
                     lineCap="round"
                     lineJoin="round"
                     listening={false}
@@ -35,10 +35,10 @@ const MapRoutes = ({ selectedRoute, routeResult, isWalkMode, scale }) => {
                 <Line
                     points={primary.path}
                     stroke="hsla(200, 100%, 25%, 1.00)"
-                    strokeWidth={16 / scale}
+                    strokeWidth={14 / scale}
                     lineCap="round"
                     lineJoin="round"
-                    tension={isWalkMode ? 0 : 0.1}
+                    tension={0.1}
                     listening={false}
                 />
             )}
@@ -46,10 +46,10 @@ const MapRoutes = ({ selectedRoute, routeResult, isWalkMode, scale }) => {
                 <Line
                     points={primary.path}
                     stroke="hsla(200, 100%, 50%, 1.00)"
-                    strokeWidth={10 / scale}
+                    strokeWidth={8 / scale}
                     lineCap="round"
                     lineJoin="round"
-                    tension={isWalkMode ? 0 : 0.1}
+                    tension={0.1}
                     listening={false}
                 />
             )}

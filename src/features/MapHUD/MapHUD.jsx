@@ -1,4 +1,5 @@
 import BottomPopup from "../../components/BottomPopup/BottomPopup";
+import FilterBar from "../../components/FilterBar/FilterBar";
 import PointInfoCard from "../../components/PointInfoCard/PointInfoCard";
 import RoutesList from "../../components/RoutesList/RoutesList";
 import StopsCard from "../../components/StopsCard/StopsCard";
@@ -19,15 +20,15 @@ const MapHUD = ({
     routeResult,
     selectedRoute,
     setSelectedRoute,
+    filter,
+    setFilter,
 }) => {
     const addStop = (newStop) => {
         setStops((prev) => {
             const exists = prev.some(
                 (s) =>
-                    (s.click.x === newStop.click.x &&
-                        s.click.y === newStop.click.y) 
-                    // (s.snap?.node?.x === newStop.snap?.node?.x &&
-                    //     s.snap?.node?.y === newStop.snap?.node?.y)
+                    s.click.x === newStop.click.x &&
+                    s.click.y === newStop.click.y
             );
             return exists ? prev : [...prev, newStop];
         });
@@ -36,6 +37,7 @@ const MapHUD = ({
 
     return (
         <>
+            <FilterBar filter={filter} setFilter={setFilter} />
             {stops?.length > 1 && (
                 <BottomPopup open={true} title="Routes">
                     <TravelModeSelector

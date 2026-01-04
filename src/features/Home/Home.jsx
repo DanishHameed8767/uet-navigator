@@ -382,7 +382,6 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
                     />
                 )}
             </div>
-            <FilterBar />
         </div>
     );
 };

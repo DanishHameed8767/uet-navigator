@@ -59,7 +59,7 @@
     --color-border: hsl(0, 0%, 20%);
     --color-input: hsl(0, 0%, 10%);
     --color-hover: hsl(0, 0%, 15%);
-    --color-selected: hsl(0, 0%, 10%);
+    --color-selected: hsl(0, 0%, 15%);
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

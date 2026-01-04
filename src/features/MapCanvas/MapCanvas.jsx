@@ -38,6 +38,7 @@ const MapCanvas = ({
     const [pointInfo, setPointInfo] = useState(null);
     const [travelMode, setTravelMode] = useState("car");
     const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
+    const [filter, setFilter] = useState(null);
 
     const zoomLimits = useMemo(() => {
         const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
@@ -287,6 +288,9 @@ const MapCanvas = ({
                         openPointInfo={openPointInfo}
                         routeResult={routeResult}
                         selectedRoute={selectedRoute}
+                        filter={filter}
+                        setFilter={setFilter}
+                        indexes={indexes}
                     />
                     <MapHUD
                         stops={stops}
@@ -303,6 +307,8 @@ const MapCanvas = ({
                         routeResult={routeResult}
                         selectedRoute={selectedRoute}
                         setSelectedRoute={setSelectedRoute}
+                        filter={filter}
+                        setFilter={setFilter}
                     />
                 </>
             )}
