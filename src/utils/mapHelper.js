@@ -295,8 +295,7 @@ export const resolveNameType = (stop, adjacency, nodeLookup) => {
                 : node?.name
                   ? node.name
                   : node.type;
-        const isEntrance = name === "service";
-        if (isEntrance) {
+        if (name === "service") {
             const neighbor = findNeighbor(
                 node.id,
                 adjacency,
@@ -328,6 +327,25 @@ export const resolveNear = (stop, name, nodes) => {
         return near;
     }
     return null;
+};
+
+export const calcEstimatedTime = (graph, edgeIds) => {
+    const SPEEDS = {
+        // In meters
+        road: 500,
+        street: 333,
+    };
+    let time = 0;
+    for (const id of edgeIds) {
+        const edge = graph.edges.get(id);
+        if (edge) {
+            const speed = SPEEDS[edge.type] || 80; // Default to slow speed if unknown
+            if (edge.dist > 0) {
+                time += edge.dist / speed;
+            }
+        }
+    }
+    return time;
 };
 
 export const computeWeight = (dist, type) => {

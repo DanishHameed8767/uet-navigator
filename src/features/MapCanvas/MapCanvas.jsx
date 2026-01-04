@@ -6,6 +6,10 @@ import mapSat from "../../assets/map/sat.jpg";
 import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 import MapControls from "../../components/MapControls/MapControls.jsx";
+import MapHUD from "../MapHUD/MapHUD.jsx";
+import { resolveNameType, resolveNear } from "../../utils/mapHelper.js";
+import { loadWalkData } from "../../utils/appHelper.js";
+import { getRoute } from "../../utils/routeManager.js";
 
 const MapCanvas = ({
     graphData,
@@ -15,14 +19,10 @@ const MapCanvas = ({
     renderEdges,
     indexes,
     currentUser,
-    travelMode,
-    setTravelMode,
-    walkMatrix,
-    setWalkMatrix,
     stops,
     setStops,
     handleStopSave,
-    openPointInfo,
+    handlePathVisit,
 }) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
@@ -33,6 +33,11 @@ const MapCanvas = ({
     const [detailLevel, setDetailLevel] = useState(1);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+    const [selectedRoute, setSelectedRoute] = useState("shortest");
+    const [pointInfo, setPointInfo] = useState(null);
+    const [travelMode, setTravelMode] = useState("car");
+    const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
 
     const zoomLimits = useMemo(() => {
         const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
@@ -122,10 +127,6 @@ const MapCanvas = ({
     }, [scale]);
 
     useEffect(() => {
-        console.log(detailLevel);
-    }, [detailLevel]);
-
-    useEffect(() => {
         localStorage.setItem("map-walk-matrix", JSON.stringify(walkMatrix));
     }, [walkMatrix]);
 
@@ -182,6 +183,54 @@ const MapCanvas = ({
         return getConstrainedPos(pos, scale);
     };
 
+    const openPointInfo = (stop) => {
+        setPointInfo(
+            resolvePoint(stop, renderNodes, graph.adjacency, graphData.nodes)
+        );
+    };
+
+    const isWalkMode = travelMode === "walk";
+
+    const nodeLookup = useMemo(() => {
+        if (!renderNodes) {
+            return {};
+        }
+        const lookup = {};
+        renderNodes.forEach((node) => {
+            lookup[node.id] = node;
+        });
+        return lookup;
+    }, [renderNodes]);
+
+    const routeResult = useMemo(() => {
+        if (
+            !stops ||
+            stops.length < 2 ||
+            (isWalkMode && (!walkMatrix || !gridConfig)) ||
+            (!isWalkMode && (!graph || !nodeLookup))
+        ) {
+            return null;
+        }
+        const useStreets = travelMode !== "car";
+        return getRoute({
+            stops,
+            travelMode,
+            graph,
+            walkMatrix,
+            gridConfig,
+            nodeLookup,
+            useStreets,
+        });
+    }, [
+        stops,
+        travelMode,
+        isWalkMode,
+        graph,
+        walkMatrix,
+        gridConfig,
+        nodeLookup,
+    ]);
+
     return (
         <div className={styles["map-canvas"]}>
             {currentUser?.email === "admin@navigator.uet" ? (
@@ -210,31 +259,52 @@ const MapCanvas = ({
                     handleWheel={handleWheel}
                 />
             ) : (
-                <MapView
-                    graph={graph}
-                    graphData={graphData}
-                    renderNodes={renderNodes}
-                    renderEdges={renderEdges}
-                    dimensions={dimensions}
-                    scale={clampedScale}
-                    detailLevel={detailLevel}
-                    position={position}
-                    setPosition={setPosition}
-                    viewType={viewType}
-                    travelMode={travelMode}
-                    stops={stops}
-                    setStops={setStops}
-                    imageMapFlat={imageMapFlat}
-                    imageMapSat={imageMapSat}
-                    walkMatrix={walkMatrix}
-                    gridConfig={gridConfig}
-                    containerRef={containerRef}
-                    stageRef={stageRef}
-                    boundDrag={boundDrag}
-                    handleWheel={handleWheel}
-                    handleStopSave={handleStopSave}
-                    openPointInfo={openPointInfo}
-                />
+                <>
+                    <MapView
+                        graph={graph}
+                        graphData={graphData}
+                        renderNodes={renderNodes}
+                        renderEdges={renderEdges}
+                        dimensions={dimensions}
+                        scale={clampedScale}
+                        detailLevel={detailLevel}
+                        position={position}
+                        setPosition={setPosition}
+                        viewType={viewType}
+                        travelMode={travelMode}
+                        stops={stops}
+                        setStops={setStops}
+                        imageMapFlat={imageMapFlat}
+                        imageMapSat={imageMapSat}
+                        walkMatrix={walkMatrix}
+                        gridConfig={gridConfig}
+                        containerRef={containerRef}
+                        stageRef={stageRef}
+                        boundDrag={boundDrag}
+                        handleWheel={handleWheel}
+                        handleStopSave={handleStopSave}
+                        pointInfo={pointInfo}
+                        openPointInfo={openPointInfo}
+                        routeResult={routeResult}
+                        selectedRoute={selectedRoute}
+                    />
+                    <MapHUD
+                        stops={stops}
+                        setStops={setStops}
+                        travelMode={travelMode}
+                        setTravelMode={setTravelMode}
+                        pointInfo={pointInfo}
+                        setPointInfo={setPointInfo}
+                        handlePathVisit={handlePathVisit}
+                        handleStopSave={handleStopSave}
+                        nodes={renderNodes}
+                        adjacency={graph.adjacency}
+                        nodeLookup={graphData.nodes}
+                        routeResult={routeResult}
+                        selectedRoute={selectedRoute}
+                        setSelectedRoute={setSelectedRoute}
+                    />
+                </>
             )}
 
             <MapControls
@@ -246,6 +316,26 @@ const MapCanvas = ({
             ></MapControls>
         </div>
     );
+};
+
+const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
+    let { name } = resolveNameType(stop, adjacency, nodeLookup);
+    name = name || "unnamed point";
+    let near = resolveNear(stop, name, nodes) || "not found";
+    near = near.length > 40 ? near.slice(0, 40) + "..." : near;
+    return stop?.snap
+        ? {
+              stop: stop,
+              info: {
+                  name,
+                  near,
+                  lat: stop.snap.node.lat,
+                  lon: stop.snap.node.lon,
+                  imageUrl:
+                      "https://via.placeholder.com/128x128.png?text=Place",
+              },
+          }
+        : null;
 };
 
 export default MapCanvas;

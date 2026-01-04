@@ -6,71 +6,56 @@ import FilterBar from "../../components/FilterBar/FilterBar.jsx";
 import MapCanvas from "../MapCanvas/MapCanvas.jsx";
 
 import SingleLinkedList from "../../data-structures/linked-list.js";
-import { loadWalkData } from "../../utils/appHelper.js";
 import useGraphDataState from "../../hooks/useGraphDataState.js";
 import { hydrateGraph } from "../../data-structures/graph";
 import useLocalStorage from "../../hooks/useLocalStorage.js";
-import {
-    getDistance,
-    pixelToLatLon,
-    resolveNameType,
-    resolveNear,
-} from "../../utils/mapHelper.js";
-import BottomPopup from "../../components/BottomPopup/BottomPopup.jsx";
-import TravelModeSelector from "../../components/TravelModeSelector/TravelModeSelector.jsx";
-import RoutesList from "../../components/RoutesList/RoutesList.jsx";
+import { getDistance, pixelToLatLon } from "../../utils/mapHelper.js";
 import { useSearchData } from "../../context/SearchContext.jsx";
-import MapHUD from "../MapHUD/MapHUD.jsx";
 
 const Home = ({ currentUser, searchMode, setSearchMode }) => {
     const searchInputRef = useRef(null);
     const searchWrapperRef = useRef(null);
 
     const { graphData, setGraphData } = useGraphDataState();
-    const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
     const [stops, setStops] = useState([]);
     const [searchKey, setSearchKey] = useState("");
     const [isSearchFocus, setSearchFocus] = useState(false);
     const [searchResult, setSearchResult] = useState(null);
-    const [selectedRoute, setSelectedRoute] = useState("r1");
-    const [mode, setMode] = useState("car");
-    const [open, setOpen] = useState(false);
-    const [pointInfo, setPointInfo] = useState(null);
+    // const [mode, setMode] = useState("car");
+    // const [open, setOpen] = useState(false);
     const [visibleSavedLimit, setVisibleSavedLimit] = useState(5);
     const { searchableNodes } = useSearchData();
 
-    const [travelMode, setTravelMode] = useState("car");
-
-    const dummyRoutes = [
-        {
-            id: "route-1",
-            title: "via Bilal Park Rd",
-            subtitle: "Fastest route",
-            time: 2,
-            distance: 550,
-        },
-        {
-            id: "route-2",
-            title: "via Street 46 & Bilal Park Rd",
-            subtitle: "Less traffic",
-            time: 3,
-            distance: 600,
-        },
-        {
-            id: "route-3",
-            title: "via Shopping Center Rd",
-            subtitle: "Scenic route",
-            time: 4,
-            distance: 720,
-        },
-        {
-            id: "route-4",
-            title: "via GT Rd",
-            subtitle: "Scenic route",
-            time: 4,
-            distance: 720,
-        },
-    ];
+    // const dummyRoutes = [
+    //     {
+    //         id: "route-1",
+    //         title: "via Bilal Park Rd",
+    //         subtitle: "Fastest route",
+    //         time: 2,
+    //         distance: 550,
+    //     },
+    //     {
+    //         id: "route-2",
+    //         title: "via Street 46 & Bilal Park Rd",
+    //         subtitle: "Less traffic",
+    //         time: 3,
+    //         distance: 600,
+    //     },
+    //     {
+    //         id: "route-3",
+    //         title: "via Shopping Center Rd",
+    //         subtitle: "Scenic route",
+    //         time: 4,
+    //         distance: 720,
+    //     },
+    //     {
+    //         id: "route-4",
+    //         title: "via GT Rd",
+    //         subtitle: "Scenic route",
+    //         time: 4,
+    //         distance: 720,
+    //     },
+    // ];
 
     const hydrated = useMemo(() => hydrateGraph(graphData), [graphData]);
 
@@ -346,17 +331,6 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
         return list;
     }
 
-    const openPointInfo = (stop) => {
-        setPointInfo(
-            resolvePoint(
-                stop,
-                hydrated.render.nodes,
-                hydrated.graph.adjacency,
-                graphData.nodes
-            )
-        );
-    };
-
     return (
         <div className={styles.home}>
             <MapCanvas
@@ -367,28 +341,10 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
                 renderNodes={hydrated.render.nodes}
                 renderEdges={hydrated.render.edges}
                 indexes={hydrated.indexes}
-                walkMatrix={walkMatrix}
-                setWalkMatrix={setWalkMatrix}
-                travelMode={travelMode}
-                setTravelMode={setTravelMode}
                 stops={stops}
                 setStops={setStops}
                 handleStopSave={handleStopSave}
-                openPointInfo={openPointInfo}
-            />
-
-            <MapHUD
-                stops={stops}
-                setStops={setStops}
-                travelMode={travelMode}
-                setTravelMode={setTravelMode}
-                pointInfo={pointInfo}
-                setPointInfo={setPointInfo}
                 handlePathVisit={handlePathVisit}
-                handleStopSave={handleStopSave}
-                nodes={hydrated.render.nodes}
-                adjacency={hydrated.graph.adjacency}
-                nodeLookup={graphData.nodes}
             />
 
             <div ref={searchWrapperRef} className={styles["search-container"]}>
@@ -429,26 +385,6 @@ const Home = ({ currentUser, searchMode, setSearchMode }) => {
             <FilterBar />
         </div>
     );
-};
-
-const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
-    let { name } = resolveNameType(stop, adjacency, nodeLookup);
-    name = name || "unnamed point";
-    let near = resolveNear(stop, name, nodes) || "not found";
-    near = near.length > 40 ? near.slice(0, 40) + "..." : near;
-    return stop?.snap
-        ? {
-              stop: stop,
-              info: {
-                  name,
-                  near,
-                  lat: stop.snap.node.lat,
-                  lon: stop.snap.node.lon,
-                  imageUrl:
-                      "https://via.placeholder.com/128x128.png?text=Place",
-              },
-          }
-        : null;
 };
 
 export default Home;
