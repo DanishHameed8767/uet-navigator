@@ -337,8 +337,7 @@ const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
                   near,
                   lat: stop.snap.node.lat,
                   lon: stop.snap.node.lon,
-                  imageUrl:
-                      "https://via.placeholder.com/128x128.png?text=Place",
+                  imageUrl: ".",
               },
           }
         : null;
