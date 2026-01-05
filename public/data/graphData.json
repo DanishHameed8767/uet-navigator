@@ -11857,7 +11857,7 @@
             "id": "277-276",
             "from": 277,
             "to": 276,
-            "type": "street",
+            "type": "road",
             "dist": 4.15,
             "weight": 0.20750000000000002,
             "twoWay": true,
