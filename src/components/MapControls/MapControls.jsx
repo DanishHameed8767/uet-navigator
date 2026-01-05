@@ -7,6 +7,7 @@ const MapControls = ({
     viewType,
     setViewType,
     handleZoomBtns,
+    handleGeoLocate,
 }) => {
     const zoomIntervalRef = useRef(null);
 
@@ -76,10 +77,7 @@ const MapControls = ({
             </div>
             <button
                 className={styles["btn-cur-location"]}
-                onClick={() => {
-                    setScale(0.208);
-                    setPosition({ x: 0, y: 0 });
-                }}
+                onClick={handleGeoLocate}
             >
                 <i className="fa-solid fa-location-crosshairs"></i>
                 Current
