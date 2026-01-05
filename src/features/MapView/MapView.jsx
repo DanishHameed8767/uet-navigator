@@ -12,6 +12,7 @@ import { MAP_CONFIG, snapToEntity, imageToGridXY } from "../../utils/mapHelper";
 import MapRoutes from "../../components/MapRoutes/MapRoutes.jsx";
 import MapMarker from "../../components/MapMarker/MapMarker.jsx";
 import StaticLabels from "../StaticGraph/StaticLabels";
+import GeoDotLayer from "../GeoDotLayer/GeoDotLayer.jsx";
 
 const MapView = ({
     graph,
@@ -203,6 +204,7 @@ const MapView = ({
                         />
                     )}
                 </Layer>
+                <GeoDotLayer />
             </Stage>
         </div>
     );
