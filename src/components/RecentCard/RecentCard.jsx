@@ -4,7 +4,7 @@ import { timeAgo } from "../../utils/appHelper";
 
 const RecentCard = ({ bundle }) => {
     const stops = bundle?.stops || [];
-    if (stops.length < 2) {
+    if (stops.length < 2 || !bundle.routeResult) {
         return null;
     }
 
@@ -12,9 +12,6 @@ const RecentCard = ({ bundle }) => {
     const travelMode = bundle?.travelMode;
     const time = bundle?.routeResult[bundle.selectedRoute]?.time;
     const dist = Math.round(bundle?.routeResult[bundle.selectedRoute]?.dist);
-
-    const s = stops[0]?.snap?.node;
-    const e = stops[stops.length - 1]?.snap?.node;
 
     return (
         <div className={styles["recent-card"]}>

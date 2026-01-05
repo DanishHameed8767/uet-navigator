@@ -7,7 +7,12 @@ import MapView from "../MapView/MapView.jsx";
 import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 import MapControls from "../../components/MapControls/MapControls.jsx";
 import MapHUD from "../MapHUD/MapHUD.jsx";
-import { resolveNameType, resolveNear } from "../../utils/mapHelper.js";
+import {
+    resolveNameType,
+    resolveNear,
+    latLonToPixel,
+    findClosestNode,
+} from "../../utils/mapHelper.js";
 import { loadWalkData } from "../../utils/appHelper.js";
 import { getRoute } from "../../utils/routeManager.js";
 
@@ -42,6 +47,9 @@ const MapCanvas = ({
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
     const [walkMatrix, setWalkMatrix] = useState(loadWalkData());
     const [filter, setFilter] = useState(null);
+
+    const isWalkMode = travelMode === "walk";
+    const isAdminLoggedIn = currentUser?.email === "admin@navigator.uet";
 
     const zoomLimits = useMemo(() => {
         const image = viewType === "Flat" ? imageMapFlat : imageMapSat;
@@ -193,8 +201,6 @@ const MapCanvas = ({
         );
     };
 
-    const isWalkMode = travelMode === "walk";
-
     const nodeLookup = useMemo(() => {
         if (!renderNodes) {
             return {};
@@ -244,9 +250,43 @@ const MapCanvas = ({
         });
     };
 
+    const handleGeoLocate = () => {
+        if (!navigator.geolocation) {
+            alert("Geolocation is not supported by your browser");
+            return;
+        }
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const { latitude, longitude } = position.coords;
+                const { x, y } = latLonToPixel(latitude, longitude);
+                const closestNode = findClosestNode(x, y, renderNodes, 10000);
+                if (closestNode) {
+                    const stop = {
+                        click: { x, y },
+                        snap: { node: closestNode },
+                    };
+                    openPointInfo(stop);
+                    const rawPos = {
+                        x: dimensions.width / 2 - x * scale,
+                        y: dimensions.height / 2 - y * scale,
+                    };
+                    setPosition(getConstrainedPos(rawPos, scale));
+                } else {
+                    alert("You are too far from the mapped area.");
+                }
+            },
+            (error) => {
+                console.error("Error getting location:", error);
+                alert(
+                    "Unable to retrieve your location. Please allow permissions."
+                );
+            }
+        );
+    };
+
     return (
         <div className={styles["map-canvas"]}>
-            {currentUser?.email === "admin@navigator.uet" ? (
+            {isAdminLoggedIn ? (
                 <>
                     <MapBuilder
                         graphData={graphData}
@@ -333,6 +373,7 @@ const MapCanvas = ({
                         viewType={viewType}
                         setViewType={setViewType}
                         handleZoomBtns={handleZoomBtns}
+                        handleGeoLocate={handleGeoLocate}
                     ></MapControls>
                 </>
             )}
