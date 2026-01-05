@@ -35,8 +35,11 @@ const MapHUD = ({
     return (
         <>
             <FilterBar filter={filter} setFilter={setFilter} />
-            {stops?.length > 1 && (
-                <BottomPopup open={true} title="Routes">
+            {stops?.length >= 1 && (
+                <BottomPopup
+                    open={true}
+                    title={stops.length > 1 ? "Routes" : "Travel Mode"}
+                >
                     <TravelModeSelector
                         value={travelMode}
                         onChange={setTravelMode}
