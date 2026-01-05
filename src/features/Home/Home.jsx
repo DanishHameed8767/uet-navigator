@@ -8,7 +8,12 @@ import SingleLinkedList from "../../data-structures/linkedList.js";
 import useGraphDataState from "../../hooks/useGraphDataState.js";
 import { hydrateGraph } from "../../data-structures/graph";
 import useLocalStorage from "../../hooks/useLocalStorage.js";
-import { getDistance, resolveNear } from "../../utils/mapHelper.js";
+import {
+    getDistance,
+    resolveNear,
+    resolvePoint,
+    snapToEntity,
+} from "../../utils/mapHelper.js";
 import { useSearchData } from "../../context/SearchContext.jsx";
 import CustomStack from "../../data-structures/stack.js";
 
@@ -127,19 +132,28 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
 
     const handleSearchResultClick = (item) => {
         if (searchMode === "default") {
-            setPointInfo({
-                stop: {
-                    click: { x: item.x, y: item.y },
-                    snap: { node: item },
-                },
-                info: {
-                    name: item.name,
-                    near: item.near,
-                    lat: item.lat,
-                    lon: item.lon,
-                    imageUrl: ".",
-                },
-            });
+            const snap = snapToEntity(
+                item.x,
+                item.y,
+                hydrated.render.nodes,
+                hydrated.render.edges,
+                graphData?.nodes || {},
+                hydrated.graph
+            );
+            if (snap) {
+                let searchPoint = {
+                    click: { x: snap.node.x, y: snap.node.y },
+                    snap,
+                };
+                setPointInfo(
+                    resolvePoint(
+                        searchPoint,
+                        hydrated.render.nodes,
+                        hydrated.graph.adjacency,
+                        graphData.nodes
+                    )
+                );
+            }
         } else if (searchMode === "saved") {
             if (item.stop) {
                 setStops((prev) => {

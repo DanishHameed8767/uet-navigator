@@ -8,8 +8,7 @@ import MapBuilder from "../MapBuilder/MapBuilder.jsx";
 import MapControls from "../../components/MapControls/MapControls.jsx";
 import MapHUD from "../MapHUD/MapHUD.jsx";
 import {
-    resolveNameType,
-    resolveNear,
+    resolvePoint,
     latLonToPixel,
     snapToEntity,
 } from "../../utils/mapHelper.js";
@@ -389,36 +388,4 @@ const MapCanvas = ({
     );
 };
 
-const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
-    let { name, type } = resolveNameType(stop, adjacency, nodeLookup);
-    name = name || "unnamed point";
-    let near = resolveNear(stop, name, nodes) || "not found";
-    near = near.length > 40 ? near.slice(0, 40) + "..." : near;
-
-    const enrichedStop = {
-        ...stop,
-        snap: {
-            ...stop.snap,
-            node: {
-                ...stop.snap.node,
-                name: name,
-                near: near,
-                type: type || "other",
-            },
-        },
-    };
-
-    return stop?.snap
-        ? {
-              stop: enrichedStop,
-              info: {
-                  name,
-                  near,
-                  lat: stop.snap.node.lat,
-                  lon: stop.snap.node.lon,
-                  imageUrl: ".",
-              },
-          }
-        : null;
-};
 export default MapCanvas;
