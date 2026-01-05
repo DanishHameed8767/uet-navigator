@@ -258,6 +258,7 @@ const Home = ({ currentUser, searchMode, setSearchMode, openLogin }) => {
                 setPointInfo={setPointInfo}
                 handleStopSave={handleStopSave}
                 handlePathVisit={handlePathVisit}
+                isSearchFocus={isSearchFocus}
             />
 
             <div ref={searchWrapperRef} className={styles["search-container"]}>

@@ -9,6 +9,8 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    position: relative;
+    z-index: 2;
 
     & .icon-wrapper {
         width: 3rem;

@@ -29,6 +29,7 @@ const MapCanvas = ({
     handlePathVisit,
     pointInfo,
     setPointInfo,
+    isSearchFocus,
 }) => {
     const containerRef = useRef(null);
     const stageRef = useRef(null);
@@ -326,6 +327,7 @@ const MapCanvas = ({
                         setSelectedRoute={setSelectedRoute}
                         filter={filter}
                         setFilter={setFilter}
+                        isSearchFocus={isSearchFocus}
                     />
                     <MapControls
                         viewType={viewType}
