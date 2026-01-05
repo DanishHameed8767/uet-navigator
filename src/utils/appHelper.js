@@ -55,3 +55,43 @@ export function getIconByType(type) {
     if (type === "worship") return "fa-solid fa-mosque";
     return "fa-solid fa-map-location-dot";
 }
+
+export function timeAgo(timestamp) {
+    const date = new Date(timestamp);
+    const now = new Date();
+    const seconds = Math.floor((now - date) / 1000);
+
+    const intervals = {
+        year: 31536000,
+        month: 2592000,
+        week: 604800,
+        day: 86400,
+        hour: 3600,
+        minute: 60,
+        second: 1,
+    };
+
+    if (seconds < 30) {
+        return "Just now";
+    }
+
+    const isYesterday =
+        new Date(now.getTime() - 86400000).getDate() === date.getDate();
+    if (seconds < intervals.day * 2 && isYesterday) {
+        return "Yesterday";
+    }
+
+    let counter;
+    for (const [unit, value] of Object.entries(intervals)) {
+        counter = Math.floor(seconds / value);
+        if (counter > 0) {
+            if (counter === 1) {
+                return `${counter} ${unit} ago`;
+            } else {
+                return `${counter} ${unit}s ago`;
+            }
+        }
+    }
+
+    return "Just now";
+}

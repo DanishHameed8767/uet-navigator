@@ -19,6 +19,7 @@ const MapHUD = ({
     setSelectedRoute,
     filter,
     setFilter,
+    isSearchFocus,
 }) => {
     const addStop = (newStop) => {
         setStops((prev) => {
@@ -35,7 +36,7 @@ const MapHUD = ({
     return (
         <>
             <FilterBar filter={filter} setFilter={setFilter} />
-            {stops?.length >= 1 && (
+            {!isSearchFocus && stops?.length >= 1 && (
                 <BottomPopup
                     open={true}
                     title={stops.length > 1 ? "Routes" : "Travel Mode"}

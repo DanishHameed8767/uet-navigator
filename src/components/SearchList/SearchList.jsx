@@ -45,26 +45,11 @@ const SearchList = ({ result, mode, searchKey, onItemClick, onSeeMore }) => {
                 })}
 
             {mode === "recents" &&
-                dataArray.map((bundle, index) => {
-                    const stops = bundle.stops || [];
-                    if (stops.length < 2) {
-                        return null;
-                    }
-                    const startNode = stops[0]?.snap?.node;
-                    const endNode = stops[stops.length - 1]?.snap?.node;
-                    return (
-                        <div key={index} onClick={() => onItemClick(bundle)}>
-                            <RecentCard
-                                sName={startNode?.name || "Start"}
-                                sNear={startNode?.near || "Point"}
-                                sType={startNode?.type || "other"}
-                                eName={endNode?.name || "Destination"}
-                                eNear={endNode?.near || "Point"}
-                                eType={endNode?.type || "other"}
-                            />
-                        </div>
-                    );
-                })}
+                dataArray.map((bundle, index) => (
+                    <div key={index} onClick={() => onItemClick(bundle)}>
+                        <RecentCard bundle={bundle} />
+                    </div>
+                ))}
 
             {result?.hasMore && (
                 <button className={styles["see-more-btn"]} onClick={onSeeMore}>
