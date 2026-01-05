@@ -246,30 +246,39 @@ const MapCanvas = ({
     return (
         <div className={styles["map-canvas"]}>
             {currentUser?.email === "admin@navigator.uet" ? (
-                <MapBuilder
-                    graphData={graphData}
-                    setGraphData={setGraphData}
-                    graph={graph}
-                    renderNodes={renderNodes}
-                    renderEdges={renderEdges}
-                    indexes={indexes}
-                    dimensions={dimensions}
-                    scale={clampedScale}
-                    detailLevel={detailLevel}
-                    position={position}
-                    setPosition={setPosition}
-                    viewType={viewType}
-                    travelMode={travelMode}
-                    imageMapFlat={imageMapFlat}
-                    imageMapSat={imageMapSat}
-                    walkMatrix={walkMatrix}
-                    setWalkMatrix={setWalkMatrix}
-                    gridConfig={gridConfig}
-                    containerRef={containerRef}
-                    stageRef={stageRef}
-                    boundDrag={boundDrag}
-                    handleWheel={handleWheel}
-                />
+                <>
+                    <MapBuilder
+                        graphData={graphData}
+                        setGraphData={setGraphData}
+                        graph={graph}
+                        renderNodes={renderNodes}
+                        renderEdges={renderEdges}
+                        indexes={indexes}
+                        dimensions={dimensions}
+                        scale={clampedScale}
+                        detailLevel={detailLevel}
+                        position={position}
+                        setPosition={setPosition}
+                        viewType={viewType}
+                        travelMode={travelMode}
+                        imageMapFlat={imageMapFlat}
+                        imageMapSat={imageMapSat}
+                        walkMatrix={walkMatrix}
+                        setWalkMatrix={setWalkMatrix}
+                        gridConfig={gridConfig}
+                        containerRef={containerRef}
+                        stageRef={stageRef}
+                        boundDrag={boundDrag}
+                        handleWheel={handleWheel}
+                    />
+                    <MapControls
+                        travelMode={travelMode}
+                        setTravelMode={setTravelMode}
+                        viewType={viewType}
+                        setViewType={setViewType}
+                        handleZoomBtns={handleZoomBtns}
+                    ></MapControls>
+                </>
             ) : (
                 <>
                     <MapView
@@ -318,16 +327,13 @@ const MapCanvas = ({
                         filter={filter}
                         setFilter={setFilter}
                     />
+                    <MapControls
+                        viewType={viewType}
+                        setViewType={setViewType}
+                        handleZoomBtns={handleZoomBtns}
+                    ></MapControls>
                 </>
             )}
-
-            <MapControls
-                travelMode={travelMode}
-                setTravelMode={setTravelMode}
-                viewType={viewType}
-                setViewType={setViewType}
-                handleZoomBtns={handleZoomBtns}
-            ></MapControls>
         </div>
     );
 };

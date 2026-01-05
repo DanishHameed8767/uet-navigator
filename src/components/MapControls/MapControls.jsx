@@ -32,16 +32,18 @@ const MapControls = ({
 
     return (
         <>
-            <select
-                value={travelMode}
-                className={styles["select-travel-mode"]}
-                onChange={(e) => setTravelMode(e.target.value)}
-                required
-            >
-                <option value="car">Car</option>
-                <option value="bike">Bike</option>
-                <option value="walk">Walk</option>
-            </select>
+            {travelMode && (
+                <select
+                    value={travelMode}
+                    className={styles["select-travel-mode"]}
+                    onChange={(e) => setTravelMode(e.target.value)}
+                    required
+                >
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                    <option value="walk">Walk</option>
+                </select>
+            )}
             <button
                 className={
                     styles["btn-toggle-view"] +
