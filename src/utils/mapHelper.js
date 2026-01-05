@@ -126,15 +126,7 @@ export const findClosestEdge = (
     return target;
 };
 
-export const snapToEntity = (
-    x,
-    y,
-    nodes,
-    edges,
-    nodeLookup,
-    graph,
-    threshold = 15
-) => {
+export const snapToEntity = (x, y, nodes, edges, nodeLookup, graph) => {
     const closestNode = findClosestNode(x, y, nodes, Infinity);
     let nodeDist = Infinity;
     if (closestNode) {
@@ -290,6 +282,39 @@ function findNeighbor(nodeId, adjacency, nodeLookup, predicate) {
     }
     return null;
 }
+
+export const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
+    let { name, type } = resolveNameType(stop, adjacency, nodeLookup);
+    name = name || "unnamed point";
+    let near = resolveNear(stop, name, nodes) || "not found";
+    near = near.length > 40 ? near.slice(0, 40) + "..." : near;
+
+    const enrichedStop = {
+        ...stop,
+        snap: {
+            ...stop.snap,
+            node: {
+                ...stop.snap.node,
+                name: name,
+                near: near,
+                type: type || "other",
+            },
+        },
+    };
+
+    return stop?.snap
+        ? {
+              stop: enrichedStop,
+              info: {
+                  name,
+                  near,
+                  lat: stop.snap.node.lat,
+                  lon: stop.snap.node.lon,
+                  imageUrl: ".",
+              },
+          }
+        : null;
+};
 
 export const resolveNameType = (stop, adjacency, nodeLookup) => {
     if (stop?.snap) {
