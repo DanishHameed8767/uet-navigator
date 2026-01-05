@@ -11,7 +11,7 @@ import {
     resolveNameType,
     resolveNear,
     latLonToPixel,
-    findClosestNode,
+    snapToEntity,
 } from "../../utils/mapHelper.js";
 import { loadWalkData } from "../../utils/appHelper.js";
 import { getRoute } from "../../utils/routeManager.js";
@@ -259,13 +259,21 @@ const MapCanvas = ({
             (position) => {
                 const { latitude, longitude } = position.coords;
                 const { x, y } = latLonToPixel(latitude, longitude);
-                const closestNode = findClosestNode(x, y, renderNodes, 10000);
-                if (closestNode) {
-                    const stop = {
-                        click: { x, y },
-                        snap: { node: closestNode },
+                const snap = snapToEntity(
+                    x,
+                    y,
+                    renderNodes,
+                    renderEdges,
+                    graphData?.nodes || {},
+                    graph
+                );
+
+                if (snap) {
+                    let geoPoint = {
+                        click: { x: snap.node.x, y: snap.node.y },
+                        snap,
                     };
-                    openPointInfo(stop);
+                    openPointInfo(geoPoint);
                     const rawPos = {
                         x: dimensions.width / 2 - x * scale,
                         y: dimensions.height / 2 - y * scale,
