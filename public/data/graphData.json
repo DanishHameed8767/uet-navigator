@@ -9333,16 +9333,6 @@
             "twoWay": false,
             "name": ""
         },
-        "33-34": {
-            "id": "33-34",
-            "from": 33,
-            "to": 34,
-            "type": "road",
-            "dist": 48.92,
-            "weight": 1.6306666666666667,
-            "twoWay": true,
-            "name": ""
-        },
         "19-20": {
             "id": "19-20",
             "from": 19,
@@ -18882,6 +18872,26 @@
             "type": "wall",
             "twoWay": true,
             "weight": null
+        },
+        "34-529": {
+            "id": "34-529",
+            "name": "",
+            "from": 34,
+            "to": 529,
+            "dist": 23.37,
+            "type": "road",
+            "twoWay": true,
+            "weight": 0.779
+        },
+        "529-33": {
+            "id": "529-33",
+            "name": "",
+            "from": 529,
+            "to": 33,
+            "dist": 25.55,
+            "type": "road",
+            "twoWay": true,
+            "weight": 0.8516666666666667
         }
     }
 }
