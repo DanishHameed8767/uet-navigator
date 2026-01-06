@@ -310,7 +310,7 @@ export const resolvePoint = (stop, nodes, adjacency, nodeLookup) => {
                   near,
                   lat: stop.snap.node.lat,
                   lon: stop.snap.node.lon,
-                  imageUrl: ".",
+                  imageUrl: "",
               },
           }
         : null;
